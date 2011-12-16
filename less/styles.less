@@ -1,0 +1,28 @@
+@import 'bootstrap/reset.less';
+@import 'bootstrap/variables.less';
+@import 'bootstrap/mixins.less';
+@import 'bootstrap/type.less';
+@import 'bootstrap/tables.less';
+@import 'bootstrap/patterns.less';
+
+.side {
+    width: 20%;
+    float: left;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    ul {
+        margin: 0;
+        padding-left: 4px;
+        list-style: none;
+    }
+}
+.content {
+    width: 80%;
+    float: left;
+
+    .content-body {
+        padding: 8px;
+    }
+}
