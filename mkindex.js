@@ -2,7 +2,8 @@
 
 var fs = require('fs'),
     glob = require('glob'),
-    util = require('util');
+    util = require('util'),
+    async = require('async');
 
 
 /**
@@ -30,6 +31,15 @@ SourcePath.prototype = {
         p = p.replace(/\.1/g, '');
         return p;
     },
+    getESVersion: function () { // ecmascript version
+        jsdom.env('<p><a class="the-link" href="http://jsdom.org>JSDOM\'s Homepage</a></p>', [
+            'http://code.jquery.com/jquery-1.5.min.js'
+            ], function (err, window) {
+                if (err) { throw err; }
+                var h = console.log(window.$('.standard-table').text());
+            }
+        );
+    },
     toMap: function() {
         return {
             title: this.getTitle(),
@@ -42,14 +52,32 @@ SourcePath.prototype = {
 /**
  * main routine
  **/
-var ret = new Array();
 var matches = glob.globSync('developer.mozilla.org/**/*', glob.GLOB_STAR);
-matches.forEach(function (fname) {
-    if (fs.statSync(fname).isDirectory()) { return; }
-
-    var spath = new SourcePath(fname);
-    ret.push(spath.toMap());
-});
-
-util.puts(JSON.stringify(ret));
+async.waterfall([
+    function (cb) {
+        async.filter(matches, function (path, cb) {
+            fs.stat(path, function (err, stat) {
+                if (err) { throw err; }
+                cb(!stat.isDirectory());
+            });
+        }, function (matches) {
+            cb(null, matches);
+        });
+    },
+    function (matches, cb) {
+        async.reduce(matches, [], function (memo, fname, callback) {
+            var spath = new SourcePath(fname);
+            process.nextTick(function () {
+                memo.push(spath.toMap());
+                callback(null, memo);
+            });
+        }, function (err, result) {
+            cb(err, result);
+        });
+    },
+    function (ret, cb) {
+        util.puts(JSON.stringify(ret));
+        cb(null);
+    }
+]);
 
