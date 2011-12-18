@@ -22,6 +22,14 @@ builder {
             return $res if $res->[0] ne 200;
 
             my $q = wq('file://' . $res->[2]->path);
+            {
+                my $title = $req->path_info;
+                $title =~ s{^/developer.mozilla.org/en/JavaScript/Reference/}{};
+                $title =~ s{^[^/]+/}{};
+                $title =~ s!/!.!g;
+                $title =~ s!_! !g;
+                $q->find('#title')->text($title);
+            }
             $q->find('script')->remove();
             $q->find('header')->remove();
             $q->find('#nav-toolbar')->remove();
