@@ -19,34 +19,44 @@ $(function () {
             var view = this;
 
             var ul = JSAPI.titleContainerElem;
+            var ulMap = {};
             ul.empty();
+
+            lines.forEach(function (line) {
+                var title = line.split(':')[0];
+                var x = title.match(/^([^\/]+)\/(.+)$/);
+                var category = x ? x[1] : 'Misc';
+                if (category in ulMap) { return; }
+                ulMap[category] = $(document.createElement('ul'));
+                var div = $(document.createElement('div'));
+                div.append($('<div>' + category.replace(/_/g, ' ') + '</div>'));
+                div.append(ulMap[category]);
+                ul.append(div);
+            });
+
             lines.forEach(function (line) {
                 var title = line.split(':')[0];
                 var path = line.split(':')[1];
 
                 var li = $(document.createElement('li'));
                 var a = $(document.createElement('a'));
-                var x = title.match(/^Global_Objects\/(.+)$/);
+                var x = title.match(/^([^\/]+)\/(.+)$/);
+                var category;
                 if (x) {
-                    title = x[1].split('/').join('.');
+                    category = x[1];
+                    title = x[2].replace(new RegExp('/', 'g'), '.').replace(/_/g, ' ');
+                } else {
+                    category = 'Misc';
+                    title = title;
                 }
                 a.html(title);
+                a.data('path', path);
                 li.click(function () {
-                    view.iframe.hide();
-                    view.mainLoading.show();
-                    $.ajax({
-                        url: path,
-                        cache: false,
-                        dataType: 'html'
-                    }).done(function (dat) {
-                        view.mainLoading.hide();
-                        view.iframe.html(dat);
-                        view.iframe.show();
-                    });
+                    view.loadContent(path);
                     return false;
                 });
                 li.append(a);
-                ul.append(li);
+                ulMap[category].append(li);
             });
         },
         filterData: function (keyword) {
@@ -56,15 +66,41 @@ $(function () {
                 return !!keyword.test(x);
             });
         },
+        loadContent: function (path) {
+            console.log('load ' + path);
+            var view = this;
+            view.iframe.hide(path);
+            view.mainLoading.show();
+            $.ajax({
+                url: path,
+                cache: false,
+                dataType: 'html'
+            }).done(function (dat) {
+                dat = dat.replace(/<html[^>]+><body[^>]+>/, '').replace('</body></html>', '');
+                setTimeout(function () {
+                    view.mainLoading.hide();
+                    view.iframe.html(dat);
+                    view.iframe.show();
+                }, 0);
+            });
+        },
         init: function () {
             var view = this;
 
-            $(document.getElementById('keyword')).keydown(function () {
+            $(document.getElementById('keyword')).keydown(function (e) {
                 var keyword = $(this).val();
-                JSAPI.insertData(
-                    JSAPI.filterData(keyword)
-                );
-                return true;
+                if (e.keyCode === 13) {
+                    var elem = JSAPI.titleContainerElem.find('ul li:first a');
+                    if (elem) {
+                        view.loadContent(elem.data('path'));
+                    }
+                    return false;
+                } else {
+                    JSAPI.insertData(
+                        JSAPI.filterData(keyword)
+                    );
+                    return true;
+                }
             });
 
             $.get('index.txt').success(function (dat) {
