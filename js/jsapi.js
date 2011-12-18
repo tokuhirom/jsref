@@ -23,10 +23,11 @@ $(function () {
             ul.empty();
 
             lines.forEach(function (line) {
-                var title = line.split(':')[0];
+                var title = line.title;
                 var x = title.match(/^([^\/]+)\/(.+)$/);
-                var category = x ? x[1] : 'Misc';
+                var category = line.category;
                 if (category in ulMap) { return; }
+
                 ulMap[category] = $(document.createElement('ul'));
                 var div = $(document.createElement('div'));
                 div.append($('<div>' + category.replace(/_/g, ' ') + '</div>'));
@@ -35,20 +36,13 @@ $(function () {
             });
 
             lines.forEach(function (line) {
-                var title = line.split(':')[0];
-                var path = line.split(':')[1];
+                var title = line.title;
+                var path = line.path;
+                var category = line.category;
+                console.log(line);
 
                 var li = $(document.createElement('li'));
                 var a = $(document.createElement('a'));
-                var x = title.match(/^([^\/]+)\/(.+)$/);
-                var category;
-                if (x) {
-                    category = x[1];
-                    title = x[2].replace(new RegExp('/', 'g'), '.').replace(/_/g, ' ');
-                } else {
-                    category = 'Misc';
-                    title = title;
-                }
                 a.html(title);
                 a.data('path', path);
                 li.click(function () {
@@ -56,20 +50,21 @@ $(function () {
                     return false;
                 });
                 li.append(a);
+                console.log(category);
                 ulMap[category].append(li);
             });
         },
         filterData: function (keyword) {
             keyword = RegExp.quotemeta(keyword);
             keyword = new RegExp(keyword, 'i');
-            return JSAPI.data.split(/\n/).filter(function (x) {
-                return !!keyword.test(x);
+            return JSAPI.data.filter(function (x) {
+                return !!keyword.test(x.title);
             });
         },
         loadContent: function (path) {
             console.log('load ' + path);
             var view = this;
-            view.iframe.hide(path);
+            // view.iframe.hide(path);
             view.mainLoading.show();
             $.ajax({
                 url: path,
@@ -103,12 +98,12 @@ $(function () {
                 }
             });
 
-            $.get('index.txt').success(function (dat) {
+            $.getJSON('index.json').success(function (dat) {
                 view.sideLoading.remove();
 
                 var ul = JSAPI.titleContainerElem;
                 JSAPI.data = dat;
-                JSAPI.insertData(JSAPI.data.split(/\n/));
+                JSAPI.insertData(JSAPI.data);
                 JSAPI.resizeElems();
             });
 

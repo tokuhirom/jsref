@@ -7,8 +7,8 @@ httpd:
 clean:
 	rm -rf developer.mozilla.org
 
-index.txt:
-	perl mkindex.pl
+index.json:
+	perl mkindex.pl > index.json
 
 download:
 	wget -np --mirror -k -c -r -I /en/JavaScript/Reference/  https://developer.mozilla.org/en/JavaScript/Reference
