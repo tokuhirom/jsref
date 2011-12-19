@@ -41,6 +41,10 @@ $(function () {
                 var category = line.category;
                 console.log(line);
 
+                if (line.esversion) {
+                    title += '(ES' + line.esversion+ ')';
+                }
+
                 var li = $(document.createElement('li'));
                 var a = $(document.createElement('a'));
                 a.html(title);
@@ -84,7 +88,7 @@ $(function () {
 
             $(document.getElementById('keyword')).keydown(function (e) {
                 var keyword = $(this).val();
-                if (e.keyCode === 13) {
+                if (e.keyCode === 13) { // enter key
                     var elem = JSAPI.titleContainerElem.find('ul li:first a');
                     if (elem) {
                         view.loadContent(elem.data('path'));
