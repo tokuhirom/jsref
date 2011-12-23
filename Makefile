@@ -2,7 +2,7 @@ all: download index.txt
 
 httpd:
 	@echo "Access to http://localhost:9041/index.html"
-	plackup -p 9041 app.psgi
+	node server.js
 
 clean:
 	rm -rf developer.mozilla.org
