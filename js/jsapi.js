@@ -40,14 +40,20 @@ $(function () {
                 var path = line.path;
                 var category = line.category;
                 console.log(line);
-
-                if (line.esversion) {
-                    title += '(ES' + line.esversion+ ')';
-                }
-
                 var li = $(document.createElement('li'));
                 var a = $(document.createElement('a'));
-                a.html(title);
+
+                if (line.esversion) {
+                    a.append($('<span class="es indicator" />').text('ES' + line.esversion));
+                }
+                if (line.deprecated) {
+                    a.append($('<span class="deprecated indicator" />').text('deprecated'));
+                }
+                if (line.nonstandard) {
+                    a.append($('<span class="nonstandard indicator" />').text('nonstandard'));
+                }
+
+                a.prepend(title);
                 a.data('path', path);
                 li.click(function () {
                     view.loadContent(path);
@@ -71,7 +77,7 @@ $(function () {
             // view.iframe.hide(path);
             view.mainLoading.show();
             $.ajax({
-                url: path,
+                url: path.replace('developer.mozilla.org/', 'converted/'),
                 cache: false,
                 dataType: 'html'
             }).done(function (dat) {

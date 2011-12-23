@@ -3,10 +3,8 @@
 var fs = require('fs'),
     glob = require('glob'),
     util = require('util'),
-    async = require('async'),
-    jsdom = require('jsdom'),
+    nquery = require('nquery'),
     assert = require('assert');
-var jquery = fs.readFileSync("./js/jquery-1.7.1.min.js").toString();
 
 /**
  * Source file object
@@ -36,61 +34,57 @@ SourcePath.prototype = {
         p = p.replace(/\.1/g, '');
         return p;
     },
-    getESVersion: function (callback) { // ecmascript version
-        var that = this;
-        async.waterfall([
-            function (cb) {
-                fs.readFile(that.path, 'utf-8', function (err, dat) {
-                    cb(err, dat);
-                });
-            },
-            function (src, cb) {
-                jsdom.env({
-                    html: src,
-                    src: [
-                        jquery
-                    ],
-                    done: function (err, window) {
-                        if (err) { cb(err); return; }
-
-                        var h = window.$('.standard-table').html();
-                        var version = null;
-                        if (h) {
-                            var matched = h.match(new RegExp('<td>ECMAScript Edition</td>[\s\n ]*<td>([^<]+)</td>'));
-                            if (matched) {
-                                version = matched[1];
-                                version = version.replace('ECMA-262', '5');
-                                version = version.replace(/^ECMAScript /, '');
-                                version = version.replace(/(st|nd|rd|th) Edition$/, '');
-                                if (version.toLowerCase() === 'none') {
-                                    version = null;
-                                }
-                            } else {
-                                // console.log(h);
-                            }
-                        }
-                        window.close();
-
-                        callback(null, version);
-                        cb(null); // done
-                    }
-                });
+    getESVersion: function () { // ecmascript version
+        var src = this.getContent();
+        var q = nquery.createHtmlDocument(src);
+        var h = q('.standard-table').html();
+        var version = null;
+        if (h) {
+            var matched = h.match(new RegExp('<td>ECMAScript Edition</td>[\s\n ]*<td>([^<]+)</td>'));
+            if (matched) {
+                version = matched[1];
+                // ECMA-262 3rd Edition
+                // ECMA-262
+                version = version.replace('ECMA-262 3rd Edition', '5');
+                version = version.replace('ECMA-262', '5');
+                version = version.replace(/^ECMAScript /, '');
+                version = version.replace(/^None, .+/, 'none');
+                version = version.replace(/(st|nd|rd|th) Edition$/, '');
+                // None (Harmony Proposal)
+                version = version.replace(/\s*\(.+$/, '');
+                if (version.toLowerCase() === 'none') {
+                    version = null;
+                }
+            } else {
+                // console.log(h);
             }
-        ], function (err) {
-            callback(err);
-        });
+        }
+        return version;
+    },
+    getContent: function () {
+        if (!this.content) {
+            this.content = fs.readFileSync(this.path, 'utf-8');
+        }
+        return this.content;
+    },
+    isDeprecated: function () {
+        var src = this.getContent();
+        return !!src.match(/<p[^>]+>Deprecated<\/p>/);
+    },
+    isNonStandard: function () {
+        var src = this.getContent();
+        return !!src.match(/<p[^>]+>Non-standard<\/p>/);
     },
     toMap: function(cb) {
         assert(this.path);
-        var ret = {
+        return {
             title: this.getTitle(),
             path: this.path,
-            category: this.getCategory()
+            category: this.getCategory(),
+            esversion: this.getESVersion(),
+            nonstandard: this.isNonStandard(),
+            deprecated: this.isDeprecated(),
         };
-        this.getESVersion(function (err, version) {
-            ret.esversion = version;
-            cb(null, ret);
-        });
     }
 };
 
@@ -98,41 +92,12 @@ SourcePath.prototype = {
  * main routine
  **/
 var matches = glob.globSync('developer.mozilla.org/**/*', glob.GLOB_STAR);
-async.waterfall([
-    function (cb) {
-        async.filter(matches, function (path, cb) {
-            fs.stat(path, function (err, stat) {
-                if (err) { throw err; }
-                cb(!stat.isDirectory());
-            });
-        }, function (matches) {
-            cb(null, matches);
-        });
-    },
-    function (matches, cb) {
-        // console.log(matches);
-        async.reduce(matches, [], function (memo, fname, callback) {
-            // util.print('.');
-            // if (memo.length>10) { callback(null, memo); return; }
-            if (!fname) { return; }
-            assert(fname);
-            var spath = new SourcePath(fname);
-            spath.toMap(function (err, result) {
-                if (err) { callback(err); return; };
-                // console.log(result);
-                memo.push(result);
-                callback(null, memo);
-            });
-        }, function (err, result) {
-            cb(err, JSON.parse(JSON.stringify(result)));
-            // cb(err, JSON.parse(JSON.stringify(result)));
-        });
-    },
-    function (ret, cb) {
-        util.puts(JSON.stringify(ret));
-        cb(null);
-    }
-], function (err) {
-    if (err) { throw err; }
+
+var ret = matches.filter(function (path) {
+    return !fs.statSync(path).isDirectory();
+}).map(function (fname) {
+    var spath = new SourcePath(fname);
+    return spath.toMap();
 });
+util.puts(JSON.stringify(ret));
 
