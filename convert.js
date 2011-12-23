@@ -18,21 +18,11 @@ glob.globSync('developer.mozilla.org/**/*', glob.GLOB_STAR).filter(function (pat
             e.remove();
         });
     });
-    /*
-    doc.find('//script').forEach(function (e) { e.remove() });
-    doc.find('//header').forEach(function (e) { e.remove() });
-    doc.find('//*[id="nav-toolbar"]').forEach(function (e) { e.remove() });
-    doc.find('//*[id="nav-toolbar"]').forEach(function (e) { e.remove() });
-    */
-    var q = nquery.createHtmlDocument(src);
+
     // q.find('script, header, #nav-toolbar, .page-watch, footer, #sessionMsg, head, #pageToc, #article-nav, #page-buttons').remove();
 
-    var title = fname.replace(/^developer.mozilla.org\/en\/JavaScript\/Reference\//, '').replace(/^[^/]+/, '').replace(/\//, '.').replace(/_/, / /);
-    doc.find('//*[@id="title"]').innerHTML = title;
-    if (title.match(/arguments/)) {
-        console.log(doc.toString());
-        process.exit();
-    }
+    var title = fname.replace(/^developer.mozilla.org\/en\/JavaScript\/Reference\//, '').replace(/^[^/]+\//, '').replace(/\//g, '.').replace(/_/g, / /);
+    doc.find('//*[@id="title"]').forEach(function (e) { e.text(title) });
     var ofname = fname.replace(/^developer.mozilla.org/, 'converted');
     mkdirp.sync(path.dirname(ofname), 0775);
     fs.writeFileSync(ofname, doc.toString());

@@ -44,7 +44,7 @@ $(function () {
                 var a = $(document.createElement('a'));
 
                 if (line.esversion) {
-                    a.append($('<span class="es indicator" />').text('ES' + line.esversion));
+                    a.append($('<span class="es indicator" />').text('ES' + line.esversion).addClass('es' + line.esversion));
                 }
                 if (line.deprecated) {
                     a.append($('<span class="deprecated indicator" />').text('deprecated'));
