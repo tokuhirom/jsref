@@ -13,4 +13,7 @@ index.json:
 download:
 	wget -np --mirror -k -c -r -I /en/JavaScript/Reference/  https://developer.mozilla.org/en/JavaScript/Reference
 
+deps:
+	npm install
+
 .PHONY: download all clean

@@ -82,6 +82,7 @@ $(function () {
                 dataType: 'html'
             }).done(function (dat) {
                 dat = dat.replace(/<html[^>]+><body[^>]+>/, '').replace('</body></html>', '');
+                view.currentPath = path;
                 setTimeout(function () {
                     view.mainLoading.hide();
                     view.iframe.html(dat);
@@ -120,6 +121,26 @@ $(function () {
             $(window).resize(function () { JSAPI.resizeElems() });
         }
     };
+    $('.content-body a').live('click', function (e) {
+        var href = $(e.target).attr('href');
+        if (href.match(/^https?:\/\//)) {
+            // nop on absolute uri
+            return true;
+        } else {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log(href);
+
+            if (!JSAPI.currentPath) {
+                console.log("not loaded");
+                return false;
+            }
+            var base = JSAPI.currentPath.replace(/\/[^/]+$/, '/');
+            JSAPI.loadContent(base + href);
+
+            return false;
+        }
+    });
     JSAPI.init();
     window.JSAPI = JSAPI;
 });
