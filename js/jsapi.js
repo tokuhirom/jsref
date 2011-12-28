@@ -62,11 +62,15 @@ $(function () {
                     return false;
                 });
                 li.append(a);
+                li.addClass('clearfix');
                 console.log(category);
                 ulMap[category].append(li);
             });
         },
         filterData: function (keyword) {
+            if (keyword.length === 0) {
+                return JSAPI.data;
+            }
             keyword = RegExp.quotemeta(keyword);
             keyword = new RegExp(keyword, 'i');
             return JSAPI.data.filter(function (x) {
@@ -106,7 +110,7 @@ $(function () {
         init: function () {
             var view = this;
 
-            $(document.getElementById('keyword')).keydown(function (e) {
+            $(document.getElementById('keyword')).keyup(function (e) {
                 var keyword = $(this).val();
                 if (e.keyCode === 13) { // enter key
                     var elem = JSAPI.titleContainerElem.find('ul li:first a');

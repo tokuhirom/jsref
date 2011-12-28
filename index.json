@@ -1000,46 +1000,6 @@
         "url": "converted/c91a1e3d84c1e65e6b77a8b3bc08fee0"
     },
     {
-        "title": "Error.constructor",
-        "path": "/en/JavaScript/Reference/Global_Objects/Error/constructor",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/501486e07e89dfe50927aabe1e4fa773"
-    },
-    {
-        "title": "Error.description",
-        "path": "/en/JavaScript/Reference/Global_Objects/Error/description",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/c7779bf987c99d2fae930f2ebc455ede"
-    },
-    {
-        "title": "Error.fileName",
-        "path": "/en/JavaScript/Reference/Global_Objects/Error/fileName",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/1b9280b8e1eb5d46f47949062d53b8b6"
-    },
-    {
-        "title": "Error.lineNumber",
-        "path": "/en/JavaScript/Reference/Global_Objects/Error/lineNumber",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/3d6060630bc521a780d8ebf01e1187b7"
-    },
-    {
         "title": "Error.message",
         "path": "/en/JavaScript/Reference/Global_Objects/Error/message",
         "category": "Global_Objects",
@@ -1058,16 +1018,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/b3697876c6e5674e09cf2fecfb0a750d"
-    },
-    {
-        "title": "Error.number",
-        "path": "/en/JavaScript/Reference/Global_Objects/Error/number",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/b649c2243c507d35f4a37b1fbf07af2f"
     },
     {
         "title": "Error.prototype",
@@ -1108,26 +1058,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/9eb4a27a19a5cbd9a0e2fda1e11e298b"
-    },
-    {
-        "title": "EvalError.constructor",
-        "path": "/en/JavaScript/Reference/Global_Objects/EvalError/constructor",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/58d32afd9f403c66fd55b823158e673e"
-    },
-    {
-        "title": "EvalError.name",
-        "path": "/en/JavaScript/Reference/Global_Objects/EvalError/name",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/4a9b3dace337f88fd1d29f6db14d3098"
     },
     {
         "title": "EvalError.prototype",
@@ -1378,26 +1308,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/cfeb989909035b33bde489c91aab7169"
-    },
-    {
-        "title": "InternalError",
-        "path": "/en/JavaScript/Reference/Global_Objects/InternalError",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/b7790dfe02bcf52f7dea041368650841"
-    },
-    {
-        "title": "Iterator",
-        "path": "/en/JavaScript/Reference/Global_Objects/Iterator",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/bd50151d4ffb6ef56ca421729395c870"
     },
     {
         "title": "JSON",
@@ -1698,16 +1608,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/f7d95bafb407095cce3f69c8689611f8"
-    },
-    {
-        "title": "Math.toSource",
-        "path": "/en/JavaScript/Reference/Global_Objects/Math/toSource",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/58dad7a6d6fc0fd1d2bacc74f8b72a65"
     },
     {
         "title": "NaN",
@@ -2070,16 +1970,6 @@
         "url": "converted/73684df8eceda6c3b026d6d59c847759"
     },
     {
-        "title": "Object.count",
-        "path": "/en/JavaScript/Reference/Global_Objects/Object/count",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/774cc98a7f45ab7881c3355c8a1f1139"
-    },
-    {
         "title": "Object.create",
         "path": "/en/JavaScript/Reference/Global_Objects/Object/create",
         "category": "Global_Objects",
@@ -2400,26 +2290,6 @@
         "url": "converted/703a57a89c9141b552a1961387e33ebe"
     },
     {
-        "title": "RangeError.constructor",
-        "path": "/en/JavaScript/Reference/Global_Objects/RangeError/constructor",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/3c553d08c39c66cea26bec4ac70622a3"
-    },
-    {
-        "title": "RangeError.name",
-        "path": "/en/JavaScript/Reference/Global_Objects/RangeError/name",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/42d9ff56ec312ca2c2e43daf51f14451"
-    },
-    {
         "title": "RangeError.prototype",
         "path": "/en/JavaScript/Reference/Global_Objects/RangeError/prototype",
         "category": "Global_Objects",
@@ -2438,16 +2308,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/c91b62ae8420c93f16ba2cc4c2cc95d4"
-    },
-    {
-        "title": "ReferenceError.constructor",
-        "path": "/en/JavaScript/Reference/Global_Objects/ReferenceError/constructor",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/4c35b5fe718372db19f88dc5ae0f0465"
     },
     {
         "title": "ReferenceError.name",
@@ -2560,16 +2420,6 @@
         "url": "converted/42fb5a3bb1ca81797f364f510dbfa55c"
     },
     {
-        "title": "RegExp.sticky",
-        "path": "/en/JavaScript/Reference/Global_Objects/RegExp/sticky",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/688fe994a0b7b5937e3f04173504cfb2"
-    },
-    {
         "title": "RegExp.test",
         "path": "/en/JavaScript/Reference/Global_Objects/RegExp/test",
         "category": "Global_Objects",
@@ -2598,16 +2448,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/afad10f410b58160201c1f9e9068c3d4"
-    },
-    {
-        "title": "StopIteration",
-        "path": "/en/JavaScript/Reference/Global_Objects/StopIteration",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/78dfbd5504edab7dbc97d6feb5589b5a"
     },
     {
         "title": "String",
@@ -3040,26 +2880,6 @@
         "url": "converted/0e5390af4058c648049446096beaa2dc"
     },
     {
-        "title": "SyntaxError.constructor",
-        "path": "/en/JavaScript/Reference/Global_Objects/SyntaxError/constructor",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/212bbc7d9d8ccfaffa4727c945c2c705"
-    },
-    {
-        "title": "SyntaxError.name",
-        "path": "/en/JavaScript/Reference/Global_Objects/SyntaxError/name",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/1de86b7c096e71a36b81452b8f83a677"
-    },
-    {
         "title": "SyntaxError.prototype",
         "path": "/en/JavaScript/Reference/Global_Objects/SyntaxError/prototype",
         "category": "Global_Objects",
@@ -3080,26 +2900,6 @@
         "url": "converted/25b11def1517b9a2ea1c8e74e89d03cd"
     },
     {
-        "title": "TypeError.constructor",
-        "path": "/en/JavaScript/Reference/Global_Objects/TypeError/constructor",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/1f8a93d7c01b2b2269a5e333893f1760"
-    },
-    {
-        "title": "TypeError.name",
-        "path": "/en/JavaScript/Reference/Global_Objects/TypeError/name",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/2360484b1cc5e64e81f1cc0a85159c7e"
-    },
-    {
         "title": "TypeError.prototype",
         "path": "/en/JavaScript/Reference/Global_Objects/TypeError/prototype",
         "category": "Global_Objects",
@@ -3118,26 +2918,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/f68ea12435080775b846ef5afeca4802"
-    },
-    {
-        "title": "URIError.constructor",
-        "path": "/en/JavaScript/Reference/Global_Objects/URIError/constructor",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/dd4ac311afc945b3f196774bddb018ec"
-    },
-    {
-        "title": "URIError.name",
-        "path": "/en/JavaScript/Reference/Global_Objects/URIError/name",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/643a5d2cd43640efc28a56bb19d92358"
     },
     {
         "title": "URIError.prototype",
@@ -3248,16 +3028,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/c160c9ea6bd1d248b6c0b7b4092cdd8f"
-    },
-    {
-        "title": "uneval",
-        "path": "/en/JavaScript/Reference/Global_Objects/uneval",
-        "category": "Global_Objects",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/f0d6a97c99ef47e0df8826a3a8fbf02f"
     },
     {
         "title": "Operators",
@@ -3480,26 +3250,6 @@
         "url": "converted/23b76e10fe0e18a39be6f762aabfc06d"
     },
     {
-        "title": "Special Operators.let Operator",
-        "path": "/en/JavaScript/Reference/Operators/Special_Operators/let_Operator",
-        "category": "Operators",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/1c978155a544ffb22ed39e2dfaf28d4e"
-    },
-    {
-        "title": "Special Operators.yield Operator",
-        "path": "/en/JavaScript/Reference/Operators/Special_Operators/yield_Operator",
-        "category": "Operators",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/b2a6b3e6907b752d12a7589b4c7dbcaa"
-    },
-    {
         "title": "String Operators",
         "path": "/en/JavaScript/Reference/Operators/String_Operators",
         "category": "Operators",
@@ -3608,16 +3358,6 @@
         "deprecated": false,
         "obsolete": false,
         "url": "converted/f06f3638d95837108a52b583d0434415"
-    },
-    {
-        "title": "yield.yield",
-        "path": "/en/JavaScript/Reference/Operators/yield/yield",
-        "category": "Operators",
-        "esversion": null,
-        "nonstandard": false,
-        "deprecated": false,
-        "obsolete": false,
-        "url": "converted/51eb89c71a9e126eda1f83858b148dd5"
     },
     {
         "title": "Reserved Words",

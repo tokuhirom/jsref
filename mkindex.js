@@ -97,7 +97,7 @@ SourcePath.prototype = {
     },
     toMap: function(cb) {
         assert(this.path);
-        if (this.getContent().match(/Browse Thousands of Docs for Web Developers/)) {
+        if (this.getContent().match(/Browse Thousands of Docs for/)) {
             return null;
         }
         return {

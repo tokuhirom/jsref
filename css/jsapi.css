@@ -1731,6 +1731,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   margin: 0;
   padding-left: 4px;
   list-style: none;
+  line-height: 20px;
 }
 .side ul .indicator {
   font-size: 8px;
@@ -1772,7 +1773,4 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 .content .content-body {
   padding: 8px;
-}
-.content .content-body .es {
-  font-size: 12px;
 }
