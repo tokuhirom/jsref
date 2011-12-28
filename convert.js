@@ -1,3 +1,8 @@
+"use strict";
+/**
+ * Convert doc.db to converted/ data.
+ **/
+
 var fs = require('fs'),
     util = require('util'),
     path = require('path'),

@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * Make index.json from doc.db.
+ **/
 
 var fs = require('fs'),
     util = require('util'),
