@@ -1,1 +1,7 @@
 This is a documentation viewer for MDN.
+
+Concept
+-------
+
+ * No server process required.
+

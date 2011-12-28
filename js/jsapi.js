@@ -55,8 +55,11 @@ $(function () {
 
                 a.prepend(title);
                 a.data('path', path);
+                a.data('url', line.url);
+                var url = line.url;
+                    console.log(line);
                 li.click(function () {
-                    view.loadContent(path);
+                    view.loadContent(url);
                     return false;
                 });
                 li.append(a);
@@ -71,18 +74,18 @@ $(function () {
                 return !!keyword.test(x.title);
             });
         },
-        loadContent: function (path) {
-            console.log('load ' + path);
+        loadContent: function (url) {
+            console.log('load ' + url);
             var view = this;
             // view.iframe.hide(path);
             view.mainLoading.show();
             $.ajax({
-                url: path.replace('developer.mozilla.org/', 'converted/'),
+                url: url,
                 cache: false,
                 dataType: 'html'
             }).done(function (dat) {
                 dat = dat.replace(/<html[^>]+><body[^>]+>/, '').replace('</body></html>', '');
-                view.currentPath = path;
+                view.currentPath = url;
                 setTimeout(function () {
                     view.mainLoading.hide();
                     view.iframe.html(dat);
@@ -98,7 +101,7 @@ $(function () {
                 if (e.keyCode === 13) { // enter key
                     var elem = JSAPI.titleContainerElem.find('ul li:first a');
                     if (elem) {
-                        view.loadContent(elem.data('path'));
+                        view.loadContent(elem.data('url'));
                     }
                     return false;
                 } else {
@@ -109,7 +112,7 @@ $(function () {
                 }
             });
 
-            $.getJSON('index.json').success(function (dat) {
+            $.ajax({url: 'index.json', cache: false}).success(function (dat) {
                 view.sideLoading.remove();
 
                 var ul = JSAPI.titleContainerElem;

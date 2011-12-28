@@ -1,21 +1,28 @@
 "use strict";
 
 var fs = require('fs'),
-    glob = require('glob'),
     util = require('util'),
     nquery = require('nquery'),
-    assert = require('assert');
+    DB = require('./lib/DB').DB,
+    assert = require('assert'),
+    Url = require('url'),
+    querystring = require('querystring'),
+    crypto = require('crypto'),
+    undefined;
+
+var srcdb = new DB('docs.db');
 
 /**
  * Source file object
  **/
-function SourcePath(path) {
+function SourcePath(path, content) {
     assert(path);
     this.path = path;
+    this.content = content;
 }
 SourcePath.prototype = {
     getCategory: function () {
-        var path = this.path.replace('developer.mozilla.org/en/JavaScript/Reference/', '');
+        var path = this.path.replace('/en/JavaScript/Reference/', '');
         var x = path.match(/^([^/]+)\//);
         if (x) {
             return x[1];
@@ -26,8 +33,12 @@ SourcePath.prototype = {
     getTitle: function () {
         assert(this.path);
 
+        if (this.path === '/en/JavaScript/Reference') {
+            return 'Top';
+        }
+
         var p = this.path;
-        p = p.replace('developer.mozilla.org/en/JavaScript/Reference/', '');
+        p = p.replace('/en/JavaScript/Reference/', '');
         p = p.replace(/^([^\/]+)\//, '');
         p = p.replace(/_/g, ' ');
         p = p.replace(/\//g, '.');
@@ -61,10 +72,12 @@ SourcePath.prototype = {
         }
         return version;
     },
+    getUrl: function () {
+        var md5 = crypto.createHash('md5');
+        md5.update(this.path);
+        return 'converted/' + md5.digest('hex');
+    },
     getContent: function () {
-        if (!this.content) {
-            this.content = fs.readFileSync(this.path, 'utf-8');
-        }
         return this.content;
     },
     isDeprecated: function () {
@@ -84,6 +97,7 @@ SourcePath.prototype = {
             esversion: this.getESVersion(),
             nonstandard: this.isNonStandard(),
             deprecated: this.isDeprecated(),
+            url: this.getUrl(),
         };
     }
 };
@@ -91,13 +105,11 @@ SourcePath.prototype = {
 /**
  * main routine
  **/
-var matches = glob.globSync('developer.mozilla.org/**/*', glob.GLOB_STAR);
-
-var ret = matches.filter(function (path) {
-    return !fs.statSync(path).isDirectory();
-}).map(function (fname) {
-    var spath = new SourcePath(fname);
+var ret = srcdb.listUrls().sort().map(function (url) {
+    var content = srcdb.fetch(url);
+    var path = Url.parse(url).pathname;
+    var spath = new SourcePath(path, content);
     return spath.toMap();
 });
-util.puts(JSON.stringify(ret));
+util.puts(JSON.stringify(ret, null, 4));
 

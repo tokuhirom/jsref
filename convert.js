@@ -1,30 +1,35 @@
 var fs = require('fs'),
-    glob = require('glob'),
-    nquery = require('nquery'),
     util = require('util'),
     path = require('path'),
-    mkdirp = require('mkdirp')
-    libxml = require('libxmljs'),
+    libxml = require('libxmlext'),
+    DB = require('./lib/DB').DB,
+    Url = require('url'),
+    mkdirp = require('mkdirp'),
+    querystring = require('querystring'),
+    crypto = require('crypto'),
     undefined
     ;
 
-glob.globSync('developer.mozilla.org/**/*', glob.GLOB_STAR).filter(function (path) {
-    return !fs.statSync(path).isDirectory();
-}).forEach(function (fname) {
-    var src = fs.readFileSync(fname, 'utf-8');
+var srcdb = new DB('docs.db');
+
+mkdirp.sync('converted', 0744);
+
+srcdb.listUrls().forEach(function (url) {
+    var src = srcdb.fetch(url);
     var doc = libxml.parseHtmlString(src);
-    ['//script', '//head', '//noscript', '//header', '//*[@id="nav-toolbar"]', '//*[contains(concat(" ",normalize-space(@class)," "), " page-watch ")]', '//footer', '//*[@id="sessionMsg"]', '//*[@id="pageToc"]', '//*[@id="article-nav"]', '//*[@id="page-buttons"]'].forEach(function (xpath) {
-        doc.find(xpath).forEach(function (e) {
-            e.remove();
-        });
+    // q.find('script, header, #nav-toolbar, .page-watch, footer, #sessionMsg, head, #pageToc, #article-nav, #page-buttons').remove();
+    doc.search('script, header, #nav-toolbar, .page-watch, footer, #sessionMsg, head, #pageToc, #article-nav, #page-buttons').forEach(function (e) {
+        e.remove();
     });
 
-    // q.find('script, header, #nav-toolbar, .page-watch, footer, #sessionMsg, head, #pageToc, #article-nav, #page-buttons').remove();
+    var fname = Url.parse(url).pathname;
 
-    var title = fname.replace(/^developer.mozilla.org\/en\/JavaScript\/Reference\//, '').replace(/^[^/]+\//, '').replace(/\//g, '.').replace(/_/g, / /);
+    var title = fname.replace(/^\/en\/JavaScript\/Reference\//, '').replace(/^[^/]+\//, '').replace(/\//g, '.').replace(/_/g, ' ');
     doc.find('//*[@id="title"]').forEach(function (e) { e.text(title) });
-    var ofname = fname.replace(/^developer.mozilla.org/, 'converted');
-    mkdirp.sync(path.dirname(ofname), 0775);
+    var md5 = crypto.createHash('md5');
+    md5.update(fname);
+    var ofname = 'converted/' + md5.digest('hex');
+    console.log('writing ' + ofname);
     fs.writeFileSync(ofname, doc.toString());
 });
 
