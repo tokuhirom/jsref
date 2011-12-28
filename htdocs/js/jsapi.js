@@ -126,7 +126,11 @@ $(function () {
                 }
             });
 
-            $.ajax({url: 'index.json', cache: false}).success(function (dat) {
+            $.ajax({
+                url: 'index.json',
+                dataType: 'json',
+                cache: false
+            }).success(function (dat) {
                 view.sideLoading.remove();
 
                 var ul = JSAPI.titleContainerElem;
