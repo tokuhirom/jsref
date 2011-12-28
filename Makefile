@@ -1,17 +1,16 @@
-all: download index.txt
+all: mkdat index.txt
 
 httpd:
 	@echo "Access to http://localhost:9041/index.html"
 	node server.js
 
-clean:
-	rm -rf developer.mozilla.org
-
-index.json:
+mkdat:
+	node crawler.js
+	node convert.js
 	node mkindex.js > index.json
 
-download:
-	wget -np --mirror -k -c -r -I /en/JavaScript/Reference/  https://developer.mozilla.org/en/JavaScript/Reference
+clean:
+	rm -rf converted/ docs.db index.json
 
 deps:
 	npm install
