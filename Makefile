@@ -7,13 +7,13 @@ httpd:
 mkdat:
 	node crawler.js
 	node convert.js
-	node mkindex.js > index.json
+	node mkindex.js > htdocs/index.json
 
 watch-less:
-	watcher --dir less -- sh -c 'lessc less/styles.less  > css/jsapi.css'
+	watcher --dir less -- sh -c 'lessc less/styles.less  > htdocs/css/jsapi.css'
 
 clean:
-	rm -rf converted/ docs.db index.json
+	rm -rf htdocs/converted/ docs.db htdocs/index.json
 
 deps:
 	npm install

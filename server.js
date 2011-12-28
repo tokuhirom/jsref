@@ -7,7 +7,7 @@ var express = require('express'),
     undefined
     ;
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/htdocs/'));
 
 app.listen(9041); 
 
