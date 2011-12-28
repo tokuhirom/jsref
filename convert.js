@@ -17,7 +17,7 @@ var fs = require('fs'),
 
 var srcdb = new DB('docs.db');
 
-mkdirp.sync('converted', 0744);
+mkdirp.sync('converted', parseInt('744', 8));
 
 srcdb.listUrls().forEach(function (url) {
     var src = srcdb.fetch(url);
@@ -27,12 +27,15 @@ srcdb.listUrls().forEach(function (url) {
         e.remove();
     });
 
-    var fname = Url.parse(url).pathname;
+    var path = Url.parse(url).pathname;
 
-    var title = fname.replace(/^\/en\/JavaScript\/Reference\//, '').replace(/^[^/]+\//, '').replace(/\//g, '.').replace(/_/g, ' ');
+    var title = path.replace(/^\/en\/JavaScript\/Reference\//, '').replace(/^[^/]+\//, '').replace(/\//g, '.').replace(/_/g, ' ');
+    if (path == '/en/JavaScript/Reference') {
+        title = 'Top page';
+    }
     doc.find('//*[@id="title"]').forEach(function (e) { e.text(title) });
     var md5 = crypto.createHash('md5');
-    md5.update(fname);
+    md5.update(path);
     var ofname = 'converted/' + md5.digest('hex');
     console.log('writing ' + ofname);
     fs.writeFileSync(ofname, doc.toString());

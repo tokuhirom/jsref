@@ -22,6 +22,39 @@
         margin: 0;
         padding-left: 4px;
         list-style: none;
+        .indicator {
+            font-size: 8px;
+            padding: 2px;
+            border-radius: 2px;
+            margin-left: 4px;
+            vertical-align: top;
+        }
+        .es {
+            background-color: #eFccf6;
+            border: 1px solid #FFccf6;
+            color: #222222;
+        }
+        .es5 {
+            border: 1px solid #EEaae6;
+            background-color: #cFccf6;
+        }
+        .nonstandard {
+            overflow:hidden;
+            border: 1px solid #FFB752;
+            background-color: #FEE3BC;
+            font-weight: bold;
+            text-align: center;
+        }
+        a.deprecated {
+            text-decoration: line-through;
+        }
+        .deprecated.indicator {
+            overflow:hidden;
+            border: 1px solid #5151FF;
+            background-color: #B9B9FF;
+            font-weight: bold;
+            text-align: center;
+        }
     }
 }
 .content {
@@ -36,3 +69,4 @@
         }
     }
 }
+

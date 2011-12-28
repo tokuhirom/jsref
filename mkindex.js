@@ -87,12 +87,19 @@ SourcePath.prototype = {
         var src = this.getContent();
         return !!src.match(/<p[^>]+>Deprecated<\/p>/);
     },
+    isObsolete: function () {
+        var src = this.getContent();
+        return !!src.match(/<p[^>]+>Obsolete<\/p>/);
+    },
     isNonStandard: function () {
         var src = this.getContent();
         return !!src.match(/<p[^>]+>Non-standard<\/p>/);
     },
     toMap: function(cb) {
         assert(this.path);
+        if (this.getContent().match(/Browse Thousands of Docs for Web Developers/)) {
+            return null;
+        }
         return {
             title: this.getTitle(),
             path: this.path,
@@ -100,6 +107,7 @@ SourcePath.prototype = {
             esversion: this.getESVersion(),
             nonstandard: this.isNonStandard(),
             deprecated: this.isDeprecated(),
+            obsolete: this.isObsolete(),
             url: this.getUrl(),
         };
     }
@@ -113,6 +121,6 @@ var ret = srcdb.listUrls().sort().map(function (url) {
     var path = Url.parse(url).pathname;
     var spath = new SourcePath(path, content);
     return spath.toMap();
-});
+}).filter(function (e) { return e });
 util.puts(JSON.stringify(ret, null, 4));
 

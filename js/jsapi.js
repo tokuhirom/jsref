@@ -55,11 +55,10 @@ $(function () {
 
                 a.prepend(title);
                 a.data('path', path);
-                a.data('url', line.url);
+                a.data('row', line);
                 var url = line.url;
-                    console.log(line);
                 li.click(function () {
-                    view.loadContent(url);
+                    view.loadContent(line);
                     return false;
                 });
                 li.append(a);
@@ -74,7 +73,18 @@ $(function () {
                 return !!keyword.test(x.title);
             });
         },
-        loadContent: function (url) {
+        loadContentFromPath: function (path) {
+            for (var i=0, l=this.data.length; i<l; i++) {
+                if (path === this.data[i].path) {
+                    this.loadContent(this.data[i]);
+                    return true;
+                }
+            }
+            console.log('not matched ' + path);
+            return false;
+        },
+        loadContent: function (row) {
+            var url = row.url;
             console.log('load ' + url);
             var view = this;
             // view.iframe.hide(path);
@@ -85,7 +95,7 @@ $(function () {
                 dataType: 'html'
             }).done(function (dat) {
                 dat = dat.replace(/<html[^>]+><body[^>]+>/, '').replace('</body></html>', '');
-                view.currentPath = url;
+                view.currentPath = row.path;
                 setTimeout(function () {
                     view.mainLoading.hide();
                     view.iframe.html(dat);
@@ -101,7 +111,7 @@ $(function () {
                 if (e.keyCode === 13) { // enter key
                     var elem = JSAPI.titleContainerElem.find('ul li:first a');
                     if (elem) {
-                        view.loadContent(elem.data('url'));
+                        view.loadContent(elem.data('row'));
                     }
                     return false;
                 } else {
@@ -125,23 +135,22 @@ $(function () {
         }
     };
     $('.content-body a').live('click', function (e) {
-        var href = $(e.target).attr('href');
-        if (href.match(/^https?:\/\//)) {
-            // nop on absolute uri
-            return true;
-        } else {
+        var elem = $(e.target);
+        var href = elem.attr('href');
+        if (href.match(/^https?:\/\/developer.mozilla.org\/en\/JavaScript\/Reference\//)) {
             e.stopPropagation();
             e.preventDefault();
-            console.log(href);
 
             if (!JSAPI.currentPath) {
                 console.log("not loaded");
                 return false;
             }
-            var base = JSAPI.currentPath.replace(/\/[^/]+$/, '/');
-            JSAPI.loadContent(base + href);
+            JSAPI.loadContentFromPath(href.replace(/^https:\/\/developer.mozilla.org/, ''));
 
             return false;
+        } else {
+            // nop on absolute uri
+            return true;
         }
     });
     JSAPI.init();
