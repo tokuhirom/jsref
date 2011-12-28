@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceDeprecatedandobsoletefeatures" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceDeprecatedandobsoletefeatures" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Deprecated and obsolete features</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<p>This appendix lists features of JavaScript that are deprecated (that is, still available but planned for removal) and obsolete (that is, no longer usable).</p>
+<div id="section_1"><span id="Deprecated_features"/><h2 class="editable">Deprecated features</h2>
+<p>These deprecated features can still be used, but should be used with caution because they are expected to be removed entirely sometime in the future. You should work to remove their use from your code.</p>
+<div id="section_2"><span id="RegExp_Properties"/><span id="RegExp_properties"/><h3 class="editable">RegExp properties</h3>
+<p>The following properties are deprecated:</p>
+<table class="standard-table"><tbody><tr><th>Property</th> <th>Description</th> </tr><tr><td><code>$1, ..., $9</code></td> <td>Parenthesized substring matches, if any.</td> </tr><tr><td><code>$_</code></td> <td>See input.</td> </tr><tr><td><code>$*</code></td> <td>See multiline.</td> </tr><tr><td><code>$&amp;</code></td> <td>See lastMatch.</td> </tr><tr><td><code>$+</code></td> <td>See lastParen.</td> </tr><tr><td><code>$`</code></td> <td>See leftContext.</td> </tr><tr><td><code>$'</code></td> <td>See rightContext.</td> </tr><tr><td><code>input</code></td> <td>The string against which a regular expression is matched.</td> </tr><tr><td><code>lastMatch</code></td> <td>The last matched characters.</td> </tr><tr><td><code>lastParen</code></td> <td>The last parenthesized substring match, if any.</td> </tr><tr><td><code>leftContext</code></td> <td>The substring preceding the most recent match.</td> </tr><tr><td><code>rightContext</code></td> <td>The substring following the most recent match.</td> </tr></tbody></table><p>The following are now properties of RegExp instances, no longer of the RegExp object:</p>
+<table class="standard-table"><tbody><tr><th>Property</th> <th>Description</th> </tr><tr><td><code>global</code></td> <td>Whether or not to test the regular expression against all possible matches in a string, or only against the first.</td> </tr><tr><td><code>ignoreCase</code></td> <td>Whether or not to ignore case while attempting a match in a string.</td> </tr><tr><td><code>lastIndex</code></td> <td>The index at which to start the next match.</td> </tr><tr><td><code>multiline</code></td> <td>Whether or not to search in strings across multiple lines.</td> </tr><tr><td><code>source</code></td> <td>The text of the pattern.</td> </tr></tbody></table></div><div id="section_3"><span id="RegExp_Methods"/><span id="RegExp_methods"/><h3 class="editable">RegExp methods</h3>
+<p>The <code>compile</code> method is deprecated.</p>
+<p>The <code>valueOf</code> method is no longer specialized for RegExp. Use <code>Object.valueOf</code>.</p>
+</div><div id="section_4"><span id="Function_properties"/><h3 class="editable">Function properties</h3>
+<p>The <code>caller</code> and <code>arguments</code> property are deprecated, because they leak the function caller. Instead of the arguments property, you should use the arguments object inside function closures.</p>
+</div><div id="section_5"><span id="Date_methods"/><h3 class="editable">Date methods</h3>
+<p><code>getYear</code> and <code>setYear</code> are affected by the Year-2000-Problem and have been subsumed by <code>getFullYear</code> and <code>setFullYear</code>. Also you should use <code>toISOString</code> instead of the deprecated  <code>toGMTString</code> method in new code.</p>
+</div><div id="section_6"><span id="Escape_Sequences"/><span id="Escape_sequences"/><h3 class="editable">Escape sequences</h3>
+<p>Octal escape sequences (\ followed by one, two, or three octal digits) are deprecated in string and regular expression literals.</p>
+<p>The <code>escape</code> and <code>unescape</code> functions are deprecated. Use <code>encodeURI</code>, <code>encodeURIComponent</code>, <code>decodeURI</code> or <code>decodeURIComponent</code> to encode and decode escape sequences for special characters.</p></div></div><div id="section_7"><span id="Obsolete_features"/><h2 class="editable">Obsolete features</h2>
+<p>These obsolete features have been entirely removed from JavaScript and can no longer be used as of the indicated version of JavaScript.</p>
+<div id="section_8"><span id="Objects"/><h3 class="editable">Objects</h3>
+<table class="standard-table"><tbody><tr><th>Property</th> <th>Description</th> </tr><tr><td><code>__count__</code></td> <td>Returns the number of enumerable properties directly on a user-defined object.</td> </tr><tr><td>__parent__</td> <td>Points to an object's context.</td> </tr></tbody></table><table class="standard-table"><tbody><tr><th>Method</th> <th>Description</th> </tr><tr><td><code>eval</code></td> <td>Evaluates a string of JavaScript code in the context of the specified object.</td> </tr></tbody></table></div><div id="section_9"><span id="Functions"/><h3 class="editable">Functions</h3>
+<table class="standard-table"><tbody><tr><th>Property</th> <th>Description</th> </tr><tr><td><code>arity</code></td> <td>Number of formal arguments.</td> </tr></tbody></table><p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=28456" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsTechnicalReview" title="NeedsTechnicalReview" tagid="17" class="text">NeedsTechnicalReview</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Deprecated_and_obsolete_features&amp;action=history" title="21:32, 20 Jun 2011">21:32, 20 Jun 2011</a> by <a href="/User:Sheppy" class="link-user" rel="internal">Sheppy</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 2.16 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.08       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.42       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.80       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/28456/contents                           32.23       request-time-ms=30; mysql-queries=10; mysql-time-ms=12; cache-ratio=-13.00; cache-hit=13; cache-miss=-14; cache-del=0; cache-ins=14;
+	GET       /deki/pages/28456                                    33.98       request-time-ms=30; mysql-queries=21; mysql-time-ms=20; cache-ratio=Infinity; cache-hit=25; cache-miss=-25; cache-del=0; cache-ins=25;
+	GET       /deki/pages/28456/info                                8.81       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/28456/tags                                8.54       request-time-ms=6; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.89       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FDeprecated%2Band%2Bobsolete%2Bfeatures/full   222.16       request-time-ms=219; mysql-queries=6; mysql-time-ms=215; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/28456/tags                              463.59       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   796.49      
+	                                                     Ideal:   332.91      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

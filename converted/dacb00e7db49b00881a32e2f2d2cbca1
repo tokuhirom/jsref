@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsArithmeticOperators" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsArithmeticOperators" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Arithmetic Operators</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value. The standard arithmetic operators are addition (+), subtraction (-), multiplication (*), and division (/).</p>
+<p>These operators work as they do in most other programming languages when used with floating point numbers (in particular, note that division by zero produces <a class="internal" title="en/Core JavaScript 1.5 Reference/Global Properties/Infinity" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Infinity"><code>+/-Infinity</code></a>). For example:</p>
+<pre class="eval">
+1 / 2      // returns 0.5 in JavaScript
+1 / 2      // returns 0 in Java (neither number is explicitly a floating point number)
+
+1.0 / 2.0  // returns 0.5 in both JavaScript and Java
+
+2.0 / 0    // returns Infinity in Javascript
+2.0 / 0.0  // returns Infinity too
+2.0 / -0.0 // returns -Infinity in Javascript
+
+</pre>
+<table class="fullwidth-table"><tbody><tr><td class="header" colspan="2">Operators</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262</td> </tr></tbody></table></div><div id="section_2"><span id=".25_.28Modulus.29"/><span id=".25_(Modulus)"/><h3 class="editable"> % (Modulus)</h3>
+<p>The modulus operator is used as follows:</p>
+<p><code> <em>var1</em> % <em>var2</em> </code></p>
+<p>The modulus operator returns the first operand modulo the second operand, that is, <code>var1</code> modulo <code>var2</code>, in the preceding statement, where <code>var1</code> and <code>var2</code> are variables. The modulo function is the integer remainder of dividing <code>var1</code> by <code>var2</code>. For example, <code>12 % 5</code> returns <code>2</code>. The result will have the same sign as <em>var1</em>; that is, <code>−1 % 2</code> returns <code>−1</code>.</p>
+</div><div id="section_3"><span id=".2B.2B_.28Increment.29"/><span id=".2B.2B_(Increment)"/><h3 class="editable">++ (Increment)</h3>
+<p>The increment operator is used as follows:</p>
+<p><code><em>var</em>++</code> or <code>++<em>var</em></code></p>
+<p>This operator increments (adds one to) its operand and returns a value. If used postfix, with operator after operand (for example, x++), then it returns the value before incrementing. If used prefix with operator before operand (for example, ++x), then it returns the value after incrementing.</p>
+<p>For example, if <code>x</code> is three, then the statement <code>y = x++</code> sets <code>y</code> to 3 and increments <code>x</code> to 4. If <code>x</code> is 3, then the statement <code>y = ++x</code> increments <code>x</code> to 4 and sets <code>y</code> to 4.</p>
+</div><div id="section_4"><span id="--_.28Decrement.29"/><span id="--_(Decrement)"/><h3 class="editable">-- (Decrement)</h3>
+<p>The decrement operator is used as follows:</p>
+<p><code><em>var</em>--</code> or <code>--<em>var</em></code></p>
+<p>This operator decrements (subtracts one from) its operand and returns a value. If used postfix (for example, x--), then it returns the value before decrementing. If used prefix (for example, --x), then it returns the value after decrementing.</p>
+<p>For example, if <code>x</code> is three, then the statement <code>y = x--</code> sets <code>y</code> to 3 and decrements <code>x</code> to 2. If <code>x</code> is 3, then the statement <code>y = --x</code> decrements <code>x</code> to 2 and sets <code>y</code> to 2.</p>
+</div><div id="section_5"><span id="-_.28Unary_Negation.29"/><span id="-_(Unary_Negation)"/><h3 class="editable">- (Unary Negation)</h3>
+<p>The unary negation operator precedes its operand and negates it. For example, <code>y = -x</code> negates the value of <code>x</code> and assigns that to <code>y</code>; that is, if <code>x</code> were 3, <code>y</code> would get the value -3 and <code>x</code> would retain the value 3.</p>
+</div><div id="section_6"><span id="-_.28Unary_Negation.29"/><span id=".2B_(Unary_Plus)"/><h3 class="editable">+ (Unary Plus)</h3>
+<p>The unary plus operator precedes its operand and evaluates to its operand but attempts to converts it into a number, if it isn't already. For example, <code>y = +x</code> takes the value of <code>x</code> and assigns that to <code>y</code>; that is, if <code>x</code> were 3, <code>y</code> would get the value 3 and <code>x</code> would retain the value 3; but if x were the string "3", y would also get the value 3. Although unary negation (-) also can convert non-numbers, unary plus is the fastest and preferred way of converting something into a number, because it does not perform any other operations on the number. It can convert string representations of integers and floats, as well as the non-string values true, false, and null. Integers in both decimal and hexadecimal ("0x"-prefixed) formats are supported. Negative numbers are supported (though not for hex). If it cannot parse a particular value, it will evaluate to NaN.</p>
+<p> </p>
+<p> </p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31568" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/Arithmetic_Operators&amp;action=history" title="17:48, 1 Mar 2011">17:48, 1 Mar 2011</a> by <a href="/User:kellyselden" class="link-user" rel="internal">kellyselden</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.43 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   9.04       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.80       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         8.29       request-time-ms=3; mysql-queries=2; mysql-time-ms=2; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31568/contents                           46.81       request-time-ms=44; mysql-queries=11; mysql-time-ms=28; cache-ratio=-6.50; cache-hit=13; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/31568                                    51.42       request-time-ms=48; mysql-queries=21; mysql-time-ms=37; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/31568/info                                5.31       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31568/tags                                7.91       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.02       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252FArithmetic%2BOperators/full   229.37       request-time-ms=227; mysql-queries=6; mysql-time-ms=223; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31568/tags                                8.13       request-time-ms=6; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   382.10      
+	                                                     Ideal:   373.97      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsnew" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsnew" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Special.new</h1>            &#13;
+              <span class="page-moved"><a class="pageMoved" href="/index.php?title=en/JavaScript/Reference/Operators/Special/new&amp;redirect=no">Redirected from en/JavaScript/Reference/Operators/Special/new</a></span>&#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>The <code>new</code> operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function.</p>
+<table class="fullwidth-table"><tbody><tr><td class="header" colspan="2">Operator</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<p><code>new <em>constructor</em>[([<em>arguments</em>])]</code></p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>constructor</code></dt> <dd>A function that specifies the type of the object instance.</dd>
+</dl><dl><dt><code>arguments</code></dt> <dd>A list of values that the <code>constructor</code> will be called with.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p>Creating a user-defined object requires two steps:</p>
+<ol><li>Define the object type by writing a function.</li> <li>Create an instance of the object with <code>new</code>.</li>
+</ol><p>To define an object type, create a function for the object type that specifies its name and properties. An object can have a property that is itself another object. See the examples below.</p>
+<p>When the code <code>new <em>foo</em>(...)</code> is executed, the following things happen:</p>
+<ol><li>A new object is created, inheriting from <code><em>foo</em>.prototype</code>.</li> <li>The constructor function <code><em>foo</em></code> is called with the specified arguments and <code><a title="this" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/this">this</a></code> bound to the newly created object. <code>new <em>foo</em></code> is equivalent to <code>new <em>foo</em>()</code>, i.e. if no argument list is specified, <code><em>foo</em></code> is called without arguments.</li> <li>The object returned by the constructor function becomes the result of the whole <code>new</code> expression. If the constructor function doesn't explicitly return an object, the object created in step 1 is used instead. (Normally constructors don't return a value, but they can choose to do so if they want to override the normal object creation process.)</li>
+</ol><p>You can always add a property to a previously defined object. For example, the statement <code>car1.color = "black"</code> adds a property color to <code>car1</code>, and assigns it a value of "<code>black</code>". However, this does not affect any other objects. To add the new property to all objects of the same type, you must add the property to the definition of the <code>car</code> object type.</p>
+<p>You can add a shared property to a previously defined object type by using the <code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/prototype">Function.prototype</a></code> property. This defines a property that is shared by all objects created with that function, rather than by just one instance of the object type. The following code adds a color property with value <code>null</code> to all objects of type <code>car</code>, and then overwrites that value with the string "<code>black</code>" only in the instance object <code>car1</code>. For more information, see <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/prototype">prototype</a>.</p>
+<pre class="eval">
+ function Car() {}
+ car1 = new Car()
+ 
+ alert(car1.color)           // undefined
+ 
+ Car.prototype.color = null
+ alert(car1.color)           // null
+ 
+ car1.color = "black"
+ alert(car1.color)           // black
+</pre>
+</div><div id="section_5"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_6"><span id="Example:_Object_type_and_object_instance"/><h4 class="editable">Example: Object type and object instance</h4>
+<p>Suppose you want to create an object type for cars. You want this type of object to be called <code>car</code>, and you want it to have properties for make, model, and year. To do this, you would write the following function:</p>
+<pre class="eval">
+function car(make, model, year) {
+   this.make = make;
+   this.model = model;
+   this.year = year;
+}
+</pre>
+<p>Now you can create an object called <code>mycar</code> as follows:</p>
+<pre class="eval">
+var mycar = new car("Eagle", "Talon TSi", 1993);
+</pre>
+<p>This statement creates <code>mycar</code> and assigns it the specified values for its properties. Then the value of <code>mycar.make</code> is the string "Eagle", <code>mycar.year</code> is the integer 1993, and so on.</p>
+<p>You can create any number of <code>car</code> objects by calls to <code>new</code>. For example:</p>
+<pre class="eval">
+var kenscar = new car("Nissan", "300ZX", 1992);
+</pre>
+</div><div id="section_7"><span id="Example:_Object_property_that_is_itself_another_object"/><h4 class="editable">Example: Object property that is itself another object</h4>
+<p>Suppose you define an object called <code>person</code> as follows:</p>
+<pre class="eval">
+function person(name, age, sex) {
+   this.name = name;
+   this.age = age;
+   this.sex = sex;
+}
+</pre>
+<p>And then instantiate two new <code>person</code> objects as follows:</p>
+<pre class="eval">
+var rand = new person("Rand McNally", 33, "M");
+var ken = new person("Ken Jones", 39, "M");
+</pre>
+<p>Then you can rewrite the definition of <code>car</code> to include an <code>owner</code> property that takes a person object, as follows:</p>
+<pre class="eval">
+function car(make, model, year, owner) {
+   this.make = make;
+   this.model = model;
+   this.year = year;
+   this.owner = owner;
+}
+</pre>
+<p>To instantiate the new objects, you then use the following:</p>
+<pre class="eval">
+var car1 = new car("Eagle", "Talon TSi", 1993, rand);
+var car2 = new car("Nissan", "300ZX", 1992, ken);
+</pre>
+<p>Instead of passing a literal string or integer value when creating the new objects, the above statements pass the objects <code>rand</code> and <code>ken</code> as the parameters for the owners. To find out the name of the owner of <code>car2</code>, you can access the following property:</p>
+<pre class="eval">
+car2.owner
+</pre>
+<p> </p>
+<p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32873" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/new&amp;action=history" title="06:36, 21 Sep 2011">06:36, 21 Sep 2011</a> by <a href="/User:kikiwiggado" class="link-user" rel="internal">kikiwiggado</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.45 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   7.31       request-time-ms=4; mysql-queries=2; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.92       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.60       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/82751/contents                           39.87       request-time-ms=38; mysql-queries=13; mysql-time-ms=18; cache-ratio=Infinity; cache-hit=17; cache-miss=-17; cache-del=0; cache-ins=16;
+	GET       /deki/pages/82751                                    52.14       request-time-ms=46; mysql-queries=22; mysql-time-ms=31; cache-ratio=29.00; cache-hit=29; cache-miss=-28; cache-del=0; cache-ins=28;
+	GET       /deki/pages/32873/info                                6.39       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	          /deki/pages/32873/security                           16.96       
+	GET       /deki/pages/32873/tags                               11.28       request-time-ms=8; mysql-queries=4; mysql-time-ms=7; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                11.04       request-time-ms=8; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252Fnew/full   206.15       request-time-ms=204; mysql-queries=6; mysql-time-ms=200; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32873/tags                                5.81       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   372.47      
+	                                                     Ideal:   366.67      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

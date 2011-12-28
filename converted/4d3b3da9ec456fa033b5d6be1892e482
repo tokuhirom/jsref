@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsStringreplace" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsStringreplace" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">String.replace</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Returns a new string with some or all matches of a <code>pattern</code> replaced by a <code>replacement</code>.  The <code>pattern</code> can be a string or a RegExp, and the <code>replacement</code> can be a string or a function to be called for each match.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a title="en/JavaScript/Reference/Global_Objects/String" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String"><code>String</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.2</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 3rd Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<p><code><em>str</em>.replace(<em>regexp|substr</em>, <em>newSubStr|function[</em>, </code><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>      <code><em>flags]</em>);</code></p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>regexp</code></dt> <dd>A <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/RegExp" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp">RegExp</a> object. The match is replaced by the return value of parameter #2.</dd>
+</dl><dl><dt><code>substr</code></dt> <dd>A <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/String" rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a> that is to be replaced by <code>newSubStr</code>.</dd>
+</dl><dl><dt><code>newSubStr</code></dt> <dd>The <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/String" rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a> that replaces the substring received from parameter #1. A number of special replacement patterns are supported; see the "Specifying a string as a parameter" section below.</dd>
+</dl><dl><dt><code>function</code></dt> <dd>A function to be invoked to create the new substring (to put in place of the substring received from parameter #1). The arguments supplied to this function are described in the "Specifying a function as a parameter" section below.</dd>
+</dl><dl><dt><code>flags</code></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     A string specifying a combination of regular expression flags. The use of the flags parameter in the String.replace method is non-standard, use a RegExp object with the corresponding flags. <dl><dt><code>g</code></dt> <dd>global match</dd> <dt><code>i</code></dt> <dd>ignore case</dd> <dt><code>m</code></dt> <dd>match over multiple lines</dd> <dt><code>y</code></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dd> <dd>sticky</dd> </dl></dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p>This method does not change the <code>String</code> object it is called on. It simply returns a new string.</p>
+<p>To perform a global search and replace, either include the <code>g</code> switch in the regular expression or if the first parameter is a string, include <code>g</code> in the <code>flags</code> parameter.</p>
+<div id="section_5"><span id="Specifying_a_string_as_a_parameter"/><h4 class="editable">Specifying a string as a parameter</h4>
+<p>The replacement string can include the following special replacement patterns:</p>
+<table class="fullwidth-table"><tbody><tr><td class="header">Pattern</td> <td class="header">Inserts</td> </tr><tr><td><code>$$</code></td> <td>Inserts a "$".</td> </tr><tr><td><code>$&amp;</code></td> <td>Inserts the matched substring.</td> </tr><tr><td><code>$`</code></td> <td>Inserts the portion of the string that precedes the matched substring.</td> </tr><tr><td><code>$'</code></td> <td>Inserts the portion of the string that follows the matched substring.</td> </tr><tr><td style="white-space: nowrap;"><code>$<em>n</em></code> or <code>$<em>nn</em></code></td> <td>Where <code><em>n</em></code> or <code><em>nn</em></code> are decimal digits, inserts the <em>n</em>th parenthesized submatch string, provided the first argument was a <code>RegExp</code> object.</td> </tr></tbody></table></div><div id="section_6"><span id="Specifying_a_function_as_a_parameter"/><h4 class="editable">Specifying a function as a parameter</h4>
+<p>You can specify a function as the second parameter. In this case, the function will be invoked after the match has been performed. The function's result (return value) will be used as the replacement string. (Note: the above-mentioned special replacement patterns do <em>not</em> apply in this case.) Note that the function will be invoked multiple times for each full match to be replaced if the regular expression in the first parameter is global.</p>
+<p>The arguments to the function are as follows:</p>
+<table class="fullwidth-table"><tbody><tr><td class="header">Possible name</td> <td class="header">Supplied value</td> </tr><tr><td><code>str</code></td> <td>The matched substring. (Corresponds to $&amp; above.)</td> </tr><tr><td><code>p1, p2, ...</code></td> <td>The <em>n</em>th parenthesized submatch string, provided the first argument to <code>replace</code> was a <code>RegExp</code> object. (Correspond to $1, $2, etc. above.)</td> </tr><tr><td><code>offset</code></td> <td>The offset of the matched substring within the total string being examined. (For example, if the total string was <code>"abcd"</code>, and the matched substring was <code>"bc"</code>, then this argument will be <code>1</code>.)</td> </tr><tr><td style="white-space: nowrap;"><code>s</code></td> <td>The total string being examined.</td> </tr></tbody></table><p>(The exact number of arguments will depend on whether the first argument was a <code>RegExp </code>object and, if so, how many parenthesized submatches it specifies.)</p>
+<p>The following example will set <code>newString </code>to <code style="white-space: nowrap;">"XXzzzz - XX , zzzz"</code>:</p>
+&#13;
+          <pre name="code" class="js">function replacer(str, p1, p2, offset, s)
+{
+  return str + " - " + p1 + " , " + p2;
+}
+var newString = "XXzzzz".replace(/(X*)(z*)/, replacer);</pre>&#13;
+        
+</div></div><div id="section_7"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_8"><span id="Example:_Using_global_and_ignore_with_replace"/><h4 class="editable">Example: Using <code>global</code> and <code>ignore</code> with <code>replace</code></h4>
+<p>In the following example, the regular expression includes the global and ignore case flags which permits <code>replace</code> to replace each occurrence of 'apples' in the string with 'oranges'.</p>
+&#13;
+          <pre name="code" class="js">var re = /apples/gi;
+var str = "Apples are round, and apples are juicy.";
+var newstr = str.replace(re, "oranges");
+print(newstr);</pre>&#13;
+        
+<p>In this version, a string is used as the first parameter and the global and ignore case flags are specified in the <code>flags</code> parameter.</p>
+&#13;
+          <pre name="code" class="js">var str = "Apples are round, and apples are juicy.";
+var newstr = str.replace("apples", "oranges", "gi");
+print(newstr);</pre>&#13;
+        
+<p>Both of these examples print "oranges are round, and oranges are juicy."</p>
+</div><div id="section_9"><span id="Example:_Defining_the_regular_expression_in_replace"/><h4 class="editable">Example: Defining the regular expression in <code>replace</code></h4>
+<p>In the following example, the regular expression is defined in <code>replace</code> and includes the ignore case flag.</p>
+&#13;
+          <pre name="code" class="js">var str = "Twas the night before Xmas...";
+var newstr = str.replace(/xmas/i, "Christmas");
+print(newstr);</pre>&#13;
+        
+<p>This prints "Twas the night before Christmas..."</p>
+</div><div id="section_10"><span id="Example:_Switching_words_in_a_string"/><h4 class="editable">Example: Switching words in a string</h4>
+<p>The following script switches the words in the string. For the replacement text, the script uses the <code>$1</code> and <code>$2</code> replacement patterns.</p>
+&#13;
+          <pre name="code" class="js">var re = /(\w+)\s(\w+)/;
+var str = "John Smith";
+var newstr = str.replace(re, "$2, $1");
+print(newstr);</pre>&#13;
+        
+<p>This prints "Smith, John".</p>
+</div><div id="section_11"><span id="Example:_Using_an_inline_function_that_modifies_the_matched_characters"/><h4 class="editable">Example: Using an inline function that modifies the matched characters</h4>
+<p>In this example, all occurrences of capital letters in the string are converted to lower case, and a hyphen is inserted just before the match location. The important thing here is that additional operations are needed on the matched item before it is given back as a replacement.</p>
+<p>The replacement function accepts the matched snippet as its parameter, and uses it to transform the case and concatenate the hyphen before returning.</p>
+&#13;
+          <pre name="code" class="js">function styleHyphenFormat(propertyName)
+{
+  function upperToHyphenLower(match)
+  {
+    return '-' + match.toLowerCase();
+  }
+  return propertyName.replace(/[A-Z]/, upperToHyphenLower);
+}</pre>&#13;
+        
+<p>Given <code>styleHyphenFormat('borderTop')</code>, this returns 'border-top'.</p>
+<p>Because we want to further transform the <em>result</em> of the match before the final substitution is made, we must use a function. This forces the evaluation of the match prior to the <code>toLowerCase()</code> method. If we had tried to do this using the match without a function, the toLowerCase() would have no effect.</p>
+&#13;
+          <pre name="code" class="js">var newString = propertyName.replace(/[A-Z]/, '-' + '$&amp;'.toLowerCase());  // won't work</pre>&#13;
+        
+<p>This is because <code>'$&amp;'.toLowerCase()</code> would be evaluated first as a string literal (resulting in the same <code>'$&amp;'</code>) before using the characters as a pattern.</p>
+</div><div id="section_12"><span id="Example:_Replacing_a_Fahrenheit_degree_with_its_Celsius_equivalent"/><h4 class="editable">Example: Replacing a Fahrenheit degree with its Celsius equivalent</h4>
+<p>The following example replaces a Fahrenheit degree with its equivalent Celsius degree. The Fahrenheit degree should be a number ending with F. The function returns the Celsius number ending with C. For example, if the input number is 212F, the function returns 100C. If the number is 0F, the function returns -17.77777777777778C.</p>
+<p>The regular expression <code>test</code> checks for any number that ends with F. The number of Fahrenheit degree is accessible to the function through its second parameter, <code>p1</code>. The function sets the Celsius number based on the Fahrenheit degree passed in a string to the <code>f2c</code> function. <code>f2c</code> then returns the Celsius number. This function approximates Perl's s///e flag.</p>
+&#13;
+          <pre name="code" class="js">function f2c(x)
+{
+  function convert(str, p1, offset, s)
+  {
+    return ((p1-32) * 5/9) + "C";
+  }
+  var s = String(x);
+  var test = /(\d+(?:\.\d*)?)F\b/g;
+  return s.replace(test, convert);
+}</pre>&#13;
+        
+<p> </p>
+<p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31301" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=Regular+Expressions" title="Regular Expressions" tagid="2293" class="text">Regular Expressions</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=String+Methods" title="String Methods" tagid="2295" class="text">String Methods</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/String/replace&amp;action=history" title="18:33, 15 Nov 2011">18:33, 15 Nov 2011</a> by <a href="/User:tomalak_geretkal" class="link-user" rel="internal">tomalak_geretkal</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.59 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.94       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.57       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.55       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31301/contents                           72.45       request-time-ms=69; mysql-queries=16; mysql-time-ms=24; cache-ratio=2.33; cache-hit=35; cache-miss=-20; cache-del=0; cache-ins=19;
+	GET       /deki/pages/31301                                    37.09       request-time-ms=32; mysql-queries=21; mysql-time-ms=20; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/31301/info                                5.37       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31301/tags                                6.83       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.31       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FString%252Freplace/full   217.85       request-time-ms=215; mysql-queries=6; mysql-time-ms=209; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31301/tags                                6.84       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   374.79      
+	                                                     Ideal:   367.95      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

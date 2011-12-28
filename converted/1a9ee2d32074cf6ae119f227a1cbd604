@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorstypeof" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorstypeof" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Special.typeof</h1>            &#13;
+              <span class="page-moved"><a class="pageMoved" href="/index.php?title=en/JavaScript/Reference/Operators/Special/typeof&amp;redirect=no">Redirected from en/JavaScript/Reference/Operators/Special/typeof</a></span>&#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>The <code>typeof</code> operator returns a string indicating the type of the unevaluated operand.</p>
+<table class="standard-table"><thead><tr><th colspan="2" scope="col">Operator</th> </tr></thead><tbody><tr><td>Implemented in:</td> <td>JavaScript 1.1</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262 (and ECMA-357 for E4X objects)</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p>The <code>typeof</code> operator is used in either of the following ways:</p>
+<ol><li><code>typeof <em>operand</em></code></li> <li><code>typeof (<em>operand</em>)</code></li>
+</ol></div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<p><code><em>operand</em></code> is the string, variable, keyword, or object for which the type is to be returned. The parentheses are optional.</p>
+</div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>This table summarizes the possible return values of <code>typeof</code>:</p>
+<table class="standard-table"><thead><tr><th scope="col">Type</th> <th scope="col">Result</th> </tr></thead><tbody><tr><td>Undefined</td> <td><code>"undefined"</code></td> </tr><tr><td>Null</td> <td><code>"object"</code></td> </tr><tr><td>Boolean</td> <td><code>"boolean"</code></td> </tr><tr><td>Number</td> <td><code>"number"</code></td> </tr><tr><td>String</td> <td><code>"string"</code></td> </tr><tr><td>Host object (provided by the JS environment)</td> <td><em>Implementation-dependent</em></td> </tr><tr><td>Function object (implements [[Call]] in ECMA-262 terms)</td> <td><code>"function"</code></td> </tr><tr><td>E4X XML object</td> <td>"xml"</td> </tr><tr><td>E4X XMLList object</td> <td>"xml"</td> </tr><tr><td>Any other object</td> <td><code>"object"</code></td> </tr></tbody></table></div><div id="section_5"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_6"><span id="Normal_cases"/><h3 class="editable">Normal cases</h3>
+&#13;
+          <pre name="code" class="js">// Numbers
+typeof 37 === 'number';
+typeof 3.14 === 'number';
+typeof Math.LN2 === 'number';
+typeof Infinity === 'number';
+typeof NaN === 'number'; // Despite being "Not-A-Number"
+typeof Number(1) === 'number'; // but never use this form!
+
+// Strings
+typeof "" === 'string';
+typeof "bla" === 'string';
+typeof (typeof 1) === 'string'; // typeof always return a string
+typeof String("abc") === 'string'; // but never use this form!
+
+// Booleans
+typeof true === 'boolean';
+typeof false === 'boolean';
+typeof Boolean(true) === 'boolean'; // but never use this form!
+
+// Undefined
+typeof undefined === 'undefined';
+typeof blabla === 'undefined'; // an undefined variable
+
+// Objects
+typeof {a:1} === 'object';
+typeof [1, 2, 4] === 'object'; // use Array.isArray or Object.prototype.toString.call to differentiate regular objects from arrays
+typeof new Date() === 'object';
+
+typeof new Boolean(true) === 'object' // this is confusing. Don't use!
+typeof new Number(1) === 'object' // this is confusing. Don't use!
+typeof new String("abc") === 'object';  // this is confusing. Don't use!
+
+// Functions
+typeof function(){} === 'function';
+typeof Math.sin === 'function';</pre>&#13;
+        
+</div><div id="section_7"><span id="null"/><h3 class="editable"><code>null</code></h3>
+&#13;
+          <pre name="code" class="js">typeof null === 'object'; // This stands since the beginning of JavaScript</pre>&#13;
+        
+<p>In the first implementation of JavaScript, JavaScript values were represented as a type tag and a value. The type tag for objects was 0. <code>null</code> was represented as the NULL pointer (0x00 is most platforms). Consequently, null had 0 as type tag, hence the bogus <code>typeof</code> return value. (reference needed)</p>
+<p>This is planned on <a class=" external" rel="external" href="http://wiki.ecmascript.org/doku.php?id=harmony:typeof_null" title="http://wiki.ecmascript.org/doku.php?id=harmony:typeof_null" target="_blank">being fixed in the next version of ECMAScript</a> (which will be available via an opt-in). It will result in <code>typeof null === 'null'</code>.</p></div><div id="section_8"><span id="Regular_expressions"/><h3 class="editable">Regular expressions</h3>
+<p>Callable regular expressions were a non-standard addition in some browsers (need reference to say which).</p>
+&#13;
+          <pre name="code" class="js">typeof /s/ === 'function'; // Chrome 1-12 ... // Non-conform to ECMAScript 5.1
+typeof /s/ === 'object'; // Firefox 5+ ...    // Conform to ECMAScript 5.1</pre>&#13;
+         </div><div id="section_9"><span id="Other_quirks"/><h3 class="editable">Other quirks</h3>
+<div id="section_10"><span id="alert_in_old_Internet_Explorer_versions"/><h4 class="editable"><code>alert</code> in old Internet Explorer versions</h4>
+<p>On IE 6, 7 and 8, <code>typeof alert === 'object'</code></p></div></div></div><div id="section_11"><span id="Specification"/><h2 class="editable">Specification</h2>
+<p><a class="external" rel="external" href="http://bclary.com/2004/11/07/#a-11.4.3" title="http://bclary.com/2004/11/07/#a-11.4.3" target="_blank">ECMA-262 section 11.4.3</a></p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32987" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/typeof&amp;action=history" title="02:39, 8 Sep 2011">02:39, 8 Sep 2011</a> by <a href="/User:jeffozvold" class="link-user" rel="internal">jeffozvold</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.21 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   9.79       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               10.97       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        20.71       request-time-ms=6; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/82755/contents                          223.86       request-time-ms=220; mysql-queries=13; mysql-time-ms=39; cache-ratio=17.00; cache-hit=17; cache-miss=-16; cache-del=0; cache-ins=15;
+	GET       /deki/pages/82755                                   136.16       request-time-ms=101; mysql-queries=23; mysql-time-ms=50; cache-ratio=29.00; cache-hit=29; cache-miss=-28; cache-del=0; cache-ins=28;
+	GET       /deki/pages/32987/info                               10.18       request-time-ms=5; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	          /deki/pages/32987/security                           10.09       
+	GET       /deki/pages/32987/tags                                8.27       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                10.14       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252Ftypeof/full   405.68       request-time-ms=404; mysql-queries=6; mysql-time-ms=399; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32987/tags                              221.48       request-time-ms=15; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total: 1,067.32      
+	                                                     Ideal:   845.85      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsErrortoSource" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsErrortoSource" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Error.toSource</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+
+
+</p><div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Non-standard</p></div>
+
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Returns code that could eval to the same error.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a title="en/JavaScript/Reference/Global_Objects/Date" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date"><code>Date</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.3</td> </tr><tr><td>ECMAScript Edition</td> <td>none</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable"> Syntax </h3>
+<p><code><i>error</i>.toSource()</code>
+</p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable"> Parameters </h3>
+<p>None.
+</p>
+</div><div id="section_4"><span id="Description"/><h3 class="editable"> Description </h3>
+<p>Calling the <code>toString</code> method of an <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Error" title="en/Core_JavaScript_1.5_Reference/Global_Objects/Error">Error</a> instance (including <i><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Error#Error_types" title="en/Core_JavaScript_1.5_Reference/Global_Objects/Error#Error_types">NativeErrors</a></i>) will return a string containing the source code of the error. This string can be evaluated to create an (approximately) equal object. Naturally, the string containing the source follows the structure of the <code>Error</code> constructor. For example:
+</p>
+<pre class="eval">(new <i>name</i>(<i>message</i>, <i>fileName</i>, <i>lineNumber</i>))
+</pre>
+<p>where these attributes correspond to the respective properties of the error instance.
+</p>
+<div class="note">Be aware that the properties used by the <code>toSource</code> method in the creation of this string are mutable and may not accurately reflect the function used to create an error instance or the filename or line number where the actual error occurred.</div>
+</div><div id="section_5"><span id="See_also"/><h3 class="editable"> See also </h3>
+<ul><li> <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Error/fileName" class="new " title="en/Core_JavaScript_1.5_Reference/Global_Objects/Error/fileName">fileName</a>
+</li><li> <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Error/lineNumber" class="new " title="en/Core_JavaScript_1.5_Reference/Global_Objects/Error/lineNumber">lineNumber</a>
+</li><li> <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Error/message" title="en/Core_JavaScript_1.5_Reference/Global_Objects/Error/message">message</a>
+</li><li> <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Error/name" title="en/Core_JavaScript_1.5_Reference/Global_Objects/Error/name">name</a>
+</li></ul></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31421" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Error/toSource&amp;action=history" title="18:42, 8 Jun 2011">18:42, 8 Jun 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.88 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                 329.26       request-time-ms=27; mysql-queries=7; mysql-time-ms=15; cache-ratio=-0.20; cache-hit=1; cache-miss=-6; cache-del=1; cache-ins=6;
+	GET       /deki/users/=Anonymous                                9.90       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        13.53       request-time-ms=4; mysql-queries=2; mysql-time-ms=3; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31421/contents                           46.28       request-time-ms=43; mysql-queries=14; mysql-time-ms=25; cache-ratio=4.20; cache-hit=21; cache-miss=-16; cache-del=0; cache-ins=16;
+	GET       /deki/pages/31421                                    54.53       request-time-ms=49; mysql-queries=20; mysql-time-ms=30; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/31421/info                               13.85       request-time-ms=11; mysql-queries=3; mysql-time-ms=9; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31421/tags                                9.19       request-time-ms=7; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                11.86       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FError%252FtoSource/full   286.46       request-time-ms=283; mysql-queries=6; mysql-time-ms=279; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31421/tags                               44.30       request-time-ms=34; mysql-queries=4; mysql-time-ms=12; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   819.17      
+	                                                     Ideal:   774.87      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

@@ -9,6 +9,9 @@ mkdat:
 	node convert.js
 	node mkindex.js > index.json
 
+watch-less:
+	watcher --dir less -- sh -c 'lessc less/styles.less  > css/jsapi.css'
+
 clean:
 	rm -rf converted/ docs.db index.json
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceStatementsdowhile" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceStatementsdowhile" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">do...while</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+</p>
+<div id="section_1"><span id="Summary"/><h3 class="editable"> Summary </h3>
+<p>Creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once.
+</p>
+<table class="fullwidth-table"><tr><td class="header" colspan="2">Statement</td>
+</tr><tr><td>Implemented in:</td>
+<td>JavaScript 1.2, NES 3.0</td>
+</tr><tr><td>ECMA Version:</td>
+<td>ECMA-262, Edition 3
+</td>
+</tr></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable"> Syntax </h3>
+<pre class="eval">do
+   <i>statement</i>
+while (<i>condition</i>);
+</pre>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable"> Parameters </h3>
+<dl><dt> <code>statement</code> </dt><dd> A statement that is executed at least once and is re-executed each time the condition evaluates to true. To execute multiple statements within the loop, use a <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/block" title="en/Core_JavaScript_1.5_Reference/Statements/block">block</a> statement (<code>{ ... }</code>) to group those statements.
+</dd></dl><dl><dt> <code>condition</code> </dt><dd> An expression evaluated after each pass through the loop. If <code>condition</code> evaluates to true, the <code>statement</code> is re-executed. When <code>condition</code> evaluates to false, control passes to the statement following the <code>do...while</code>.
+</dd></dl></div><div id="section_4"><span id="Examples"/><h3 class="editable"> Examples </h3>
+<div id="section_5"><span id="Example:_Using_do...while"/><h4 class="editable"> Example: Using <code>do...while</code> </h4>
+<p>In the following example, the <code>do...while</code> loop iterates at least once and reiterates until <code>i</code> is no longer less than 5.
+</p>
+<pre class="eval">do {
+   i += 1;
+   document.write(i);
+} while (i &lt; 5);
+</pre>
+</div></div><div id="section_6"><span id="See_also"/><h3 class="editable"> See also </h3>
+<p><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/while" title="en/Core_JavaScript_1.5_Reference/Statements/while">while</a>,
+<a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/for" title="en/Core_JavaScript_1.5_Reference/Statements/for">for</a>
+</p><p><br/></p>
+
+
+</div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=29131" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Statements/do...while&amp;action=history" title="15:07, 10 Oct 2007">15:07, 10 Oct 2007</a> by <a href="/User:Mgjbot" class="link-user" rel="internal">Mgjbot</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.21 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                  97.78       request-time-ms=6; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               15.66       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        13.79       request-time-ms=6; mysql-queries=2; mysql-time-ms=4; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/29131/contents                           45.95       request-time-ms=43; mysql-queries=10; mysql-time-ms=30; cache-ratio=-2.60; cache-hit=13; cache-miss=-18; cache-del=0; cache-ins=17;
+	GET       /deki/pages/29131                                    64.74       request-time-ms=58; mysql-queries=20; mysql-time-ms=44; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/29131/info                               29.62       request-time-ms=28; mysql-queries=3; mysql-time-ms=26; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/29131/tags                                8.87       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                13.33       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FStatements%252Fdo...while/full   231.06       request-time-ms=226; mysql-queries=6; mysql-time-ms=222; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/29131/tags                                9.10       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   529.90      
+	                                                     Ideal:   520.80      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

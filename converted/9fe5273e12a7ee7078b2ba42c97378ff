@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsStringprototype" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsStringprototype" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">String.prototype</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Represents the <a title="en/JavaScript/Reference/Global_Objects/String" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String"><code>String</code></a> prototype object.</p>
+</div><div id="section_2"><span id="Description"/><h2 class="editable">Description</h2>
+<p>All <code>String</code> instances inherit from <code>String.prototype</code>. Changes to the <code>String</code> prototype object are propagated to all <code>String</code> instances.</p>
+</div><div id="section_3"><span id="Properties"/><h2 class="editable">Properties</h2>
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/String/constructor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/constructor"><code>constructor</code></a></dt> <dd>Specifies the function that creates an object's prototype.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/length"><code>length</code></a></dt> <dd>Reflects the length of the string.</dd> <dt><em>N</em></dt> <dd>Used to access the character in the <em>N</em>th position where <em>N</em> is a positive integer between 0 and one less than the value of <a title="en/JavaScript/Reference/Global_Objects/String/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/length"><code>length</code></a>. These properties are read-only.</dd>
+</dl><div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Parent" title="en/JavaScript/Reference/Global_Objects/Object/Parent"><code>__parent__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Proto" title="en/JavaScript/Reference/Global_Objects/Object/Proto"><code>__proto__</code></a></span>
+</div>
+</div>
+</div><div id="section_4"><span id="Methods"/><h2 class="editable">Methods</h2>
+ <div id="section_5"><span id="Methods_unrelated_to_HTML"/><h3 class="editable">Methods unrelated to HTML</h3> 
+
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/String/charAt" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/charAt"><code>charAt</code></a></dt> <dd>Returns the character at the specified index.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/charCodeAt" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/charCodeAt"><code>charCodeAt</code></a></dt> <dd>Returns a number indicating the Unicode value of the character at the given index.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/concat" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/concat"><code>concat</code></a></dt> <dd>Combines the text of two strings and returns a new string.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/indexOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/indexOf"><code>indexOf</code></a></dt> <dd>Returns the index within the calling String object of the first occurrence of the specified value, or -1 if not found.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/lastIndexOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/lastIndexOf"><code>lastIndexOf</code></a></dt> <dd>Returns the index within the calling String object of the last occurrence of the specified value, or -1 if not found.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/localeCompare" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/localeCompare"><code>localeCompare</code></a></dt> <dd>Returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/match" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/match"><code>match</code></a></dt> <dd>Used to match a regular expression against a string.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/quote" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/quote"><code>quote</code></a></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br/> Wraps the string in double quotes ("<code>"</code>").</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/replace" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/replace"><code>replace</code></a></dt> <dd>Used to find a match between a regular expression and a string, and to replace the matched substring with a new substring.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/search" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/search"><code>search</code></a></dt> <dd>Executes the search for a match between a regular expression and a specified string.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/slice" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/slice"><code>slice</code></a></dt> <dd>Extracts a section of a string and returns a new string.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/split" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/split"><code>split</code></a></dt> <dd>Splits a String object into an array of strings by separating the string into substrings.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/substr" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substr"><code>substr</code></a></dt> <dd>Returns the characters in a string beginning at the specified location through the specified number of characters.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/substring" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substring"><code>substring</code></a></dt> <dd>Returns the characters in a string between two indexes into the string.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase"><code>toLocaleLowerCase</code></a></dt> <dd>The characters within a string are converted to lower case while respecting the current locale. For most languages, this will return the same as <a title="en/JavaScript/Reference/Global_Objects/String/toLowerCase" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toLowerCase"><code>toLowerCase</code></a>.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase"><code>toLocaleUpperCase</code></a></dt> <dd>The characters within a string are converted to upper case while respecting the current locale. For most languages, this will return the same as <a title="en/JavaScript/Reference/Global_Objects/String/toUpperCase" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toUpperCase"><code>toUpperCase</code></a>.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/toLowerCase" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toLowerCase"><code>toLowerCase</code></a></dt> <dd>Returns the calling string value converted to lower case.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toSource"><code>toSource</code></a></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br/> Returns an object literal representing the specified object; you can use this value to create a new object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toSource"><code>Object.prototype.toSource</code></a> method.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toString"><code>toString</code></a></dt> <dd>Returns a string representing the specified object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toString"><code>Object.prototype.toString</code></a> method.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/toUpperCase" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toUpperCase"><code>toUpperCase</code></a></dt> <dd>Returns the calling string value converted to uppercase.</dd> <dt><a class="internal" title="en/JavaScript/Reference/Global Objects/String/trim" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/Trim"><code>trim</code></a></dt> <dd>
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.1">JavaScript 1.8.1</a></span>
+<br/> Trims whitespace from the beginning and end of the string. Part of the ECMAScript 5 standard.</dd> <dt><a class="internal" title="en/JavaScript/Reference/Global Objects/String/trimLeft" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/TrimLeft"><code>trimLeft</code></a></dt> <dd>
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.1">JavaScript 1.8.1</a></span>
+ <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br/> Trims whitespace from the left side of the string.</dd> <dt><a class="internal" title="en/JavaScript/Reference/Global Objects/String/trimRight" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/TrimRight"><code>trimRight</code></a></dt> <dd>
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.1">JavaScript 1.8.1</a></span>
+ <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br/> Trims whitespace from the right side of the string.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/valueOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/valueOf"><code>valueOf</code></a></dt> <dd>Returns the primitive value of the specified object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/valueOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/valueOf"><code>Object.prototype.valueOf</code></a> method.</dd>
+</dl></div><div id="section_6"><span id="HTML_wrapper_methods"/><h3 class="editable">HTML wrapper methods</h3>
+
+
+<p>
+
+</p><div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Non-standard</p></div>
+<p> Each of the following methods returns a copy of the string wrapped inside the appropriate HTML tag.</p>
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/String/anchor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/anchor"><code>anchor</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/struct/links.html#adef-name-A" title="http://www.w3.org/TR/html401/struct/links.html#adef-name-A" target="_blank"><code>&lt;a name="<em>name</em>"&gt;</code></a> (hypertext target)</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/big" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/big"><code>big</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/present/graphics.html#edef-BIG" title="http://www.w3.org/TR/html401/present/graphics.html#edef-BIG" target="_blank"><code>&lt;big&gt;</code></a></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/blink" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/blink"><code>blink</code></a></dt> <dd><code>&lt;blink&gt;</code></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/bold" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/bold"><code>bold</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/present/graphics.html#edef-B" title="http://www.w3.org/TR/html401/present/graphics.html#edef-B" target="_blank"><code>&lt;b&gt;</code></a></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/fixed" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/fixed"><code>fixed</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/present/graphics.html#edef-TT" title="http://www.w3.org/TR/html401/present/graphics.html#edef-TT" target="_blank"><code>&lt;tt&gt;</code></a></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/fontcolor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/fontcolor"><code>fontcolor</code></a></dt> <dd><code>&lt;font color="<em>color</em>"&gt;</code></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/fontsize" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/fontsize"><code>fontsize</code></a></dt> <dd><code>&lt;font size="<em>size</em>"&gt;</code></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/italics" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/italics"><code>italics</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/present/graphics.html#edef-I" title="http://www.w3.org/TR/html401/present/graphics.html#edef-I" target="_blank"><code>&lt;i&gt;</code></a></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/link" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/link"><code>link</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/struct/links.html#adef-href" title="http://www.w3.org/TR/html401/struct/links.html#adef-href" target="_blank"><code>&lt;a href="<em>url</em>"&gt;</code></a> (link to URL)</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/small" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/small"><code>small</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/present/graphics.html#edef-SMALL" title="http://www.w3.org/TR/html401/present/graphics.html#edef-SMALL" target="_blank"><code>&lt;small&gt;</code></a>.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/strike" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/strike"><code>strike</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/present/graphics.html#edef-STRIKE" title="http://www.w3.org/TR/html401/present/graphics.html#edef-STRIKE" target="_blank"><code>&lt;strike&gt;</code></a></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/sub" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/sub"><code>sub</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/struct/text.html#edef-SUB" title="http://www.w3.org/TR/html401/struct/text.html#edef-SUB" target="_blank"><code>&lt;sub&gt;</code></a></dd> <dt><a title="en/JavaScript/Reference/Global_Objects/String/sup" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/sup"><code>sup</code></a></dt> <dd><a class="external" rel="external" href="http://www.w3.org/TR/html401/struct/text.html#edef-SUP" title="http://www.w3.org/TR/html401/struct/text.html#edef-SUP" target="_blank"><code>&lt;sup&gt;</code></a></dd>
+</dl><p>These methods are of limited use, as they provide only a subset of the available HTML tags and attributes.</p>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineGetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineGetter"><code>__defineGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineSetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineSetter"><code>__defineSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty" title="en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty"><code>hasOwnProperty</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf" title="en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf"><code>isPrototypeOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupGetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupGetter"><code>__lookupGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupSetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupSetter"><code>__lookupSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod" title="en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod"><code>__noSuchMethod__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable" title="en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ToLocaleString" title="en/JavaScript/Reference/Global_Objects/Object/ToLocaleString"><code>toLocaleString</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Unwatch" title="en/JavaScript/Reference/Global_Objects/Object/Unwatch"><code>unwatch</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Watch" title="en/JavaScript/Reference/Global_Objects/Object/Watch"><code>watch</code></a></span>
+</div>
+</div>
+</div></div><div id="section_7"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_8"><span id="Example:_Extending_string_instances_with_a_repeat_method"/><h3 class="editable">Example: Extending string instances with a <code>repeat</code> method</h3>
+<p>The following example creates a method, <code>str_rep</code>, and uses the statement <code>String.prototype.repeat = str_rep</code> to add the method to all <code>String</code> objects. All <code>String</code> instances then have that method, even objects already created. The example then creates an alternate method and overrides the previous method in one of the <code>String</code> objects using the statement <code>s1.repeat = fake_rep</code>. The <code>str_rep</code> method of the remaining <code>String</code> objects is not altered.</p>
+&#13;
+          <pre name="code" class="js">var s1 = new String("a");
+var s2 = new String("b");
+var s3 = new String("c");
+
+// Create a repeat-string-N-times method for all String objects
+function str_rep(n) {
+   var s = "", t = this.toString();
+   while (--n &gt;= 0) {
+     s += t
+   }
+   return s;
+}
+
+String.prototype.repeat = str_rep;
+
+s1a=s1.repeat(3); // returns "aaa"
+s2a=s2.repeat(5); // returns "bbbbb"
+s3a=s3.repeat(2); // returns "cc"
+
+// Create an alternate method and assign it to only one String variable
+function fake_rep(n) {
+   return "repeat " + this + " " + n + " times.";
+}
+
+s1.repeat = fake_rep
+s1b=s1.repeat(1); // returns "repeat a 1 times."
+s2b=s2.repeat(4); // returns "bbbb"
+s3b=s3.repeat(6); // returns "cccccc"</pre>&#13;
+        
+<p>The function in this example also works on <code>String</code> objects not created with the <code>String</code> constructor. The following code returns "zzz".</p>
+<pre class="eval">"z".repeat(3);
+</pre>
+<p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31964" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/String/prototype&amp;action=history" title="05:01, 11 Dec 2011">05:01, 11 Dec 2011</a> by <a href="/User:secoif" class="link-user" rel="internal">secoif</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.62 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   4.80       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                9.40       request-time-ms=7; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         9.64       request-time-ms=3; mysql-queries=2; mysql-time-ms=2; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31964/contents                          137.98       request-time-ms=136; mysql-queries=36; mysql-time-ms=42; cache-ratio=1.63; cache-hit=135; cache-miss=-52; cache-del=0; cache-ins=51;
+	GET       /deki/pages/31964                                    39.89       request-time-ms=34; mysql-queries=20; mysql-time-ms=18; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/31964/info                                5.16       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31964/tags                                6.01       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.88       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FString%252Fprototype/full   221.31       request-time-ms=219; mysql-queries=6; mysql-time-ms=214; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31964/tags                                6.71       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   449.77      
+	                                                     Ideal:   443.06      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

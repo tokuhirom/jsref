@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsStringcharCodeAt" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsStringcharCodeAt" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">String.charCodeAt</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Returns the numeric Unicode value of the character at the given index (except for unicode codepoints &gt; 0x10000).</p>
+<table class="standard-table"><thead><tr><th colspan="2" class="header">Method of <a title="en/JavaScript/Reference/Global_Objects/String" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String"><code>String</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.2</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 1st Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<code><em>string</em>.charCodeAt(<em>index</em>)</code>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>index</code> </dt> <dd>An integer greater than 0 and less than the length of the string; if it is not a number, it defaults to 0.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p>Unicode code points range from 0 to 1,114,111. The first 128 Unicode code points are a direct match of the ASCII character encoding. For information on Unicode, see the <a title="en/Core_JavaScript_1.5_Guide/Unicode" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide/Obsolete_Pages/Unicode">Core JavaScript 1.5 Guide</a>.</p>
+<p>Note that <code>charCodeAt</code> will always return a value that is less than 65,536. This is because the higher code points are represented by a pair of (lower valued) "surrogate" pseudo-characters which are used to comprise the real character. Because of this, in order to examine or reproduce the full character for individual characters of value 65,536 and above, for such characters, it is necessary to retrieve not only <code>charCodeAt(i)</code>, but also <code>charCodeAt(i+1)</code> (as if examining/reproducing a string with two letters). See <a title="fckeditor.html?InstanceName=editarea&amp;Toolbar=MDC#Example_2.3a.c2.a0Getting_whole_characters" rel="internal" href="https://developer.mozilla.org/fckeditor.html?InstanceName=editarea&amp;Toolbar=MDC#Example_2.3a.c2.a0Getting_whole_characters" class="new ">example 2</a> and 3 below.</p>
+<p><code>charCodeAt</code> returns <code><a title="en/Core_JavaScript_1.5_Reference/Global_Properties/NaN" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/NaN">NaN</a></code> if the given index is not greater than 0 or is greater than the length of the string.</p>
+</div><div id="section_5"><span id="Backward_Compatibility"/><h3 class="editable">Backward Compatibility</h3>
+<div id="section_6"><span id="JavaScript_1.2"/><h4 class="editable">JavaScript 1.2</h4>
+<p>The <code>charCodeAt</code> method returns a number indicating the ISO-Latin-1 codeset value of the character at the given index. The ISO-Latin-1 codeset ranges from 0 to 255. The first 0 to 127 are a direct match of the ASCII character set.</p>
+</div></div><div id="section_7"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_8"><span id="Example:_Using_charCodeAt"/><span id="Example_1:_Using_charCodeAt"/><h4 class="editable">Example 1: Using <code>charCodeAt</code></h4>
+<p>The following example returns 65, the Unicode value for A.</p>
+<pre class="eval">
+"ABC".charCodeAt(0) // returns 65
+</pre>
+</div><div id="section_9"><span id="Example_2:_Fixing_charCodeAt_to_handle_non-Basic-Multilingual-Plane_characters_if_their_presence_earlier_in_the_string_is_unknown"/><h4 class="editable">Example 2: Fixing charCodeAt to handle non-Basic-Multilingual-Plane characters if their presence earlier in the string is unknown</h4>
+<p> </p>
+<p>This version might be used in for loops and the like when it is unknown whether non-BMP characters exist before the specified index position.</p>
+&#13;
+          <pre name="code" class="js">function fixedCharCodeAt (str, idx) {
+    // ex. fixedCharCodeAt ('\uD800\uDC00', 0); // 65536
+    // ex. fixedCharCodeAt ('\uD800\uDC00', 1); // 65536
+    idx = idx || 0;
+    var code = str.charCodeAt(idx);
+    var hi, low;
+    if (0xD800 &lt;= code &amp;&amp; code &lt;= 0xDBFF) { // High surrogate (could change last hex to 0xDB7F to treat high private surrogates as single characters)
+        hi = code;
+        low = str.charCodeAt(idx+1);
+        if (isNaN(low)) {
+            throw 'High surrogate not followed by low surrogate in fixedCharCodeAt()';
+        }
+        return ((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
+    }
+    if (0xDC00 &lt;= code &amp;&amp; code &lt;= 0xDFFF) { // Low surrogate
+        // We return false to allow loops to skip this iteration since should have already handled high surrogate above in the previous iteration
+        return false;
+        /*hi = str.charCodeAt(idx-1);
+        low = code;
+        return ((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;*/
+    }
+    return code;
+}</pre>&#13;
+        </div><div id="section_10"><span id="Example_3:_Fixing_charCodeAt_to_handle_non-Basic-Multilingual-Plane_characters_if_their_presence_earlier_in_the_string_is_known"/><h4 class="editable">Example 3: Fixing charCodeAt to handle non-Basic-Multilingual-Plane characters if their presence earlier in the string is known</h4>
+<p> </p>
+&#13;
+          <pre name="code" class="js">function knownCharCodeAt (str, idx) {
+    str += '';
+    var code,
+        end = str.length;
+
+    var surrogatePairs = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+    while ((surrogatePairs.exec(str)) != null) {
+        var li = surrogatePairs.lastIndex;
+        if (li - 2 &lt; idx) {
+            idx++;
+        }
+        else {
+            break;
+        }
+    }
+
+    if (idx &gt;= end || idx &lt; 0) {
+        return NaN;
+    }
+
+    code = str.charCodeAt(idx);
+
+    var hi, low;
+    if (0xD800 &lt;= code &amp;&amp; code &lt;= 0xDBFF) {
+        hi = code;
+        low = str.charCodeAt(idx+1); // Go one further, since one of the "characters" is part of a surrogate pair
+        return ((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
+    }
+    return code;
+}</pre>&#13;
+        
+<p> </p>
+</div></div><div id="section_11"><span id="See_Also"/><h3 class="editable">See Also</h3>
+<p><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/String/fromCharCode" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/fromCharCode">fromCharCode</a>, <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/String/charAt" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/charAt">charAt</a></p>
+<p> </p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(4)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32086" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=String+Methods" title="String Methods" tagid="2295" class="text">String Methods</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=Unicode" title="Unicode" tagid="1868" class="text">Unicode</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/String/charCodeAt&amp;action=history" title="15:13, 7 Jun 2011">15:13, 7 Jun 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.95 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.67       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.50       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         9.75       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/32086/contents                           33.35       request-time-ms=31; mysql-queries=10; mysql-time-ms=12; cache-ratio=-13.00; cache-hit=13; cache-miss=-14; cache-del=0; cache-ins=14;
+	GET       /deki/pages/32086                                    40.47       request-time-ms=35; mysql-queries=21; mysql-time-ms=23; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/32086/info                                7.76       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/32086/tags                                7.96       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                10.23       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FString%252FcharCodeAt/full   385.24       request-time-ms=383; mysql-queries=6; mysql-time-ms=364; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32086/tags                               16.65       request-time-ms=14; mysql-queries=5; mysql-time-ms=11; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   524.57      
+	                                                     Ideal:   507.93      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsObjectwatch" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsObjectwatch" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Object.watch</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+
+</p><div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Non-standard</p></div>
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Watches for a property to be assigned a value and runs a function when that occurs.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a title="en/JavaScript/Reference/Global_Objects/Object" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.8.6</td> </tr><tr><td>ECMAScript Edition</td> <td>none</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code><em>object</em>.watch(<em>prop</em>, <em>handler</em>) </code></p>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>prop</code></dt> <dd>The name of a property of the object on which you wish to monitor changes.</dd>
+</dl><dl><dt><code>handler</code></dt> <dd>A function to call when the specified property's value changes.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<div class="warning"><strong>Warning:</strong> Generally you should avoid using <code>watch()</code> and <a title="/en/JavaScript/Reference/Global_Objects/Object/unwatch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/unwatch"><code>unwatch()</code></a> when possible. These two methods are implemented only in Gecko, and they're intended primarily for debugging use. In addition, using watchpoints has a serious negative impact on performance, which is especially true when used on global objects, such as window. You can usually use setters and getters or proxies instead. See <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/watch#Compatibility">Compatibility</a> for details.</div>
+<p>Watches for assignment to a property named <code>prop</code> in this object, calling <code>handler(prop, oldval, newval)</code> whenever <code>prop</code> is set and storing the return value in that property. A watchpoint can filter (or nullify) the value assignment, by returning a modified <code>newval</code> (or by returning <code>oldval</code>).</p>
+<p>If you delete a property for which a watchpoint has been set, that watchpoint does not disappear. If you later recreate the property, the watchpoint is still in effect.</p>
+<p>To remove a watchpoint, use the <code><a title="en/JavaScript/Reference/Global_Objects/Object/unwatch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/unwatch">unwatch()</a></code> method. By default, the <code>watch</code> method is inherited by every object descended from <code>Object</code>.</p>
+<p>The JavaScript debugger has functionality similar to that provided by this method, as well as other debugging options. For information on the debugger, see <a title="en/Venkman" rel="internal" href="https://developer.mozilla.org/en/Venkman">Venkman</a>.</p>
+<p>In Firefox, <code>handler</code> is only called from assignments in script, not from native code. For example, <code>window.watch('location', myHandler)</code> will not call <code>myHandler</code> if the user clicks a link to an anchor within the current document. However, <code>window.location += '#myAnchor'</code> will call <code>myHandler</code>.</p>
+<div class="note"><strong>Note:</strong> Calling <code>watch()</code> on an object for a specific property overrides and previous handler attached for that property.</div>
+</div><div id="section_5"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_6"><span id="Example:_Using_watch_and_unwatch"/><h3 class="editable">Example: Using <code>watch</code> and <code>unwatch</code></h3>
+&#13;
+          <pre name="code" class="js">var o = {p:1};
+o.watch("p",
+  function (id, oldval, newval) {
+    console.log("o." + id + " changed from " + oldval + " to " + newval);
+    return newval;
+  });
+
+o.p = 2;
+o.p = 3;
+delete o.p;
+o.p = 4;
+
+o.unwatch('p');
+o.p = 5;</pre>&#13;
+        
+<p>This script displays the following:</p>
+<pre class="eval">o.p changed from 1 to 2
+o.p changed from 2 to 3
+o.p changed from undefined to 4
+</pre>
+</div><div id="section_7"><span id="Example:_Using_watch_to_validate_an_object.27s_properties"/><span id="Example:_Using_watch_to_validate_an_object's_properties"/><h3 class="editable">Example: Using <code>watch</code> to validate an object's properties</h3>
+<p>You can use <code>watch</code> to test any assignment to an object's properties. This example ensures that every Person always has a valid name and an age between 0 and 200.</p>
+&#13;
+          <pre name="code" class="js">Person = function(name,age) {
+  this.watch("age", Person.prototype._isValidAssignment);
+  this.watch("name", Person.prototype._isValidAssignment);
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.toString = function() {
+  return this.name + ", " + this.age;
+};
+
+Person.prototype._isValidAssignment = function(id, oldval, newval) {
+  if (id === "name" &amp;&amp; (!newval || newval.length &gt; 30)) {
+    throw new RangeError("invalid name for " + this);
+  }
+  if (id === "age"  &amp;&amp; (newval &lt; 0 || newval &gt; 200)) {
+    throw new RangeError("invalid age for " + this);
+  }
+  return newval;
+}
+
+will = new Person("Will", 29);
+print(will);   // Will, 29
+
+try {
+  will.name = "";
+} catch (e) {
+  print(e);
+}
+
+try {
+  will.age = -4;
+} catch (e) {
+  print(e);
+}</pre>&#13;
+        
+<p>This script displays the following:</p>
+<pre class="eval">Will, 29
+RangeError: invalid name for Will, 29
+RangeError: invalid age for Will, 29
+</pre>
+</div></div><div id="section_8"><span id="Compatibility"/><h2 class="editable">Compatibility</h2>
+<ul><li>This <span class="external"><a class="link-https" title="https://gist.github.com/384583" rel="external" href="https://gist.github.com/384583" target="_blank">Polyfill</a> that offers watch to all ES5 compatible browser</span></li> <li>Using a <a title="Proxy" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Proxy">Proxy</a> enables you do that even deeper changes to how property assignments work</li>
+</ul></div><div id="section_9"><span id="See_Also"/><span id="See_also"/><h2 class="editable">See also</h2>
+<p><a title="en/JavaScript/Reference/Global_Objects/Object/unwatch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/unwatch">unwatch()</a></p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(3)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=30801" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsTechnicalReview" title="NeedsTechnicalReview" tagid="17" class="text">NeedsTechnicalReview</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Object/watch&amp;action=history" title="11:25, 1 Nov 2011">11:25, 1 Nov 2011</a> by <a href="/User:BYK" class="link-user" rel="internal">BYK</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.89 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   9.68       request-time-ms=6; mysql-queries=1; mysql-time-ms=4; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.33       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         8.75       request-time-ms=4; mysql-queries=2; mysql-time-ms=2; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/30801/contents                           79.22       request-time-ms=77; mysql-queries=21; mysql-time-ms=32; cache-ratio=3.50; cache-hit=35; cache-miss=-25; cache-del=0; cache-ins=24;
+	GET       /deki/pages/30801                                    63.87       request-time-ms=59; mysql-queries=21; mysql-time-ms=47; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/30801/info                               11.59       request-time-ms=8; mysql-queries=3; mysql-time-ms=6; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/30801/tags                                9.11       request-time-ms=6; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                18.97       request-time-ms=15; mysql-queries=4; mysql-time-ms=13; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FObject%252Fwatch/full   260.39       request-time-ms=258; mysql-queries=6; mysql-time-ms=252; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/30801/tags                              310.17       request-time-ms=305; mysql-queries=5; mysql-time-ms=9; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   779.08      
+	                                                     Ideal:   468.91      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsDategetYear" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsDategetYear" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Date.getYear</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+
+
+</p><div class="deprecatedHeaderTemplate" style="overflow:hidden; border: 1px solid #5151FF; background-color: #B9B9FF; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Deprecated</p></div>
+
+
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Returns the year in the specified date according to local time.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a title="en/JavaScript/Reference/Global_Objects/Date" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date"><code>Date</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 1st Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable"> Syntax </h3>
+<p><code>
+getYear()
+</code>
+</p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable"> Parameters </h3>
+<p>None.
+</p>
+</div><div id="section_4"><span id="Description"/><h3 class="editable"> Description </h3>
+<p><code>getYear</code> is no longer used and has been replaced by the <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Date/getFullYear" title="en/Core_JavaScript_1.5_Reference/Objects/Date/getFullYear">getFullYear</a> method.
+</p><p>The <code>getYear</code> method returns the year minus 1900; thus:
+</p>
+<ul><li> For years greater than or equal to 2000, the value returned by <code>getYear</code> is 100 or greater. For example, if the year is 2026, <code>getYear</code> returns 126.
+</li></ul><ul><li> For years between and including 1900 and 1999, the value returned by <code>getYear</code> is between 0 and 99. For example, if the year is 1976, <code>getYear</code> returns 76.
+</li></ul><ul><li> For years less than 1900, the value returned by <code>getYear</code> is less than 0. For example, if the year is 1800, <code>getYear</code> returns -100.
+</li></ul><p>To take into account years before and after 2000, you should use <code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Date/getFullYear" title="en/Core_JavaScript_1.5_Reference/Objects/Date/getFullYear">getFullYear</a></code> instead of <code>getYear</code> so that the year is specified in full.
+</p>
+</div><div id="section_5"><span id="Backward_Compatibility"/><h3 class="editable"> Backward Compatibility </h3>
+<div id="section_6"><span id="JavaScript_1.2_and_earlier"/><h4 class="editable"> JavaScript 1.2 and earlier </h4>
+<p>The <code>getYear</code> method returns either a 2-digit or 4-digit year:
+</p>
+<ul><li> For years between and including 1900 and 1999, the value returned by <code>getYear</code> is the year minus 1900. For example, if the year is 1976, the value returned is 76.
+</li></ul><ul><li> For years less than 1900 or greater than 1999, the value returned by <code>getYear</code> is the four-digit year. For example, if the year is 1856, the value returned is 1856. If the year is 2026, the value returned is 2026.
+</li></ul></div></div><div id="section_7"><span id="Examples"/><h3 class="editable"> Examples </h3>
+<div id="section_8"><span id="Example:_Years_between_1900_and_1999"/><h4 class="editable"> Example: Years between 1900 and 1999 </h4>
+<p>The second statement assigns the value 95 to the variable <code>year</code>.
+</p>
+<pre>
+Xmas = new Date("December 25, 1995 23:15:00")
+year = Xmas.getYear() // returns 95
+</pre>
+</div><div id="section_9"><span id="Example:_Years_above_1999"/><h4 class="editable"> Example: Years above 1999 </h4>
+<p>The second statement assigns the value 100 to the variable <code>year</code>.
+</p>
+<pre>
+Xmas = new Date("December 25, 2000 23:15:00")
+year = Xmas.getYear() // returns 100
+</pre>
+</div><div id="section_10"><span id="Example:_Years_below_1900"/><h4 class="editable"> Example: Years below 1900 </h4>
+<p>The second statement assigns the value -100 to the variable <code>year</code>.
+</p>
+<pre>
+Xmas = new Date("December 25, 1800 23:15:00")
+year = Xmas.getYear() // returns -100
+</pre>
+</div><div id="section_11"><span id="Example:_Setting_and_getting_a_year_between_1900_and_1999"/><h4 class="editable"> Example: Setting and getting a year between 1900 and 1999 </h4>
+<p>The second statement assigns the value 95 to the variable <code>year</code>, representing the year 1995.
+</p>
+<pre>
+Xmas.setYear(95)
+year = Xmas.getYear() // returns 95 
+</pre>
+</div></div><div id="section_12"><span id="See_Also"/><h3 class="editable"> See Also </h3>
+<p><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Date/getFullYear" title="en/Core_JavaScript_1.5_Reference/Objects/Date/getFullYear">getFullYear</a>,
+<a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Date/getUTCFullYear" title="en/Core_JavaScript_1.5_Reference/Objects/Date/getUTCFullYear">getUTCFullYear</a>,
+<a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Date/setYear" title="en/Core_JavaScript_1.5_Reference/Objects/Date/setYear">setYear</a>
+</p>
+
+
+</div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=30799" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Date/getYear&amp;action=history" title="21:11, 6 Jun 2011">21:11, 6 Jun 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.82 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.58       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.58       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         8.55       request-time-ms=4; mysql-queries=2; mysql-time-ms=2; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/30799/contents                           53.06       request-time-ms=48; mysql-queries=19; mysql-time-ms=25; cache-ratio=3.75; cache-hit=30; cache-miss=-22; cache-del=0; cache-ins=21;
+	GET       /deki/pages/30799                                    39.62       request-time-ms=36; mysql-queries=20; mysql-time-ms=26; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/30799/info                                5.49       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/30799/tags                                6.30       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.66       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FDate%252FgetYear/full   255.42       request-time-ms=253; mysql-queries=6; mysql-time-ms=246; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/30799/tags                                6.18       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   395.44      
+	                                                     Ideal:   389.26      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

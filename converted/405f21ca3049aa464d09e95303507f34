@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceStatementsvar" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceStatementsvar" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">var</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Declares a variable, optionally initializing it to a value.</p>
+<table class="standard-table"><tbody><tr><td class="header" colspan="2">Statement</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.0, NES 2.0</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code>var <em>varname1 [</em>= <em>value1 [</em>, <em>varname2 [</em>, <em>varname3 ... [</em>, <em>varnameN]]]]</em>;</code></p>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>varnameN</code></dt> <dd>Variable name. It can be any legal identifier.</dd>
+</dl><dl><dt><code>valueN</code></dt> <dd>Initial value of the variable. It can be any legal expression.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>The scope of a variable declared with <code>var</code> is the enclosing function or, for variables declared outside a function, the global scope (which is bound to the global object).</p>
+<p>Using <code>var</code> outside a function is optional; assigning a value to an undeclared variable implicitly declares it as a global variable (also a property of the global object). The difference is that z declared variable is a non-configurable property of the global object while an undeclared is configurable.</p>
+&#13;
+          <pre name="code" class="js">var a = 1;
+b = 2;
+
+delete this.a; // Throws a TypeError in strict mode. Fails silently otherwise.
+delete this.b;
+
+console.log(a, b); // Throws a ReferenceError. Since the 'b' property doesn't exist in the global object,
+// the 'b' variable stops being a variable</pre>&#13;
+        
+<p>Consequently, it is recommended to always declare your variables, regardless of being in the global scope or in a function</p>
+<p>Failure to declare the variable in these cases will very likely lead to unexpected results. For that reason, in ECMAScript 5 <a title="Strict mode" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/Strict_mode">strict mode</a>, assigning a value an undeclared variable inside a function throws an error.</p>
+<div id="section_5"><span id="var_hoisting"/><h3 class="editable">var hoisting</h3>
+<p>In JavaScript, variable can be declared after being used.</p>
+&#13;
+          <pre name="code" class="js">bla = 2
+var bla;
+// ...
+
+// is implicitly understood as:
+
+var bla;
+bla = 2;</pre>&#13;
+        
+<p>For that reason, it is recommanded to always declare variable at the top of functions. Otherwise, it may lead to confusing cases:</p>
+&#13;
+          <pre name="code" class="js">var cells = document.getElementsByTagName('td');
+
+for(var i=0; i&lt;cells.length; i++){
+  var cell = cells[i];
+  cell.addEventListener('click', function(){
+    cell.style.backgroundColor = '#00F'; // which 'cell' ?
+  }, false);
+}</pre>&#13;
+        
+<p>Here, while the intention is to capture the 'local' cell within the loop, what happened is the following:</p>
+&#13;
+          <pre name="code" class="js">var i, cell;
+var cells = document.getElementsByTagName('td');
+
+for(i=0; i&lt;cells.length; i++){
+  cell = cells[i];
+  cell.addEventListener('click', function(){
+    cell.style.backgroundColor = '#00F';
+  }, false);
+}</pre>&#13;
+        
+<p>The 'cell' captured in the event listener is the global 'cell' variable which, at the end of the loop contains the last cell traversed in the loop. Consequently, clicking on any cell will only affect the last cell.</p></div></div><div id="section_6"><span id="Examples"/><h2 class="editable">Examples</h2>
+<p>Declaring and initializing two variables:</p>
+&#13;
+          <pre name="code" class="js">var a = 0, b = 0;</pre>&#13;
+        
+<p>Assigning 2 variables with single string value.</p>
+&#13;
+          <pre name="code" class="js">var a = "A";
+var b = a;
+
+// Equivalent to:
+
+var a, b = a = "A";</pre>&#13;
+        
+<p>Be careful of the order though:</p>
+&#13;
+          <pre name="code" class="js">var x = y, y = 'A';
+console.log(x + y); // undefinedA
+
+// Here, x is declared. y declaration (but not initialisation!) is hoisted
+// so, at the time of "x = y", y is declared (no ReferenceError is thrown) and its value is 'undefined'
+// then, y is assigned its value.
+// Consequently, after the first line, x === undefined &amp;&amp; y === 'A'. Hence the concatenation</pre>&#13;
+        
+<p>Be careful of initialization of several variables:</p>
+&#13;
+          <pre name="code" class="js">var x = 0;
+
+function f(){
+  var x = y = 1; // x is declared locally. y is not!
+}
+f();
+
+console.log(x, y); // 0, 1
+// x is the global one as expected
+// y leaked outside of the function, though!</pre>&#13;
+        
+</div><div id="section_7"><span id="See_also"/><h2 class="editable">See also</h2>
+<ul><li><a title="en/JavaScript/Reference/Statements/let" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/let"><code>let</code></a></li> <li><code><a title="en/Core_JavaScript_1.5_Reference/Statements/const" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/const">const</a></code></li> <li><a title="en/Core_JavaScript_1.5_Reference/Statements/const" class=" external" rel="external" href="http://blog.meloncard.com/post/12175941935/how-one-missing-var-ruined-our-launch" target="_blank">How One Missing `var` Ruined our Launch</a>.</li> </ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=27356" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Statements/var&amp;action=history" title="13:46, 18 Nov 2011">13:46, 18 Nov 2011</a> by <a href="/User:dbruant" class="link-user" rel="internal">dbruant</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.44 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                  22.02       request-time-ms=19; mysql-queries=2; mysql-time-ms=17; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                8.14       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.84       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/27356/contents                           41.49       request-time-ms=39; mysql-queries=10; mysql-time-ms=13; cache-ratio=-6.50; cache-hit=13; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/27356                                    35.45       request-time-ms=32; mysql-queries=20; mysql-time-ms=20; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/27356/info                                5.63       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/27356/tags                                7.41       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.71       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FStatements%252Fvar/full   235.84       request-time-ms=233; mysql-queries=6; mysql-time-ms=229; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/27356/tags                               12.42       request-time-ms=11; mysql-queries=4; mysql-time-ms=9; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   383.93      
+	                                                     Ideal:   371.51      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

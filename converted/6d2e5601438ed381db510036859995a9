@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectseval" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectseval" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">eval</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Evaluates a string of JavaScript code without reference to a particular object.</p>
+<table class="standard-table"><thead><tr><th colspan="2" class="header">Core Global Method</th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript ?</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript ?</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<p><code>eval(<em>string</em>)</code></p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>string</code></dt> <dd>A string representing a JavaScript expression, statement, or sequence of statements. The expression can include variables and properties of existing objects.</dd>
+</dl><div class="note">Historically eval had a second non-standard argument in SpiderMonkey that got removed.</div>
+</div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p><code>eval</code> is a top-level function and is not associated with any object.</p>
+<p>The argument of the <code>eval</code> function is a string. If the string represents an expression, <code>eval</code> evaluates the expression. If the argument represents one or more JavaScript statements, <code>eval</code> performs the statements. Do not call <code>eval</code> to evaluate an arithmetic expression; JavaScript evaluates arithmetic expressions automatically.</p>
+<p>If you construct an arithmetic expression as a string, you can use <code>eval</code> to evaluate it at a later time. For example, suppose you have a variable <code>x</code>. You can postpone evaluation of an expression involving <code>x</code> by assigning the string value of the expression, say "<code>3 * x + 2</code>", to a variable, and then calling <code>eval</code> at a later point in your script.</p>
+<p>If the argument of <code>eval</code> is not a string, <code>eval</code> returns the argument unchanged. In the following example, the <code>String</code> constructor is specified, and <code>eval</code> returns a <code>String</code> object rather than evaluating the string.</p>
+<pre>
+eval(new String("2 + 2")); // returns a String object containing "2 + 2"
+eval("2 + 2");             // returns 4
+</pre>
+<p>You can work around this limitation in a generic fashion by using <code>toString</code>.</p>
+<pre>
+var expression = new String("2 + 2");
+eval(expression.toString());
+</pre>
+<p>You cannot indirectly use the <code>eval</code> function by invoking it via a name other than <code>eval</code>; if you do, a runtime error might occur. For example, you should not use the following code:</p>
+<pre>
+var x = 2;
+var y = 4;
+var myEval = eval;
+myEval("x + y");
+</pre>
+</div><div id="section_5"><span id="Don.27t_use_eval.21"/><span id="Don't_use_eval!"/><h3 class="editable">Don't use eval!</h3>
+<p><code>eval()</code> is a dangerous function, which executes the code it's passed with the privileges of the caller. If you run <code>eval()</code> with a string that could be affected by a malicious party, you may end up running malicious code on the user's machine with the permissions of your webpage / extension. More importantly, third party code can see the scope in which <code>eval()</code> was invoked, which can lead to possible attacks in ways of which the similar <a title="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function </a>is not susceptible.</p>
+<p><code>eval()</code> is also generally slower than the alternatives, since it has to invoke the JS interpreter, while many other constructs are optimized by modern JS engines.</p>
+<p>There are safe (and fast!) alternatives to <code>eval()</code> for common use-cases.</p>
+<div id="section_6"><span id="Accessing_member_properties"/><h4 class="editable">Accessing member properties</h4>
+<p>You should not use <code>eval</code> to convert property names into properties. Consider the following example. We don't know which property of the object we want to access. This can be done with eval:</p>
+<pre>
+var obj = { a: 20, b: 30 };
+var propname = getPropName();  //returns "a" or "b"
+eval( "var result = obj." + propname );
+</pre>
+<p>However <code>eval</code> is not necessary here. In fact, its use here is discouraged. Instead, use the <a title="en/Core_JavaScript_1.5_Reference/Operators/Member_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Member_Operators">member operators</a>, which are much faster and safer:</p>
+<pre>
+var obj = { a: 20, b: 30 };
+var propname = getPropName();  //returns "a" or "b"
+var result = obj[ propname ];  //  obj[ "a" ] is the same as obj.a 
+</pre>
+</div><div id="section_7"><span id="Use_functions_instead_of_evaluating_snippets_of_code"/><h4 class="editable">Use functions instead of evaluating snippets of code</h4>
+<p>JavaScript has <a class=" external" title="http://en.wikipedia.org/wiki/First-class_function" rel="external" href="http://en.wikipedia.org/wiki/First-class_function" target="_blank">first-class functions</a>, which means you can pass functions as arguments to other APIs, store them in variables and objects' properties, and so on. Many DOM APIs are designed with this in mind, so you can (and should) write:</p>
+<pre>
+setTimeout(function() { ... }, 1000); // instead of setTimeout(" ... ", 1000);
+
+elt.addEventListener("click", function() { ... } , false); // instead of elt.setAttribute("onclick", "...");
+</pre>
+<p><a title="en/JavaScript/Guide/Closures" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide/Closures">Closures</a> are also helpful as a way to create parametrized functions without concatenating strings.</p>
+</div><div id="section_8"><span id="Parsing_JSON_(converting_strings_to_JavaScript_objects)"/><h4 class="editable">Parsing JSON (converting strings to JavaScript objects)</h4>
+<p>If the string you're calling <code>eval()</code> on contains data (for example, an array: <code>"[1, 2, 3]"</code>), as opposed to code, you should consider switching to <a title="en/JSON" rel="internal" href="https://developer.mozilla.org/en/JSON">JSON</a>, which allows the string to use a subset of JavaScript syntax to represent data. See also <a title="en/Downloading_JSON_and_JavaScript_in_extensions" rel="internal" href="https://developer.mozilla.org/en/Downloading_JSON_and_JavaScript_in_extensions">Downloading JSON and JavaScript in extensions</a>.</p>
+<p>Note that since JSON syntax is limited compared to JavaScript syntax, many valid JavaScript literals will not parse as JSON. For example, trailing commas are not allowed in JSON, and property names (keys) in object literals must be enclosed in quotes. Be sure to use a JSON serializer to generate the string, that will be later parsed as JSON.</p>
+</div><div id="section_9"><span id="Pass_data_instead_of_code"/><h4 class="editable">Pass data instead of code</h4>
+<p>For example, an extension designed to scrape contents of web-pages could have the scraping rules defined in <a title="en/XPath" rel="internal" href="https://developer.mozilla.org/en/XPath">XPath</a> instead of JavaScript code.</p>
+</div><div id="section_10"><span id="Run_code_with_limited_privileges"/><h4 class="editable">Run code with limited privileges</h4>
+<p>If must run code, consider running it with reduced privileges. This advice applies mainly to to extensions and XUL applications, which can use <a title="en/Components.utils.evalInSandbox" rel="internal" href="https://developer.mozilla.org/en/Components.utils.evalInSandbox">Components.utils.evalInSandbox</a> for this.</p>
+</div></div><div id="section_11"><span id="Cross-implementation_compatibility"/><h3 class="editable">Cross-implementation compatibility</h3>
+<p>It should be noted that the second optional parameter to <code>eval</code> is non-standard and not supported in all JavaScript implementations; at the time of this writing, for instance, <a title="en/Rhino" rel="internal" href="https://developer.mozilla.org/en/Rhino">Rhino</a> doesn't support it, nor does Safari's JavaScriptCore.</p>
+<div class="note"><strong>Note:</strong> The second argument of eval was removed. See 
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=457068" class="external" title="RESOLVED WONTFIX - DigitalMe and other add-ons fail due to removal of eval's second argument in bug 442333">
+bug 457068</a>
+.<strong><br/></strong></div>
+<p>To maintain compatibility across implementations, it is recommended that the second parameter to <code>eval</code> not be used. To achieve the same effect, the <a title="en/Core_JavaScript_1.5_Reference/Statements/with" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/with">with statement</a> may be used. So rather than using</p>
+<pre class="eval">
+eval(<em>string</em>, <em>object</em>);
+</pre>
+<p>use</p>
+<pre class="eval">
+with (<em>object</em>) {
+  eval(<em>string</em>);
+}
+</pre>
+</div><div id="section_12"><span id="Examples"/><h3 class="editable">Examples</h3>
+<p>The following examples display output using <code>document.write</code>. In server-side JavaScript, you can display the same output by calling the <code>write</code> function instead of using <code>document.write</code>.</p>
+<div id="section_13"><span id="Example:_Using_eval"/><h4 class="editable">Example: Using <code>eval</code></h4>
+<p>In the following code, both of the statements containing <code>eval</code> return 42. The first evaluates the string "<code>x + y + 1</code>"; the second evaluates the string "<code>42</code>".</p>
+<pre>
+var x = 2;
+var y = 39;
+var z = "42";
+eval("x + y + 1"); // returns 42
+eval(z);           // returns 42 
+</pre>
+</div><div id="section_14"><span id="Example:_Using_eval_to_evaluate_a_string_of_JavaScript_statements"/><h4 class="editable">Example: Using <code>eval</code> to evaluate a string of JavaScript statements</h4>
+<p>The following example uses <code>eval</code> to evaluate the string <code>str</code>. This string consists of JavaScript statements that open an Alert dialog box and assign <code>z</code> a value of 42 if <code>x</code> is five, and assigns 0 to <code>z</code> otherwise. When the second statement is executed, <code>eval</code> will cause these statements to be performed, and it will also evaluate the set of statements and return the value that is assigned to <code>z</code>.</p>
+<pre>
+var x = 5;
+var str = "if (x == 5) {alert('z is 42'); z = 42;} else z = 0; ";
+document.write("&lt;P&gt;z is ", eval(str));
+</pre>
+</div></div><div id="section_15"><span id="Return_value"/><h3 class="editable">Return value</h3>
+<p><code>eval</code> returns the value of the last expression evaluated.</p>
+<pre>
+var str = "if ( a ) { 1+1; } else { 1+2; }";
+var a = true;
+var b = eval(str);  // returns 2 
+alert("b is : " + b);
+a = false;
+b = eval(str);  // returns 3
+alert("b is : " + b);
+</pre>
+</div><div id="section_16"><span id="See_also"/><h3 class="editable">See also</h3>
+<ul><li><a title="en/Core_JavaScript_1.5_Reference/Operators/Member_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Member_Operators">member operators</a></li>
+</ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=29112" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/eval&amp;action=history" title="15:49, 6 Jun 2011">15:49, 6 Jun 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 5.69 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   6.25       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.68       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.64       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/29112/contents                        3,415.12       request-time-ms=3412; mysql-queries=20; mysql-time-ms=43; cache-ratio=6.20; cache-hit=31; cache-miss=-26; cache-del=0; cache-ins=25;
+	GET       /deki/pages/29112                                   363.06       request-time-ms=357; mysql-queries=21; mysql-time-ms=42; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/29112/info                                7.20       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/29112/tags                                7.65       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                12.96       request-time-ms=10; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252Feval/full   255.27       request-time-ms=252; mysql-queries=6; mysql-time-ms=246; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/29112/tags                                7.67       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total: 4,090.51      
+	                                                     Ideal: 4,082.84      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

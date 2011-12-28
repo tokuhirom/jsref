@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsFunctionapply" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsFunctionapply" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Function.apply</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Calls a function with a given <code>this</code> value and <code>arguments</code> provided as an array.</p>
+<div class="note"><strong>NOTE:</strong> While the syntax of this function is almost identical to that of <code style="font-style: inherit; "><a href="/en/JavaScript/Reference/Global_Objects/Function/call" rel="internal" title="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">call()</a></code>, the fundamental difference is that <code style="font-style: inherit; ">call()</code> accepts an argument list, while <code style="font-style: inherit; ">apply()</code> accepts a single array of arguments.</div>
+<table class="standard-table"><thead><tr><th class="header" colspan="2" scope="row">Method of <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.3</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMA-262 3rd Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code><em>fun</em>.apply(<em>thisArg</em>[, <em>argsArray</em>])</code></p>
+</div><div id="section_3"><span id="Parameters"/><h2 style="position: static; z-index: auto; " class="editable">Parameters</h2>
+<dl><dt><code>thisArg</code></dt> <dd style="position: static; z-index: auto; "/>
+</dl><dl><dd style="position: relative; z-index: 0; ">The value of <code style="font: normal normal normal 100%/normal 'Courier New', 'Andale Mono', monospace; color: inherit; font-weight: inherit; ">this</code> provided for the call to <em><code style="font: normal normal normal 100%/normal 'Courier New', 'Andale Mono', monospace; color: inherit; font-weight: inherit; ">fun</code></em>.  Note that this may not be the actual value seen by the method: if the method is a function in non-strict mode code, <code style="font: normal normal normal 100%/normal 'Courier New', 'Andale Mono', monospace; color: inherit; font-weight: inherit; ">null</code> and <code style="font: normal normal normal 100%/normal 'Courier New', 'Andale Mono', monospace; color: inherit; font-weight: inherit; ">undefined</code> will be replaced with the global object, and primitive values will be boxed. <div id="WebKit-Editing-Delete-Container" style="-webkit-user-drag: none; -webkit-user-select: none; -webkit-user-modify: none; visibility: hidden; position: absolute; cursor: default; top: 0px; right: 0px; bottom: 0px; left: 0px; "><img alt="" id="WebKit-Editing-Delete-Button" style="position: absolute; z-index: 1000000; top: -15px; left: -17px; width: 30px; height: 30px; visibility: visible;"/></div> </dd>
+</dl><dl><dt><code>argsArray</code></dt> <dd>An array like object, specifying the arguments with which <em><code>fun</code></em> should be called, or <code>null</code> or <a title="en/Core_JavaScript_1.5_Reference/Global_Properties/undefined" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/undefined">undefined</a> if no arguments should be provided to the function.</dd>
+</dl><p>
+</p><div style="border: 0px none ; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); text-align: center;"><p style="margin: 4px 0px; font-weight: bold;"><a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5">JavaScript 1.8.5</a> note</p><p style="margin: 4px 0px;">Starting in JavaScript 1.8.5 (Firefox 4), this method works according to the ECMAScript 5 specification. That is, the arguments can be a generic array-like object instead of an array. See 
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=562448" class="external">
+bug 562448</a>
+ for details on this change.</p></div>
+</div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>You can assign a different <code>this</code> object when calling an existing function. <code>this</code> refers to the current object, the calling object. With <code>apply</code>, you can write a method once and then inherit it in another object, without having to rewrite the method for the new object.</p>
+<p><code>apply</code> is very similar to <code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">call</a></code>, except for the type of arguments it supports. You can use an arguments array instead of a named set of parameters. With <code>apply</code>, you can use an array literal, for example, <code><em>fun</em>.apply(this, ['eat', 'bananas'])</code>, or an <code>Array</code> object, for example, <code><em>fun</em>.apply(this, new Array('eat', 'bananas'))</code>.</p>
+<p>You can also use <code><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments">arguments</a></code> for the <code>argsArray</code> parameter. <code>arguments</code> is a local variable of a function. It can be used for all unspecified arguments of the called object. Thus, you do not have to know the arguments of the called object when you use the <code>apply</code> method. You can use <code>arguments</code> to pass all the arguments to the called object. The called object is then responsible for handling the arguments.</p>
+<p>Since ECMAScript 5th Edition you can also use any kind of object which is array like, so in practice this means it's going to have a property <code>length</code> and integer properties in the range <code>[0...length)</code>. As an example you can now use a <a title="en/DOM/NodeList" rel="internal" href="https://developer.mozilla.org/En/DOM/NodeList">NodeList</a> or a own custom object like <code>{'length': 2, '0': 'eat', '1': 'bananas'}</code>.</p>
+<p/><div class="note"><strong>Note:</strong> Most browsers, including Chrome 14 and Internet Explorer 9, still do not accept array like objects and will throw an exception.</div>
+
+</div><div id="section_5"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_6"><span id="Using_apply_to_chain_constructors"/><h3 class="editable">Using <code>apply</code> to chain constructors</h3>
+<p>You can use <code>apply</code> to chain constructors for an object, similar to Java. In the following example, the constructor for the <code>Product</code> object is defined with two parameters, <code>name</code> and <code>value</code>. Two other functions <code>Food</code> and <code>Toy</code> invoke <code>Product</code> passing <code>this</code> and <code>arguments</code>. Product initializes the properties name and price, both specialized functions define the category. In this example, the <code>arguments</code> object is fully passed to the product constructor and corresponds to the two defined parameters.</p>
+&#13;
+          <pre name="code" class="js">function Product(name, price) {
+  this.name = name;
+  this.price = price;
+
+  if (price &lt; 0)
+    throw RangeError('Cannot create product "' + name + '" with a negative price');
+  return this;
+}
+
+function Food(name, price) {
+  Product.apply(this, arguments);
+  this.category = 'food';
+}
+Food.prototype = new Product();
+
+function Toy(name, price) {
+  Product.apply(this, arguments);
+  this.category = 'toy';
+}
+Toy.prototype = new Product();
+
+var cheese = new Food('feta', 5);
+var fun = new Toy('robot', 40);</pre>&#13;
+        
+</div><div id="section_7"><span id="apply_and_built-in_functions"/><h3 class="editable">apply and built-in functions</h3>
+<p>Clever usage of <code>apply</code> allows you to use built-ins functions for some tasks that otherwise probably would have been written by looping over the array values. As an example here we are going to use Math.max/Math.min to find out the maximum/minimum value in an array.</p>
+&#13;
+          <pre name="code" class="js">/* min/max number in an array */
+var numbers = [5, 6, 2, 3, 7];
+
+/* using Math.min/Math.max apply */
+var max = Math.max.apply(null, numbers); /* This about equal to Math.max(numbers[0], ...) or Math.max(5, 6, ..) */
+var min = Math.min.apply(null, numbers);
+
+/* vs. simple loop based algorithm */
+max = -Infinity, min = +Infinity;
+
+for (var i = 0; i &lt; numbers.length; i++) {
+  if (numbers[i] &gt; max)
+    max = numbers[i];
+  if (numbers[i] &lt; min) 
+    min = numbers[i];
+}</pre>&#13;
+        
+<p>But beware: in using <code>apply</code> this way, you run the risk of exceeding the JavaScript engine's argument length limit. The consequences of applying a function with too many arguments (think more than tens of thousands of arguments) vary across engines, because the limit (indeed even the nature of any excessively-large-stack behavior) is unspecified. Some engines will throw an exception. More perniciously, others will arbitrarily limit the number of arguments actually passed to the applied function. (To illustrate this latter case: if such an engine had a limit of four arguments [actual limits are of course significantly higher], it would be as if the arguments <code>5, 6, 2, 3</code> had been passed to <code>apply</code> in the examples above, rather than the full array.)  If your value array might grow into the tens of thousands, use a hybrid strategy: apply your function to chunks of the array at a time:</p>
+&#13;
+          <pre name="code" class="js">function minOfArray(arr)
+{
+  var min = Infinity;
+  var QUANTUM = 32768;
+  for (var i = 0, len = arr.length; i &lt; len; i += QUANTUM)
+  {
+    var submin = Math.min.apply(null, numbers.slice(i, Math.min(i + QUANTUM, len)));
+    min = Math.min(submin, min);
+  }
+  return min;
+}
+
+var min = minOfArray([5, 6, 2, 3, 7]);</pre>&#13;
+        
+</div></div><div id="section_8"><span id="See_Also"/><h2 class="editable">See Also</h2>
+<p><a title="/en/JavaScript/Reference/Global_Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">call</a>, <a title="/en/JavaScript/Reference/Global_Objects/Function/bind" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind">bind</a>, <a title="en/JavaScript/Reference/Functions_and_function_scope/arguments" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments">arguments</a></p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31299" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=apply" title="apply" tagid="2420" class="text">apply</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Function/apply&amp;action=history" title="20:44, 20 Sep 2011">20:44, 20 Sep 2011</a> by <a href="/User:CristianTincu" class="link-user" rel="internal">CristianTincu</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 23.43 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                 404.74       request-time-ms=4; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               15.90       request-time-ms=7; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.73       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31299/contents                        21,083.44      request-time-ms=21080; mysql-queries=32; mysql-time-ms=38; cache-ratio=2.14; cache-hit=62; cache-miss=-33; cache-del=0; cache-ins=33;
+	GET       /deki/pages/31299                                    42.16       request-time-ms=37; mysql-queries=22; mysql-time-ms=23; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/31299/info                                5.34       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31299/tags                                6.75       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.44       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FFunction%252Fapply/full   230.99       request-time-ms=229; mysql-queries=6; mysql-time-ms=225; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31299/tags                                7.17       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total: 21,812.66     
+	                                                     Ideal: 21,805.49     
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

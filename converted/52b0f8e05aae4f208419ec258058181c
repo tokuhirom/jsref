@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceStatements" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceStatements" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Statements</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>This section describes all JavaScript statements. JavaScript statements consist of keywords used with the appropriate syntax. A single statement may span multiple lines. Multiple statements may occur on a single line if each statement is separated by a semicolon.</p>
+<p/><dl><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/block" rel="internal" style="white-space: nowrap;">block</a></dt><dd>A block statement is used to group zero or more statements. The block is delimited by a pair of curly brackets.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/break" rel="internal" style="white-space: nowrap;"><code>break</code></a></dt><dd>Terminates the current loop, switch, or label statement and transfers program control to the statement following the terminated statement.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/const" rel="internal" style="white-space: nowrap;"><code>const</code></a></dt><dd>Declares a read-only, named constant.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/continue" rel="internal" style="white-space: nowrap;"><code>continue</code></a></dt><dd>Terminates execution of the statements in the current iteration of the current or labelled loop, and continues execution of the loop with the next iteration.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/debugger" rel="internal" style="white-space: nowrap;"><code>debugger</code></a></dt><dd>Invokes any available debugging functionality. If no debugging functionality is available, this statement has no effect.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/do...while" rel="internal" style="white-space: nowrap;"><code>do...while</code></a></dt><dd>Creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once.
+</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/export" rel="internal" style="white-space: nowrap;"><code>export</code></a></dt><dd>Allows a signed script to provide properties, functions, and objects to other signed or unsigned scripts. This feature is not in ECMA-262, Edition 3.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/for" rel="internal" style="white-space: nowrap;"><code>for</code></a></dt><dd>Creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement executed in the loop.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in" rel="internal" style="white-space: nowrap;"><code>for...in</code></a></dt><dd>Iterates over the enumerable properties of an object, in arbitrary order. For each distinct property, statements can be executed.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/for_each...in" rel="internal" style="white-space: nowrap;"><code>for each...in</code></a></dt><dd>Iterates a specified variable over all values of object's properties. For each distinct property, a specified statement is executed.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/function" rel="internal" style="white-space: nowrap;"><code>function</code></a></dt><dd>Declares a function with the specified parameters.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/if...else" rel="internal" style="white-space: nowrap;"><code>if...else</code></a></dt><dd>Executes a statement if a specified condition is true. If the condition is false, another statement can be executed.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/import" rel="internal" style="white-space: nowrap;"><code>import</code></a></dt><dd>Allows a script to import properties, functions, and objects from a signed script that has exported the information.
+</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/label" rel="internal" style="white-space: nowrap;">label</a></dt><dd>Provides a statement with an identifier that you can refer to using a <code>break</code> or <code>continue</code> statement.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/let" rel="internal" style="white-space: nowrap;"><code>let</code></a></dt><dd>Declares a local variable, optionally initializing it to a value.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/return" rel="internal" style="white-space: nowrap;"><code>return</code></a></dt><dd>Specifies the value to be returned by a function.
+</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/switch" rel="internal" style="white-space: nowrap;"><code>switch</code></a></dt><dd>Evaluates an expression, matching the expression's value to a case label, and executes statements associated with that case.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/throw" rel="internal" style="white-space: nowrap;"><code>throw</code></a></dt><dd>Throws a user-defined exception.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/try...catch" rel="internal" style="white-space: nowrap;"><code>try...catch</code></a></dt><dd>Marks a block of statements to try, and specifies a response, should an exception be thrown.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/var" rel="internal" style="white-space: nowrap;"><code>var</code></a></dt><dd>Declares a variable, optionally initializing it to a value.</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/while" rel="internal" style="white-space: nowrap;"><code>while</code></a></dt><dd>Creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.
+</dd><dt><a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/with" rel="internal" style="white-space: nowrap;"><code>with</code></a></dt><dd>Extends the scope chain for a statement.
+</dd></dl></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=26545" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Statements&amp;action=history" title="17:57, 12 Oct 2011">17:57, 12 Oct 2011</a> by <a href="/User:Sevenspade" class="link-user" rel="internal">Sevenspade</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.60 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   4.93       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.25       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.94       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/26545/contents                          529.51       request-time-ms=527; mysql-queries=182; mysql-time-ms=169; cache-ratio=2.09; cache-hit=515; cache-miss=-269; cache-del=0; cache-ins=248;
+	GET       /deki/pages/26545                                    34.19       request-time-ms=31; mysql-queries=20; mysql-time-ms=21; cache-ratio=Infinity; cache-hit=25; cache-miss=-25; cache-del=0; cache-ins=25;
+	GET       /deki/pages/26545/info                                5.76       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/26545/tags                                6.03       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.54       request-time-ms=6; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FStatements/full    11.17       request-time-ms=9; mysql-queries=6; mysql-time-ms=5; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/26545/tags                                6.64       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   619.94      
+	                                                     Ideal:   613.30      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsArrayforEach" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsArrayforEach" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Array.forEach</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Executes a provided function once per array element.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a title="en/JavaScript/Reference/Global_Objects/Array" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.6</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 5th Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code><em>array</em>.forEach(<em>callback</em>[, <em>thisArg</em>])</code></p>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>callback</code></dt> <dd>Function to execute for each element.</dd> <dt><code>thisArg</code></dt> <dd>Object to use as <code>this</code> when executing <code>callback</code>.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p><code>forEach</code> executes the provided function (<code>callback</code>) once for each element present in the array. <code>callback</code> is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values.</p>
+<p><code>callback</code> is invoked with <strong>three arguments</strong>:</p>
+<ul><li>the <strong>element value</strong></li> <li>the <strong>element index</strong></li> <li>the <strong>array being traversed</strong></li>
+</ul><p>If a <code>thisArg</code> parameter is provided to <code>forEach</code>, it will be used as the <code>this</code> value for each <code>callback</code> invocation as if <code>callback.call(thisArg, element, index, array)</code> was called. If <code>thisArg</code> is <code>undefined</code> or <code>null</code>, the <code>this</code> value within the function depends on whether the function is in <a title="en/JavaScript/Strict_mode" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Strict_mode">strict mode</a> or not (passed value if in strict mode, global object if in non-strict mode).</p>
+<p>The range of elements processed by <code>forEach</code> is set before the first invocation of <code>callback</code>. Elements which are appended to the array after the call to <code>forEach</code> begins will not be visited by <code>callback</code>. If existing elements of the array are changed, or deleted, their value as passed to <code>callback</code> will be the value at the time <code>forEach</code> visits them; elements that are deleted are not visited.</p>
+</div><div id="section_5"><span id="Compatibility"/><h2 class="editable">Compatibility</h2>
+<p><code>forEach</code> is a recent addition to the ECMA-262 standard; as such it may not be present in other implementations of the standard. You can work around this by inserting the following code at the beginning of your scripts, allowing use of <code>forEach</code> in implementations which do not natively support it. This algorithm is exactly the one specified in ECMA-262, 5th edition, assuming <code>Object</code> and <code>TypeError</code> have their original values and that <code>callback.call</code> evaluates to the original value of <code><a title="en/JavaScript/Reference/Global Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">Function.prototype.call</a></code>. </p>
+&#13;
+          <pre name="code" class="js">// Production steps of ECMA-262, Edition 5, 15.4.4.18
+// Reference: http://es5.github.com/#x15.4.4.18
+if ( !Array.prototype.forEach ) {
+
+  Array.prototype.forEach = function( callback, thisArg ) {
+
+    var T, k;
+
+    if ( this == null ) {
+      throw new TypeError( " this is null or not defined" );
+    }
+
+    // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
+    var O = Object(this);
+
+    // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
+    // 3. Let len be ToUint32(lenValue).
+    var len = O.length &gt;&gt;&gt; 0; // Hack to convert O.length to a UInt32
+
+    // 4. If IsCallable(callback) is false, throw a TypeError exception.
+    // See: http://es5.github.com/#x9.11
+    if ( {}.toString.call(callback) != "[object Function]" ) {
+      throw new TypeError( callback + " is not a function" );
+    }
+
+    // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+    if ( thisArg ) {
+      T = thisArg;
+    }
+
+    // 6. Let k be 0
+    k = 0;
+
+    // 7. Repeat, while k &lt; len
+    while( k &lt; len ) {
+
+      var kValue;
+
+      // a. Let Pk be ToString(k).
+      //   This is implicit for LHS operands of the in operator
+      // b. Let kPresent be the result of calling the HasProperty internal method of O with argument Pk.
+      //   This step can be combined with c
+      // c. If kPresent is true, then
+      if ( k in O ) {
+
+        // i. Let kValue be the result of calling the Get internal method of O with argument Pk.
+        kValue = O[ k ];
+
+        // ii. Call the Call internal method of callback with T as the this value and
+        // argument list containing kValue, k, and O.
+        callback.call( T, kValue, k, O );
+      }
+      // d. Increase k by 1.
+      k++;
+    }
+    // 8. return undefined
+  };
+}</pre>&#13;
+        
+</div><div id="section_6"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_7"><span id="Example:_Printing_the_contents_of_an_array"/><span id="Printing_the_contents_of_an_array"/><h3 class="editable">Printing the contents of an array</h3>
+<p>The following code logs a line for each element in an array:</p>
+&#13;
+          <pre name="code" class="js">function logArrayElements(element, index, array) {
+    console.log("a[" + index + "] = " + element);
+}
+[2, 5, 9].forEach(logArrayElements);
+// logs:
+// a[0] = 2
+// a[1] = 5
+// a[2] = 9</pre>&#13;
+        
+</div><div id="section_8"><span id="An_object_copy_function"/><h3 class="editable">An object copy function</h3>
+<p>The following code creates a copy of a given object. There are different ways to create a copy of an object. This one is just one of them here to explain how <code>Array.prototype.forEach</code> works. It uses a couple of new ECMAScript 5 Object.* functions.</p>
+&#13;
+          <pre name="code" class="js">function copy(o){
+  var copy = Object.create( Object.getPrototypeOf(o) );
+  var propNames = Object.getOwnPropertyNames(o);
+  propNames.forEach(function(name){
+                      var desc = Object.getOwnPropertyDescriptor(o, name);
+                      Object.defineProperty(copy, name, desc);
+                    });
+  return copy;
+}
+
+
+var o1 = {a:1, b:2};
+var o2 = copy(o1); // o2 looks like o1 now</pre>&#13;
+        
+</div></div><div id="section_9"><span id="Browser_compatibility"/><h2 class="editable">Browser compatibility</h2>
+<p>
+</p><div class="htab"><a name="AutoCompatibilityTable"/>
+<ul><li class="selected">Desktop</li> <li>Mobile</li>
+</ul></div>
+<div id="compat-desktop"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox (Gecko)</th> <th>Chrome</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari</th> </tr><tr><td>Basic support</td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td>9</td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> </tr></tbody></table></div>
+<div id="compat-mobile"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox Mobile (Gecko)</th> <th>Android</th> <th>IE Mobile</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+<p>Based on <a class="external" rel="external" href="http://kangax.github.com/es5-compat-table/" title="http://kangax.github.com/es5-compat-table/" target="_blank">Kangax's compat tables</a></p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(3)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31031" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=ECMAScript5" title="ECMAScript5" tagid="2096" class="text">ECMAScript5</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+1.6" title="JavaScript 1.6" tagid="2130" class="text">JavaScript 1.6</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Array/forEach&amp;action=history" title="08:36, 1 Oct 2011">08:36, 1 Oct 2011</a> by <a href="/User:dbruant" class="link-user" rel="internal">dbruant</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.20 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.05       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.28       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.82       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31031/contents                           60.38       request-time-ms=58; mysql-queries=24; mysql-time-ms=20; cache-ratio=1.37; cache-hit=108; cache-miss=-29; cache-del=0; cache-ins=28;
+	GET       /deki/pages/31031                                    33.72       request-time-ms=29; mysql-queries=22; mysql-time-ms=17; cache-ratio=6.40; cache-hit=32; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/31031/info                                5.40       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31031/tags                                7.05       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.65       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FArray%252FforEach/full    10.75       request-time-ms=9; mysql-queries=6; mysql-time-ms=4; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31031/tags                                7.13       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   151.23      
+	                                                     Ideal:   144.10      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

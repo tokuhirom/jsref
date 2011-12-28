@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsthis" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsthis" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">this</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Introduction"/><h2 class="editable">Introduction</h2>
+<p>A function's <code>this</code> keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between <a title="en/JavaScript/Strict mode" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Strict_mode">strict mode</a> and non-strict mode.</p>
+<p>In general, the object bound to <code>this</code> in the current scope is determined by how the current function was called, it can't be set by assignment during execution, and it can be different each time the function is called. ES5 introduced the <code><a title="en/JavaScript/Reference/Global_Objects/Function/bind" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind">bind</a></code> method to <a title="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/this#Bound_functions" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/this#Bound_functions">fix a function's <code>this</code> regardless of how it's called</a>.</p></div><div id="section_2"><span id="Global_context"/><h2 class="editable">Global context</h2>
+<p>In the global context (outside of any function), <code>this</code> refers to the global object, whether in strict mode or not.</p>
+<pre class="eval">console.log(this.document === document); // true
+
+// In web browsers, the window object is also the global object:
+console.log(this === window); // true
+
+this.a = 37;
+console.log(window.a); // 37
+</pre>
+</div><div id="section_3"><span id="Function_context"/><h2 class="editable">Function context</h2>
+<p>When the <code>this</code> keyword occurs inside a function, its value depends on how the function is called.</p>
+<div id="section_4"><span id="Simple_call"/><h3 class="editable">Simple call</h3>
+&#13;
+          <pre name="code" class="js">function f1(){
+  return this;
+}
+
+f1() === window; // global object
+
+
+function f2(){
+  "use strict"; // see strict mode
+  return this;
+}
+
+f2() === undefined;</pre>&#13;
+        
+<div class="note"><strong>Note:</strong> In the second example, <code>this</code> should be <a title="undefined" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a>, because <code>f2</code> was called without providing any base (e.g. <code>window.f2()</code>). This feature wasn't implemented in some browsers when they first started to support <a title="Strict mode" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Strict_mode">strict mode</a>; because of this, they incorrectly returned the <code>window</code> object.</div>
+</div><div id="section_5"><span id="As_an_object_method"/><h3 class="editable">As an object method</h3>
+<p>When a function is called as a method of an object, its <code>this</code> is set to the object the method is called on.</p>
+<p>In the following example, when <code>o.f()</code> is invoked, inside the function <code>this</code> is bound to the <code>o</code> object.</p>
+&#13;
+          <pre name="code" class="js">var o = {
+  prop: 37,
+  f: function() {
+    return this.prop;
+  }
+};
+
+console.log(o.f()); // logs 37</pre>&#13;
+        
+<p>Note that this behavior is not at all affected by how or where the function was defined. In the previous example, we defined the function inline as the <code>f</code> member during the definition of <code>o</code>.  However, we could have just as easily defined the function first and later attached it to <code>o.f</code>. Doing so results in the same behavior:</p>
+&#13;
+          <pre name="code" class="js">var o = {prop: 37};
+
+function independent() {
+  return this.prop;
+}
+
+o.f = independent;
+
+console.log(o.f()); // logs 37</pre>&#13;
+        
+<p>This demonstrates that it matters only that the function was invoked from the <code>f</code> member of <code>o</code>.</p>
+<p>Similarly, the <code>this</code> binding is only affected by the most immediate member reference. In the following example, when we invoke the function, we call it as a method <code>g</code> of the object <code>o.b</code>. This time during execution, <code>this</code> inside the function will refer to <code>o.b</code>. The fact that the object is itself a member of <code>o</code> has no consequence; the most immediate reference is all that matters.</p>
+&#13;
+          <pre name="code" class="js">o.b = {g: independent, prop: 42};
+console.log(o.b.g()); // logs 42</pre>&#13;
+        
+<div id="section_6"><span id="..._on_the_prototype_chain"/><h4 class="editable">... on the prototype chain</h4>
+<p>The same notion holds true for methods defined somewhere on the object's prototype chain. If the method is on an object's prototype chain, <code>this</code> refers to the object the method was called on, as if the method was on the object.</p>
+&#13;
+          <pre name="code" class="js">var o = {f:function(){ return this.a + this.b; }};
+var p = Object.create(o);
+p.a = 1;
+p.b = 4;
+
+console.log(p.f()); // 5</pre>&#13;
+        
+<p>In this example, the object assigned to the variable <code>p</code> doesn't have its own <code>f</code> property, it inherits it from its <a title="Prototype" rel="internal" href="https://developer.mozilla.org/Prototype" class="new ">prototype</a>. But it doesn't matter that the lookup for <code>f</code> eventually finds a member with that name on <code>o</code>; the lookup began as a reference to <code>p.f</code>, so <code>this</code> inside the function takes the value of the object referred to as <code>p</code>. That is, since <code>f</code> is called as a method of <code>p</code>, its <code>this</code> refers to <code>p</code>. This is an interesting feature of JavaScript's prototype inheritance.</p>
+</div><div id="section_7"><span id="..._or_as_a_getter_or_setter"/><h4 class="editable">... or as a getter or setter</h4>
+<p>Again, the same notion holds true when a function is invoked from a getter or a setter. A function used as getter or setter has its <code>this</code> bound to the object from which the property is being set or gotten.</p>
+&#13;
+          <pre name="code" class="js">function modulus(){
+  return Math.sqrt(this.re * this.re + this.im * this.im);
+}
+
+var o = {
+  re: 1,
+  im: -1,
+  get phase(){
+    return Math.atan2(this.im, this.re);
+  }
+};
+
+Object.defineProperty(o, 'modulus', {get: modulus, enumerable:true, configurable:true});
+
+console.log(o.phase, o.modulus); // logs -0.78 1.4142</pre>&#13;
+        
+</div></div><div id="section_8"><span id="As_a_constructor"/><h3 class="editable">As a constructor</h3>
+<p>When a function is used as a constructor (with the <code><a title="new" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/new">new</a></code> keyword), its <code>this</code> is bound to new object being constructed, unless execution of the constructor results in the JavaScript engine encountering a return statement where the value to be returned is an object.</p>
+&#13;
+          <pre name="code" class="js">/*
+ * Constructors work like this:
+ *
+ * function MyConstructor(){
+ *   // Actual function body code goes here.  Create properties on |this| as
+ *   // desired by assigning to them.  E.g.,
+ *   this.fum = "nom";
+ *   // et cetera...
+ *
+ *   // If the function has a return statement that returns an object, that
+ *   // object will be the result of the |new| expression.  Otherwise, the
+ *   // result of the expression is the object currently bound to |this|
+ *   // (i.e., the common case most usually seen).
+ * }
+ */
+
+function C(){
+  this.a = 37;
+}
+
+var o = new C();
+console.log(o.a); // logs 37
+
+
+function C2(){
+  this.a = 37;
+  return {a:38};
+}
+
+o = new C2();
+console.log(o.a); // logs 38</pre>&#13;
+        
+<p>In the last example (<code>C2</code>), because an object was returned during construction, the new object that <code>this</code> was bound to simply gets discarded. (This essentially makes the statement "<code>this.a = 37;</code>" dead code. It's not exactly dead, because it gets executed, but it can be eliminated with no outside effects.)</p>
+</div><div id="section_9"><span id="call_and_apply"/><h3 class="editable"><code>call</code> and <code>apply</code></h3>
+<p>Where a function uses the <code>this</code> keyword in its body, its value can be bound to a particular object during execution using the <code><a title="en/JavaScript/Reference/Global_Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">call</a></code> or <code><a title="en/JavaScript/Reference/Global_Objects/Function/apply" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">apply</a></code> methods that all functions inherit from <code>Function.prototype</code>.</p>
+&#13;
+          <pre name="code" class="js">function add(c, d){
+  return this.a + this.b + c + d;
+}
+
+var o = {a:1, b:3};
+
+// The first parameter is the object to use as 'this', subsequent parameters are passed as 
+// arguments in the function call
+add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16
+
+// The first parameter is the object to use as 'this', the second is an array whose
+// members are used as the arguments in the function call
+add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34</pre>&#13;
+        
+</div><div id="section_10"><span id="Bound_functions"/><h3 class="editable">Bound functions</h3>
+<p>ECMAScript 5 introduced <code><a title="en/JavaScript/Reference/Global Objects/Function/bind" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind">Function.prototype.bind</a></code>. Calling <code>f.bind(someObject)</code> creates a new function with the same body and scope as <code>f</code>, but where <code>this</code> occurs in the original function, in the new function it is permanently bound to the first argument of <code>bind</code>, regardless of how the function is being used.</p>
+&#13;
+          <pre name="code" class="js">function f(){
+  return this.a;
+}
+
+var g = f.bind({a:"azerty"});
+console.log(g()); // azerty
+
+var o = {a:37, f:f, g:g};
+console.log(o.f(), o.g()); // 37, azerty</pre>&#13;
+        
+</div><div id="section_11"><span id="As_a_DOM_event_handler"/><h3 class="editable">As a DOM event handler</h3>
+<p>When a function is used as an event handler, its <code>this</code> is set to the element the event fired from (some browsers do not follow this convention for listeners added dynamically with methods other than <code>addEventListener</code>).</p>
+&#13;
+          <pre name="code" class="js">// When called as a listener, turns the related element blue
+function bluify(e){
+  console.log(this === e.currentTarget); // Always true
+  console.log(this === e.target);        // true when currentTarget and target are the same object
+  this.style.backgroundColor = '#A5D9F3';
+}
+
+// Get a list of every element in the document
+var elements = document.getElementsByTagName('*');
+
+// Add bluify as a click listener so when the element is clicked on,
+// it turns blue
+for(var i=0 ; i&lt;elements.length ; i++){
+  elements[i].addEventListener('click', bluify, false);
+}</pre>&#13;
+        
+</div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(4)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32893" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsBrowserCompatibility" title="NeedsBrowserCompatibility" tagid="140" class="text">NeedsBrowserCompatibility</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsTechnicalReview" title="NeedsTechnicalReview" tagid="17" class="text">NeedsTechnicalReview</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/this&amp;action=history" title="23:17, 8 Nov 2011">23:17, 8 Nov 2011</a> by <a href="/User:Sevenspade" class="link-user" rel="internal">Sevenspade</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.64 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.27       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.94       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.07       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/32893/contents                           46.12       request-time-ms=44; mysql-queries=9; mysql-time-ms=10; cache-ratio=Infinity; cache-hit=11; cache-miss=-11; cache-del=0; cache-ins=11;
+	GET       /deki/pages/32893                                    44.68       request-time-ms=39; mysql-queries=21; mysql-time-ms=24; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/32893/info                                8.57       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/32893/tags                                8.53       request-time-ms=6; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.72       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252Fthis/full   200.56       request-time-ms=197; mysql-queries=6; mysql-time-ms=193; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32893/tags                                7.39       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   344.84      
+	                                                     Ideal:   337.46      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

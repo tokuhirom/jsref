@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsStringanchor" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsStringanchor" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">String.anchor</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+
+
+</p><div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Non-standard</p></div>
+
+<div id="section_1"><span id="Summary"/><h3 class="editable"> Summary </h3>
+<p>Creates an <a class="external" rel="external" href="http://www.w3.org/TR/html401/struct/links.html#adef-name-A" title="http://www.w3.org/TR/html401/struct/links.html#adef-name-A" target="_blank">HTML anchor</a> that is used as a hypertext target.
+</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" title="en/JavaScript/Reference/Global_Objects/String"><code>String</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMAScript Edition</td> <td>none</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable"> Syntax </h3>
+<p><code>
+anchor(<em>nameAttribute</em>)
+</code>
+</p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable"> Parameters </h3>
+<dl><dt> <code>nameAttribute</code> </dt><dd> A string.
+</dd></dl></div><div id="section_4"><span id="Description"/><h3 class="editable"> Description </h3>
+<p>Use the <code>anchor</code> method with the <code>document.write</code> or <code>document.writeln</code> methods to programmatically create and display an anchor in a document. Create the anchor with the <code>anchor</code> method, and then call <code>write</code> or <code>writeln</code> to display the anchor in a document. In server-side JavaScript, use the <code>write</code> function to display the anchor.
+</p><p>In the syntax, the text string represents the literal text that you want the user to see. The <code>nameAttribute</code> string represents the <code>NAME</code> attribute of the A tag.
+</p><p>Anchors created with the <code>anchor</code> method become elements in the <code>document.anchors</code> array.
+</p>
+</div><div id="section_5"><span id="Examples"/><h3 class="editable"> Examples </h3>
+<div id="section_6"><span id="Example:_Using_anchor"/><h4 class="editable"> Example: Using <code>anchor</code> </h4>
+<p>The following example code within an HTML <code>script</code> element:
+</p>
+<pre>
+var myString = "Table of Contents";
+document.writeln(myString.anchor("contents_anchor"));
+</pre>
+<p>will output the following HTML:
+</p>
+<pre>
+&lt;A NAME="contents_anchor"&gt;Table of Contents&lt;/A&gt;
+</pre>
+</div></div><div id="section_7"><span id="See_Also"/><h3 class="editable"> See Also </h3>
+<p><a title="en/JavaScript/Reference/Global_Objects/String/link" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/link">link</a>
+</p><p><br/></p> </div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(1)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31174" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=String+Methods" title="String Methods" tagid="2295" class="text">String Methods</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/String/anchor&amp;action=history" title="15:58, 29 Apr 2011">15:58, 29 Apr 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.11 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   4.80       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.24       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         9.22       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31174/contents                           34.04       request-time-ms=32; mysql-queries=15; mysql-time-ms=15; cache-ratio=5.75; cache-hit=23; cache-miss=-19; cache-del=0; cache-ins=19;
+	GET       /deki/pages/31174                                    34.36       request-time-ms=30; mysql-queries=21; mysql-time-ms=19; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/31174/info                                9.35       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31174/tags                                8.95       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.76       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FString%252Fanchor/full   255.99       request-time-ms=254; mysql-queries=6; mysql-time-ms=248; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31174/tags                                6.66       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   378.37      
+	                                                     Ideal:   371.70      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

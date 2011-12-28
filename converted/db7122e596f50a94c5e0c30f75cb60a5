@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceFunctionsandfunctionscopeStrictmode" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceFunctionsandfunctionscopeStrictmode" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Strict mode</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+</p><div style="border: 1px solid #818151; background-color: #FFFFE1; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Introduced in <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5">JavaScript 1.8.5</a></p></div>
+<p><a class="external" rel="external" href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" title="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank">ECMAScript 5</a>'s strict mode is a way to <em>opt in</em> to a restricted variant of JavaScript. Strict mode isn't just a subset: it <em>intentionally</em> has different semantics from normal code. Browsers not supporting strict mode will run strict mode code with different behavior from browsers that do, so don't rely on strict mode without feature-testing for support for the relevant aspects of strict mode. Strict mode code and non-strict mode code can coexist, so scripts can opt into strict mode incrementally.</p>
+<p>Strict mode makes several changes to normal JavaScript semantics. First, strict mode eliminates some JavaScript pitfalls that didn't cause errors by changing them to produce errors. Second, strict mode fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode (Firefox 4 generally hasn't optimized strict mode yet, but subsequent versions will). Third, strict mode prohibits some syntax likely to be defined in future versions of ECMAScript.</p>
+<div id="section_1"><span id="Invoking_strict_mode"/><h2 style="position: static; z-index: auto; " class="editable">Invoking strict mode</h2>
+<p>Strict mode applies to <em>entire scripts</em> or to <em>individual functions</em>. It doesn't apply to block statements enclosed in <code>{}</code> braces; attempting to apply it to such contexts does nothing. <code>eval</code> code, <code>Function</code> code, event handler attributes, strings passed to <a title="en/DOM/window.setTimeout" rel="internal" href="https://developer.mozilla.org/en/DOM/window.setTimeout"><code>setTimeout</code></a>, and the like are entire scripts, and invoking strict mode in them works as expected.</p>
+<div id="section_2"><span id="Strict_mode_for_scripts"/><h3 class="editable">Strict mode for scripts</h3>
+<p>To invoke strict mode for an entire script, put the <em>exact</em> statement <code>"use strict";</code> (or <code>'use strict';</code>) before any other statements.</p>
+&#13;
+          <pre name="code" class="js">// Whole-script strict mode syntax
+"use strict";
+var v = "Hi!  I'm a strict mode script!";</pre>&#13;
+        
+<p>This syntax has a trap that has <a class="link-https" rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=579119" title="https://bugzilla.mozilla.org/show_bug.cgi?id=579119" target="_blank">already bitten</a> <a class="link-https" rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=627531" title="https://bugzilla.mozilla.org/show_bug.cgi?id=627531" target="_blank">a major site</a>: it isn't possible to blindly concatenate non-conflicting scripts. Consider concatenating a strict mode script with a non-strict mode script: the entire concatenation looks strict! The inverse is also true: non-strict plus strict looks non-strict. Concatenation of strict mode scripts with each other is fine, and concatenation of non-strict mode scripts is fine. Only <a class="external" rel="external" href="http://en.wikipedia.org/wiki/Proton_pack" title="http://en.wikipedia.org/wiki/Proton_pack" target="_blank">crossing the streams</a> by concatenating strict and non-strict scripts is problematic. It is thus recommended that you enable strict mode on a function-by-function basis (at least during the transition period).</p>
+</div><div id="section_3"><span id="Strict_mode_for_functions"/><h3 class="editable">Strict mode for functions</h3>
+<p>Likewise, to invoke strict mode for a function, put the <em>exact</em> statement <code>"use strict";</code> (or <code>'use strict';</code>) in the function's body before any other statements.</p>
+&#13;
+          <pre name="code" class="js">function strict()
+{
+  // Function-level strict mode syntax
+  'use strict';
+  function nested() { return "And so am I!"; }
+  return "Hi!  I'm a strict mode function!  " + nested();
+}
+function notStrict() { return "I'm not strict."; }</pre>&#13;
+        
+</div></div><div id="section_4"><span id="Changes_in_strict_mode"/><h2 class="editable">Changes in strict mode</h2>
+<p>Strict mode changes both syntax and runtime behavior. Changes generally fall into these categories: changes converting mistakes into errors (as syntax errors or at runtime), changes simplifying how the particular variable for a given use of a name is computed, changes simplifying <code>eval</code> and <code>arguments</code>, changes making it easier to write "secure" JavaScript, and changes anticipating future ECMAScript evolution.</p>
+<div id="section_5"><span id="Converting_mistakes_into_errors"/><h3 style="position: static; z-index: auto; " class="editable">Converting mistakes into errors</h3>
+<p>Strict mode changes some previously-accepted mistakes into errors. JavaScript was designed to be easy for novice developers, and sometimes it gives operations which should be errors non-error semantics. Sometimes this fixes the immediate problem, but sometimes this creates worse problems in the future. Strict mode treats these mistakes as errors so that they're discovered and promptly fixed.</p>
+<p>First, strict mode makes it impossible to accidentally create global variables. In normal JavaScript mistyping a variable in an assignment creates a new property on the global object and continues to "work" (although future failure is possible: likely, in modern JavaScript). Assignments which would accidentally create global variables instead throw in strict mode:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+mistypedVaraible = 17; // throws a ReferenceError</pre>&#13;
+        
+<p>Second, strict mode makes assignments which would otherwise silently fail throw an exception. For example, <code>NaN</code> is a non-writable global variable. In normal code assigning to <code>NaN</code> does nothing; the developer receives no failure feedback. In strict mode assigning to <code>NaN</code> throws an exception. Any assignment that silently fails in normal code (assignment to a non-writable property, assignment to a getter-only property, assignment to a new property on a <a title="en/JavaScript/Reference/Global Objects/Object/preventExtensions" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/preventExtensions">non-extensible</a> object) will throw in strict mode:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+
+// Assignment to a non-writable property
+var obj1 = {};
+Object.defineProperty(obj1, "x", { value: 42, writable: false });
+obj1.x = 9; // throws a TypeError
+
+// Assignment to a getter-only property
+var obj2 = { get x() { return 17; } };
+obj2.x = 5; // throws a TypeError
+
+// Assignment to a new property on a non-extensible object
+var fixed = {};
+Object.preventExtensions(fixed);
+fixed.newProp = "ohai"; // throws a TypeError</pre>&#13;
+        
+<p>Third, strict mode makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect):</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+delete Object.prototype; // throws a TypeError</pre>&#13;
+        
+<p>Fourth, strict mode requires that all properties named in an object literal be unique. Normal code may duplicate property names, with the last one determining the property's value. But since only the last one does anything, the duplication is simply a vector for bugs, if the code is modified to change the property value other than by changing the last instance. Duplicate property names are a syntax error in strict mode:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+var o = { p: 1, p: 2 }; // !!! syntax error</pre>&#13;
+        
+<p>Fifth, strict mode requires that function argument names be unique. In normal code the last duplicated argument hides previous identically-named arguments. Those previous arguments remain available through <code>arguments[i]</code>, so they're not completely inaccessible. Still, this hiding makes little sense and is probably undesirable (it might hide a typo, for example), so in strict mode duplicate argument names are a syntax error:</p>
+&#13;
+          <pre name="code" class="js">function sum(a, a, c) // !!! syntax error
+{
+  "use strict";
+  return a + b + c; // wrong if this code ran
+}</pre>&#13;
+        
+<p>Sixth, strict mode forbids octal syntax. Octal syntax isn't part of ECMAScript, but it's supported in all browsers by prefixing the octal number with a zero: <code>0644 === 420</code> and <code>"\045" === "%"</code>. Novice developers sometimes believe a leading zero prefix has no semantic meaning, so they use it as an alignment device — but this changes the number's meaning! Octal syntax is rarely useful and can be mistakenly used, so strict mode makes octal a syntax error:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+var sum = 015 + // !!! syntax error
+          197 +
+          142;</pre>&#13;
+        
+</div><div id="section_6"><span id="Simplifying_variable_uses"/><h3 class="editable">Simplifying variable uses</h3>
+<p>Strict mode simplifies how variable names map to particular variable definitions in the code. Many compiler optimizations rely on the ability to say that variable <em>X</em> is stored in <em>that</em> location: this is critical to fully optimizing JavaScript code. JavaScript sometimes makes this basic mapping of name to variable definition in the code impossible to perform until runtime. Strict mode removes most cases where this happens, so the compiler can better optimize strict mode code.</p>
+<p>First, strict mode prohibits <code>with</code>. The problem with <code>with</code> is that any name inside the block might map either to a property of the object passed to it, or to a variable in surrounding (or even global) scope, at runtime: it's impossible to know which beforehand. Strict mode makes <code>with</code> a syntax error, so there's no chance for a name in a <code>with</code> to refer to an unknown location at runtime:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+var x = 17;
+with (obj) // !!! syntax error
+{
+  // If this weren't strict mode, would this be var x, or
+  // would it instead be obj.x?  It's impossible in general
+  // to say without running the code, so the name can't be
+  // optimized.
+  x;
+}</pre>&#13;
+        
+<p>The simple alternative of assigning the object to a short name variable, then accessing the corresponding property on that variable, stands ready to replace <code>with</code>.</p>
+<p>Second, <a class="external" rel="external" href="http://whereswalden.com/2011/01/10/new-es5-strict-mode-support-new-vars-created-by-strict-mode-eval-code-are-local-to-that-code-only/" title="http://whereswalden.com/2011/01/10/new-es5-strict-mode-support-new-vars-created-by-strict-mode-eval-code-are-local-to-that-code-only/" target="_blank"><code>eval</code> of strict mode code does not introduce new variables into the surrounding scope</a>. In normal code <code>eval("var x;")</code> introduces a variable <code>x</code> into the surrounding function or the global scope. This means that, in general, in a function containing a call to <code>eval</code> every name not referring to an argument or local variable must be mapped to a particular definition at runtime (because that <code>eval</code> might have introduced a new variable that would hide the outer variable). In strict mode <code>eval</code> creates variables only for the code being evaluated, so <code>eval</code> can't affect whether a name refers to an outer variable or some local variable:</p>
+&#13;
+          <pre name="code" class="js">var x = 17;
+var evalX = eval("'use strict'; var x = 42; x");
+assert(x === 17);
+assert(evalX === 42);</pre>&#13;
+        
+<p>Relatedly, if the function <code>eval</code> is invoked by an expression of the form <code>eval(...)</code> in strict mode code, the code will be evaluated as strict mode code. The code may explicitly invoke strict mode, but it's unnecessary to do so.</p>
+&#13;
+          <pre name="code" class="js">function strict1(str)
+{
+  "use strict";
+  return eval(str); // str will be treated as strict mode code
+}
+function strict2(f, str)
+{
+  "use strict";
+  return f(str); // not eval(...): str is strict if it invokes strict mode
+}
+function nonstrict(str)
+{
+  return eval(str); // str is strict if it invokes strict mode
+}
+strict1("'Strict mode code!'");
+strict1("'use strict'; 'Strict mode code!'");
+strict2(eval, "'Non-strict code.'");
+strict2(eval, "'use strict'; 'Strict mode code!'");
+nonstrict("'Non-strict code.'");
+nonstrict("'use strict'; 'Strict mode code!'");</pre>&#13;
+        
+<p>Third, strict mode forbids deleting plain names. Thus names in strict mode <code>eval</code> code behave identically to names in strict mode code not being evaluated as the result of <code>eval</code>. <code>delete name</code> in strict mode is a syntax error:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+eval("var x; delete x;"); // !!! syntax error</pre>&#13;
+        
+</div><div id="section_7"><span id="Making_eval_and_arguments_simpler"/><h3 class="editable">Making <code>eval</code> and <code>arguments</code> simpler</h3>
+<p>Strict mode makes <code>arguments</code> and <code>eval</code> less bizarrely magical. Both involve a considerable amount of magical behavior in normal code: <code>eval</code> to add or remove bindings and to change binding values, and <code>arguments</code> by its indexed properties aliasing named arguments. Strict mode makes great strides toward treating <code>eval</code> and <code>arguments</code> as keywords, although full fixes will not come until a future edition of ECMAScript.</p>
+<p>First, the names <code>eval</code> and <code>arguments</code> can't be bound or assigned in language syntax. All these attempts to do so are syntax errors:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+eval = 17;
+arguments++;
+++eval;
+var obj = { set p(arguments) { } };
+var eval;
+try { } catch (arguments) { }
+function x(eval) { }
+function arguments() { }
+var y = function eval() { };
+var f = new Function("arguments", "'use strict'; return 17;");</pre>&#13;
+        
+<p>Second, strict mode code doesn't alias properties of <code>arguments</code> objects created within it. In normal code within a function whose first argument is <code>arg</code>, setting <code>arg</code> also sets <code>arguments[0]</code>, and vice versa (unless no arguments were provided or <code>arguments[0]</code> is deleted). <code>arguments</code> objects for strict mode functions store the original arguments when the function was invoked. <code>arguments[i]</code> does not track the value of the corresponding named argument, nor does a named argument track the value in the corresponding <code>arguments[i]</code>.</p>
+&#13;
+          <pre name="code" class="js">function f(a)
+{
+  "use strict";
+  a = 42;
+  return [a, arguments[0]];
+}
+var pair = f(17);
+assert(pair[0] === 42);
+assert(pair[1] === 17);</pre>&#13;
+        
+<p>Third, <code>arguments.callee</code> is no longer supported. In normal code <code>arguments.callee</code> refers to the enclosing function. This use case is weak: simply name the enclosing function! Moreover, <code>arguments.callee</code> substantially hinders optimizations like inlining functions, because it must be made possible to provide a reference to the un-inlined function if <code>arguments.callee</code> is accessed. <code>arguments.callee</code> for strict mode functions is a non-deletable property which throws when set or retrieved:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+var f = function() { return arguments.callee; };
+f(); // throws a TypeError</pre>&#13;
+        
+</div><div id="section_8"><span id=".22Securing.22_JavaScript"/><h3 style="position: static; z-index: auto; " class="editable">"Securing" JavaScript</h3>
+<p>Strict mode makes it easier to write "secure" JavaScript. Some websites now provide ways for users to write JavaScript which will be run by the website <em>on behalf of other users</em>. JavaScript in browsers can access the user's private information, so such JavaScript must be partially transformed before it is run, to censor access to forbidden functionality. JavaScript's flexibility makes it effectively impossible to do this without many runtime checks. Certain language functions are so pervasive that performing runtime checks has considerable performance cost. A few strict mode tweaks, plus requiring that user-submitted JavaScript be strict mode code and that it be invoked in a certain manner, substantially reduce the need for those runtime checks.</p>
+<p>First, the value passed as <code>this</code> to a function in strict mode isn't boxed into an object. For a normal function, <code>this</code> is always an object: the provided object if called with an object-valued <code>this</code>; the value, boxed, if called with a Boolean, string, or number <code>this</code>; or the global object if called with an <code>undefined</code> or <code>null</code> <code>this</code>. (Use <a title="en/JavaScript/Reference/Global_Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call"><code>call</code></a>, <a title="en/JavaScript/Reference/Global_Objects/Function/apply" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply"><code>apply</code></a>, or <a title="en/JavaScript/Reference/Global_Objects/Function/bind" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind"><code>bind</code></a> to specify a particular <code>this</code>.) Automatic boxing is a performance cost, but exposing the global object in browsers is a security hazard, because the global object provides access to functionality "secure" JavaScript environments must restrict. Thus for a strict mode function, the specified <code>this</code> is used unchanged:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+function fun() { return this; }
+assert(fun() === undefined);
+assert(fun.call(2) === 2);
+assert(fun.apply(null) === null);
+assert(fun.call(undefined) === undefined);
+assert(fun.bind(true)() === true);</pre>&#13;
+        
+<p>Second, in strict mode it's no longer possible to "walk" the JavaScript stack via commonly-implemented extensions to ECMAScript. In normal code with these extensions, when a function <code>fun</code> is in the middle of being called, <code>fun.caller</code> is the function that most recently called <code>fun</code>, and <code>fun.arguments</code> is the <code>arguments</code> for that invocation of <code>fun</code>. Both extensions are problematic for "secure" JavaScript, because they allow "secured" code to access "privileged" functions and their (potentially unsecured) arguments. If <code>fun</code> is in strict mode, both <code>fun.caller</code> and <code>fun.arguments</code> are non-deletable properties which throw when set or retrieved:</p>
+&#13;
+          <pre name="code" class="js">function restricted()
+{
+  "use strict";
+  restricted.caller;    // throws a TypeError
+  restricted.arguments; // throws a TypeError
+}
+function privilegedInvoker()
+{
+  return restricted();
+}
+privilegedInvoker();</pre>&#13;
+        
+<p>Third, <code>arguments</code> for strict mode functions no longer provide access to the corresponding function call's variables. In some old ECMAScript implementations <code>arguments.caller</code> was an object whose properties aliased variables in that function. This is a <a class="external" rel="external" href="http://stuff.mit.edu/iap/2008/facebook/" title="http://stuff.mit.edu/iap/2008/facebook/" target="_blank">security hazard</a> because it breaks the ability to hide privileged values via function abstraction; it also precludes most optimizations. For these reasons no recent browsers implement it. Yet because of its historical functionality, <code>arguments.caller</code> for a strict mode function is also a non-deletable property which throws when set or retrieved:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+function fun(a, b)
+{
+  "use strict";
+  var v = 12;
+  return arguments.caller; // throws a TypeError
+}
+fun(1, 2); // doesn't expose v (or a or b)</pre>&#13;
+        
+</div><div id="section_9"><span id="Paving_the_way_for_future_ECMAScript_versions"/><h3 style="position: relative; z-index: 0; " class="editable">Paving the way for future ECMAScript versions</h3>
+<p>Future ECMAScript versions will likely introduce new syntax, and strict mode in ECMAScript 5 applies some restrictions to ease the transition. It will be easier to make some changes if the foundations of those changes are prohibited in strict mode.</p>
+<p>First, in strict mode a short list of identifiers become reserved keywords. These words are <code>implements</code>, <code>interface</code>, <code>let</code>, <code>package</code>, <code>private</code>, <code>protected</code>, <code>public</code>, <code>static</code>, and <code>yield</code>. In strict mode, then, you can't name or use variables or arguments with these names.</p>
+&#13;
+          <pre name="code" class="js">function package(protected) // !!!
+{
+  "use strict";
+  var implements; // !!!
+
+  interface: // !!!
+  while (true)
+  {
+    break interface; // !!!
+  }
+
+  function private() { } // !!!
+}
+function fun(static) { 'use strict'; } // !!!</pre>&#13;
+        
+<p>Two Mozilla-specific caveats: First, if your code is JavaScript 1.7 or greater (your chrome code, or you've used the right <code>&lt;script type=""&gt;</code>) and is strict mode code, <code>let</code> and <code>yield</code> have the functionality they've had since those keywords were first introduced. But strict mode code on the web, loaded with <code>&lt;script src=""&gt;</code> or <code>&lt;script&gt;...&lt;/script&gt;</code>, won't be able to use <code>let</code>/<code>yield</code> as identifiers.  Second, while ES5 unconditionally reserves the words <code>class</code>, <code>enum</code>, <code>export</code>, <code>extends</code>, <code>import</code>, and <code>super</code>, Mozilla reserves them only in strict mode.  They will be re-reserved in normal code in a future release after Firefox 4.</p>
+<p>Second, <a class="external" rel="external" href="http://whereswalden.com/2011/01/24/new-es5-strict-mode-requirement-function-statements-not-at-top-level-of-a-program-or-function-are-prohibited/" title="http://whereswalden.com/2011/01/24/new-es5-strict-mode-requirement-function-statements-not-at-top-level-of-a-program-or-function-are-prohibited/" target="_blank">strict mode prohibits function statements not at the top level of a script or function</a>. In normal code in browsers, function statements are permitted "everywhere". <em>This is not part of ES5 (or even ES3)!</em> It's an extension with incompatible semantics in different browsers. Future ECMAScript editions will hopefully specify new semantics for function statements not at the top level of a script or function. <a class="external" rel="external" href="http://wiki.ecmascript.org/doku.php?id=conventions:no_non_standard_strict_decls" title="http://wiki.ecmascript.org/doku.php?id=conventions:no_non_standard_strict_decls" target="_blank">Prohibiting such function statements in strict mode</a> "clears the deck" for specification in a future ECMAScript release:</p>
+&#13;
+          <pre name="code" class="js">"use strict";
+if (true)
+{
+  function f { } // !!! syntax error
+  f();
+}
+for (var i = 0; i &lt; 5; i++)
+{
+  function f2() { } // !!! syntax error
+  f2();
+}
+function baz() // kosher
+{
+  function eit() { } // also kosher
+}</pre>&#13;
+        
+<p>This prohibition isn't strict mode proper, because such function statements are an extension of basic ES5. But it is the recommendation of the ECMAScript committee, and browsers will implement it.</p>
+</div></div><div id="section_10"><span id="Strict_mode_in_browsers"/><h2 style="position: static; z-index: auto; " class="editable">Strict mode in browsers</h2>
+<p>Browsers don't reliably implement strict mode yet, so don't blindly depend on it. <em>Strict mode changes semantics.</em> Relying on those changes will cause mistakes and errors in browsers which don't implement strict mode. Exercise caution in using strict mode, and back up reliance on strict mode with feature tests that check whether relevant parts of strict mode are implemented. Finally, make sure to <em>test your code in browsers that do and don't support strict mode</em>.  If you test only in browsers that don't support strict mode, you're very likely to have problems in browsers that do, and vice versa.</p>
+</div><div id="section_11"><span id="See_Also"/><h2 class="editable">See Also</h2>
+<ul><li><a class="external" title="http://whereswalden.com/2010/09/08/new-es5-strict-mode-support-now-with-poison-pills/" rel="external" href="http://whereswalden.com/2010/09/08/new-es5-strict-mode-support-now-with-poison-pills/" target="_blank">Where's Walden? » New ES5 strict mode support: now with poison pills!</a></li> <li><a class="external" title="http://whereswalden.com/2011/01/24/new-es5-strict-mode-requirement-function-statements-not-at-top-level-of-a-program-or-function-are-prohibited/" rel="external" href="http://whereswalden.com/2011/01/24/new-es5-strict-mode-requirement-function-statements-not-at-top-level-of-a-program-or-function-are-prohibited/" target="_blank">Where's Walden? » New ES5 strict mode requirement: function statements not at top level of a program or function are prohibited</a></li> <li><a class="external" title="http://whereswalden.com/2011/01/10/new-es5-strict-mode-support-new-vars-created-by-strict-mode-eval-code-are-local-to-that-code-only/" rel="external" href="http://whereswalden.com/2011/01/10/new-es5-strict-mode-support-new-vars-created-by-strict-mode-eval-code-are-local-to-that-code-only/" target="_blank">Where's Walden? » New ES5 strict mode support: new vars created by strict mode eval code are local to that code only</a></li> <li><a class="external" title="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/" rel="external" href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/" target="_blank">John Resig - ECMAScript 5 Strict Mode, JSON, and More</a></li> <li><a class="external" rel="external" href="http://dmitrysoshnikov.com/ecmascript/es5-chapter-2-strict-mode/" title="http://dmitrysoshnikov.com/ecmascript/es5-chapter-2-strict-mode/" target="_blank">ECMA-262-5 in detail. Chapter 2. Strict Mode.</a></li> <li><a class="external" rel="external" href="http://kangax.github.com/es5-compat-table/strict-mode/" title="http://kangax.github.com/es5-compat-table/strict-mode/" target="_blank">Strict mode compatibility table</a></li>
+</ul></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(4)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=61303" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=ECMAScript5" title="ECMAScript5" tagid="2096" class="text">ECMAScript5</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+1.8.5" title="JavaScript 1.8.5" tagid="2044" class="text">JavaScript 1.8.5</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=Strict+Mode" title="Strict Mode" tagid="2079" class="text">Strict Mode</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Functions_and_function_scope/Strict_mode&amp;action=history" title="22:13, 5 Dec 2011">22:13, 5 Dec 2011</a> by <a href="/User:alex.w.y" class="link-user" rel="internal">alex.w.y</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.22 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                 304.65       request-time-ms=12; mysql-queries=1; mysql-time-ms=3; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               33.92       request-time-ms=31; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         9.74       request-time-ms=5; mysql-queries=2; mysql-time-ms=3; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/61303/contents                          285.34       request-time-ms=280; mysql-queries=17; mysql-time-ms=27; cache-ratio=3.00; cache-hit=27; cache-miss=-18; cache-del=0; cache-ins=18;
+	GET       /deki/pages/61303                                    67.39       request-time-ms=59; mysql-queries=21; mysql-time-ms=40; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/61303/info                               21.28       request-time-ms=13; mysql-queries=3; mysql-time-ms=11; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/61303/tags                               24.13       request-time-ms=16; mysql-queries=5; mysql-time-ms=14; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                38.18       request-time-ms=23; mysql-queries=4; mysql-time-ms=20; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FFunctions%2Band%2Bfunction%2Bscope%252FStrict%2Bmode/full   263.59       request-time-ms=259; mysql-queries=6; mysql-time-ms=256; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/61303/tags                                9.03       request-time-ms=6; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total: 1,057.25      
+	                                                     Ideal: 1,048.22      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsfunction" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsfunction" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Special.function</h1>            &#13;
+              <span class="page-moved"><a class="pageMoved" href="/index.php?title=en/JavaScript/Reference/Operators/Special/function&amp;redirect=no">Redirected from en/JavaScript/Reference/Operators/Special/function</a></span>&#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>The <code>function</code> operator defines a function inside an expression.</p>
+<table class="fullwidth-table" style="width: auto;"><tbody><tr><td colspan="2" class="header">Operator</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.5</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262, Edition 3</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<pre class="eval">
+function [<em>name</em>]([<em>param1</em>, <em>param2</em>, ..., <em>paramN</em>]) {
+   <em>statements</em>
+}
+</pre>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>name</code></dt> <dd>The function name. Can be omitted, in which case the function is <em>anonymous</em>. The name is only local to the function body.</dd>
+</dl><dl><dt><code>paramN</code></dt> <dd>The name of an argument to be passed to the function. A function can have up to 255 arguments.</dd>
+</dl><dl><dt><code>statements</code></dt> <dd>The statements which comprise the body of the function.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>A function expression is very similar to and has almost the same syntax as a function declaration (see <a title="en/Core_JavaScript_1.5_Reference/Statements/function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/function">function</a> for details). See <a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope">Functions</a> for information on the differences between function statements and function expressions.</p>
+</div><div id="section_5"><span id="Examples"/><h2 class="editable">Examples</h2>
+<p>The following example defines an unnamed function and assigns it to <code>x</code>. The function returns the square of its argument:</p>
+&#13;
+          <pre name="code" class="js">var x = function(y) {
+   return y * y;
+};</pre>&#13;
+        
+<div id="section_6"><span id="Named_function_expression"/><h3 class="editable">Named function expression</h3>
+<p>If you want to refer to the current function inside the function body, you need to create a named function expression. This name is then local only to the function body (scope). This also avoids using the non-standard <a title="en/JavaScript/Reference/Functions and function scope/arguments/callee" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/callee">arguments.callee</a> property.</p>
+&#13;
+          <pre name="code" class="js">var math = {
+  'factorial': function factorial(n) {
+    if (n &lt;= 1)
+      return 1;
+    return n * factorial(n - 1);
+  }
+}</pre>&#13;
+        
+</div></div><div id="section_7"><span id="See_also"/><h2 class="editable">See also</h2>
+<p><code><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope">Functions</a></code>, <code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a></code>, <code><a title="en/Core_JavaScript_1.5_Reference/Statements/function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/function">function statement</a></code></p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=33072" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/function&amp;action=history" title="20:54, 7 Sep 2011">20:54, 7 Sep 2011</a> by <a href="/User:Ruakh" class="link-user" rel="internal">Ruakh</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.47 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   9.22       request-time-ms=3; mysql-queries=1; mysql-time-ms=2; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                8.08       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.41       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/82746/contents                           51.02       request-time-ms=48; mysql-queries=13; mysql-time-ms=22; cache-ratio=Infinity; cache-hit=17; cache-miss=-17; cache-del=0; cache-ins=16;
+	GET       /deki/pages/82746                                    56.21       request-time-ms=52; mysql-queries=22; mysql-time-ms=36; cache-ratio=29.00; cache-hit=29; cache-miss=-28; cache-del=0; cache-ins=28;
+	GET       /deki/pages/33072/info                                6.07       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	          /deki/pages/33072/security                            9.40       
+	GET       /deki/pages/33072/tags                                9.99       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                10.89       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252Ffunction/full   234.27       request-time-ms=232; mysql-queries=6; mysql-time-ms=228; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/33072/tags                                6.28       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   408.83      
+	                                                     Ideal:   402.55      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

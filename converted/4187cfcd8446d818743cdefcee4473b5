@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsObjectlookupGetter" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsObjectlookupGetter" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Object.lookupGetter</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p>
+
+</p><div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Non-standard</p></div>
+<p>
+
+</p><div class="deprecatedHeaderTemplate" style="overflow:hidden; border: 1px solid #5151FF; background-color: #B9B9FF; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Deprecated</p></div>
+
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Return the function bound as a getter to the specified property.</p>
+<table class="standard-table"><thead><tr><th colspan="2" class="header">Method of <a title="en/JavaScript/Reference/Global_Objects/Object" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript ?</td> </tr><tr><td>ECMAScript Edition</td> <td>None, but see <a title="en/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">getOwnPropertyDescriptor</a> and <a title="en/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf">getPrototypeOf</a>.</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<p><code><em>obj</em>.__lookupGetter__(<em>sprop</em>)</code></p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>sprop</code></dt> <dd>a string containing the name of the property whose getter should be returned</dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p>If a getter has been defined for an object's property, it's not possible to reference the getter function through that property, because that property refers to the return value of that function. <code>__lookupGetter__</code> can be used to obtain a reference to the getter function.</p>
+<p>It is now possible to do this in a standardized way using <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor" title="en/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">getOwnPropertyDescriptor</a> and <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/getPrototypeOf" title="en/JavaScript/Reference/Global_Objects/Object/getPrototypeOf">getPrototypeOf</a>.</p></div><div id="section_5"><span id="See_also"/><h3 class="editable">See also</h3>
+<ul><li><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/get_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/get">get</a></li> <li><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Object/defineGetter" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/defineGetter">__defineGetter__</a></li> <li><a class="internal" title="en/Core JavaScript 1.5 Reference/Global Objects/Object/defineSetter" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/defineSetter">__defineSetter__</a></li> <li><a title="en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Getters_and_Setters" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide/Obsolete_Pages/Creating_New_Objects/Defining_Getters_and_Setters">JS Guide:Defining Getters and Setters</a></li>
+</ul><p> </p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32322" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Object/lookupGetter&amp;action=history" title="13:40, 11 Jul 2011">13:40, 11 Jul 2011</a> by <a href="/User:Bzbarsky" class="link-user" rel="internal">Bzbarsky</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 2.71 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                  24.15       request-time-ms=18; mysql-queries=2; mysql-time-ms=16; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.51       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         8.16       request-time-ms=3; mysql-queries=2; mysql-time-ms=2; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/32322/contents                           57.01       request-time-ms=54; mysql-queries=24; mysql-time-ms=30; cache-ratio=2.93; cache-hit=41; cache-miss=-27; cache-del=0; cache-ins=26;
+	GET       /deki/pages/32322                                    44.47       request-time-ms=39; mysql-queries=20; mysql-time-ms=28; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/32322/info                                5.87       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/32322/tags                                7.53       request-time-ms=5; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                12.88       request-time-ms=9; mysql-queries=4; mysql-time-ms=7; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FObject%252FlookupGetter/full   401.71       request-time-ms=399; mysql-queries=6; mysql-time-ms=393; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32322/tags                               15.32       request-time-ms=10; mysql-queries=4; mysql-time-ms=7; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   583.61      
+	                                                     Ideal:   568.29      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

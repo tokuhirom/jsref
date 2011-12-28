@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" id="developer-mozilla-org" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#"><body id="home" class="html-ltr " role="document">
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->
+  <section id="content"><div class="wrap">
+
+  <section id="content-main" role="main" class="full"><section id="top-docs"><h1>Browse Thousands of Docs for <b>Web Developers</b></h1>
+      <ul><li>
+          <ul><li><a href="/en/HTML">HTML</a></li>
+            <li><a href="/en/HTML/HTML5">HTML5</a></li>
+            <li><a href="/en/CSS">CSS</a></li>
+            <li><a href="/en/JavaScript">JavaScript</a></li>
+            <li><a href="/en/DOM">DOM</a></li>
+          </ul></li>
+        <li>
+          <ul><li><a href="/en/HTML/Canvas">Canvas</a></li>
+            <li><a href="/en/SVG">SVG</a></li>
+            <li><a href="/en/WebGL">WebGL</a></li>
+            <li><a href="/en/Using_audio_and_video_in_Firefox">Video</a></li>
+            <li><a href="/en/Using_audio_and_video_in_Firefox">Audio</a></li>
+          </ul></li>
+        <li>
+          <ul><li><a href="/en/Using_gradients">Gradients</a></li>
+            <li><a href="/en/CSS/Using_CSS_transforms">Transforms</a></li>
+            <li><a href="/en/CSS/CSS_transitions">Transitions</a></li>
+            <li><a href="/en/CSS/CSS_animations">Animations</a></li>
+            <li><a href="/en/CSS/Media_queries">Media Queries</a></li>
+          </ul></li>
+        <li>
+          <ul><li><a href="/en/Ajax">AJAX</a></li>
+            <li><a href="/en/WebSockets">WebSockets</a></li>
+            <li><a href="/en/Offline_resources_in_Firefox">Offline Cache</a></li>
+            <li><a href="/en/DOM/Storage">Local Storage</a></li>
+            <li><a href="/en/IndexedDB">IndexedDB</a></li>
+          </ul></li>
+        <li>
+          <ul><li><a href="/en/Using_geolocation">Geolocation</a></li>
+            <li><a href="/en/DragDrop/Drag_and_Drop">Drag &amp; Drop</a></li>
+            <li><a href="/en/Using_files_from_web_applications">File API</a></li>
+            <li><a href="/en/Using_web_workers">Web Workers</a></li>
+            <li><a href="/en-US/docs" class="more">and more…</a></li>
+          </ul></li>
+      </ul><p class="more">
+        And even more resources for: <a href="/en-US/mobile">Mobile Web Apps</a> · <a href="/en-US/addons">Firefox Add-ons</a> · <a href="/en-US/mozilla">Mozilla Applications</a>      </p>
+    </section><!-- /#top-docs --><section id="home-promos" class="home-promos"><div class="promo" id="promo-learn">
+          <a href="/en-US/learn">
+          <h2>Learn</h2>
+          <p>Our collection of resources shows you how to use the technologies that power the Web.</p>
+        </a>
+        <div/>
+      </div>
+      
+      <div class="promo" id="promo-demos">
+          <a href="/en-US/demos/">
+          <h2>Demos</h2>
+          <p>Check out what developers are doing with the latest Web standards and open technologies.</p>
+        </a>
+        <div/>
+      </div>
+      
+      <div class="promo" id="promo-foxdev">
+        <a href="/en/Firefox_for_developers">
+          <h2>Firefox for Devs</h2>
+          <p>See what's new for Web developers in the latest version of Firefox.</p>
+        </a>
+        <div/>
+      </div>
+    
+      <div class="promo" id="promo-aurora">
+        <a href="http://www.mozilla.com/en-US/firefox/channel/">
+          <h2>Firefox Aurora</h2>
+          <p>Experience the latest desktop and mobile features in Aurora and help shape the future of Firefox.</p>
+        </a>
+        <div/>
+      </div>
+    
+    </section><!-- /#home-promos --><div class="home-extra">
+      <div class="col-1">
+                <figure id="apps-promo" class="promo banner"><a href="/en-US/apps">
+            <img src="//developer.mozilla.org/media/img/labsapps-promo-456x150.png" width="456" height="150" alt="Be part of the Mozilla Labs Apps project. Learn More."/></a>
+        </figure><section id="home-news"><h1>Latest News &amp; Updates</h1>
+          <ul class="hfeed"><li class="hentry">
+      <h2 class="entry-title"><a href="http://hacks.mozilla.org/2011/12/introducing-aurora-11-with-tons-of-new-features-and-improvements/" rel="bookmark">Introducing Aurora 11 with tons of new features and improvements</a></h2>
+      <p class="entry-summary">We have now released Aurora 11, soon to become Firefox 11, and wanted to cover all the the things we have improved in this version! Highlights To quickly edit the outerHTML of an element, we have now added support for element.outerHTML. The Battery API Storing files in IndexedDB Support for ...</p>
+      <p class="entry-meta vcard">
+      Posted <time class="updated" datetime="2011-12-23" title="2011-12-23">December 23, 2011</time> by <cite class="author fn">Robert Nyman</cite>            under <a href="/en-US/web" rel="tag">Web</a>
+            </p>
+    </li>
+              <li class="hentry">
+      <h2 class="entry-title"><a href="https://shizen008.wordpress.com/2011/12/23/mobile-newsletter-week-of-december-23th-2011/" rel="bookmark">Naoki Hirata: Mobile Newsletter – Week of December 23th 2011</a></h2>
+      <p class="entry-summary">Welcome Firefox Mobile testers and Happy Holidays! Our goal is to provide you with mobile news and guidance towards how and where you as a tester can help out! This Week’s Headlines! Session tab restore Save Image Native crashes reported separately in Socorro! Clear site settings (Clears site login, geolocation ...</p>
+      <p class="entry-meta vcard">
+      Posted <time class="updated" datetime="2011-12-23" title="2011-12-23">December 23, 2011</time> by <cite class="author fn">shizen008</cite>            under <a href="/en-US/mobile" rel="tag">Mobile</a>
+            </p>
+    </li>
+              <li class="hentry">
+      <h2 class="entry-title"><a href="http://blog.mozilla.com/addons/2011/12/22/amo-editors-new-years-challenge/" rel="bookmark">AMO Editors New Year’s Challenge</a></h2>
+      <p class="entry-summary">The new year is upon us, and it’s time to make a big push on the review queues! Between December 15, 2011 and February 15, 2012, AMO Editors are eligible to win some great prizes. Editors who review 100 or more add-ons during the contest period will advance to the ...</p>
+      <p class="entry-meta vcard">
+      Posted <time class="updated" datetime="2011-12-22" title="2011-12-22">December 22, 2011</time> by <cite class="author fn">Amy Tsay</cite>            under <a href="/en-US/addons" rel="tag">Add-ons</a>
+            </p>
+    </li>
+              <li class="hentry">
+      <h2 class="entry-title"><a href="http://blog.mozilla.com/about_mozilla/2011/12/20/firefox-flicks-gaming-and-the-apps-project-and-more%e2%80%a6/" rel="bookmark">Firefox Flicks, Gaming and the Apps Project and more…</a></h2>
+      <p class="entry-summary">about:mozilla is a weekly round-up of news and contribution opportunities. Here’s what’s happening this week. Firefox Flicks We’re excited to announce Firefox Flicks, a campaign giving everyone an opportunity to produce a short film that highlights what makes Mozilla Firefox different. Submissions will be accepted February–April 2012 . We’ll be ...</p>
+      <p class="entry-meta vcard">
+      Posted <time class="updated" datetime="2011-12-20" title="2011-12-20">December 20, 2011</time> by <cite class="author fn">Paul Booker</cite>            under <a href="/en-US/mozilla" rel="tag">Mozilla</a>
+            </p>
+    </li>
+      </ul></section><!-- /#home-news --></div>
+        
+      <div class="col-2">
+        <section id="home-demos"><h1>Awesome Demos</h1>
+          <p class="more"><a href="/en-US/demos/">More Demos…</a></p>
+          
+          <ul class="gallery"><li class="demo row-first ">
+    <h2 class="demo-title">
+        <a href="/en-US/demos/detail/pure-css3-design-akiyama-mio"><img src="/media/uploads/demos/R/e/Rei/4793300280894fcb1c66ef2b595e0b99/1323307907_screenshot_1_thumb.png" alt="" width="180" height="133"/>Pure CSS3 Design Akiyama Mio</a>
+            </h2>
+    <p class="byline vcard"><a href="/en-US/profiles/Rei/" class="url fn" title="See Rei's profile">Rei</a></p>
+    <div class="extra">
+      <ul class="stats"><li class="views" title="This demo has been viewed 1511 times" data-recent="1222">1511</li>
+        <li class="likes" title="83 people liked this demo" data-recent="69">83</li>
+        <li class="comments"><a href="/demos/detail/pure-css3-design-akiyama-mio#comments" title="There are 0 comments for this demo">0</a></li>
+      </ul><p class="desc">Akiyama Mio by pure CSS3 with animation without image. / 純 CSS3 繪製秋山澪</p>
+      <p class="launch"><a href="/en-US/demos/detail/pure-css3-design-akiyama-mio/launch" target="" class="button" title="Launch Pure CSS3 Design Akiyama Mio">Launch</a></p>
+    </div>
+</li>
+                            <li class="demo ">
+    <h2 class="demo-title">
+        <a href="/en-US/demos/detail/paint-search"><img src="/media/uploads/demos/m/a/mar.castelluccio/8f4f28b9f1a03d2f83473ac71278b22b/1322694734_screenshot_1_thumb.png" alt="" width="180" height="133"/>Paint &amp; Search</a>
+            </h2>
+    <p class="byline vcard"><a href="/en-US/profiles/mar.castelluccio/" class="url fn" title="See mar.castelluccio's profile">mar.castelluccio</a></p>
+    <div class="extra">
+      <ul class="stats"><li class="views" title="This demo has been viewed 691 times" data-recent="431">691</li>
+        <li class="likes" title="104 people liked this demo" data-recent="68">104</li>
+        <li class="comments"><a href="/demos/detail/paint-search#comments" title="There are 0 comments for this demo">0</a></li>
+      </ul><p class="desc">Paint in a Canvas and search for images similar to your masterpiece on the Internet</p>
+      <p class="launch"><a href="/en-US/demos/detail/paint-search/launch" target="_blank" class="button" title="Launch Paint &amp; Search">Launch</a></p>
+    </div>
+</li>
+                            <li class="demo row-first featured">
+    <h2 class="demo-title">
+        <a href="/en-US/demos/detail/the-planetarium"><img src="/media/uploads/demos/l/i/littleworkshop/the-planetarium/screenshot_thumb_1.png" alt="" width="180" height="133"/>The Planetarium</a>
+        <strong class="flag">Featured</strong>    </h2>
+    <p class="byline vcard"><a href="/en-US/profiles/littleworkshop/" class="url fn" title="See littleworkshop's profile">littleworkshop</a></p>
+    <div class="extra">
+      <ul class="stats"><li class="views" title="This demo has been viewed 9794 times" data-recent="1640">9794</li>
+        <li class="likes" title="291 people liked this demo" data-recent="49">291</li>
+        <li class="comments"><a href="/demos/detail/the-planetarium#comments" title="There are 4 comments for this demo">4</a></li>
+      </ul><p class="desc">A CSS3 journey through the Solar System</p>
+      <p class="launch"><a href="/en-US/demos/detail/the-planetarium/launch" target="" class="button" title="Launch The Planetarium">Launch</a></p>
+    </div>
+</li>
+                            <li class="demo first-place">
+    <h2 class="demo-title">
+        <a href="/en-US/demos/detail/html5-drawings"><img src="/media/uploads/demos/c/g/cgack/d823163b33c0267f72585110db3029e9/1314113700_screenshot_1_thumb.png" alt="" width="180" height="133"/>HTML5 Drawings</a>
+        <strong class="flag">First Place</strong>    </h2>
+    <p class="byline vcard"><a href="/en-US/profiles/cgack/" class="url fn" title="See cgack's profile">cgack</a></p>
+    <div class="extra">
+      <ul class="stats"><li class="views" title="This demo has been viewed 4213 times" data-recent="673">4213</li>
+        <li class="likes" title="145 people liked this demo" data-recent="22">145</li>
+        <li class="comments"><a href="/demos/detail/html5-drawings#comments" title="There are 0 comments for this demo">0</a></li>
+      </ul><p class="desc">HTML5 Canvas drawings using History API for undo and redo</p>
+      <p class="launch"><a href="/en-US/demos/detail/html5-drawings/launch" target="" class="button" title="Launch HTML5 Drawings">Launch</a></p>
+    </div>
+</li>
+                            <li class="demo row-first first-place">
+    <h2 class="demo-title">
+        <a href="/en-US/demos/detail/css3-cherry-blossom-media-queries"><img src="/media/uploads/demos/e/l/elufo/5efb2533c28b17d06ed2d594736bb410/1319479594_screenshot_1_thumb.png" alt="" width="180" height="133"/>CSS3 Cherry Blossom - Media queries</a>
+        <strong class="flag">First Place</strong>    </h2>
+    <p class="byline vcard"><a href="/en-US/profiles/elufo/" class="url fn" title="See elufo's profile">elufo</a></p>
+    <div class="extra">
+      <ul class="stats"><li class="views" title="This demo has been viewed 7632 times" data-recent="2022">7632</li>
+        <li class="likes" title="87 people liked this demo" data-recent="20">87</li>
+        <li class="comments"><a href="/demos/detail/css3-cherry-blossom-media-queries#comments" title="There are 3 comments for this demo">3</a></li>
+      </ul><p class="desc">Media queries example, 100% CSS3 - 0% javascript.</p>
+      <p class="launch"><a href="/en-US/demos/detail/css3-cherry-blossom-media-queries/launch" target="_blank" class="button" title="Launch CSS3 Cherry Blossom - Media queries">Launch</a></p>
+    </div>
+</li>
+                        <li class="demo-submit">          
+            <p><a href="/en-US/demos/submit">Have an awesome demo of your own? <strong>Submit It</strong></a></p>
+            </li>
+          </ul></section><!-- /#home-demos --></div>
+    </div>
+    
+  </section></div>
+</section><!-- /#content --><section id="footbar"><div class="wrap">
+  <p>
+  What do you think of the new MDN? Please <a href="http://mdn.uservoice.com/forums/51389-mdn-website-feedback-http-developer-mozilla-org">share your feedback</a> with us. <a id="dev-mdc-link" href="https://lists.mozilla.org/listinfo/dev-mdc">Join our mailing list</a> to discuss ways to help create great documentation.  </p>
+</div>
+</section><noscript>
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="//statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>
+</noscript>
+</body></html>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsBitwiseOperators" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsBitwiseOperators" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Bitwise Operators</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Bitwise operators treat their operands as a sequence of 32 bits (zeros and ones), rather than as decimal, hexadecimal, or octal numbers. For example, the decimal number nine has a binary representation of 1001. Bitwise operators perform their operations on such binary representations, but they return standard JavaScript numerical values.</p>
+<table class="fullwidth-table"><tbody><tr><td colspan="2" class="header">Operators</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262</td> </tr></tbody></table><p>The following table summarizes JavaScript's bitwise operators:</p>
+<table class="fullwidth-table"><tbody><tr><th>Operator</th> <th>Usage</th> <th>Description</th> </tr><tr><td>Bitwise AND</td> <td style="white-space: nowrap"><code>a &amp; b</code></td> <td>Returns a one in each bit position for which the corresponding bits of both operands are ones.</td> </tr><tr><td>Bitwise OR</td> <td style="white-space: nowrap"><code>a | b</code></td> <td>Returns a one in each bit position for which the corresponding bits of either or both operands are ones.</td> </tr><tr><td>Bitwise XOR</td> <td style="white-space: nowrap"><code>a ^ b</code></td> <td>Returns a one in each bit position for which the corresponding bits of either but not both operands are ones.</td> </tr><tr><td>Bitwise NOT</td> <td style="white-space: nowrap"><code>~ a</code></td> <td>Inverts the bits of its operand.</td> </tr><tr><td>Left shift</td> <td style="white-space: nowrap"><code>a &lt;&lt; b</code></td> <td>Shifts <code>a</code> in binary representation <code>b</code> (&lt; 32) bits to the left, shifting in zeros from the right.</td> </tr><tr><td>Sign-propagating right shift</td> <td style="white-space: nowrap"><code>a &gt;&gt; b</code></td> <td>Shifts <code>a</code> in binary representation <code>b</code> (&lt; 32) bits to the right, discarding bits shifted off.</td> </tr><tr><td>Zero-fill right shift</td> <td style="white-space: nowrap"><code>a &gt;&gt;&gt; b</code></td> <td>Shifts <code>a</code> in binary representation <code>b</code> (&lt; 32) bits to the right, discarding bits shifted off, and shifting in zeros from the left.</td> </tr></tbody></table></div><div id="section_2"><span id="Signed_32-bit_integers"/><h3 class="editable">Signed 32-bit integers</h3>
+<p>The operands of all bitwise operators are converted to signed 32-bit integers in big-endian order and in two's complement format. Big-endian order means that the most significant bit (the bit position with the greatest value) is the left-most bit if the 32 bits are arranged in a horizontal line. Two's complement format means that a number's negative counterpart (e.g. 5 vs. -5) is all the number's bits inverted (bitwise NOT of the number, a.k.a. one's complement of the number) plus one. For example, the following encodes the integer 314 (base 10):</p>
+<pre class="eval">
+00000000000000000000000100111010
+</pre>
+<p>The following encodes ~314, i.e. the one's complement of 314:</p>
+<pre class="eval">
+11111111111111111111111011000101
+</pre>
+<p>Finally, the following encodes -314, i.e. the two's complement of 314:</p>
+<pre class="eval">
+11111111111111111111111011000110
+</pre>
+<p>The two's complement guarantees that the left-most bit is 0 when the number is positive and 1 when the number is negative. Thus, it is called the <em>sign bit</em>.</p>
+<p>The number 0 is the integer that is composed completely of 0 bits.</p>
+<p>The number -1 is the integer that is composed completely of 1 bits.</p>
+</div><div id="section_3"><span id="Bitwise_logical_operators"/><h3 class="editable">Bitwise logical operators</h3>
+<p>Conceptually, the bitwise logical operators work as follows:</p>
+<ul><li>The operands are converted to 32-bit integers and expressed by a series of bits (zeros and ones).</li> <li>Each bit in the first operand is paired with the corresponding bit in the second operand: first bit to first bit, second bit to second bit, and so on.</li> <li>The operator is applied to each pair of bits, and the result is constructed bitwise.</li>
+</ul><div id="section_4"><span id="&amp;_.28Bitwise_AND.29"/><span id=".26_(Bitwise_AND)"/><h4 class="editable">&amp; (Bitwise AND)</h4>
+<p>Performs the AND operation on each pair of bits. <code>a</code> AND <code>b</code> yields 1 only if both <code>a</code> and <code>b</code> are 1. The truth table for the AND operation is:</p>
+<table class="standard-table"><tbody><tr><td class="header">a</td> <td class="header">b</td> <td class="header">a AND b</td> </tr><tr><td>0</td> <td>0</td> <td>0</td> </tr><tr><td>0</td> <td>1</td> <td>0</td> </tr><tr><td>1</td> <td>0</td> <td>0</td> </tr><tr><td>1</td> <td>1</td> <td>1</td> </tr></tbody></table><p>Example:</p>
+<pre class="eval">
+     9 (base 10) = 00000000000000000000000000001001 (base 2)
+    14 (base 10) = 00000000000000000000000000001110 (base 2)
+                   --------------------------------
+14 &amp; 9 (base 10) = 00000000000000000000000000001000 (base 2) = 8 (base 10)
+</pre>
+<p>Bitwise ANDing any number x with 0 yields 0.</p>
+<p>Bitwise ANDing any number x with -1 yields x.</p>
+</div><div id="section_5"><span id="|_.28Bitwise_OR.29"/><span id=".7C_(Bitwise_OR)"/><h4 class="editable">| (Bitwise OR)</h4>
+<p>Performs the OR operation on each pair of bits. <code>a</code> OR <code>b</code> yields 1 if either <code>a</code> or <code>b</code> is 1. The truth table for the OR operation is:</p>
+<table class="standard-table"><tbody><tr><td class="header">a</td> <td class="header">b</td> <td class="header">a OR b</td> </tr><tr><td>0</td> <td>0</td> <td>0</td> </tr><tr><td>0</td> <td>1</td> <td>1</td> </tr><tr><td>1</td> <td>0</td> <td>1</td> </tr><tr><td>1</td> <td>1</td> <td>1</td> </tr></tbody></table><pre class="eval">
+     9 (base 10) = 00000000000000000000000000001001 (base 2)
+    14 (base 10) = 00000000000000000000000000001110 (base 2)
+                   --------------------------------
+14 | 9 (base 10) = 00000000000000000000000000001111 (base 2) = 15 (base 10)
+</pre>
+<p>Bitwise ORing any number x with 0 yields x.</p>
+<p>Bitwise ORing any number x with -1 yields -1.</p>
+</div><div id="section_6"><span id=".5E_.28Bitwise_XOR.29"/><span id=".5E_(Bitwise_XOR)"/><h4 class="editable">^ (Bitwise XOR)</h4>
+<p>Performs the XOR operation on each pair of bits. <code>a</code> XOR <code>b</code> yields 1 if <code>a</code> and <code>b</code> are different. The truth table for the XOR operation is:</p>
+<table class="standard-table"><tbody><tr><td class="header">a</td> <td class="header">b</td> <td class="header">a XOR b</td> </tr><tr><td>0</td> <td>0</td> <td>0</td> </tr><tr><td>0</td> <td>1</td> <td>1</td> </tr><tr><td>1</td> <td>0</td> <td>1</td> </tr><tr><td>1</td> <td>1</td> <td>0</td> </tr></tbody></table><p>Example:</p>
+<pre class="eval">
+     9 (base 10) = 00000000000000000000000000001001 (base 2)
+    14 (base 10) = 00000000000000000000000000001110 (base 2)
+                   --------------------------------
+14 ^ 9 (base 10) = 00000000000000000000000000000111 (base 2) = 7 (base 10)
+</pre>
+<p>Bitwise XORing any number x with 0 yields x.</p>
+<p>Bitwise XORing any number x with -1 yields ~x.</p>
+</div><div id="section_7"><span id=".7E_.28Bitwise_NOT.29"/><span id=".7E_(Bitwise_NOT)"/><h4 class="editable">~ (Bitwise NOT)</h4>
+<p>Performs the NOT operator on each bit. NOT <code>a</code> yields the inverted value (a.k.a. one's complement) of <code>a</code>. The truth table for the NOT operation is:</p>
+<table class="standard-table"><tbody><tr><td class="header">a</td> <td class="header">NOT a</td> </tr><tr><td>0</td> <td>1</td> </tr><tr><td>1</td> <td>0</td> </tr></tbody></table><p>Example:</p>
+<pre class="eval">
+ 9 (base 10) = 00000000000000000000000000001001 (base 2)
+               --------------------------------
+~9 (base 10) = 11111111111111111111111111110110 (base 2) = -10 (base 10)
+</pre>
+<p>Bitwise NOTing any number x yields -(x + 1). For example, ~5 yields -6.</p>
+</div></div><div id="section_8"><span id="Bitwise_shift_operators"/><h3 class="editable">Bitwise shift operators</h3>
+<p>The bitwise shift operators take two operands: the first is a quantity to be shifted, and the second specifies the number of bit positions by which the first operand is to be shifted. The direction of the shift operation is controlled by the operator used.</p>
+<p>Shift operators convert their operands to 32-bit integers in big-endian order and return a result of the same type as the left operand.  The right operand should be less than 32, but if not only the low five bits will be used.</p>
+<div id="section_9"><span id=".3C.3C_.28Left_shift.29"/><span id=".3C.3C_(Left_shift)"/><h4 class="editable">&lt;&lt; (Left shift)</h4>
+<p>This operator shifts the first operand the specified number of bits to the left. Excess bits shifted off to the left are discarded. Zero bits are shifted in from the right.</p>
+<p>For example, <code>9 &lt;&lt; 2</code> yields 36:</p>
+<pre class="eval">
+     9 (base 10): 00000000000000000000000000001001 (base 2)
+                  --------------------------------
+9 &lt;&lt; 2 (base 10): 00000000000000000000000000100100 (base 2) = 36 (base 10)
+</pre>
+<p>Bitwise shifting any number <strong>x</strong> to the left by <strong>y</strong> bits yields <strong>x * y^2</strong>.</p>
+</div><div id="section_10"><span id=".3E.3E_.28Sign-propagating_right_shift.29"/><span id=".3E.3E_(Sign-propagating_right_shift)"/><h4 class="editable">&gt;&gt; (Sign-propagating right shift)</h4>
+<p>This operator shifts the first operand the specified number of bits to the right. Excess bits shifted off to the right are discarded. Copies of the leftmost bit are shifted in from the left. Since the new leftmost bit has the same value as the previous leftmost bit, the sign bit (the leftmost bit) does not change. Hence the name "sign-propagating".</p>
+<p>For example, <code>9 &gt;&gt; 2</code> yields 2:</p>
+<pre class="eval">
+     9 (base 10): 00000000000000000000000000001001 (base 2)
+                  --------------------------------
+9 &gt;&gt; 2 (base 10): 00000000000000000000000000000010 (base 2) = 2 (base 10)
+</pre>
+<p>Likewise, <code>-9 &gt;&gt; 2</code> yields -3, because the sign is preserved:</p>
+<pre class="eval">
+     -9 (base 10): 11111111111111111111111111110111 (base 2)
+                   --------------------------------
+-9 &gt;&gt; 2 (base 10): 11111111111111111111111111111101 (base 2) = -3 (base 10)
+</pre>
+</div><div id="section_11"><span id=".3E.3E.3E_.28Zero-fill_right_shift.29"/><span id=".3E.3E.3E_(Zero-fill_right_shift)"/><h4 class="editable">&gt;&gt;&gt; (Zero-fill right shift)</h4>
+<p>This operator shifts the first operand the specified number of bits to the right. Excess bits shifted off to the right are discarded. Zero bits are shifted in from the left. The sign bit becomes 0, so the result is always positive.</p>
+<p>For non-negative numbers, zero-fill right shift and sign-propagating right shift yield the same result. For example, <code>9 &gt;&gt;&gt; 2</code> yields 2, the same as <code>9 &gt;&gt; 2</code>:</p>
+<pre class="eval">
+      9 (base 10): 00000000000000000000000000001001 (base 2)
+                   --------------------------------
+9 &gt;&gt;&gt; 2 (base 10): 00000000000000000000000000000010 (base 2) = 2 (base 10)
+</pre>
+<p>However, this is not the case for negative numbers. For example, <code>-9 &gt;&gt;&gt; 2</code> yields 1073741821, which is different than <code>-9 &gt;&gt; 2</code> (which yields -3):</p>
+<pre class="eval">
+      -9 (base 10): 11111111111111111111111111110111 (base 2)
+                    --------------------------------
+-9 &gt;&gt;&gt; 2 (base 10): 00111111111111111111111111111101 (base 2) = 1073741821 (base 10)
+</pre>
+</div></div><div id="section_12"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_13"><span id="Example:_Flags_and_bitmasks"/><h4 class="editable">Example: Flags and bitmasks</h4>
+<p>The bitwise logical operators are often used to create, manipulate, and read sequences of <em>flags</em>, which are like binary variables. Variables could be used instead of these sequences, but binary flags take much less memory (by a factor of 32).</p>
+<p>Suppose there are 4 flags:</p>
+<ul><li>flag A: we have an ant problem</li> <li>flag B: we own a bat</li> <li>flag C: we own a cat</li> <li>flag D: we own a duck</li>
+</ul><p>These flags are represented by a sequence of bits: DCBA. When a flag is <em>set</em>, it has a value of 1. When a flag is <em>cleared</em>, it has a value of 0. Suppose a variable <code>flags</code> has the binary value 0101:</p>
+<pre class="eval">
+var flags = 0x5;   // binary 0101
+</pre>
+<p>This value indicates:</p>
+<ul><li>flag A is true (we have an ant problem);</li> <li>flag B is false (we don't own a bat);</li> <li>flag C is true (we own a cat);</li> <li>flag D is false (we don't own a duck);</li>
+</ul><p>Since bitwise operators are 32-bit, 0101 is actually 00000000000000000000000000000101, but the preceding zeroes can be neglected since they contain no meaningful information.</p>
+<p>A <em>bitmask</em> is a sequence of bits that can manipulate and/or read flags. Typically, a "primitive" bitmask for each flag is defined:</p>
+<pre class="eval">
+var FLAG_A = 0x1; // 0001
+var FLAG_B = 0x2; // 0010
+var FLAG_C = 0x4; // 0100
+var FLAG_D = 0x8; // 1000
+</pre>
+<p>New bitmasks can be created by using the bitwise logical operators on these primitive bitmasks. For example, the bitmask 1011 can be created by ORing FLAG_A, FLAG_B, and FLAG_D:</p>
+<pre class="eval">
+var mask = FLAG_A | FLAG_B | FLAG_D; // 0001 | 0010 | 1000 =&gt; 1011
+</pre>
+<p>Individual flag values can be extracted by ANDing them with a bitmask, where each bit with the value of one will "extract" the corresponding flag. The bitmask <em>masks</em> out the non-relevant flags by ANDing with zeros (hence the term "bitmask"). For example, the bitmask 0100 can be used to see if flag C is set:</p>
+<pre class="eval">
+// if we own a cat
+if (flags &amp; FLAG_C) { // 0101 &amp; 0100 =&gt; 0100 =&gt; true
+   // do stuff
+}
+</pre>
+<p>A bitmask with multiple set flags acts like an "either/or". For example, the following two are equivalent:</p>
+<pre class="eval">
+// if we own a bat or we own a cat
+if ((flags &amp; FLAG_B) || (flags &amp; FLAG_C)) { // (0101 &amp; 0010) || (0101 &amp; 0100) =&gt; 0000 || 0100 =&gt; true
+   // do stuff
+}
+</pre>
+<pre class="eval">
+// if we own a bat or cat
+var mask = FLAG_B | FLAG_C; // 0010 | 0100 =&gt; 0110
+if (flags &amp; mask) { // 0101 &amp; 0110 =&gt; 0100 =&gt; true
+   // do stuff
+}
+</pre>
+<p>Flags can be set by ORing them with a bitmask, where each bit with the value one will set the corresponding flag, if that flag isn't already set. For example, the bitmask 1010 can be used to set flags C and D:</p>
+<pre class="eval">
+// yes, we own a cat and a duck
+var mask = FLAG_C | FLAG_D; // 0100 | 1000 =&gt; 1100
+flags |= mask;   // 0101 | 1100 =&gt; 1101
+</pre>
+<p>Flags can be cleared by ANDing them with a bitmask, where each bit with the value zero will clear the corresponding flag, if it isn't already cleared. This bitmask can be created by NOTing primitive bitmasks. For example, the bitmask 1010 can be used to clear flags A and C:</p>
+<pre class="eval">
+// no, we don't neither have an ant problem nor own a cat
+var mask = ~(FLAG_A | FLAG_C); // ~0101 =&gt; 1010
+flags &amp;= mask;   // 1101 &amp; 1010 =&gt; 1000
+</pre>
+<p>The mask could also have been created with <code>~FLAG_A &amp; ~FLAG_C</code> (De Morgan's law):</p>
+<pre class="eval">
+// no, we don't have an ant problem, and we don't own a cat
+var mask = ~FLAG_A &amp; ~FLAG_C;
+flags &amp;= mask;   // 1101 &amp; 1010 =&gt; 1000
+</pre>
+<p>Flags can be toggled by XORing them with a bitmask, where each bit with the value one will toggle the corresponding flag. For example, the bitmask 0110 can be used to toggle flags B and C:</p>
+<pre class="eval">
+// if we didn't have a bat, we have one now, and if we did have one, bye-bye bat
+// same thing for cats
+var mask = FLAG_B | FLAG_C;
+flags = flags ^ mask;   // 1100 ^ 0110 =&gt; 1010
+</pre>
+<p>Finally, the flags can all be flipped with the NOT operator:</p>
+<pre class="eval">
+// entering parallel universe...
+flags = ~flags;    // ~1010 =&gt; 0101
+</pre>
+<p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=30774" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/Bitwise_Operators&amp;action=history" title="21:15, 20 Aug 2011">21:15, 20 Aug 2011</a> by <a href="/User:brianblakely" class="link-user" rel="internal">brianblakely</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.45 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.25       request-time-ms=2; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.38       request-time-ms=5; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.71       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/30774/contents                           56.18       request-time-ms=54; mysql-queries=11; mysql-time-ms=23; cache-ratio=Infinity; cache-hit=13; cache-miss=-13; cache-del=0; cache-ins=12;
+	GET       /deki/pages/30774                                    37.93       request-time-ms=33; mysql-queries=20; mysql-time-ms=23; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/30774/info                               13.61       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/30774/tags                                7.39       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.67       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252FBitwise%2BOperators/full   234.55       request-time-ms=232; mysql-queries=6; mysql-time-ms=228; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/30774/tags                                5.93       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   384.59      
+	                                                     Ideal:   378.66      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

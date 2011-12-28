@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsisNaN" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsisNaN" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">isNaN</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p>Determines whether a value is <a title="en/JavaScript/Reference/Global_Objects/NaN" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/NaN">NaN</a> or not. Be careful, this <a href="#isNaNisBroken">function is broken</a>.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Core Global Method</th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 1st Edition</td> </tr></tbody></table><div id="section_1"><span id="Syntax"/><h2 class="editable"><code>Syntax</code></h2>
+<p><code> isNaN(<em>testValue</em>) </code></p>
+</div><div id="section_2"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>testValue</code></dt> <dd>The value to be tested.</dd>
+</dl></div><div id="section_3"><span id="Description"/><h2 class="editable">Description</h2>
+<div id="section_4"><span id="The_necessity_of_an_isNaN_function"/><h3 class="editable">The necessity of an <code>isNaN</code> function</h3>
+<p>Unlike all other possible values in JavaScript, it is not possible to rely on the equality operators (== and ===) to determine whether a value <em>is</em> <a title="en/JavaScript/Reference/Global_Objects/NaN" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/NaN">NaN</a> or not, because both <code>NaN == NaN</code> and <code>NaN === NaN</code> evaluate to <code>false</code>. Hence, the necessity of an <code>isNaN</code> function.</p>
+</div><div id="section_5"><span id="Origin_of_NaN_values"/><h3 class="editable">Origin of <code>NaN</code> values</h3>
+<p><code>NaN</code> values are generated when arithmetic operations result in <em>undefined</em> or <em>unrepresentable</em> values. Such values do not necessarily represent overflow conditions. A <code>NaN</code> also results from attempted coercion to numeric values of non-numeric values for which no primitive numeric value is available.</p>
+<p>For example, dividing zero by zero results in a <code>NaN</code> — but dividing other numbers by zero does not.</p>
+</div><div id="section_6"><span id="Confusing_special-case_behavior"/><h3 id="isNaNisBroken" class="editable"><br/>
+Confusing special-case behavior</h3>
+<p>Since the very earliest versions of the<span class="Apple-converted-space"> </span><code style="font: normal normal normal 100%/normal 'Courier New', 'Andale Mono', monospace; color: inherit; font-weight: inherit; ">isNaN</code><span class="Apple-converted-space"> </span>function specification, its behavior for non-numeric arguments has been confusing. When the argument to the <code style="font: normal normal normal 100%/normal 'Courier New', 'Andale Mono', monospace; color: inherit; font-weight: inherit; ">isNaN</code> function is not a number, the value is first coerced to a number. The resulting value is then tested to determine whether it is <code style="font: normal normal normal 100%/normal 'Courier New', 'Andale Mono', monospace; color: inherit; font-weight: inherit; "><a style="text-decoration: none; color: rgb(51, 102, 153) !important; cursor: default; " title="en/Core_JavaScript_1.5_Reference/Global_Objects/Number/NaN" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number/NaN">NaN</a></code>. Thus for non-numbers that when coerced to numeric type result in a valid non-NaN numeric value (notably the empty string and boolean primitives, which when coerced give numeric values zero or one), the "false" returned value may be unexpected;  the empty string, for example, is surely "not a number." The confusion stems from the fact that the term, "not a number", has a specific meaning for numbers represented as IEEE-794 floating-point values. The function should be interpreted as answering the question, "is this value, when coerced to a numeric value, an IEEE-794 'Not A Number' value?"</p>
+<p>The next version of ECMAScript (ES6) is likely to contain an <a class=" external" rel="external" href="http://wiki.ecmascript.org/doku.php?id=harmony:egal" title="http://wiki.ecmascript.org/doku.php?id=harmony:egal" target="_blank">Object.is</a> function. <code>Object.is(x, NaN)</code> will be a reliable way to test whether <code>x</code> is <code>NaN</code> or not.</p>
+</div></div><div id="section_7"><span id="Examples"/><h2 class="editable">Examples</h2>
+&#13;
+          <pre name="code" class="js">isNaN(NaN);       // true
+isNaN(true);      // false
+isNaN(undefined); // true
+isNaN(null);      // false
+isNaN({});        // true
+isNaN(37);        // false
+
+
+// strings
+isNaN("37");      // false: "37" is converted to the number 37 which is not NaN
+isNaN("37.37");   // false: "37.37" is converted to the number 37.37 which is not NaN
+isNaN("");        // false: the empty string is converted to 0 which is not NaN
+isNaN(" ");       // false: a string with spaces is converted to 0 which is not NaN
+
+isNaN("blabla")   // true: "blabla" is converted to a number. Parsing this as a number fails and returns NaN
+// This is a false positive and the reason why isNaN is not entirely reliable</pre>&#13;
+        
+</div><div id="section_8"><span id="See_also"/><h2 class="editable">See also</h2>
+<ul><li><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Number/NaN" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number/NaN">NaN</a></li> <li><a title="en/Core_JavaScript_1.5_Reference/Global_Functions/parseFloat" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/parseFloat">parseFloat</a></li> <li><a title="en/Core_JavaScript_1.5_Reference/Global_Functions/parseInt" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/parseInt">parseInt</a></li> <li><a class=" external" rel="external" href="http://es5.github.com/#x15.1.2.4" title="http://es5.github.com/#x15.1.2.4" target="_blank">(unofficial) web-based ECMAScript 5.1 isNaN specification</a></li>
+</ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=29176" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/isNaN&amp;action=history" title="01:22, 17 Aug 2011">01:22, 17 Aug 2011</a> by <a href="/User:Pointy" class="link-user" rel="internal">Pointy</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.23 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   7.67       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.47       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         8.51       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/29176/contents                           33.92       request-time-ms=32; mysql-queries=10; mysql-time-ms=9; cache-ratio=-4.33; cache-hit=13; cache-miss=-16; cache-del=0; cache-ins=15;
+	GET       /deki/pages/29176                                    33.57       request-time-ms=28; mysql-queries=20; mysql-time-ms=16; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/29176/info                                5.95       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/29176/tags                                6.62       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.95       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FisNaN/full    15.82       request-time-ms=13; mysql-queries=6; mysql-time-ms=8; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/29176/tags                                9.97       request-time-ms=8; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   139.45      
+	                                                     Ideal:   129.48      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

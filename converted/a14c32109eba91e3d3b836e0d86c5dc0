@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="pt" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs pt ltr yui-skin-sam PageDW-enJavaScriptReferenceAbout" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">Esta aplicação necessita que o Javascript esteja activado. <a href="http://help.mindtouch.com/Deki_FAQ#Browser_Support">Aprenda como activar o Javascript para o seu browser.</a></div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceAbout" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">About</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+
+<div id="section_1"><span id="What_you_should_already_know"/><h2 class="editable">What you should already know</h2>
+<p>Some programming experience with a language such as C or Visual Basic is useful, but not required.</p>
+<p>The JavaScript language is intended to be used within some larger environment, be it a browser, server-side scripts, or similar. For the most part, this reference attempts to be environment-agnostic and does not target a web browser environment. For demonstration purposes, this reference uses a function, <code>println</code>, which is not part of JavaScript and can be mapped to environment-specific functionality to display given values. For example, in a web browser <code>println</code> might have been defined as follows:</p>
+&#13;
+          <pre name="code" class="js">function println(string) {
+  window.alert(string);
+}</pre>&#13;
+        
+<p>Mapping to equivalent functionality in other environments is left as an exercise for the reader.</p>
+</div><div id="section_2"><span id="Formatting_conventions"/><h2 class="editable">Formatting conventions</h2>
+<p>This reference includes descriptive syntax sections to demonstrate appropriate or common usage of the subject of documentation. Within these sections, all text literals to be reproduced verbatim are non-italicized, with the exception of ellipses. Words in italics represent user-defined names or statements. Any portions enclosed in square brackets (<em><code>[</code></em> and <em><code>]</code></em>) are optional. A comma-delimited sequence that includes an ellipsis (<code>...</code>) indicates that the sequence is a list and all items in the sequence except the first are optional (e.g. only <code>param1</code> is required in "<code>param1, param2, ..., paramN</code>").</p>
+</div><div id="section_3"><span id="JavaScript_history"/><h2 class="editable">JavaScript history</h2>
+<p>Recent versions of Mozilla-based browsers support newer versions of JavaScript. The following table lists the JavaScript version supported by different Mozilla-based browser versions.</p>
+<p>Browsers that do not support at least JavaScript 1.5 are very rare today, since JavaScript 1.5 was introduced back in 1999. If you're interested in historic information, please refer to the Wikipedia article on <a class=" external" rel="external" href="http://en.wikipedia.org/wiki/ECMAScript" title="http://en.wikipedia.org/wiki/ECMAScript" target="_blank">ECMAScript</a>.</p>
+<div id="section_4"><span id="JavaScript.2FBrowser_support_history"/><h3 class="editable">JavaScript/Browser support history</h3>
+<table class="standard-table"><thead><tr><th scope="col">JavaScript (<a title="en/SpiderMonkey" rel="internal" href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a>) version</th> <th scope="col">Mozilla release</th> <th scope="col"><a title="en/Gecko" rel="internal" href="https://developer.mozilla.org/en/Gecko">Gecko</a> version</th> </tr></thead><tbody><tr><td><a title="en/JavaScript/New in JavaScript/1.5" rel="internal" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.5">JavaScript 1.5</a></td> <td>Navigator 6.0, Mozilla Application Suite, Firefox 1.0</td> <td>Gecko 0.6x-1.7</td> </tr><tr><td><a title="en/JavaScript/New in JavaScript/1.6" rel="internal" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.6">JavaScript 1.6</a></td> <td>Firefox 1.5</td> <td>Gecko 1.8</td> </tr><tr><td><a title="en/JavaScript/New in JavaScript/1.7" rel="internal" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.7">JavaScript 1.7</a></td> <td>Firefox 2</td> <td>Gecko 1.8.1</td> </tr><tr><td><a title="en/JavaScript/New in JavaScript/1.8" rel="internal" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8">JavaScript 1.8</a></td> <td>Firefox 3</td> <td>Gecko 1.9</td> </tr><tr><td><a title="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5" rel="internal" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5">JavaScript 1.8.5</a></td> <td>Firefox 4</td> <td>Gecko 2.0</td> </tr></tbody></table></div></div><div id="section_5"><span id="Where_to_find_JavaScript_information"/><h2 class="editable">Where to find JavaScript information</h2>
+<p>JavaScript documentation of core language features (pure <a title="en/ECMAScript" rel="internal" href="https://developer.mozilla.org/en/ECMAScript">ECMAScript</a>, for the most part) includes the following:</p>
+<ul><li>The <a title="en/JavaScript/Guide" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide">JavaScript Guide</a></li> <li>The <a title="en/JavaScript/Reference" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference">JavaScript Reference</a></li>
+</ul><p>If you are new to JavaScript, start with the <a title="en/JavaScript/Guide" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide">Guide</a>. Once you have a firm grasp of the fundamentals, you can use the <a title="en/JavaScript/Reference" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference">Reference</a> to get more details on individual objects and language constructs.</p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=25201" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsBrowserCompatibility" title="NeedsBrowserCompatibility" tagid="140" class="text">NeedsBrowserCompatibility</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Anexar ficheiro" class="disabled ">Anexar ficheiro</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/About&amp;action=history" title="18:48, 30 Jul 2011">18:48, 30 Jul 2011</a> by <a href="/User:jswisher" class="link-user" rel="internal">jswisher</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">apagar mensagem</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">ver detalhes</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">A mensagem vai fechar-se sozinha dentro de <span id="MTMessageTimer"/> segundos</span>
+				<span id="MTMessagePaused" style="display: none;">O temporizador da mensagem está parado</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Vendo detalhes:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 2.29 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   8.81       request-time-ms=3; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.20       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        11.29       request-time-ms=4; mysql-queries=2; mysql-time-ms=2; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/25201/contents                          177.09       request-time-ms=175; mysql-queries=10; mysql-time-ms=19; cache-ratio=-6.50; cache-hit=13; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/25201                                    76.10       request-time-ms=55; mysql-queries=21; mysql-time-ms=40; cache-ratio=Infinity; cache-hit=25; cache-miss=-25; cache-del=0; cache-ins=25;
+	GET       /deki/pages/25201/info                                9.81       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/25201/tags                               18.32       request-time-ms=12; mysql-queries=5; mysql-time-ms=9; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                17.18       request-time-ms=14; mysql-queries=4; mysql-time-ms=11; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FAbout/full   330.74       request-time-ms=326; mysql-queries=6; mysql-time-ms=321; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/25201/tags                               26.85       request-time-ms=9; mysql-queries=5; mysql-time-ms=5; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   683.38      
+	                                                     Ideal:   656.53      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

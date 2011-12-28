@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsArrayshift" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsArrayshift" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Array.shift</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Removes the first element from an array and returns that element. This method changes the length of the array.</p>
+<table class="standard-table"><thead><tr><th colspan="2" class="header">Method of <a title="en/JavaScript/Reference/Global_Objects/Array" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.2</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 3rd Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<p><code><em>array</em>.shift()</code></p>
+</div><div id="section_3"><span id="Description"/><h3 class="editable">Description</h3>
+<p>The <code>shift</code> method removes the element at the zeroeth index and shifts the values at consecutive indexes down, then returns the removed value.</p>
+<p><code>shift</code> is intentionally generic; this method can be <a title="en/JavaScript/Reference/Global_Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">called</a> or <a title="en/JavaScript/Reference/Global_Objects/Function/apply" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">applied</a> to objects resembling arrays. Objects which do not contain a <code>length</code> property reflecting the last in a series of consecutive, zero-based numerical properties may not behave in any meaningful manner.</p>
+</div><div id="section_4"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_5"><span id="Example:_Removing_an_element_from_an_array"/><h4 class="editable">Example: Removing an element from an array</h4>
+<p>The following code displays the <code>myFish</code> array before and after removing its first element. It also displays the removed element:</p>
+<pre class="eval">
+// assumes a println function is defined
+var myFish = ["angel", "clown", "mandarin", "surgeon"];
+println("myFish before: " + myFish);
+var shifted = myFish.shift();
+println("myFish after: " + myFish);
+println("Removed this element: " + shifted);
+</pre>
+<p>This example displays the following:</p>
+<pre class="eval">
+myFish before: angel,clown,mandarin,surgeon
+myFish after: clown,mandarin,surgeon
+Removed this element: angel
+</pre>
+</div></div><div id="section_6"><span id="See_also"/><h3 class="editable">See also</h3>
+<ul><li><a title="en/JavaScript/Reference/Global_Objects/Array/pop" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/pop">pop</a></li> <li><a title="en/JavaScript/Reference/Global_Objects/Array/push" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/push">push</a></li> <li><a title="en/JavaScript/Reference/Global_Objects/Array/unshift" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/unshift">unshift</a></li>
+</ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=30610" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Array/shift&amp;action=history" title="20:58, 6 Jun 2011">20:58, 6 Jun 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.16 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.06       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.64       request-time-ms=5; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.90       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/30610/contents                           22.76       request-time-ms=21; mysql-queries=10; mysql-time-ms=9; cache-ratio=-13.00; cache-hit=13; cache-miss=-14; cache-del=0; cache-ins=13;
+	GET       /deki/pages/30610                                    30.91       request-time-ms=27; mysql-queries=20; mysql-time-ms=16; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/30610/info                                5.14       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/30610/tags                                6.23       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.26       request-time-ms=6; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FArray%252Fshift/full    11.01       request-time-ms=9; mysql-queries=6; mysql-time-ms=5; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/30610/tags                                7.04       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   109.95      
+	                                                     Ideal:   102.91      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

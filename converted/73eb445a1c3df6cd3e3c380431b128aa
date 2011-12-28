@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceStatementstrycatch" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceStatementstrycatch" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">try...catch</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p/>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Marks a block of statements to try, and specifies a response, should an exception be thrown.</p>
+<table class="standard-table"><tbody><tr><td class="header" colspan="2">Statement</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.4 <p>JavaScript 1.5, NES 6.0: Added multiple catch clauses (Netscape extension).</p> </td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262, Edition 3</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<pre class="eval">try {
+   <em>try_statements</em>
+}
+[catch (<em>exception_var_1</em> if <em>condition_1</em>) {
+   <em>catch_statements_1</em>
+}]
+...
+[catch (<em>exception_var_2</em>) {
+   <em>catch_statements_2</em>
+}]
+[finally {
+   <em>finally_statements</em>
+}]
+</pre>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>try_statements</code></dt> <dd>The statements to be executed.</dd>
+</dl><dl><dt><code>catch_statements_1</code>, <code>catch_statements_2</code></dt> <dd>Statements that are executed if an exception is thrown in the <code>try</code> block.</dd>
+</dl><dl><dt><code>exception_var_1</code>, <code>exception_var_2</code></dt> <dd>An identifier to hold an exception object for the associated <code>catch</code> clause.</dd>
+</dl><dl><dt><code>condition_1</code></dt> <dd>A conditional expression.</dd>
+</dl><dl><dt><code>finally_statements</code></dt> <dd>Statements that are executed after the <code>try</code> statement completes. These statements execute regardless of whether or not an exception was thrown or caught.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p>The <code>try</code> statement consists of a <code>try</code> block, which contains one or more statements, and at least one <code>catch</code> clause or a <code>finally</code> clause, or both. That is, there are three forms of the <code>try</code> statement:</p>
+<ol><li><code>try...catch</code></li> <li><code>try...finally</code></li> <li><code>try...catch...finally</code></li>
+</ol><p>A <code>catch</code> clause contain statements that specify what to do if an exception is thrown in the <code>try</code> block. That is, you want the <code>try</code> block to succeed, and if it does not succeed, you want control to pass to the <code>catch</code> block. If any statement within the <code>try</code> block (or in a function called from within the <code>try</code> block) throws an exception, control immediately shifts to the <code>catch</code> clause. If no exception is thrown in the <code>try</code> block, the <code>catch</code> clause is skipped.</p>
+<p>The <code>finally</code> clause executes after the <code>try</code> block and <code>catch</code> clause(s) execute but before the statements following the <code>try</code> statement. It always executes, regardless of whether or not an exception was thrown or caught.</p>
+<p>You can nest one or more <code>try</code> statements. If an inner <code>try</code> statement does not have a <code>catch</code> clause, the enclosing <code>try</code> statement's <code>catch</code> clause is entered.</p>
+<p>You also use the <code>try</code> statement to handle Java exceptions. See the <a title="en/JavaScript/Guide" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide">Core JavaScript 1.5 Guide</a> for information on Java exceptions.</p>
+<div id="section_5"><span id="Unconditional_catch_clause"/><h4 class="editable">Unconditional <code>catch</code> clause</h4>
+<p>When a single, unconditional <code>catch</code> clause is used, the <code>catch</code> block is entered when any exception is thrown. For example, when the exception occurs in the following code, control transfers to the <code>catch</code> clause.</p>
+&#13;
+          <pre name="code" class="js">try {
+   throw "myException"; // generates an exception
+}
+catch (e) {
+   // statements to handle any exceptions
+   logMyErrors(e); // pass exception object to error handler
+}</pre>&#13;
+        
+</div><div id="section_6"><span id="Conditional_catch_clauses"/><h4 class="editable">Conditional <code>catch</code> clauses</h4>
+<p>You can also use one or more conditional <code>catch</code> clauses to handle specific exceptions. In this case, the appropriate <code>catch</code> clause is entered when the specified exception is thrown. In the following example, code in the <code>try</code> block can potentially throw three exceptions: <code>TypeError</code>, <code>RangeError</code>, and <code>EvalError</code>. When an exception occurs, control transfers to the appropriate <code>catch</code> clause. If the exception is not one of the specified exceptions and an unconditional <code>catch</code> clause is found, control transfers to that <code>catch</code> clause.</p>
+<p>If you use an unconditional <code>catch</code> clause with one or more conditional <code>catch</code> clauses, the unconditional <code>catch</code> clause must be specified last. Otherwise, the unconditional <code>catch</code> clause will intercept all types of exception before they can reach the conditional ones.</p>
+&#13;
+          <pre name="code" class="js">try {
+   myroutine(); // may throw three exceptions
+} catch (e if e instanceof TypeError) {
+   // statements to handle TypeError exceptions
+} catch (e if e instanceof RangeError) {
+   // statements to handle RangeError exceptions
+} catch (e if e instanceof EvalError) {
+   // statements to handle EvalError exceptions
+} catch (e) {
+   // statements to handle any unspecified exceptions
+   logMyErrors(e); // pass exception object to error handler
+}</pre>&#13;
+        
+<p>Note: This functionality is not part of the ECMAScript specification.</p>
+</div><div id="section_7"><span id="The_exception_identifier"/><h4 class="editable">The exception identifier</h4>
+<p>When an exception is thrown in the <code>try</code> block, <em><code>exception_var</code></em> (e.g. the <code>e</code> in <code>catch (e)</code>) holds the value specified by the <code>throw</code> statement. You can use this identifier to get information about the exception that was thrown.</p>
+<p>This identifier is local to the <code>catch</code> clause. That is, it is created when the <code>catch</code> clause is entered, and after the <code>catch</code> clause finishes executing, the identifier is no longer available.</p>
+</div><div id="section_8"><span id="The_finally_clause"/><h4 class="editable">The <code>finally</code> clause</h4>
+<p>The <code>finally</code> clause contains statements to execute after the <code>try</code> block and <code>catch</code> clause(s) execute but before the statements following the <code>try</code> statement. The <code>finally</code> clause executes regardless of whether or not an exception is thrown. If an exception is thrown, the statements in the <code>finally</code> clause execute even if no <code>catch</code> clause handles the exception.</p>
+<p>You can use the <code>finally</code> clause to make your script fail gracefully when an exception occurs; for example, you may need to release a resource that your script has tied up. The following example opens a file and then executes statements that use the file (server-side JavaScript allows you to access files). If an exception is thrown while the file is open, the <code>finally</code> clause closes the file before the script fails.</p>
+&#13;
+          <pre name="code" class="js">openMyFile()
+try {
+   // tie up a resource
+   writeMyFile(theData);
+}
+finally {
+   closeMyFile(); // always close the resource
+}</pre>&#13;
+        
+</div></div><div id="section_9"><span id="Examples"/><h3 class="editable">Examples</h3>
+<p>See the examples for <a title="en/JavaScript/Reference/Statements/throw" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/throw">throw</a>.</p>
+</div><div id="section_10"><span id="See_also"/><h3 class="editable">See also</h3>
+<ul><li><a title="en/JavaScript/Reference/Statements/throw" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/throw">throw</a></li> <li><a title="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error">Error</a></li>
+</ul><p> </p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=29315" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Statements/try...catch&amp;action=history" title="07:22, 11 Dec 2011">07:22, 11 Dec 2011</a> by <a href="/User:secoif" class="link-user" rel="internal">secoif</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.79 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   6.49       request-time-ms=3; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                              459.81       request-time-ms=9; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         8.74       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/29315/contents                           99.84       request-time-ms=94; mysql-queries=10; mysql-time-ms=23; cache-ratio=-6.50; cache-hit=13; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/29315                                    40.07       request-time-ms=35; mysql-queries=20; mysql-time-ms=22; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/29315/info                                9.60       request-time-ms=6; mysql-queries=3; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/29315/tags                               12.92       request-time-ms=11; mysql-queries=4; mysql-time-ms=9; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                39.85       request-time-ms=37; mysql-queries=4; mysql-time-ms=34; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FStatements%252Ftry...catch/full    14.74       request-time-ms=12; mysql-queries=6; mysql-time-ms=7; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/29315/tags                               10.53       request-time-ms=9; mysql-queries=4; mysql-time-ms=7; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   702.58      
+	                                                     Ideal:   692.05      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

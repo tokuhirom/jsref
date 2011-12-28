@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsparseInt" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsparseInt" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">parseInt</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Parses a string argument and returns an integer of the specified radix or base.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Core Global Method</th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript ?</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript ?</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<pre class="eval">
+var intValue = parseInt(<em>string</em>[, <em>radix</em>]);
+</pre>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>string</code> </dt> <dd>The value to parse. If <code>string</code> is not a string, then it is converted to one. Leading whitespace in the string is ignored.</dd>
+</dl><dl><dt><code>radix</code> </dt> <dd>An integer that represents the <var>radix</var> of the above mentioned string. While this parameter is optional, <strong>always specify it</strong> to eliminate reader confusion and to guarantee predictable behavior.  Different implementations produce different results when a radix is not specified.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p><code>parseInt</code> is a top-level function and is not associated with any object.</p>
+<p>The <code>parseInt</code> function converts its first argument to a string, parses it, and returns an integer or <code>NaN</code>. If not <code>NaN</code>, the returned value will be the decimal integer representation of the first argument taken as a number in the specified <var>radix</var> (base). For example, a <var>radix</var> of 10 indicates to convert from a decimal number, 8 octal, 16 hexadecimal, and so on. For radices above <code>10</code>, the letters of the alphabet indicate numerals greater than <code>9</code>. For example, for hexadecimal numbers (base 16), <code>A</code> through <code>F</code> are used.</p>
+<p>If <code>parseInt</code> encounters a character that is not a numeral in the specified radix, it ignores it and all succeeding characters and returns the integer value parsed up to that point. <code>parseInt</code> truncates numbers to integer values. Leading and trailing spaces are allowed.</p>
+<p>If <var>radix</var> is <code>undefined</code> or 0, JavaScript assumes the following:</p>
+<ul><li>If the input <code>string</code> begins with "0x" or "0X", <var>radix</var> is 16 (hexadecimal).</li> <li>If the input <code>string</code> begins with "0", <var>radix</var> is eight (octal). This feature is non-standard, and some implementations deliberately do not support it (instead using the radix 10).  For this reason <strong>always specify a radix when using <code>parseInt</code></strong>.</li> <li>If the input <code>string</code> begins with any other value, the radix is 10 (decimal).</li>
+</ul><p>If the first character cannot be converted to a number, <code>parseInt</code> returns <code>NaN</code>.</p>
+<p>For arithmetic purposes, the <code>NaN</code> value is not a number in any radix. You can call the <code><a title="en/Core_JavaScript_1.5_Reference/Global_Functions/isNaN" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/isNaN">isNaN</a></code> function to determine if the result of <code>parseInt</code> is <code>NaN</code>. If <code>NaN</code> is passed on to arithmetic operations, the operation results will also be <code>NaN</code>.</p>
+<p>To convert number to its string literal in a particular radix use <code>intValue.toString(radix)</code>.</p>
+</div><div id="section_5"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_6"><span id="Example:_Using_parseInt"/><h4 class="editable">Example: Using <code>parseInt</code></h4>
+<p>The following examples all return 15:</p>
+<pre class="eval">
+parseInt(" 0xF", 16);
+parseInt(" F", 16);
+parseInt("17", 8);
+parseInt(021, 8);
+parseInt("015", 10);
+parseInt(15.99, 10);
+parseInt("FXX123", 16);
+parseInt("1111", 2);
+parseInt("15*3", 10);
+parseInt("15e2", 10);
+parseInt("15px", 10);
+parseInt("12", 13);
+</pre>
+<p>The following examples all return <code>NaN</code>:</p>
+<pre class="eval">
+parseInt("Hello", 8); // Not a number at all
+parseInt("546", 2);   // Digits are not valid for binary representations
+</pre>
+<p>The following examples all return <code>-15:</code></p>
+<pre class="eval">
+parseInt("-F", 16);
+parseInt("-0F", 16);
+parseInt("-0XF", 16);
+parseInt(-10, 16);
+parseInt(-15.1, 10)
+parseInt(" -17", 8);
+parseInt(" -15", 10);
+parseInt("-1111", 2);
+parseInt("-15e1", 10);
+parseInt("-12", 13);
+</pre>
+<p>The following example returns <code>224:</code></p>
+<pre class="eval">
+parseInt("0e0", 16);
+</pre>
+</div></div><div id="section_7"><span id="Octal_Interpretations_with_No_Radix"/><h3 class="editable">Octal Interpretations with No Radix</h3>
+<p>Although discouraged by ECMAScript 3, many implementations interpret a numeric string beginning with a leading <code>0</code> as octal. The following may have an octal result.</p>
+<pre class="eval">
+parseInt("0e0"); // 0
+parseInt("08"); // 0, '8' is not an octal digit.
+</pre>
+<blockquote>
+<div id="section_8"><span id="ECMAScript_5_Removes_Octal_Interpretation"/><h4 class="editable">ECMAScript 5 Removes Octal Interpretation</h4>
+<p>The ECMAScript 5 specification of the function <code>parseInt</code> no longer allows implementations to treat Strings beginning with a <code>0</code> character as octal values. ECMAScript 5 states:</p>
+<p>The <code>parseInt</code> function produces an integer value dictated by interpretation of the contents of the string argument according to the specified radix. Leading white space in string is ignored. If radix is undefined or <code>0</code>, it is assumed to be <code>10</code> except when the number begins with the character pairs <code>0x</code> or <code>0X</code>, in which case a radix of 16 is assumed. If radix is <code>16</code>, number may also optionally begin with the character pairs <code>0x</code> or <code>0X</code>.</p>
+<p>This differs from ECMAScript 3, which discouraged but allowed octal interpretation.</p>
+<p>Since many implementations have not adopted this behavior as of 2011, and because older browsers must be supported, <strong>always specify a radix</strong>.</p>
+<div id="section_9"><span id="See_also"/><h3 class="editable">See also</h3>
+<p><a title="en/Core_JavaScript_1.5_Reference/Global_Functions/isNaN" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/isNaN">isNaN</a>, <a title="en/Core_JavaScript_1.5_Reference/Global_Functions/parseFloat" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/parseFloat">parseFloat</a>, <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Object/valueOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/valueOf">Object.valueOf</a>, <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Number/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number/toString">Number.toString</a></p>
+<p/>
+</div></div></blockquote></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=30223" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/parseInt&amp;action=history" title="17:11, 11 Jul 2011">17:11, 11 Jul 2011</a> by <a href="/User:Sheppy" class="link-user" rel="internal">Sheppy</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.39 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   7.36       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.64       request-time-ms=5; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.01       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/30223/contents                           39.78       request-time-ms=37; mysql-queries=10; mysql-time-ms=19; cache-ratio=-6.50; cache-hit=13; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/30223                                    35.67       request-time-ms=31; mysql-queries=21; mysql-time-ms=20; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/30223/info                                5.20       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/30223/tags                                6.78       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.70       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FparseInt/full   211.88       request-time-ms=210; mysql-queries=6; mysql-time-ms=205; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/30223/tags                                9.29       request-time-ms=7; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   339.33      
+	                                                     Ideal:   330.04      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

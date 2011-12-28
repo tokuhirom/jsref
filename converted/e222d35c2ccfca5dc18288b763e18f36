@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsObjectdefineProperty" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsObjectdefineProperty" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Object.defineProperty</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p>
+</p><div style="border: 1px solid #818151; background-color: #FFFFE1; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Introduced in <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5">JavaScript 1.8.5</a></p></div>
+<div id="section_1"><span id="summary"/><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Defines a new property directly on an object, or modifies an existing property on an object, and returns the object.</p>
+<table class="standard-table"><thead><tr><th colspan="2" class="header">Method of <a title="en/JavaScript/Reference/Global_Objects/Object" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.8.5</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 5th Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code>Object.defineProperty(<em>obj</em>, <em>prop</em>, <em>descriptor</em>)</code></p>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt>obj</dt> <dd>The object on which to define the property.</dd> <dt>prop</dt> <dd>The name of the property to be defined or modified.</dd> <dt>descriptor</dt> <dd>The descriptor for the property being defined or modified.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>This method allows precise addition to or modification of a property on an object. Normal property addition through assignment creates properties which show up during property enumeration (<a title="en/JavaScript/Reference/Statements/for...in" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in">for...in loop</a>), whose values may be changed, and which may be <a title="en/JavaScript/Reference/Operators/Special Operators/delete Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/delete">deleted</a>. This method allows these extra details to be changed from their defaults.</p>
+<p>Property descriptors present in objects come in two main flavors: data descriptors and accessor descriptors. A <em><dfn>data descriptor</dfn></em> is a property that has a value, which may or may not be writable. An <dfn>accessor descriptor</dfn> is a property described by a getter-setter pair of functions. A descriptor must be one of these two flavors; it cannot be both. All descriptors regardless of flavor include the <strong>configurable</strong> and <strong>enumerable</strong> fields.</p>
+<p>A property descriptor is an object with the following fields:</p>
+<dl><dt>value</dt> <dd>The value associated with the property. (data descriptors only). <strong>Defaults to <code>undefined</code>.</strong></dd> <dt>writable</dt> <dd>True if and only if the value associated with the property may be changed. (data descriptors only).<strong> Defaults to <code>false</code>.</strong></dd> <dt>get</dt> <dd>A function which serves as a getter for the property, or <code>undefined</code> if there is no getter. (accessor descriptors only). <strong>Defaults to </strong><strong><code>undefined</code></strong><strong>.</strong></dd> <dt>set</dt> <dd>A function which serves as a setter for the property, or <code>undefined</code> if there is no setter. (accessor descriptors only). <strong>Defaults to </strong><strong><code>undefined</code></strong><strong>.</strong></dd> <dt>configurable</dt> <dd>True if and only if the type of this property descriptor may be changed and if the property may be deleted from the corresponding object. <strong>Defaults to </strong><strong><code>false</code></strong><strong>.</strong></dd> <dt>enumerable</dt> <dd>True if and only if this property shows up during enumeration of the properties on the corresponding object. <strong>Defaults to </strong><strong><code>false</code></strong><strong>.</strong></dd> <dt/>
+</dl></div><div id="section_5"><span id="Creating_a_property"/><h2 class="editable">Creating a property</h2>
+<p>When the property specified doesn't exist in the object, <code>Object.defineProperty</code> creates a new property as described. Fields may be omitted from the descriptor, and default values for those fields are imputed. All of the boolean-valued fields default to <code>false</code>. The <code>value</code>, <code>get</code>, and <code>set</code> fields default to <code>undefined</code>.</p>
+<div id="section_6"><span id="Example"/><h3 class="editable">Example</h3>
+&#13;
+          <pre name="code" class="js">var o = {}; // Creates a new object
+
+// Example of an object property added with defineProperty with a data property descriptor
+Object.defineProperty(o, "a", {value : 37,
+                               writable : true,
+                               enumerable : true,
+                               configurable : true});
+// 'a' property exists in the o object and its value is 37
+
+// Example of an object property added with defineProperty with an accessor property descriptor
+var bValue;
+Object.defineProperty(o, "b", {get : function(){ return bValue; },
+                               set : function(newValue){ bValue = newValue; },
+                               enumerable : true,
+                               configurable : true});
+o.b = 38;
+// 'b' property exists in the o object and its value is 38
+// The value of o.b is now always identical to bValue, unless o.b is redefined
+
+// You cannot try to mix both :
+Object.defineProperty(o, "conflict", { value: 0x9f91102, 
+                                       get: function() { return 0xdeadbeef; } });
+// throws a TypeError: value appears only in data descriptors, get appears only in accessor descriptors</pre>&#13;
+        
+<p>You can use the <code>Object.defineProperty</code> method with native objects also. The following example shows how to implement the <a title="en/DOM/select" rel="internal" href="https://developer.mozilla.org/en/DOM/HTMLSelectElement">HTMLSelectElement</a>'s <code>selectedIndex</code> property in radio button groups.</p>
+&#13;
+          <pre name="code" class="xml">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;
+&lt;title&gt;Radio group selectedIndex example&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+Object.defineProperty(NodeList.prototype, "selectedIndex", {
+	get: function() {
+		var nIndex = this.length - 1;
+		while (nIndex &gt; -1 &amp;&amp; !this[nIndex].checked) { nIndex--; }
+		return nIndex;
+	},
+	set: function(nNewIndex) {
+		if (isNaN(nNewIndex)) { return; }
+		var nOldIndex = this.selectedIndex;
+		if (nOldIndex &gt; -1) { this[nOldIndex].checked = false; }
+		if (nNewIndex &gt; -1) { this[nNewIndex].checked = true; }
+	},
+	enumerable : true,
+	configurable : false
+});
+
+// try it!
+function checkForm() {
+	var nSelectedIndex = document.myForm.myRadioGroup.selectedIndex;
+	if (nSelectedIndex &lt; 0) { alert("Select a gadget!!"); return false; }
+	alert("Congratulations!! You selected the " + document.myForm.myRadioGroup[nSelectedIndex].value + ".");
+	return true;
+}
+&lt;/script&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+						
+&lt;form name="myForm" onsubmit="return(checkForm());"&gt;
+&lt;fieldset&gt;&lt;legend&gt;Select a gadget&lt;/legend&gt;
+&lt;p&gt;&lt;input type="radio" name="myRadioGroup" id="ourShirt" value="shirt" /&gt; &lt;label for="ourShirt"&gt;shirt&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="myRadioGroup" id="ourPants" value="pants" /&gt; &lt;label for="ourPants"&gt;pants&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="myRadioGroup" id="ourBelt" value="belt" /&gt; &lt;label for="ourBelt"&gt;belt&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="myRadioGroup" id="ourShoes" value="shoes" /&gt; &lt;label for="ourShoes"&gt;shoes&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="cursor:pointer;text-decoration:underline;color:#0000ff;" onclick="document.myForm.myRadioGroup.selectedIndex=2;"&gt;Select our favorite gadget ;-)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type="submit" value="Order!" /&gt;
+&lt;/fieldset&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>&#13;
+        
+</div></div><div id="section_7"><span id="Modifying_a_property"/><h2 class="editable">Modifying a property</h2>
+<p>When the property already exists, <code>Object.defineProperty</code> attempts to modify the property according to the values in the descriptor and the object current configuration. If the old descriptor had its <strong>configurable</strong> attribute set to <code>false</code> (the property is said "non-configurable"), then no attribute besides <strong>writable</strong> can be changed. In that case, it is also not possible to switch back and forth from data/accessor properties type (a property which would have been defined without <code>get</code>/<code>set</code>/<code>value</code>/<code>writable</code> is called "generic" and is "typed" as a data descriptor).</p>
+<p>A <a title="en/JavaScript/Reference/Global Objects/TypeError" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/TypeError"><code>TypeError</code></a> is thrown when non-configurable property attributes are changed unless it's the <code>writable</code> attribute or if the current and new values are equal.</p>
+</div><div id="section_8"><span id="Writable_attribute"/><h2 class="editable">Writable attribute</h2>
+<p>When the <code>writable</code> property attribute is set to <code>false</code>, the property is said to be "non-writable". It cannot be assigned.</p>
+<div id="section_9"><span id="Example_2"/><h3 class="editable">Example</h3>
+&#13;
+          <pre name="code" class="js">var o = {}; // Creates a new object
+
+Object.defineProperty(o, "a", {value : 37,
+                               writable : false});
+
+alert(o.a); // alerts 37
+o.a = 25;
+alert(o.a); // alerts 37. The assignment didn't work. No error thrown</pre>&#13;
+        
+<p>As seen in the example, trying to write into the non-writable property doesn't change it but doesn't throw an error either.</p>
+</div></div><div id="section_10"><span id="Enumerable_attribute"/><h2 class="editable">Enumerable attribute</h2>
+<p>The <code>Enumerable</code> property attribute defines whether the property shows up in a <a title="en/JavaScript/Reference/Statements/for...in" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in">for...in</a> loop or not.</p>
+<div id="section_11"><span id="Example_3"/><h3 class="editable">Example</h3>
+&#13;
+          <pre name="code" class="js">var i;
+var o = {};
+Object.defineProperty(o, "a", { value : 1, enumerable:true });
+Object.defineProperty(o, "b", { value : 2, enumerable:false });
+Object.defineProperty(o, "c", { value : 3 }); // enumerable defaults to false
+o.d = 4;
+
+for (i in o) {    
+    alert(i);  
+}
+// alerts 'a' then 'd'</pre>&#13;
+        
+</div></div><div id="section_12"><span id="Configurable_attribute"/><h2 class="editable">Configurable attribute</h2>
+<p>The <code>configurable</code> attribute controls at the same time whether the property can be deleted from the object and whether its attributes (other than <code>writable</code>) can be changed.</p>
+<div id="section_13"><span id="Example_4"/><h3 class="editable">Example</h3>
+&#13;
+          <pre name="code" class="js">var o = {};
+Object.defineProperty(o, "a", { get : function(){return 1;}, 
+                                configurable : false } );
+
+Object.defineProperty(o, "a", {configurable : true}); // throws a TypeError
+Object.defineProperty(o, "a", {enumerable : true}); // throws a TypeError
+Object.defineProperty(o, "a", {set : function(){}}); // throws a TypeError (set was undefined previously)
+Object.defineProperty(o, "a", {get : function(){return 1;}}); // throws a TypeError (even though the new get does exactly the same thing)
+Object.defineProperty(o, "a", {value : 12}); // throws a TypeError
+
+alert(o.a); // alerts 1
+delete o.a; // Nothing happens
+alert(o.a); // alerts 1</pre>&#13;
+        
+<p>If <code>o.a</code> <code>configurable</code> attribute was <code>true</code>, none of the error would be thrown and the property would be deleted at the end.</p>
+</div></div><div id="section_14"><span id="Difference_with_usual_property_addition_and_default_values"/><h2 class="editable">Difference with usual property addition and default values</h2>
+&#13;
+          <pre name="code" class="js">var o = {};
+
+o.a = 1;
+// is equivalent to :
+Object.defineProperty(o, "a", {value : 1,
+                               writable : true,
+                               configurable : true,
+                               enumerable : true});
+
+
+// On the other hand,
+Object.defineProperty(o, "a", {value : 1});
+// is equivalent to :
+Object.defineProperty(o, "a", {value : 1,
+                               writable : false,
+                               configurable : false,
+                               enumerable : false});</pre>&#13;
+        
+</div><div id="section_15"><span id="Code_considerations"/><h2 class="editable">Code considerations</h2>
+<p>If you have to define many properties through the <code>Object.defineProperty</code> method, you can utilise the same descriptor object for each property, redefining it from time to time through binary flags.</p>
+<div id="section_16"><span id="Examples"/><h3 class="editable">Examples</h3>
+&#13;
+          <pre name="code" class="js">var oDesc = {};
+function setProp (nMask, oObj, sKey, vVal_fGet, fSet) {
+	if (nMask &amp; 12) {
+		if (arguments.length &gt; 3) { oDesc.value = vVal_fGet; } else { delete oDesc.value; }
+		oDesc.writable = Boolean(nMask &amp; 8);
+		delete oDesc.get;
+		delete oDesc.set;
+	} else {
+		if (vVal_fGet) { oDesc.get = vVal_fGet; } else { delete oDesc.get; }
+		if (fSet) { oDesc.set = fSet; } else { delete oDesc.set; }
+		delete oDesc.value;
+		delete oDesc.writable;
+	}
+	oDesc.enumerable = Boolean(nMask &amp; 1);
+	oDesc.configurable = Boolean(nMask &amp; 2);
+	Object.defineProperty(oObj, sKey, oDesc);
+}
+
+/**
+*	:: function setProp ::
+*
+*	vVal_fGet is the value to assign to a data descriptor or the getter function to assign to an accessor descriptor;
+*
+*	nMask is a bitmask:
+*
+*	flag 0x1: property is enumerable,
+*	flag 0x2: property is configurable,
+*	flag 0x4: property is data descriptor,
+*	flag 0x8: property is writable.
+*	Note: If flag 0x8 is setted to "writable", the propery will be considered a data descriptor even if the flag 0x4 is setted to "accessor descriptor"!
+*
+*	Values:
+*
+*	0  : accessor descriptor - not configurable, not enumerable (0000).
+*	1  : accessor descriptor - not configurable, enumerable (0001).
+*	2  : accessor descriptor - configurable, not enumerable (0010).
+*	3  : accessor descriptor - configurable, enumerable (0011).
+*	4  : readonly data descriptor - not configurable, not enumerable (0100).
+*	5  : readonly data descriptor - not configurable, enumerable (0101).
+*	6  : readonly data descriptor - configurable, not enumerable (0110).
+*	7  : readonly data descriptor - configurable, enumerable (0111).
+*	8  : writable data descriptor - not configurable, not enumerable (1000).
+*	9  : writable data descriptor - not configurable, enumerable (1001).
+*	10 : writable data descriptor - configurable, not enumerable (1010).
+*	11 : writable data descriptor - configurable, enumerable (1011).
+*/
+
+// creating a new empty object
+var myObj = {};
+
+// adding a writable data descriptor - not configurable, not enumerable
+setProp(8, myObj, "myNumber", 25);
+
+// adding a readonly data descriptor - not configurable, enumerable
+setProp(5, myObj, "myString", "Hello world!");
+
+// adding an accessor descriptor - not configurable, enumerable
+setProp(1, myObj, "myArray", function() {
+	for (var iBit = 0, iFlag = 1, aBoolArr = [false]; iFlag &lt; this.myNumber + 1 || (this.myNumber &amp; iFlag); iFlag = iFlag &lt;&lt; 1) { aBoolArr[iBit++] = Boolean(this.myNumber &amp; iFlag); }
+	return aBoolArr;
+}, function(aNewMask) {
+	for (var nNew = 0, iBit = 0; iBit &lt; aNewMask.length; iBit++) { nNew |= Boolean(aNewMask[iBit]) &lt;&lt; iBit; }
+	this.myNumber = nNew;
+});
+
+// adding a writable data descriptor (undefined value) - configurable, enumerable
+setProp(11, myObj, "myUndefined");
+
+// adding an accessor descriptor (only getter) - not configurable, enumerable
+setProp(1, myObj, "myDate", function() { return new Date(); });
+
+// adding an accessor descriptor (only setter) - not configurable, not enumerable
+setProp(0, myObj, "myAlert", null, function(sTxt) { alert(sTxt); });
+
+myObj.myAlert = myObj.myDate.toLocaleString() + "\n\n" + myObj.myString + "\nThe number " + myObj.myNumber + " represents the following bitmask: " + myObj.myArray.join(", ") + ".";</pre>&#13;
+        
+<p>You can do the same thing with an anonymous descriptor object.</p>
+&#13;
+          <pre name="code" class="js">new (function() {
+	function buildProp (nMask, oObj, sKey, vVal_fGet, fSet) {
+		if (nMask &amp; 12) {
+			if (arguments.length &gt; 3) { this.value = vVal_fGet; } else { delete this.value; }
+			this.writable = Boolean(nMask &amp; 8);
+			delete this.get;
+			delete this.set;
+		} else {
+			if (vVal_fGet) { this.get = vVal_fGet; } else { delete this.get; }
+			if (fSet) { this.set = fSet; } else { delete this.set; }
+			delete this.value;
+			delete this.writable;
+		}
+		this.enumerable = Boolean(nMask &amp; 1);
+		this.configurable = Boolean(nMask &amp; 2);
+		Object.defineProperty(oObj, sKey, this);
+	};
+	buildProp(5, window, "setProp", buildProp);
+})();
+
+// creating a new empty object
+var myObj = {};
+
+// adding a writable data descriptor - not configurable, not enumerable
+setProp(8, myObj, "myNumber", 25);
+
+// adding a readonly data descriptor - not configurable, enumerable
+setProp(5, myObj, "myString", "Hello world!");
+// etc. etc.</pre>&#13;
+        
+</div></div><div id="section_17"><span id="Cross-browser_concerns"/><h2 class="editable">Cross-browser concerns</h2>
+<div id="section_18"><span id="Redefining_the_length_property_of_an_Array_object"/><h3 id="ie8-specific" class="editable">Redefining the length property of an Array object</h3>
+<p>It is possible to redefine the <code>length</code> property of arrays, but not all browsers permit this redefinition.  Firefox 4 will throw a <code>TypeError</code> on any attempt to redefine the length property of an array.  Versions of Chrome which implement <code>Object.defineProperty</code> in some circumstances ignore a length value different from the array's current <code>length</code> property, and changing writability seems to silently not work in some circumstances.  Versions of Safari which implement <code>Object.defineProperty</code> ignore a length value different from the array's current <code>length</code> property, and attempts to change writability execute without error but do not actually change the property's writability.  Only IE9 appears to fully and correctly implement redefinition of the <code>length</code> property of arrays.  For now, don't rely on redefining the <code>length</code> property of an array to either work, or to work in a particular manner.</p>
+</div><div id="section_19"><span id="Internet_Explorer_8_specific_case"/><h3 class="editable">Internet Explorer 8 specific case</h3>
+<p>IE8 implemented a <code>Object.defineProperty()</code> method that could <a class=" external" rel="external" href="http://msdn.microsoft.com/en-us/library/dd229916%28VS.85%29.aspx" title="http://msdn.microsoft.com/en-us/library/dd229916%28VS.85%29.aspx" target="_blank">only be used on DOM objects</a>. A couple of things need to be noted:</p>
+<ul><li>Trying to use <code>Object.defineProperty()</code> on native objects throws an error.</li> <li>Property attributes must be set to some values. <code>true, true, true</code> for data descriptor and <code>true</code> for configurable, <code>false</code> for enumerable for accessor descriptor. Any attempt to provide other value will result in an error being thrown.</li> <li>Reconfiguring a property requires to delete the property first. If the property isn't deleted, it stays as it was before the reconfiguration attempt.</li>
+</ul></div><div id="section_20"><span id="Browser_compatibility"/><h3 class="editable">Browser compatibility</h3>
+<p>
+</p><div class="htab"><a name="AutoCompatibilityTable"/>
+<ul><li class="selected">Desktop</li> <li>Mobile</li>
+</ul></div>
+<div id="compat-desktop">
+<table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox (Gecko)</th> <th>Chrome</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari</th> </tr><tr><td>Basic support</td> <td>4 (2)</td> <td>5 (previous versions untested)</td> <td>9 (8, but only on DOM objects and with some non standard behaviors. <a href="#ie8-specific">See above</a>.)</td> <td><span style="color: rgb(255, 0, 0);" title="Not supported.">--</span></td> <td>5.1 (5, but not on DOM objects)</td> </tr></tbody></table></div>
+<div id="compat-mobile">
+<table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox Mobile (Gecko)</th> <th>Android</th> <th>IE Mobile</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+<p>Based on <a class=" external" rel="external" href="http://kangax.github.com/es5-compat-table/" title="http://kangax.github.com/es5-compat-table/" target="_blank">Kangax's compat tables</a>.</p></div></div><div id="section_21"><span id="See_also"/><h2 class="editable">See also</h2>
+<ul><li><a title="en/JavaScript/Reference/Global Objects/Object/create" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/create">Object.create</a></li>
+</ul></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(3)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=51601" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=ECMAScript5" title="ECMAScript5" tagid="2096" class="text">ECMAScript5</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+1.8.5" title="JavaScript 1.8.5" tagid="2044" class="text">JavaScript 1.8.5</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Object/defineProperty&amp;action=history" title="23:51, 13 Aug 2011">23:51, 13 Aug 2011</a> by <a href="/User:dbruant" class="link-user" rel="internal">dbruant</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.22 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.01       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.53       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.78       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/51601/contents                           97.54       request-time-ms=95; mysql-queries=30; mysql-time-ms=35; cache-ratio=1.52; cache-hit=93; cache-miss=-32; cache-del=0; cache-ins=32;
+	GET       /deki/pages/51601                                    47.61       request-time-ms=43; mysql-queries=21; mysql-time-ms=31; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/51601/info                                5.61       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/51601/tags                                7.35       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.12       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FObject%252FdefineProperty/full   236.70       request-time-ms=235; mysql-queries=6; mysql-time-ms=230; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/51601/tags                                6.90       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   430.13      
+	                                                     Ideal:   423.23      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

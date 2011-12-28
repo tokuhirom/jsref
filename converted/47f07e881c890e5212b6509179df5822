@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsdelete" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsdelete" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Special.delete</h1>            &#13;
+              <span class="page-moved"><a class="pageMoved" href="/index.php?title=en/JavaScript/Reference/Operators/Special/delete&amp;redirect=no">Redirected from en/JavaScript/Reference/Operators/Special/delete</a></span>&#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>The <code>delete</code> operator deletes a property of an object.</p>
+<table class="standard-table"><thead><tr><th scope="row" colspan="2" class="header">Operator</th> </tr></thead><tbody><tr><td>Implemented in:</td> <td>JavaScript 1.2</td> </tr><tr><td>ECMAScript Edition:</td> <td>ECMA-262 ? Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code>delete <em>expression</em></code></p>
+<p> </p>
+<p>where <em>expression</em> should evaluate to a property reference, e.g.:</p>
+<pre class="eval">
+delete <em>variableName</em>
+delete <em>objectExpression.property</em>
+delete <em>objectExpression</em>["<em>property</em>"]
+delete <em>objectExpression</em>[<em>index</em>]
+delete <em>property</em> // legal only within a with statement
+</pre>
+<p>If <em>expression</em> does not evaluate to a property, <code>delete</code> does nothing.</p></div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>objectName</code></dt> <dd>The name of an object.</dd>
+</dl><dl><dt><code>property</code></dt> <dd>The property to delete.</dd>
+</dl><dl><dt><code>index</code></dt> <dd>An integer representing the array index to delete.</dd>
+</dl></div><div id="section_4"><span id="Description"/><span id="Returns"/><h2 class="editable">Returns</h2>
+<p>Returns false only if the property exists and cannot be deleted. It returns true in all other cases.</p>
+</div><div id="section_5"><span id="Description"/><h2 class="editable">Description</h2>
+<p>The fifth form is legal only within a <code>with</code> statement, to delete a property from an object.</p>
+<p>You can use the <code>delete</code> operator to delete variables declared implicitly but not those declared with the <code>var</code> or the <code>function</code> statement.</p>
+<p>If the <code>delete</code> operator succeeds, it removes the property from the object entirely, although this might reveal a similarly named property on a prototype of the object.</p>
+<p>Some object properties cannot be deleted. In the ECMA 262 specification these are marked as <em>DontDelete</em>.</p>
+&#13;
+          <pre name="code" class="js">x = 42;        // assigns as property of global object
+var y = 43;    // declares as variable
+myobj = new Number();
+myobj.h = 4;    // create property h
+myobj.k = 5;    // create property k
+
+delete x;       // returns true (can delete if declared implicitly)
+delete y;       // returns false (cannot delete if declared with var, property is DontDelete)
+delete Math.PI; // returns false (cannot delete most predefined properties, declared DontDelete)
+delete myobj.h; // returns true (can delete user-defined properties)
+with(myobj) { 
+  delete k;    // returns true (equivalent to delete myobj.k)
+} 
+delete myobj;   // returns true (can delete if declared implicitly, equivalent to x)</pre>&#13;
+        
+<p>You cannot delete a property on an object that it inherits from a prototype (although you can delete it directly on the prototype).</p>
+&#13;
+          <pre name="code" class="js">function Foo(){}
+ Foo.prototype.bar = 42;
+ var foo = new Foo();
+ delete foo.bar;           // but doesn't do anything
+ alert(foo.bar);           // alerts 42, property inherited
+ delete Foo.prototype.bar; // deletes property on prototype
+ alert(foo.bar);           // alerts "undefined", property no longer inherited</pre>&#13;
+        
+<div id="section_6"><span id="Deleting_array_elements"/><h3 class="editable">Deleting array elements</h3>
+<p>When you delete an array element, the array length is not affected. For example, if you delete a[3], a[4] is still a[4] and a[3] is undefined. This holds even if you delete the last element of the array (<code>delete a[a.length-1]</code>).</p>
+<p>When the <code>delete</code> operator removes an array element, that element is no longer in the array. In the following example, trees[3] is removed with <code>delete</code>.</p>
+&#13;
+          <pre name="code" class="js">var trees = ["redwood","bay","cedar","oak","maple"];
+delete trees[3];
+if (3 in trees) {
+   // this does not get executed
+}</pre>&#13;
+        
+<p>If you want an array element to exist but have an undefined value, use the <code>undefined</code> value instead of the <code>delete</code> operator. In the following example, trees[3] is assigned the value undefined, but the array element still exists:</p>
+&#13;
+          <pre name="code" class="js">var trees = ["redwood","bay","cedar","oak","maple"];
+trees[3]=undefined;
+if (3 in trees) {
+   // this gets executed
+}</pre>&#13;
+        
+</div></div><div id="section_7"><span id="Cross-browser_issues"/><h2 class="editable">Cross-browser issues</h2>
+<p>Although ECMAScript makes iteration order of objects implementation-dependent, it may appear that all major browsers support an iteration order based on the earliest added property coming first (at least for properties not on the prototype). However, in the case of Internet Explorer, when one uses <code>delete</code> on a property, some confusing behavior results, preventing other browsers from using simple objects like object literals as ordered associative arrays. In Explorer, while the property <em>value</em> is indeed set to undefined, if one later adds back a property with the same name, the property will be iterated in its <em>old</em> position--not at the end of the iteration sequence as one might expect after having deleted the property and then added it back.</p>
+<p>So if you want to simulate an ordered associative array in a cross-browser environment, you are forced to either use two separate arrays (one for the keys and the other for the values), or build an array of single-property objects, etc.</p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=33009" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/delete&amp;action=history" title="21:56, 12 Aug 2011">21:56, 12 Aug 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.11 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   4.86       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.29       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.95       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/82744/contents                           43.00       request-time-ms=41; mysql-queries=12; mysql-time-ms=12; cache-ratio=8.50; cache-hit=17; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/82744                                    37.82       request-time-ms=34; mysql-queries=22; mysql-time-ms=21; cache-ratio=29.00; cache-hit=29; cache-miss=-28; cache-del=0; cache-ins=28;
+	GET       /deki/pages/33009/info                                5.46       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	          /deki/pages/33009/security                           10.79       
+	GET       /deki/pages/33009/tags                                6.05       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.65       request-time-ms=7; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252Fdelete/full    10.76       request-time-ms=9; mysql-queries=6; mysql-time-ms=5; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/33009/tags                                6.11       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   147.75      
+	                                                     Ideal:   141.64      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

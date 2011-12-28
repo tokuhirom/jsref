@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsArrayfilter" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsArrayfilter" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Array.filter</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Creates a new array with all elements that pass the test implemented by the provided function.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a title="en/JavaScript/Reference/Global_Objects/Array" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.6</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 5th Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<p><code><em>array</em>.filter(<em>callback</em>[, <em>thisObject</em>])</code></p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>callback</code></dt> <dd>Function to test each element of the array.</dd> <dt><code>thisObject</code></dt> <dd>Object to use as <code>this</code> when executing <code>callback</code>.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p><code>filter</code> calls a provided <code>callback</code> function once for each element in an array, and constructs a new array of all the values for which <code>callback</code> returns a true value. <code>callback</code> is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the <code>callback</code> test are simply skipped, and are not included in the new array.</p>
+<p><code>callback</code> is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.</p>
+<p>If a <code>thisObject</code> parameter is provided to <code>filter</code>, it will be used as the <code>this</code> for each invocation of the <code>callback</code>. If it is not provided, or is <code>null</code>, the global object associated with <code>callback</code> is used instead.</p>
+<p><code>filter</code> does not mutate the array on which it is called.</p>
+<p>The range of elements processed by <code>filter</code> is set before the first invocation of <code>callback</code>. Elements which are appended to the array after the call to <code>filter</code> begins will not be visited by <code>callback</code>. If existing elements of the array are changed, or deleted, their value as passed to <code>callback</code> will be the value at the time <code>filter</code> visits them; elements that are deleted are not visited.</p>
+</div><div id="section_5"><span id="Compatibility"/><h3 class="editable">Compatibility</h3>
+<p><code>filter</code> is a JavaScript extension to the ECMA-262 standard; as such it may not be present in other implementations of the standard. You can work around this by inserting the following code at the beginning of your scripts, allowing use of <code>filter</code> in ECMA-262 implementations which do not natively support it. This algorithm is exactly the one specified in ECMA-262, 5th edition, assuming <code style="color: inherit; font-weight: inherit; ">Object</code> and <code style="color: inherit; font-weight: inherit; ">TypeError</code> have their original values, that <code style="color: inherit; font-weight: inherit; ">fun.call</code> evaluates to the original value of <code style="color: inherit; font-weight: inherit; "><a style="text-decoration: none; color: rgb(4, 137, 183) !important; cursor: default; " title="en/JavaScript/Reference/Global Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">Function.prototype.call</a></code>, and that <code><a title="en/JavaScript/Reference/Global Objects/Array/push" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.push</a></code> has its original value. </p>
+&#13;
+          <pre name="code" class="js">if (!Array.prototype.filter)
+{
+  Array.prototype.filter = function(fun /*, thisp */)
+  {
+    "use strict";
+
+    if (this == null)
+      throw new TypeError();
+
+    var t = Object(this);
+    var len = t.length &gt;&gt;&gt; 0;
+    if (typeof fun != "function")
+      throw new TypeError();
+
+    var res = [];
+    var thisp = arguments[1];
+    for (var i = 0; i &lt; len; i++)
+    {
+      if (i in t)
+      {
+        var val = t[i]; // in case fun mutates this
+        if (fun.call(thisp, val, i, t))
+          res.push(val);
+      }
+    }
+
+    return res;
+  };
+}</pre>&#13;
+        
+</div><div id="section_6"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_7"><span id="Example:_Filtering_out_all_small_values"/><h4 class="editable">Example: Filtering out all small values</h4>
+<p>The following example uses <code>filter</code> to create a filtered array that has all elements with values less than 10 removed.</p>
+&#13;
+          <pre name="code" class="js">function isBigEnough(element, index, array) {
+  return (element &gt;= 10);
+}
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered is [12, 130, 44]</pre>&#13;
+        
+</div></div><div id="section_8"><span id="Browser_compatibility"/><h3 class="editable">Browser compatibility</h3>
+<p>Based on <a class="external" rel="external" href="http://kangax.github.com/es5-compat-table/" title="http://kangax.github.com/es5-compat-table/" target="_blank">Kangax's compat tables</a></p>
+<p>
+</p><div class="htab"><a name="AutoCompatibilityTable"/>
+<ul><li class="selected">Desktop</li> <li>Mobile</li>
+</ul></div>
+<div id="compat-desktop"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox (Gecko)</th> <th>Chrome</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari</th> </tr><tr><td>Basic support</td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td>9</td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> </tr></tbody></table></div>
+<div id="compat-mobile"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox Mobile (Gecko)</th> <th>Android</th> <th>IE Mobile</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(3)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=30930" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=ECMAScript5" title="ECMAScript5" tagid="2096" class="text">ECMAScript5</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+1.6" title="JavaScript 1.6" tagid="2130" class="text">JavaScript 1.6</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Array/filter&amp;action=history" title="14:15, 13 Dec 2011">14:15, 13 Dec 2011</a> by <a href="/User:jdalton" class="link-user" rel="internal">jdalton</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.78 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   4.82       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                8.24       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         8.12       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/30930/contents                           68.77       request-time-ms=67; mysql-queries=24; mysql-time-ms=25; cache-ratio=1.35; cache-hit=108; cache-miss=-28; cache-del=0; cache-ins=27;
+	GET       /deki/pages/30930                                    49.11       request-time-ms=41; mysql-queries=20; mysql-time-ms=28; cache-ratio=-12.00; cache-hit=24; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/30930/info                                7.77       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/30930/tags                              303.67       request-time-ms=301; mysql-queries=5; mysql-time-ms=297; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                19.46       request-time-ms=13; mysql-queries=4; mysql-time-ms=9; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FArray%252Ffilter/full   245.72       request-time-ms=243; mysql-queries=6; mysql-time-ms=238; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/30930/tags                                6.76       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   722.44      
+	                                                     Ideal:   715.68      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

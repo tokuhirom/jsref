@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsAssignmentOperators" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsAssignmentOperators" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Assignment Operators</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>An assignment operator assigns a value to its left operand based on the value of its right operand.</p>
+<table class="fullwidth-table"><tbody><tr><td colspan="2" class="header">Operators</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262</td> </tr></tbody></table><p>The basic assignment operator is equal (<code>=</code>), which assigns the value of its right operand to its left operand. That is, <code>x = y</code> assigns the value of <code>y</code> to <code>x</code>. The other assignment operators are usually shorthand for standard operations, as shown in the following table.</p>
+<table class="standard-table"><tbody><tr><th>Shorthand operator</th> <th>Meaning</th> </tr><tr><td><code>x += y</code></td> <td><code>x = x + y</code></td> </tr><tr><td><code>x -= y</code></td> <td><code>x = x - y</code></td> </tr><tr><td><code>x *= y</code></td> <td><code>x = x * y</code></td> </tr><tr><td><code>x /= y</code></td> <td><code>x = x / y</code></td> </tr><tr><td><code>x %= y</code></td> <td><code>x = x % y</code></td> </tr><tr><td><code>x &lt;&lt;= y</code></td> <td><code>x = x &lt;&lt; y</code></td> </tr><tr><td><code>x &gt;&gt;= y</code></td> <td><code>x = x &gt;&gt; y</code></td> </tr><tr><td><code>x &gt;&gt;&gt;= y</code></td> <td><code>x = x &gt;&gt;&gt; y</code></td> </tr><tr><td><code>x &amp;= y</code></td> <td><code>x = x &amp; y</code></td> </tr><tr><td><code>x ^= y</code></td> <td><code>x = x ^ y</code></td> </tr><tr><td><code>x |= y</code></td> <td><code>x = x | y</code></td> </tr></tbody></table><p>In unusual situations, the assignment operator is not identical to the Meaning expression in this table. When the left operand of an assignment operator itself contains an assignment operator, the left operand is evaluated only once. For example:</p>
+<pre>
+a[i++] += 5 //i is evaluated only once
+a[i++] = a[i++] + 5 //i is evaluated twice
+</pre>
+
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31546" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/Assignment_Operators&amp;action=history" title="15:08, 6 Mar 2011">15:08, 6 Mar 2011</a> by <a href="/User:Potappo" class="link-user" rel="internal">Potappo</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.92 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.93       request-time-ms=2; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                              316.23       request-time-ms=314; mysql-queries=4; mysql-time-ms=311; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         9.15       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31546/contents                           26.92       request-time-ms=25; mysql-queries=10; mysql-time-ms=12; cache-ratio=-13.00; cache-hit=13; cache-miss=-14; cache-del=0; cache-ins=13;
+	GET       /deki/pages/31546                                    40.77       request-time-ms=37; mysql-queries=20; mysql-time-ms=27; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/31546/info                               25.49       request-time-ms=23; mysql-queries=4; mysql-time-ms=21; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31546/tags                                9.58       request-time-ms=7; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.55       request-time-ms=7; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252FAssignment%2BOperators/full   246.14       request-time-ms=243; mysql-queries=6; mysql-time-ms=239; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31546/tags                               10.08       request-time-ms=8; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   699.83      
+	                                                     Ideal:   689.74      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

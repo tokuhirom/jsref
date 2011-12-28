@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsin" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsin" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Special.in</h1>            &#13;
+              <span class="page-moved"><a class="pageMoved" href="/index.php?title=en/JavaScript/Reference/Operators/Special/in&amp;redirect=no">Redirected from en/JavaScript/Reference/Operators/Special/in</a></span>&#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>The <code>in</code> operator returns <code>true</code> if the specified property is in the specified object.</p>
+<table class="fullwidth-table"><tbody><tr><td class="header" colspan="2">Operator</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.4</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable">Syntax</h3>
+<p><code> <em>prop</em> in <em>objectName</em> </code></p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable">Parameters</h3>
+<dl><dt><code>prop</code></dt> <dd>A string or numeric expression representing a property name or array index.</dd>
+</dl><dl><dt><code>objectName</code></dt> <dd>Name of an object.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h3 class="editable">Description</h3>
+<p>The following examples show some uses of the <code>in</code> operator.</p>
+<pre class="eval">
+// Arrays
+var trees = new Array("redwood", "bay", "cedar", "oak", "maple");
+0 in trees        // returns true
+3 in trees        // returns true
+6 in trees        // returns false
+"bay" in trees    // returns false (you must specify the index number,
+                  // not the value at that index)
+"length" in trees // returns true (length is an Array property)
+
+// Predefined objects
+"PI" in Math          // returns true
+
+// Custom objects
+var mycar = {make: "Honda", model: "Accord", year: 1998};
+"make" in mycar  // returns true
+"model" in mycar // returns true
+</pre>
+<p>You must specify an object on the right side of the <code>in</code> operator. For example, you can specify a string created with the <code>String</code> constructor, but you cannot specify a string literal.</p>
+<pre class="eval">
+var color1 = new String("green");
+"length" in color1 // returns true
+var color2 = "coral";
+"length" in color2 // generates an error (color is not a String object)
+</pre>
+<div id="section_5"><span id="Using_in_with_deleted_or_undefined_properties"/><h4 class="editable">Using <code>in</code> with deleted or undefined properties</h4>
+<p>If you delete a property with the <code><a title="en/JavaScript/Reference/Operators/Special/delete" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/delete">delete</a></code> operator, the <code>in</code> operator returns <code>false</code> for that property.</p>
+<pre class="eval">
+var mycar = {make: "Honda", model: "Accord", year: 1998};
+delete mycar.make;
+"make" in mycar;  // returns false
+
+var trees = new Array("redwood", "bay", "cedar", "oak", "maple");
+delete trees[3];
+3 in trees; // returns false
+</pre>
+<p>If you set a property to undefined but do not delete it, the <code>in</code> operator returns true for that property.</p>
+<pre class="eval">
+var mycar = {make: "Honda", model: "Accord", year: 1998};
+mycar.make = undefined;
+"make" in mycar;  // returns true
+</pre>
+<pre class="eval">
+var trees = new Array("redwood", "bay", "cedar", "oak", "maple");
+trees[3] = undefined;
+3 in trees; // returns true
+</pre>
+</div><div id="section_6"><span id="Inherited_properties"/><h4 class="editable">Inherited properties</h4>
+<p>The <code>in</code> operator returns <code>true</code> for properties in the prototype chain.</p>
+<pre class="eval">
+"toString" in {}; // returns true
+</pre></div></div><div id="section_7"><span id="See_also"/><h3 class="editable">See also</h3>
+<ul><li><a title="en/JavaScript/Reference/Operators/Special/delete" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/delete">delete</a></li> <li><a title="en/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/hasOwnProperty">Object.prototype.hasOwnProperty</a></li>
+</ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32810" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/in&amp;action=history" title="17:41, 26 Jul 2011">17:41, 26 Jul 2011</a> by <a href="/User:mattcg" class="link-user" rel="internal">mattcg</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.01 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                  20.36       request-time-ms=14; mysql-queries=2; mysql-time-ms=13; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.61       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.77       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/82749/contents                           39.73       request-time-ms=38; mysql-queries=13; mysql-time-ms=23; cache-ratio=17.00; cache-hit=17; cache-miss=-16; cache-del=0; cache-ins=15;
+	GET       /deki/pages/82749                                    40.56       request-time-ms=35; mysql-queries=22; mysql-time-ms=23; cache-ratio=29.00; cache-hit=29; cache-miss=-28; cache-del=0; cache-ins=28;
+	GET       /deki/pages/32810/info                               10.83       request-time-ms=8; mysql-queries=3; mysql-time-ms=6; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	          /deki/pages/32810/security                            8.60       
+	GET       /deki/pages/32810/tags                                5.63       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.82       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252Fin/full   241.59       request-time-ms=239; mysql-queries=6; mysql-time-ms=235; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32810/tags                                8.49       request-time-ms=7; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   398.99      
+	                                                     Ideal:   390.50      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

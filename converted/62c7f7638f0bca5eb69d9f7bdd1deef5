@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsURIErrorprototype" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsURIErrorprototype" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">URIError.prototype</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Represents the prototype for the <a title="en/JavaScript/Reference/Global_Objects/URIError" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/URIError">URIError</a> constructor.</p>
+</div><div id="section_2"><span id="Description"/><h3 class="editable">Description</h3>
+<p>All <a title="en/JavaScript/Reference/Global_Objects/URIError" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/URIError"><code>URIError</code></a> instances inherit from <code>URIError.prototype</code>. You can use the prototype to add properties or methods to all instances.</p>
+</div><div id="section_3"><span id="Properties"/><h3 class="editable">Properties</h3>
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/URIError/constructor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/URIError/constructor" class="new ">constructor</a></dt> <dd>Specifies the function that created an instance's prototype.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/URIError/name" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/URIError/name" class="new ">name</a></dt> <dd>Error name.</dd>
+</dl><div class="note"><strong>Note:</strong> Although <a title="en/ECMA-262" rel="internal" href="https://developer.mozilla.org/en/ECMAScript">ECMA-262</a> specifies that <code><a title="en/JavaScript/Reference/Global Objects/URIError" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/URIError">URIError</a> </code>should provide its own <code>message</code> property, in <a title="en/SpiderMonkey" rel="internal" href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a>, it inherits <code><a title="en/JavaScript/Reference/Global_Objects/Error/message" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error/message">Error.prototype.message</a></code>.</div>
+<p><span class="lang lang-en">
+
+<div style="border: solid #ccc 1px; background: #eee; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p><strong>Properties inherited from <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3Aprototype" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:prototype" class=" new">Error.prototype</a></strong><br/><small>
+<a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3AfileName" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:fileName" class=" new">fileName</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3AlineNumber" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:lineNumber" class=" new">lineNumber</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3Amessage" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:message" class=" new">message</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3Aname" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:name" class=" new">name</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3Anumber" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:number" class=" new">number</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3Astack" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:stack" class=" new">stack</a></small>
+</p>
+</div> </span></p>
+</div><div id="section_4"><span id="Methods"/><h3 class="editable">Methods</h3>
+<p>Although the <code>URIError</code> prototype object does not contain any methods of its own, <code><a title="en/JavaScript/Reference/Global_Objects/URIError" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/URIError">URIError</a></code> instances do inherit some methods through the prototype chain.</p>
+<p><span class="lang lang-en">
+
+<div style="border: solid #ccc 1px; background: #eee; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p><strong>Methods inherited from <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3Aprototype" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:prototype" class=" new">Error.prototype</a></strong><br/><small>
+<a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3AtoSource" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:toSource" class=" new">toSource</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AError%3AtoString" title="Core_JavaScript_1.5_Reference:Global_Objects:Error:toString" class=" new">toString</a></small>
+</p>
+</div> </span></p>
+<p><span class="lang lang-en">
+
+<div style="border: solid #ccc 1px; background: #eee; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p><strong>Methods inherited from <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3Aprototype" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:prototype" class=" new">Object.prototype</a></strong><br/><small>
+<a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3A__defineGetter" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:__defineGetter" class=" new">__defineGetter__</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3A__defineSetter" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:__defineSetter" class=" new">__defineSetter__</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3AhasOwnProperty" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:hasOwnProperty" class=" new">hasOwnProperty</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3AisPrototypeOf" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:isPrototypeOf" class=" new">isPrototypeOf</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3A__lookupGetter" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:__lookupGetter" class=" new">__lookupGetter__</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3A__lookupSetter" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:__lookupSetter" class=" new">__lookupSetter__</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3A__noSuchMethod" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:__noSuchMethod" class=" new">__noSuchMethod__</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3ApropertyIsEnumerable" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:propertyIsEnumerable" class=" new">propertyIsEnumerable</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3Aunwatch" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:unwatch" class=" new">unwatch</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3AvalueOf" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:valueOf" class=" new">valueOf</a>, <a rel="internal" href="https://developer.mozilla.org/Core_JavaScript_1.5_Reference%3AGlobal_Objects%3AObject%3Awatch" title="Core_JavaScript_1.5_Reference:Global_Objects:Object:watch" class=" new">watch</a></small>
+</p>
+</div> </span></p>
+</div><div id="section_5"><span id="See_also"/><h3 class="editable">See also</h3>
+<ul><li><a title="en/JavaScript/Reference/Global_Objects/Error/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error/prototype">Error.prototype</a></li> <li><a title="en/JavaScript/Reference/Global_Objects/Function/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/prototype">Function.prototype</a></li>
+</ul><p/>
+</div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32182" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/URIError/prototype&amp;action=history" title="17:19, 6 Aug 2010">17:19, 6 Aug 2010</a> by <a href="/User:Sevenspade" class="link-user" rel="internal">Sevenspade</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.49 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.05       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               29.02       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.40       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/32182/contents                          118.08       request-time-ms=116; mysql-queries=22; mysql-time-ms=33; cache-ratio=5.30; cache-hit=53; cache-miss=-43; cache-del=0; cache-ins=19;
+	GET       /deki/pages/32182                                    30.58       request-time-ms=27; mysql-queries=19; mysql-time-ms=17; cache-ratio=Infinity; cache-hit=26; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/32182/info                                4.97       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/32182/tags                                5.32       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.05       request-time-ms=6; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FURIError%252Fprototype/full   226.81       request-time-ms=225; mysql-queries=6; mysql-time-ms=222; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32182/tags                                9.41       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   444.69      
+	                                                     Ideal:   435.28      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

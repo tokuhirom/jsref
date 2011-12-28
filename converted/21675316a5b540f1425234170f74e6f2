@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsinstanceof" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsinstanceof" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">instanceof</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>The <code>instanceof</code> operator tests whether an object has in its prototype chain the <code>prototype</code> property of a constructor.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2" scope="row">Operator</th> </tr></thead><tbody><tr><td>Implemented in:</td> <td>JavaScript 1.4</td> </tr><tr><td>ECMAScript Edition:</td> <td>ECMA-262 ? Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<code><em>object</em> instanceof <em>constructor</em></code></div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>object</code></dt> <dd>The object to test.</dd>
+</dl><dl><dt><code>constructor</code></dt> <dd>Function to test against</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>The <code>instanceof</code> operator tests presence of <code>constructor.prototype</code> in <code>object</code> prototype chain.</p>
+&#13;
+          <pre name="code" class="js">function C(){} // defining a constructor
+function D(){} // defining another constructor
+
+var o = new C();
+o instanceof C; // true, because: Object.getPrototypeOf(o) === C.prototype
+o instanceof D; // false, because D.prototype is nowhere in o's prototype chain
+o instanceof Object; // true, because:
+C.prototype instanceof Object // true
+
+C.prototype = {};
+var o2 = new C();
+o2 instanceof C; // true
+o instanceof C; // false, because C.prototype is nowhere in o's prototype chain anymore
+
+D.prototype = Object.getPrototypeOf(o);
+o instanceof D; // true</pre>&#13;
+        
+<p>Note that if the value of an <code>instanceof</code> test can change based on changes to the <code>prototype</code> property of constructors, it cannot be changed by changing an object prototype, because changing an object prototype is not possible in standard ECMAScript. It is however possible using the non-standard <code>__proto__</code> pseudo-property.</p> <div id="section_5"><span id="instanceof_and_multiple_context_(e.g._frames_or_windows)"/><h3 class="editable"><code>instanceof</code> and multiple context (e.g. frames or windows)</h3>
+<p>Different scope have different execution environments. This means that they have different built-ins (different global object, different constructors, etc.). This may result in unexpected results. For instance, if <code>Array2</code> is the <code>Array</code> constructor of another context, <code>[] instanceof Array2</code> will return <code>false</code>, because <code>Array.prototype !== Array2.prototype</code> and arrays inherit from the former.</p></div><div id="section_6"><span id="Mozilla_developers"/><h3 class="editable">Mozilla developers</h3>
+<p>In code using XPCOM <code>instanceof</code> has special effect: <code>obj instanceof </code><em><code>xpcomInterface</code></em> (e.g. <code>Components.interfaces.nsIFile</code>) calls <code>obj.QueryInterface(<em>xpcomInterface</em>)</code> and returns <code>true</code> if QueryInterface succeeded. A side effect of such call is that you can use <em><code>xpcomInterface</code></em>'s properties on <code>obj</code> after a successful <code>instanceof</code> test.</p>
+<p>Unlike standard JavaScript globals, the test <code>obj instanceof xpcomInterface </code>works as expected even if <code>obj</code> is from a different scope.</p>
+</div></div><div id="section_7"><span id="Examples"/><h2 class="editable">Examples</h2>
+<p>Also see the examples for <a title="en/Core_JavaScript_1.5_Reference/Statements/throw" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/throw">throw</a>.</p>
+<div id="section_8"><span id="Example:_Determining_whether_theDay_is_a_Date_object"/><h3 class="editable">Example: Determining whether <code>theDay</code> is a <code>Date</code> object</h3>
+<p>The following code uses <code>instanceof</code> to determine whether <code>theDay</code> is a <code>Date</code> object. Because <code>theDay</code> is a <code>Date</code> object, the statements in the if statement execute.</p>
+<pre class="eval">
+var theDay = new Date(1995, 11, 17); // Dec. 17, 1995
+if (theDay instanceof Date)
+{
+  print("theDay is a Date object");
+  // whatever else...
+} 
+</pre>
+</div><div id="section_9"><span id="Example:_Demonstrating_that_String_and_Date_are_of_type_Object"/><h3 class="editable">Example: Demonstrating that <code>String</code> and <code>Date</code> are of type <code>Object</code></h3>
+<p>The following code uses <code>instanceof</code> to demonstrate that <code>String</code> and <code>Date</code> objects are also of type <code>Object</code> (they are derived from <code>Object</code>).</p>
+&#13;
+          <pre name="code" class="js">var myString = new String();
+var myDate = new Date();
+
+myString instanceof String; // returns true
+myString instanceof Object; // returns true
+myString instanceof Date;   // returns false
+
+myDate instanceof Date;     // returns true
+myDate instanceof Object;   // returns true
+myDate instanceof String;   // returns false</pre>&#13;
+        
+</div><div id="section_10"><span id="Example:_Demonstrating_that_mycar_is_of_type_Car_and_type_Object"/><h3 class="editable">Example: Demonstrating that <code>mycar</code> is of type <code>Car</code> and type <code>Object</code></h3>
+<p>The following code creates an object type <code>Car</code> and an instance of that object type, <code>mycar</code>. The <code>instanceof</code> operator demonstrates that the <code>mycar</code> object is of type <code>Car</code> and of type <code>Object</code>.</p>
+&#13;
+          <pre name="code" class="js">function Car(make, model, year)
+{
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+var mycar = new Car("Honda", "Accord", 1998);
+var a = mycar instanceof Car;    // returns true
+var b = mycar instanceof Object; // returns true</pre>&#13;
+        
+<p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=33155" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsContent" title="NeedsContent" tagid="50" class="text">NeedsContent</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsTechnicalReview" title="NeedsTechnicalReview" tagid="17" class="text">NeedsTechnicalReview</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/instanceof&amp;action=history" title="21:55, 12 Aug 2011">21:55, 12 Aug 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.95 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                 222.54       request-time-ms=3; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                              345.63       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        11.44       request-time-ms=5; mysql-queries=2; mysql-time-ms=3; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/33155/contents                           61.95       request-time-ms=54; mysql-queries=10; mysql-time-ms=21; cache-ratio=-13.00; cache-hit=13; cache-miss=-14; cache-del=0; cache-ins=13;
+	GET       /deki/pages/33155                                    57.77       request-time-ms=40; mysql-queries=21; mysql-time-ms=27; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/33155/info                               27.61       request-time-ms=4; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/33155/tags                               18.17       request-time-ms=10; mysql-queries=5; mysql-time-ms=8; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                20.61       request-time-ms=9; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252Finstanceof/full    29.16       request-time-ms=14; mysql-queries=6; mysql-time-ms=10; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/33155/tags                               52.65       request-time-ms=19; mysql-queries=5; mysql-time-ms=17; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   847.52      
+	                                                     Ideal:   794.86      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceFunctionsandfunctionscopearguments" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceFunctionsandfunctionscopearguments" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">arguments</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>An array-like object corresponding to the arguments passed to a function.</p>
+<table class="standard-table"><tbody><tr><th class="header" colspan="2">Variable of the function scope</th> </tr><tr><td>Implemented in</td> <td>JavaScript 1.1</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262</td> </tr></tbody></table></div><div id="section_2"><span id="Description"/><h3 class="editable">Description</h3>
+<p>The <code>arguments</code> object is a local variable available within all functions; <code>arguments</code> as a property of <code>Function</code> can no longer be used.</p>
+<p>You can refer to a function's arguments within the function by using the <code>arguments</code> object. This object contains an entry for each argument passed to the function, the first entry's index starting at 0. For example, if a function is passed three arguments, you can refer to the argument as follows:</p>
+<pre class="eval">
+arguments[0]
+arguments[1]
+arguments[2]
+</pre>
+<p>The arguments can also be set:</p>
+<pre class="eval">
+arguments[1] = 'new value';
+</pre>
+<div class="note"><strong>Note:</strong> The <a title="en/SpiderMonkey" rel="internal" href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a> JavaScript engine has a <a class="link-https" rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=292215" title="https://bugzilla.mozilla.org/show_bug.cgi?id=292215" target="_blank">bug</a> in which <code>arguments[n]</code> cannot be set if <code>n</code> is greater than the number of formal or actual parameters. This has been fixed in the engine for JavaScript 1.6.</div>
+<p>The <code>arguments</code> object is not an array. It is similar to an array, but does not have any array properties except <code><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/length">length</a></code>. For example, it does not have the <code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Array/pop" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/pop">pop</a></code> method. However it can be converted to a real array:</p>
+<pre class="eval">
+ var args = Array.prototype.slice.call(arguments);
+</pre>
+<p>The <code>arguments</code> object is available only within a function body. Attempting to access the <code>arguments</code> object outside a function declaration results in an error.</p>
+<p>You can use the <code>arguments</code> object if you call a function with more arguments than it is formally declared to accept. This technique is useful for functions that can be passed a variable number of arguments. You can use <code><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/length">arguments.length</a></code> to determine the number of arguments passed to the function, and then process each argument by using the <code>arguments</code> object. (To determine the number of arguments declared when a function was defined, use the <code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/length">Function.length</a></code> property.)</p>
+</div><div id="section_3"><span id="Properties"/><h3 class="editable">Properties</h3>
+<dl><dt><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/callee" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/callee">arguments.callee</a></dt> <dd>Reference to the currently executing function.</dd>
+</dl><dl><dt><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/caller" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/caller">arguments.caller</a></dt> <dd>
+
+<span style="border: 1px solid #FF0000; background-color: #FEBCBC; font-size: x-small; white-space: nowrap; padding: 2px;" title="">Obsolete</span></dd> <dd>Reference to the function that invoked the currently executing function.</dd>
+</dl><dl><dt><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/length">arguments.length</a></dt> <dd>Reference to the number of arguments passed to the function.</dd>
+</dl></div><div id="section_4"><span id="Examples"/><h3 class="editable">Examples</h3>
+<div id="section_5"><span id="Example:_Defining_function_that_concatenates_several_strings"/><span id="Example:_Defining_a_function_that_concatenates_several_strings"/><h4 class="editable">Example: Defining a function that concatenates several strings</h4>
+<p>This example defines a function that concatenates several strings. The only formal argument for the function is a string that specifies the characters that separate the items to concatenate. The function is defined as follows:</p>
+<pre class="eval">
+function myConcat(separator) {
+  var result = "";
+
+  // iterate through non-separator arguments
+  for (var i = 1; i &lt; arguments.length; i++) {
+    result += arguments[i] + separator;
+  }
+  
+  return result;
+}
+</pre>
+<p>You can pass any number of arguments to this function, and it creates a list using each argument as an item in the list.</p>
+<pre class="eval">
+// returns "red, orange, blue, "
+myConcat(", ", "red", "orange", "blue");
+
+// returns "elephant; giraffe; lion; cheetah; "
+myConcat("; ", "elephant", "giraffe", "lion", "cheetah");
+
+// returns "sage. basil. oregano. pepper. parsley. "
+myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley");
+</pre>
+</div><div id="section_6"><span id="Example:_Defining_a_function_that_creates_HTML_lists"/><h4 class="editable">Example: Defining a function that creates HTML lists</h4>
+<p>This example defines a function that creates a string containing HTML for a list. The only formal argument for the function is a string that is "<code>u</code>" if the list is to be unordered (bulleted), or "<code>o</code>" if the list is to be ordered (numbered). The function is defined as follows:</p>
+<pre>
+function list(type) {
+  var result = "&lt;" + type + "l&gt;";
+
+  // iterate through non-type arguments
+  for (var i = 1; i &lt; arguments.length; i++) {
+    result += "&lt;li&gt;" + arguments[i] + "&lt;/li&gt;";
+  }
+  
+  result += "&lt;/" + type + "l&gt;"; // end list
+
+  return result;
+}
+</pre>
+<p>You can pass any number of arguments to this function, and it adds each argument as an item to a list of the type indicated. For example:</p>
+<pre>
+var listHTML = list("u", "One", "Two", "Three");
+// listHTML is "&lt;ul&gt;&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;&lt;li&gt;Three&lt;/li&gt;&lt;/ul&gt;"
+</pre>
+<p> </p>
+<p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(3)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=28494" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsMarkupWork" title="NeedsMarkupWork" tagid="49" class="text">NeedsMarkupWork</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Functions_and_function_scope/arguments&amp;action=history" title="10:49, 22 Nov 2011">10:49, 22 Nov 2011</a> by <a href="/User:Aaronmcadam" class="link-user" rel="internal">Aaronmcadam</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.44 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   7.48       request-time-ms=3; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                8.81       request-time-ms=7; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.29       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/28494/contents                           64.79       request-time-ms=63; mysql-queries=21; mysql-time-ms=36; cache-ratio=7.25; cache-hit=29; cache-miss=-25; cache-del=0; cache-ins=24;
+	GET       /deki/pages/28494                                    45.80       request-time-ms=41; mysql-queries=21; mysql-time-ms=27; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/28494/info                                7.85       request-time-ms=6; mysql-queries=3; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/28494/tags                                9.02       request-time-ms=7; mysql-queries=5; mysql-time-ms=5; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.97       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FFunctions%2Band%2Bfunction%2Bscope%252Farguments/full   213.51       request-time-ms=211; mysql-queries=6; mysql-time-ms=208; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/28494/tags                                8.12       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   382.64      
+	                                                     Ideal:   374.52      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

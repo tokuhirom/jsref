@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceStatementsswitch" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceStatementsswitch" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">switch</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Evaluates an expression, matching the expression's value to a case label, and executes statements associated with that case.</p>
+<table class="fullwidth-table" style="width: auto;"><tbody><tr><td colspan="2" class="header">Statement</td> </tr><tr><td>Implemented in:</td> <td>JavaScript 1.2, NES 3.0</td> </tr><tr><td>ECMA Version:</td> <td>ECMA-262, Edition 3</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<pre class="eval">
+switch (<em>expression</em>) {
+   case <em>label1</em>:
+      <em>statements1</em>
+      [break;]
+   case <em>label2</em>:
+      <em>statements2</em>
+      [break;]
+   ...
+   case <em>labelN</em>:
+      <em>statementsN</em>
+      [break;]
+   default:
+      <em>statements_def</em>
+      [break;]
+}
+</pre>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>expression</code> </dt> <dd>An expression matched against each label.</dd>
+</dl><dl><dt><code>labelN</code> </dt> <dd>Identifier used to match against <code>expression</code>.</dd>
+</dl><dl><dt><code>statementsN</code> </dt> <dd>Statements that are executed if <code>expression</code> matches the associated label.</dd>
+</dl><dl><dt><code>statements_def</code> </dt> <dd>Statements that are executed if <code>expression</code> does not match any label.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>If a match is found, the program executes the associated statements. If multiple cases match the provided value, the first case that matches is selected, even if the cases are not equal to each other.</p>
+<p>The program first looks for a <code>case</code> clause with a label matching the value of expression and then transfers control to that clause, executing the associated statements. If no matching label is found, the program looks for the optional <code>default</code> clause, and if found, transfers control to that clause, executing the associated statements. If no <code>default</code> clause is found, the program continues execution at the statement following the end of <code>switch</code>. By convention, the <code>default</code> clause is the last clause, but it does not need to be so.</p>
+<p>The optional <code><a title="en/Core_JavaScript_1.5_Reference/Statements/break" rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/break">break</a></code> statement associated with each case label ensures that the program breaks out of switch once the matched statement is executed and continues execution at the statement following switch. If <code>break</code> is omitted, the program continues execution at the next statement in the <code>switch</code> statement.</p>
+</div><div id="section_5"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_6"><span id="Example:_Using_switch"/><h3 class="editable">Example: Using <code>switch</code></h3>
+<p>In the following example, if <code>expression</code> evaluates to "Bananas", the program matches the value with case "Bananas" and executes the associated statement. When <code>break</code> is encountered, the program breaks out of <code>switch</code> and executes the statement following <code>switch</code>. If <code>break</code> were omitted, the statement for case "Cherries" would also be executed.</p>
+&#13;
+          <pre name="code" class="js">switch (expr) {
+   case "Oranges":
+      document.write("Oranges are $0.59 a pound.&lt;br&gt;");
+      break;
+   case "Apples":
+      document.write("Apples are $0.32 a pound.&lt;br&gt;");
+      break;
+   case "Bananas":
+      document.write("Bananas are $0.48 a pound.&lt;br&gt;");
+      break;
+   case "Cherries":
+      document.write("Cherries are $3.00 a pound.&lt;br&gt;");
+      break;
+   case "Mangoes":
+   case "Papayas":
+      document.write("Mangoes and papayas are $2.79 a pound.&lt;br&gt;");
+      break;
+   default:
+      document.write("Sorry, we are out of " + expr + ".&lt;br&gt;");
+}
+document.write("Is there anything else you'd like?&lt;br&gt;");</pre>&#13;
+        
+<p> </p>
+<p/></div></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=27981" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Statements/switch&amp;action=history" title="04:57, 27 Feb 2010">04:57, 27 Feb 2010</a> by <a href="/User:Skierpage" class="link-user" rel="internal">Skierpage</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.44 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   7.12       request-time-ms=4; mysql-queries=1; mysql-time-ms=2; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               14.62       request-time-ms=10; mysql-queries=4; mysql-time-ms=7; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        10.95       request-time-ms=6; mysql-queries=2; mysql-time-ms=4; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/27981/contents                           42.13       request-time-ms=38; mysql-queries=11; mysql-time-ms=19; cache-ratio=-6.50; cache-hit=13; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/27981                                    40.85       request-time-ms=37; mysql-queries=20; mysql-time-ms=26; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/27981/info                                7.12       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/27981/tags                                8.34       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                11.95       request-time-ms=9; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FStatements%252Fswitch/full   235.75       request-time-ms=232; mysql-queries=6; mysql-time-ms=228; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/27981/tags                                7.94       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   386.78      
+	                                                     Ideal:   378.84      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

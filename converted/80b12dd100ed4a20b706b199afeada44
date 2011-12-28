@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceReservedWords" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceReservedWords" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Reserved Words</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p>The following are keywords and may not be used as variables, functions, methods, or object identifiers, because <a title="en/ECMAScript" rel="internal" href="https://developer.mozilla.org/en/ECMAScript">ECMAScript</a> specifies special behavior for them:</p>
+<ul><li><code><a title="en/JavaScript/Reference/Statements/break" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/break">break</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/switch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/switch">case</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/try...catch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/try...catch">catch</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/continue" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/continue">continue</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/debugger" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/debugger">debugger</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/switch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/switch">default</a></code></li> <li><code><a title="en/JavaScript/Reference/Operators/Special/delete" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/delete">delete</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/do...while" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/do...while">do</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/if...else" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/if...else">else</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/try...catch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/try...catch">finally</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/for" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/for">for</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/function">function</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/if...else" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/if...else">if</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/for...in" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in">in</a></code></li> <li><code><a title="en/JavaScript/Reference/Operators/Special/instanceof" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/instanceof">instanceof</a></code></li> <li><code><a title="en/JavaScript/Reference/Operators/Special/new" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/new">new</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/return" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/return">return</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/switch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/switch">switch</a></code></li> <li><code><a title="en/JavaScript/Reference/Operators/Special/this" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/this">this</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/throw" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/throw">throw</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/try...catch" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/try...catch">try</a></code></li> <li><code><a title="en/JavaScript/Reference/Operators/Special/typeof" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/typeof">typeof</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/var" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/var">var</a></code></li> <li><code><a title="en/JavaScript/Reference/Operators/Special/void" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/void">void</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/while" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/while">while</a></code></li> <li><code><a title="en/JavaScript/Reference/Statements/with" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/with">with</a></code></li>
+</ul><div id="section_1"><span id="Words_reserved_for_possible_future_use"/><h2 class="editable">Words reserved for possible future use</h2>
+<p>The following are reserved as future keywords by the ECMAScript specification.  They have no special functionality at present, but they might at some future time, so they cannot be used as identifiers. These keywords may not be used in either strict or non-strict mode.</p>
+<div class="note"><strong>Note:</strong> Prior to Firefox 5 (JavaScript 1.8.6), these keywords could be used when not in strict mode. This ECMAScript violation was fixed in Firefox 5.</div>
+<ul><li><code>class</code></li> <li><code>enum</code></li> <li><code><a title="en/JavaScript/Reference/Statements/export" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/export">export</a></code></li> <li><code>extends</code></li> <li><code><a title="en/JavaScript/Reference/Statements/import" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/import">import</a></code></li> <li><code>super</code></li>
+</ul><p>The following are reserved as future keywords by the ECMAScript specification when they are found in <a title="en/JavaScript/Strict mode" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Strict_mode">strict mode code</a>, except that <code>let</code> and <code>yield</code> have their traditional Mozilla-specific functionality in code compiled as JavaScript 1.7 or greater:</p>
+<ul><li><code>implements</code></li> <li><code>interface</code></li> <li><code><a title="en/JavaScript/Reference/Statements/let" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/let">let</a></code></li> <li><code>package</code></li> <li><code>private</code></li> <li><code>protected</code></li> <li><code>public</code></li> <li><code>static</code></li> <li><code><a title="en/JavaScript/Reference/Statements/yield" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/yield">yield</a></code></li>
+</ul><p>Note that while <code><a title="en/JavaScript/Reference/Statements/const" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/const">const</a></code> is reserved as a future keyword by the ECMAScript specification, Mozilla and most other browsers implement it as a non-standard extension that may be standardized in a future version of ECMAScript.  Further, <a title="en/JavaScript/Reference/Statements/export" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/export">export</a> and <a title="en/JavaScript/Reference/Statements/import" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/import">import</a> were once implemented in Mozilla but have returned to reserved status in recent releases.</p>
+<p>Additionally, the literals <code>null</code>, <code>true</code>, and <code>false</code> are reserved in ECMAScript for their normal uses.</p>
+</div><div id="section_2"><span id="Reserved_word_usage"/><h2 class="editable">Reserved word usage</h2>
+<p>Reserved Words actually only apply to Identifiers (vs. <span class="comment-copy">IdentifierNames) </span>. <span class="comment-copy">As described in <a rel="nofollow" href="http://es5.github.com/#A.1">es5.github.com/#A.1</a>, these are all IdentifierNames which do not exclude ReservedWords.</span></p>
+<p><span class="comment-copy"> <code>a.import</code></span><br/><span class="comment-copy"><code>a["import"]</code></span><br/><span class="comment-copy"><code>a = { import: "test" }</code>.</span></p>
+<p><span class="comment-copy">On the other hand the following is illegal because it's an Identifier, which is an IdentifierName without the Reserved Words. Identifiers are used for FunctionDeclaration and FunctionExpression.</span></p>
+<p><span class="comment-copy"><code>function import() {}</code></span></p>
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(1)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=27296" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Reserved_Words&amp;action=history" title="17:27, 4 Aug 2011">17:27, 4 Aug 2011</a> by <a href="/User:Sheppy" class="link-user" rel="internal">Sheppy</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.46 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                  26.78       request-time-ms=23; mysql-queries=2; mysql-time-ms=20; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.67       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        11.18       request-time-ms=6; mysql-queries=2; mysql-time-ms=4; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/27296/contents                           46.35       request-time-ms=44; mysql-queries=10; mysql-time-ms=16; cache-ratio=-1.30; cache-hit=13; cache-miss=-23; cache-del=0; cache-ins=22;
+	GET       /deki/pages/27296                                    56.13       request-time-ms=51; mysql-queries=21; mysql-time-ms=37; cache-ratio=Infinity; cache-hit=25; cache-miss=-25; cache-del=0; cache-ins=25;
+	GET       /deki/pages/27296/info                                7.96       request-time-ms=6; mysql-queries=3; mysql-time-ms=5; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/27296/tags                               10.29       request-time-ms=8; mysql-queries=5; mysql-time-ms=6; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                10.76       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FReserved%2BWords/full   221.21       request-time-ms=219; mysql-queries=6; mysql-time-ms=216; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/27296/tags                                6.50       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   403.83      
+	                                                     Ideal:   397.33      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

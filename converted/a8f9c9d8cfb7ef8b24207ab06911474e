@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsDateUTC" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsDateUTC" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Date.UTC</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+</p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Accepts the same parameters as the longest form of the constructor, and returns the number of milliseconds in a <code>Date</code> object since January 1, 1970, 00:00:00, universal time.</p>
+<table class="standard-table"><thead><tr><th colspan="2" class="header">Method of <a title="en/JavaScript/Reference/Global_Objects/Date" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date"><code>Date</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.0</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 1st Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h3 class="editable"> Syntax </h3>
+<p><code>
+Date.UTC(<i>year</i>, <i>month</i>[, <i>date</i>[, <i>hrs</i>[, <i>min</i>[, <i>sec</i>[, <em>ms</em>]]]]])
+</code>
+</p>
+</div><div id="section_3"><span id="Parameters"/><h3 class="editable"> Parameters </h3>
+<dl><dt> <code>year</code> </dt><dd> A year after 1900. </dd></dl><dl><dt> <code>month</code> </dt><dd> An integer between 0 and 11 representing the month. </dd></dl><dl><dt> <code>date</code> </dt><dd> An integer between 1 and 31 representing the day of the month. </dd></dl><dl><dt> <code>hrs</code> </dt><dd> An integer between 0 and 23 representing the hours. </dd></dl><dl><dt> <code>min</code> </dt><dd> An integer between 0 and 59 representing the minutes. </dd></dl><dl><dt> <code>sec</code> </dt><dd> An integer between 0 and 59 representing the seconds. </dd></dl><dl><dt> <code>ms</code> </dt><dd> An integer between 0 and 999 representing the milliseconds.
+</dd></dl></div><div id="section_4"><span id="Description"/><h3 class="editable"> Description </h3>
+<p><code>UTC</code> takes comma-delimited date parameters and returns the number of milliseconds between January 1, 1970, 00:00:00, universal time and the time you specified.
+</p><p>You should specify a full year for the year; for example, 1998. If a year between 0 and 99 is specified, the method converts the year to a year in the 20th century (1900 + year); for example, if you specify 95, the year 1995 is used.
+</p><p>The <code>UTC</code> method differs from the <code>Date</code> constructor in two ways.
+</p>
+<ul><li> <code>Date.UTC</code> uses universal time instead of the local time.
+</li><li> <code>Date.UTC</code> returns a time value as a number instead of creating a <code>Date</code> object.
+</li></ul><p>If a parameter you specify is outside of the expected range, the <code>UTC</code> method updates the other parameters to allow for your number. For example, if you use 15 for month, the year will be incremented by 1 (year + 1), and 3 will be used for the month.
+</p><p>Because <code>UTC</code> is a static method of <code>Date</code>, you always use it as <code>Date.UTC()</code>, rather than as a method of a <code>Date</code> object you created.
+</p>
+</div><div id="section_5"><span id="Examples"/><h3 class="editable"> Examples </h3>
+<div id="section_6"><span id="Example:_Using_Date.UTC"/><h4 class="editable"> Example: Using <code>Date.UTC</code> </h4>
+<p>The following statement creates a <code>Date</code> object using GMT instead of local time:
+</p>
+<pre class="eval">gmtDate = new Date(Date.UTC(96, 11, 1, 0, 0, 0));
+</pre>
+</div></div><div id="section_7"><span id="See_also"/><h3 class="editable"> See also </h3>
+<p><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Date/parse" title="en/Core_JavaScript_1.5_Reference/Global_Objects/Date/parse">parse</a>
+</p><p><br/></p>
+
+
+</div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=29637" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Date/UTC&amp;action=history" title="21:09, 6 Jun 2011">21:09, 6 Jun 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.60 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   7.05       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                8.54       request-time-ms=6; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.85       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/29637/contents                           50.31       request-time-ms=46; mysql-queries=10; mysql-time-ms=24; cache-ratio=-6.50; cache-hit=13; cache-miss=-15; cache-del=0; cache-ins=14;
+	GET       /deki/pages/29637                                    50.83       request-time-ms=43; mysql-queries=20; mysql-time-ms=32; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/29637/info                               11.80       request-time-ms=8; mysql-queries=3; mysql-time-ms=6; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/29637/tags                                7.11       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                13.41       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FDate%252FUTC/full   356.30       request-time-ms=351; mysql-queries=6; mysql-time-ms=342; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/29637/tags                               29.65       request-time-ms=11; mysql-queries=4; mysql-time-ms=8; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   542.84      
+	                                                     Ideal:   513.19      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

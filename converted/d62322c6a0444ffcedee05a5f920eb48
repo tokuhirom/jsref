@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsRegExp" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsRegExp" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">RegExp</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Creates a regular expression object for matching text with a pattern.</p>
+</div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code>RegExp(<em>pattern</em> <em>[, flags]</em>)</code><br/><code>/<em>pattern</em>/<em>flags</em></code></p>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>pattern</code></dt> <dd>The text of the regular expression.</dd>
+</dl><dl><dt><code>flags</code></dt>
+</dl><p>If specified, flags can have any combination of the following values:</p>
+<dl><dt><code>g</code></dt> <dd>global match</dd> <dt><code>i</code></dt> <dd>ignore case</dd> <dt><code>m</code></dt> <dd>Treat beginning and end characters (^ and $) as working over multiple lines (i.e., match the beginning or end of <em>each</em> line (delimited by \n or \r), not only the very beginning or end of the whole input string)</dd>
+</dl><dl><dt><code>y</code></dt> <dd>
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+ <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br/> sticky; matches only from the index indicated by the <code>lastIndex</code> property of this regular expression in the target string (and does not attempt to match from any later indexes). This allows the match-only-at-start capabilities of the character "^" to effectively be used at any location in a string by changing the value of the <code>lastIndex</code> property.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>When using the constructor function, the normal string escape rules (preceding special characters with \ when included in a string) are necessary. For example, the following are equivalent:</p>
+&#13;
+          <pre name="code" class="js">var re = new RegExp("\\w+");
+var re = /\w+/;</pre>&#13;
+        
+<p>Notice that the parameters to the literal format do not use quotation marks to indicate strings, while the parameters to the constructor function do use quotation marks. So the following expressions create the same regular expression:</p>
+&#13;
+          <pre name="code" class="js">/ab+c/i;
+new RegExp("ab+c", "i");</pre>&#13;
+        
+<div id="section_5"><span id="Special_characters_in_regular_expressions"/><h3 class="editable">Special characters in regular expressions</h3>
+<table class="fullwidth-table"><tbody><tr><td class="header">Character</td> <td class="header">Meaning</td> </tr><tr><td><code>\</code></td> <td> <p>For characters that are usually treated literally, indicates that the next character is special and not to be interpreted literally.</p> <p>For example, <code>/b/</code> matches the character 'b'. By placing a backslash in front of b, that is by using <code>/\b/</code>, the character becomes special to mean match a word boundary.</p> <p><em>or</em></p> <p>For characters that are usually treated specially, indicates that the next character is not special and should be interpreted literally.</p> <p>For example, * is a special character that means 0 or more occurrences of the preceding character should be matched; for example, <code>/a*/</code> means match 0 or more "a"s. To match <code>*</code> literally, precede it with a backslash; for example, <code>/a\*/</code> matches 'a*'.</p> </td> </tr><tr><td><code>^</code></td> <td> <p>Matches beginning of input. If the multiline flag is set to true, also matches immediately after a line break character.</p> <p>For example, <code>/^A/</code> does not match the 'A' in "an A", but does match the first 'A' in "An A."</p> </td> </tr><tr><td><code>$</code></td> <td> <p>Matches end of input. If the multiline flag is set to true, also matches immediately before a line break character.</p> <p>For example, <code>/t$/</code> does not match the 't' in "eater", but does match it in "eat".</p> </td> </tr><tr><td><code>*</code></td> <td> <p>Matches the preceding item 0 or more times.</p> <p>For example, <code>/bo*/</code> matches 'boooo' in "A ghost booooed" and 'b' in "A bird warbled", but nothing in "A goat grunted".</p> </td> </tr><tr><td><code>+</code></td> <td> <p>Matches the preceding item 1 or more times. Equivalent to <code>{1,}</code>.</p> <p>For example, <code>/a+/</code> matches the 'a' in "candy" and all the a's in "caaaaaaandy".</p> </td> </tr><tr><td><code>?</code></td> <td> <p>Matches the preceding item 0 or 1 time.</p> <p>For example, <code>/e?le?/</code> matches the 'el' in "angel" and the 'le' in "angle."</p> <p>If used immediately after any of the quantifiers <code>*</code>, <code>+</code>, <code>?</code>, or <code>{}</code>, makes the quantifier non-greedy (matching the minimum number of times), as opposed to the default, which is greedy (matching the maximum number of times).</p> <p>Also used in lookahead assertions, described under <code>(?=)</code>, <code>(?!)</code>, and <code>(?:)</code> in this table.</p> </td> </tr><tr><td><code>.</code></td> <td> <p>(The decimal point) matches any single character except the newline characters: \n \r \u2028 or \u2029. (<code>[\s\S]</code> can be used to match any character including newlines.)</p> <p>For example, <code>/.n/</code> matches 'an' and 'on' in "nay, an apple is on the tree", but not 'nay'.</p> </td> </tr><tr><td><code>(<em>x</em>)</code></td> <td> <p>Matches <code><em>x</em></code> and remembers the match. These are called capturing parentheses.</p> <p>For example, <code>/(foo)/</code> matches and remembers 'foo' in "foo bar." The matched substring can be recalled from the resulting array's elements <code>[1], ..., [n]</code> or from the predefined <code>RegExp</code> object's properties <code>$1, ..., $9</code>.</p> </td> </tr><tr><td><code>(?:<em>x</em>)</code></td> <td> <p>Matches <code><em>x</em></code> but does not remember the match. These are called non-capturing parentheses. The matched substring can not be recalled from the resulting array's elements <code>[1], ..., [n]</code> or from the predefined <code>RegExp</code> object's properties <code>$1, ..., $9</code>.</p> </td> </tr><tr><td><code><em>x</em>(?=<em>y</em>)</code></td> <td> <p>Matches <code><em>x</em></code> only if <code><em>x</em></code> is followed by <code><em>y</em></code>. For example, <code>/Jack(?=Sprat)/</code> matches 'Jack' only if it is followed by 'Sprat'. <code>/Jack(?=Sprat|Frost)/</code> matches 'Jack' only if it is followed by 'Sprat' or 'Frost'. However, neither 'Sprat' nor 'Frost' is part of the match results.</p> </td> </tr><tr><td><code><em>x</em>(?!<em>y</em>)</code></td> <td> <p>Matches <code><em>x</em></code> only if <code><em>x</em></code> is not followed by <code><em>y</em></code>. For example, <code>/\d+(?!\.)/</code> matches a number only if it is not followed by a decimal point.</p> <p><code>/\d+(?!\.)/.exec("3.141")</code> matches 141 but not 3.141.</p> </td> </tr><tr><td><code><em>x</em>|<em>y</em></code></td> <td> <p>Matches either <code><em>x</em></code> or <code><em>y</em></code>.</p> <p>For example, <code>/green|red/</code> matches 'green' in "green apple" and 'red' in "red apple."</p> </td> </tr><tr><td><code>{<em>n</em>}</code></td> <td> <p>Where <code><em>n</em></code> is a positive integer. Matches exactly <code><em>n</em></code> occurrences of the preceding item.</p> <p>For example, <code>/a{2}/</code> doesn't match the 'a' in "candy," but it matches all of the a's in "caandy," and the first two a's in "caaandy."</p> </td> </tr><tr><td><code>{<em>n</em>,}</code></td> <td> <p>Where <code><em>n</em></code> is a positive integer. Matches at least <code><em>n</em></code> occurrences of the preceding item.</p> <p>For example, <code>/a{2,}/</code> doesn't match the 'a' in "candy", but matches all of the a's in "caandy" and in "caaaaaaandy."</p> </td> </tr><tr><td><code>{<em>n</em>,<em>m</em>}</code></td> <td> <p>Where <code><em>n</em></code> and <code><em>m</em></code> are positive integers. Matches at least <code><em>n</em></code> and at most <code><em>m</em></code> occurrences of the preceding item.</p> <p>For example, <code>/a{1,3}/</code> matches nothing in "cndy", the 'a' in "candy," the first two a's in "caandy," and the first three a's in "caaaaaaandy". Notice that when matching "caaaaaaandy", the match is "aaa", even though the original string had more a's in it.</p> </td> </tr><tr><td><code>[xyz]</code></td> <td> <p>A character set. Matches any one of the enclosed characters. You can specify a range of characters by using a hyphen.</p> <p>For example, <code>[abcd]</code> is the same as <code>[a-d]</code>. They match the 'b' in "brisket" and the 'c' in "chop".</p> </td> </tr><tr><td><code>[^xyz]</code></td> <td> <p>A negated or complemented character set. That is, it matches anything that is not enclosed in the brackets. You can specify a range of characters by using a hyphen.</p> <p>For example, <code>[^abc]</code> is the same as <code>[^a-c]</code>. They initially match 'r' in "brisket" and 'h' in "chop."</p> </td> </tr><tr><td><code>[\b]</code></td> <td> <p>Matches a backspace. (Not to be confused with <code>\b</code>.)</p> </td> </tr><tr><td><code>\b</code></td> <td> <p>Matches a word boundary, such as a space. (Not to be confused with <code>[\b]</code>.)</p> <p>For example, <code>/\bn\w/</code> matches the 'no' in "noonday"; <code>/\wy\b/</code> matches the 'ly' in "possibly yesterday."</p> </td> </tr><tr><td><code>\B</code></td> <td> <p>Matches a non-word boundary.</p> <p>For example, <code>/\w\Bn/</code> matches 'on' in "noonday", and <code>/y\B\w/</code> matches 'ye' in "possibly yesterday."</p> </td> </tr><tr><td><code>\c<em>X</em></code></td> <td> <p>Where <code><em>X</em></code> is a letter from A - Z. Matches a control character in a string.</p> <p>For example, <code>/\cM/</code> matches control-M in a string.</p> </td> </tr><tr><td><code>\d</code></td> <td> <p>Matches a digit character in the basic Latin alphabet. Equivalent to <code>[0-9]</code>.</p> <p><strong>Note</strong>: In Firefox 2 and earlier, matches a digit character from any alphabet. (
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=378738" class="external" title="VERIFIED FIXED - \d pattern matches characters other than the decimal digits 0-9 (ecma_3/RegExp/15.10.2.12.js)">
+bug 378738</a>
+)</p> <p>For example, <code>/\d/</code> or <code>/[0-9]/</code> matches '2' in "B2 is the suite number."</p> </td> </tr><tr><td><code>\D</code></td> <td> <p>Matches any character that is not a digit in the basic Latin alphabet. Equivalent to <code>[^0-9]</code>.</p> <p><strong>Note</strong>: In Firefox 2 and earlier, excludes digit characters from all alphabets. (
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=378738" class="external" title="VERIFIED FIXED - \d pattern matches characters other than the decimal digits 0-9 (ecma_3/RegExp/15.10.2.12.js)">
+bug 378738</a>
+)</p> <p>For example, <code>/\D/</code> or <code>/[^0-9]/</code> matches 'B' in "B2 is the suite number."</p> </td> </tr><tr><td><code>\f</code></td> <td> <p>Matches a form-feed.</p> </td> </tr><tr><td><code>\n</code></td> <td> <p>Matches a linefeed.</p> </td> </tr><tr><td><code>\r</code></td> <td> <p>Matches a carriage return.</p> </td> </tr><tr><td><code>\s</code></td> <td> <p>Matches a single white space character, including space, tab, form feed, line feed and other unicode spaces.
+<sup id="ref_equivalent_s" class="reference plainlinksneverexpand"><a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp#endnote_equivalent_s">[equivalent_s]</a></sup></p> <p>For example, <code>/\s\w*/</code> matches ' bar' in "foo bar."</p> </td> </tr><tr><td><code>\S</code></td> <td> <p>Matches a single character other than white space.
+<sup id="ref_equivalent_S" class="reference plainlinksneverexpand"><a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp#endnote_equivalent_S">[equivalent_S]</a></sup></p> <p>For example, <code>/\S\w*/</code> matches 'foo' in "foo bar."</p> </td> </tr><tr><td><code>\t</code></td> <td> <p>Matches a tab.</p> </td> </tr><tr><td><code>\v</code></td> <td> <p>Matches a vertical tab.</p> </td> </tr><tr><td><code>\w</code></td> <td> <p>Matches any alphanumeric character from the basic Latin alphabet, including the underscore. Equivalent to <code>[A-Za-z0-9_]</code>.</p> <p>For example, <code>/\w/</code> matches 'a' in "apple," '5' in "$5.28," and '3' in "3D."</p> </td> </tr><tr><td><code>\W</code></td> <td> <p>Matches any character that is not a word character from the basic Latin alphabet. Equivalent to <code>[^A-Za-z0-9_]</code>.</p> <p>For example, <code>/\W/</code> or <code>/[^A-Za-z0-9_]/</code> matches '%' in "50%."</p> </td> </tr><tr><td><code>\<em>n</em></code></td> <td> <p>Where <code><em>n</em></code> is a positive integer. A back reference to the last substring matching the n parenthetical in the regular expression (counting left parentheses).</p> <p>For example, <code>/apple(,)\sorange\1/</code> matches 'apple, orange,' in "apple, orange, cherry, peach." A more complete example follows this table.</p> </td> </tr><tr><td><code>\0</code></td> <td> <p>Matches a NUL character. Do not follow this with another digit.</p> </td> </tr><tr><td><code>\x<em>hh</em></code></td> <td> <p>Matches the character with the code <code><em>hh</em></code> (two hexadecimal digits)</p> </td> </tr><tr><td><code>\u<em>hhhh</em></code></td> <td> <p>Matches the character with the Unicode value <code><em>hhhh</em></code> (four hexadecimal digits).</p> </td> </tr></tbody></table><p>The literal notation provides compilation of the regular expression when the expression is evaluated. Use literal notation when the regular expression will remain constant. For example, if you use literal notation to construct a regular expression used in a loop, the regular expression won't be recompiled on each iteration.</p>
+<p>The constructor of the regular expression object, for example, <code>new RegExp("ab+c")</code>, provides runtime compilation of the regular expression. Use the constructor function when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source, such as user input.</p>
+<ol><li>
+<span id="endnote_equivalent_s"><strong><a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp#ref_equivalent_s">^</a></strong></span>Equivalent to: <p><code>[\t\n\v\f\r \u00a0\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u3000]</code></p> </li> <li>
+<span id="endnote_equivalent_S"><strong><a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp#ref_equivalent_S">^</a></strong></span>Equivalent to:
+<p><code>[^\t\n\v\f\r \u00a0\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u3000]</code></p></li>
+</ol></div></div><div id="section_6"><span id="Properties"/><h2 class="editable">Properties</h2>
+<p/><p><span class="lang lang-en"><small style="margin-left: 1em;"><em>For properties available on <code>RegExp</code> instances, see <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp#Properties_2">Properties of RegExp instances</a>.</em></small> </span></p>
+
+<p/>
+
+<p/>
+
+<p/>
+
+<p/>
+
+
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/prototype">prototype</a></dt> <dd>Allows the addition of properties to all objects.</dd>
+</dl><p>
+</p><div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" title="en/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Arity" title="en/JavaScript/Reference/Global_Objects/Function/Arity"><code>arity</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Caller" title="en/JavaScript/Reference/Global_Objects/Function/Caller"><code>caller</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Constructor" title="en/JavaScript/Reference/Global_Objects/Function/Constructor"><code>constructor</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Length" title="en/JavaScript/Reference/Global_Objects/Function/Length"><code>length</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Name" title="en/JavaScript/Reference/Global_Objects/Function/Name"><code>name</code></a></span>
+</div>
+
+</div><div id="section_7"><span id="Methods"/><h2 class="editable">Methods</h2>
+<p/><p><span class="lang lang-en"><small style="margin-left: 1em;"><em>For methods available on <code>RegExp</code> instances, see <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp#Methods_2">Methods of RegExp instances</a>.</em></small> </span></p>
+
+<p/>
+
+<p/>
+
+<p/>
+
+<p/>
+
+
+<p>The global <code>RegExp</code> object has no methods of its own, however, it does inherit some methods through the prototype chain.</p>
+<p>
+</p><div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" title="en/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Apply" title="en/JavaScript/Reference/Global_Objects/Function/Apply"><code>apply</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Call" title="en/JavaScript/Reference/Global_Objects/Function/Call"><code>call</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/ToSource" title="en/JavaScript/Reference/Global_Objects/Function/ToSource"><code>toSource</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/ToString" title="en/JavaScript/Reference/Global_Objects/Function/ToString"><code>toString</code></a></span>
+</div>
+
+</div><div id="section_8"><span id="RegExp_instances"/><h2 class="editable"><code>RegExp</code> instances</h2>
+<div id="section_9"><span id="Properties_2"/><h3 class="editable">Properties</h3>
+<p>
+</p><p>See also <a title="en/JavaScript/Reference/Deprecated_Features#RegExp_Properties" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Deprecated_Features#RegExp_Properties">Deprecated RegExp Properties</a></p>
+<p>Note that several of the <code>RegExp</code> properties have both long and short (Perl-like) names. Both names always refer to the same value. Perl is the programming language from which JavaScript modeled its regular expressions.</p>
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/constructor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/constructor"><code>constructor</code></a></dt> <dd>Specifies the function that creates an object's prototype.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/global" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/global"><code>global</code></a></dt> <dd>Whether to test the regular expression against all possible matches in a string, or only against the first.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/ignoreCase" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/ignoreCase"><code>ignoreCase</code></a></dt> <dd>Whether to ignore case while attempting a match in a string.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/lastIndex" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/lastIndex"><code>lastIndex</code></a></dt> <dd>The index at which to start the next match.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/multiline" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a></dt> <dd>Whether or not to search in strings across multiple lines.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/source" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/source"><code>source</code></a></dt> <dd>The text of the pattern.</dd> <dt><code><a title="en/JavaScript/Reference/Global_Objects/RegExp/sticky" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/sticky" class="new ">sticky</a></code></dt> <dd>
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+ <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dd> <dd>Whether or not the search is sticky.</dd>
+</dl><div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Parent" title="en/JavaScript/Reference/Global_Objects/Object/Parent"><code>__parent__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Proto" title="en/JavaScript/Reference/Global_Objects/Object/Proto"><code>__proto__</code></a></span>
+</div>
+</div>
+
+</div><div id="section_10"><span id="Methods_2"/><h3 class="editable">Methods</h3>
+<p>
+</p><dl><dt/> See also <a title="en/JavaScript/Reference/Deprecated_Features#RegExp_Methods" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Deprecated_Features#RegExp_Methods">Deprecated RegExp Methods</a></dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/exec" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/exec"><code>exec</code></a></dt> <dd>Executes a search for a match in its string parameter.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/test" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/test"><code>test</code></a></dt> <dd>Tests for a match in its string parameter.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/toSource"><code>toSource</code></a></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br/> Returns an object literal representing the specified object; you can use this value to create a new object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toSource"><code>Object.prototype.toSource</code></a> method.</dd> <dt><a title="en/JavaScript/Reference/Global_Objects/RegExp/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp/toString">toString</a></dt> <dd>Returns a string representing the specified object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toString"><code>Object.prototype.toString</code></a> method.</dd> </dl><div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineGetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineGetter"><code>__defineGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineSetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineSetter"><code>__defineSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty" title="en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty"><code>hasOwnProperty</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf" title="en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf"><code>isPrototypeOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupGetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupGetter"><code>__lookupGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupSetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupSetter"><code>__lookupSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod" title="en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod"><code>__noSuchMethod__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable" title="en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ToLocaleString" title="en/JavaScript/Reference/Global_Objects/Object/ToLocaleString"><code>toLocaleString</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Unwatch" title="en/JavaScript/Reference/Global_Objects/Object/Unwatch"><code>unwatch</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ValueOf" title="en/JavaScript/Reference/Global_Objects/Object/ValueOf"><code>valueOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Watch" title="en/JavaScript/Reference/Global_Objects/Object/Watch"><code>watch</code></a></span>
+</div>
+</div> </div></div><div id="section_11"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_12"><span id="Example:_Using_a_regular_expression_to_change_data_format"/><h3 class="editable">Example: Using a regular expression to change data format</h3>
+<p>The following script uses the <a title="en/JavaScript/Reference/Global_Objects/String/replace" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/replace">replace</a> method inherited by the <a title="en/JavaScript/Reference/Global_Objects/String" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String">String</a> instance to match a name in the format <em>first last</em> and output it in the format <em>last</em>, <em>first</em>. In the replacement text, the script uses <code>$1</code> and <code>$2</code> to indicate the results of the corresponding matching parentheses in the regular expression pattern.</p>
+&#13;
+          <pre name="code" class="js">var re = /(\w+)\s(\w+)/;
+var str = "John Smith";
+var newstr = str.replace(re, "$2, $1");
+print(newstr);</pre>&#13;
+        
+<p>This displays "Smith, John".</p>
+</div><div id="section_13"><span id="Example:_Using_a_regular_expression_with_the_.22sticky.22_flag"/><h3 class="editable">Example: Using a regular expression with the "sticky" flag</h3>
+<p>This example demonstrates how one could use the sticky flag on regular expressions to match individual lines of multiline input.</p>
+&#13;
+          <pre name="code" class="js">var text = "First line\nsecond line";
+var regex = /(\S+) line\n?/y;
+
+var match = regex.exec(text);
+print(match[1]);  // prints "First"
+print(regex.lastIndex); // prints 11
+
+var match2 = regex.exec(text);
+print(match2[1]); // prints "Second"
+print(regex.lastIndex); // prints "22"
+
+var match3 = regex.exec(text);
+print(match3 === null); // prints "true"</pre>&#13;
+        
+<p>One can test at run-time whether the sticky flag is supported, using <code>try { … } catch { … }</code>. For this, either an <code>eval(…)</code> expression or the <code>RegExp(<var>regex-string</var>, <var>flags-string</var>)</code> syntax must be used (since the <code>/<var>regex</var>/<var>flags</var></code> notation is processed at compile-time, so throws an exception before the <code>catch</code> block is encountered). For example:</p>
+&#13;
+          <pre name="code" class="js">var supports_sticky;
+try { RegExp('','y'); supports_sticky = true; }
+catch(e) { supports_sticky = false; }
+alert(supports_sticky); // alerts "false" in Firefox 2, "true" in Firefox 3+</pre>&#13;
+        
+</div></div><div id="section_14"><span id="Browser_Compatibility"/><span id="Browser_compatibility"/><h2 class="editable">Browser compatibility</h2>
+<p>
+</p><div class="htab"><a name="AutoCompatibilityTable"/>
+<ul><li class="selected">Desktop</li> <li>Mobile</li>
+</ul></div>
+<div id="compat-desktop"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Chrome</th> <th>Firefox (Gecko)</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari (WebKit)</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+<div id="compat-mobile"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Android</th> <th>Firefox Mobile (Gecko)</th> <th>IE Phone</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+</div><div id="section_15"><span id="See_also"/><h2 class="editable">See also</h2>
+<ul><li><a title="en/Core_JavaScript_1.5_Guide/Regular_Expressions" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide/Regular_Expressions">Regular Expressions</a> chapter in the <a title="en/Core_JavaScript_1.5_Guide" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide">JavaScript Guide</a></li>
+</ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(5)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=28832" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsBrowserCompatibility" title="NeedsBrowserCompatibility" tagid="140" class="text">NeedsBrowserCompatibility</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsMobileBrowserCompatibility" title="NeedsMobileBrowserCompatibility" tagid="2494" class="text">NeedsMobileBrowserCompatibility</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=Regular+Expressions" title="Regular Expressions" tagid="2293" class="text">Regular Expressions</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/RegExp&amp;action=history" title="23:27, 22 Nov 2011">23:27, 22 Nov 2011</a> by <a href="/User:Sevenspade" class="link-user" rel="internal">Sevenspade</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 2.33 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.66       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.50       request-time-ms=5; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         7.36       request-time-ms=3; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/28832/contents                          346.55       request-time-ms=344; mysql-queries=73; mysql-time-ms=77; cache-ratio=1.36; cache-hit=381; cache-miss=-101; cache-del=0; cache-ins=101;
+	GET       /deki/pages/28832                                    43.12       request-time-ms=37; mysql-queries=21; mysql-time-ms=23; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/28832/info                                6.50       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/28832/tags                                8.60       request-time-ms=6; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.03       request-time-ms=6; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FRegExp/full   244.98       request-time-ms=242; mysql-queries=6; mysql-time-ms=236; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/28832/tags                                7.49       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   686.79      
+	                                                     Ideal:   679.31      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

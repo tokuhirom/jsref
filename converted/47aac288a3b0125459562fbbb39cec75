@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsFunctionbind" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsFunctionbind" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Function.bind</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><p>
+</p><div style="border: 1px solid #818151; background-color: #FFFFE1; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Introduced in <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5">JavaScript 1.8.5</a></p></div>
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Creates a new function that, when called, itself calls this function in the context of the provided <code>this</code> value, with a given sequence of arguments preceding any provided when the new function was called.</p>
+<table class="standard-table"><thead><tr><th class="header" colspan="2">Method of <a title="en/JavaScript/Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></th> </tr></thead><tbody><tr><td>Implemented in</td> <td>JavaScript 1.8.5</td> </tr><tr><td>ECMAScript Edition</td> <td>ECMAScript 5th Edition</td> </tr></tbody></table></div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+<p><code><em>fun</em>.bind(<em>thisArg</em>[, <em>arg1</em>[, <em>arg2</em>[, ...]]])</code></p>
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt>thisArg</dt> <dd>The value to be passed as the <code>this</code> parameter to the target function when the bound function is called.  The value is ignored if the bound function is constructed using the <a title="en/JavaScript/Reference/Operators/Special Operators/new Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/new"><code>new</code> operator</a>.</dd> <dt>arg1, arg2, ...</dt> <dd>Arguments to prepend to arguments provided to the bound function when invoking the target function.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>The <code>bind</code> function creates a new function (a <em>bound function</em>) with the same function body (internal <a title="Call" rel="internal" href="https://developer.mozilla.org/Call" class="new ">Call</a> attribute in ECMAScript 5 terms) as the function it is being called on (the bound function's <em>target function</em>) with the <code>this</code> value bound to the first argument of <code>bind</code>, which cannot be overridden. <code>bind</code> also accepts leading default arguments to provide to the target function when the bound function is called.  A bound function may also be constructed using the <code>new</code> operator: doing so acts as though the target function had instead been constructed.  The provided <code>this</code> value is ignored, while prepended arguments are provided to the emulated function.</p>
+</div><div id="section_5"><span id="Compatibility"/><h2 class="editable">Compatibility</h2>
+<p>The <code>bind</code> function is a recent addition to ECMA-262, 5th edition; as such it may not be present in all browsers. You can partially work around this by inserting the following code at the beginning of your scripts, allowing use of much of the functionality of <code>bind</code> in implementations that do not natively support it.</p>
+&#13;
+          <pre name="code" class="js">if (!Function.prototype.bind) {
+  Function.prototype.bind = function (oThis) {
+    if (typeof this !== "function") {
+      // closest thing possible to the ECMAScript 5 internal IsCallable function
+      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+    }
+
+    var aArgs = Array.prototype.slice.call(arguments, 1), 
+        fToBind = this, 
+        fNOP = function () {},
+        fBound = function () {
+          return fToBind.apply(this instanceof fNOP
+                                 ? this
+                                 : oThis || window,
+                               aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };
+}</pre>&#13;
+        
+<p>Some of the many differences (there may well be others, as this list does not seriously attempt to be exhaustive) between this algorithm and the specified algorithm are:</p>
+<ul><li>The partial implementation relies <code>Array.prototype.slice</code>, <code>Array.prototype.concat</code>, <code>Function.prototype.call</code> and <code>Function.prototype.apply</code>, built-in methods to have their original values.</li> <li>The partial implementation creates functions that do not have immutable "poison pill" <code>caller</code> and <code>arguments</code> properties that throw a <code>TypeError</code> upon get, set, or deletion. (This could be added if the implementation supports <a title="en/JavaScript/Reference/Global Objects/Object/defineProperty" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty</code></a>, or partially implemented [without throw-on-delete behavior] if the implementation supports the <a title="en/JavaScript/Reference/Global Objects/Object/defineGetter" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/defineGetter"><code>__defineGetter__</code></a> and <a title="en/JavaScript/Reference/Global Objects/Object/defineSetter" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/defineSetter"><code>__defineSetter__</code></a> extensions.)</li> <li>The partial implementation creates functions that have a <code>prototype</code> property. (Proper bound functions have none.)</li> <li>The partial implementation creates bound functions whose <code>length</code> property does not agree with that mandated by ECMA-262: it creates functions with length 0, while a full implementation, depending on the length of the target function and the number of pre-specified arguments, may return a non-zero length.</li>
+</ul><p>If you choose to use this partial implementation, <strong>you must not rely on those cases where behavior deviates from ECMA-262, 5th edition!</strong> With some care, however (and perhaps with additional modification to suit specific needs), this partial implementation may be a reasonable bridge to the time when <code>bind</code> is widely implemented according to the specification.</p>
+</div><div id="section_6"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_7"><span id="Creating_a_bound_function"/><h3 class="editable">Creating a bound function</h3>
+<p>The simplest use of <code>bind</code> is to make a function that, no matter how it is called, is called with a particular <code>this</code> value.  A common mistake for new JavaScript programmers is to extract a method from an object, then to later call that function and expect it to use the original object as its <code>this</code> (e.g. by using that method in callback-based code).  Without special care, however, the original object is usually lost.  Creating a bound function from the function, using the original object, neatly solves this problem:</p>
+&#13;
+          <pre name="code" class="js">var x = 9; 
+var module = {
+  x: 81,
+  getX: function() { return this.x; }
+};
+
+module.getX(); // 81
+
+var getX = module.getX;
+getX(); // 9, because in this case, "this" refers to the global object
+
+// create a new function with 'this' bound to module
+var boundGetX = getX.bind(module);
+boundGetX(); // 81</pre>&#13;
+        
+</div><div id="section_8"><span id="Currying"/><h3 class="editable">Currying</h3>
+<p>The next simplest use of <code>bind</code> is to make a function with pre-specified initial arguments. These arguments (if any) follow the provided <code>this</code> value and are then inserted at the start of the arguments passed to the target function, followed by the arguments passed to the bound function, whenever the bound function is called.</p>
+&#13;
+          <pre name="code" class="js">function list() {
+  return Array.prototype.slice.call(arguments);
+}
+
+var list1 = list(1, 2, 3); // [1, 2, 3]
+
+//  Create a function with a preset leading argument
+var leadingZeroList = list.bind(undefined, 37);
+
+var list2 = leadingZeroList(); // [37]
+var list3 = leadingZeroList(1, 2, 3); // [37, 1, 2, 3]</pre>&#13;
+        
+</div><div id="section_9"><span id="Bound_functions_used_as_constructors"/><h3 class="editable">Bound functions used as constructors</h3>
+<p>Bound functions are automatically suitable for use with the <code>new</code> operator to construct new instances created by the target function. When a bound function is used to construct a value, the provided <code>this</code> is ignored. However, provided arguments are still prepended to the constructor call:</p>
+&#13;
+          <pre name="code" class="js">function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function() { 
+  return this.x + "," + this.y; 
+};
+
+var p = new Point(1, 2);
+p.toString(); // "1,2"
+
+
+var emptyObj = {};
+var YAxisPoint = Point.bind(emptyObj, 0 /* x */);
+
+var axisPoint = new YAxisPoint(5);
+axisPoint.toString(); //  "0,5"
+
+axisPoint instanceof Point; // true
+axisPoint instanceof YAxisPoint; // true
+new Point(17, 42) instanceof YAxisPoint; // false with native bind // true, when using the above polyfill</pre>&#13;
+        
+<p>Note that you need do nothing special to create a bound function for use with <code>new</code>. The corollary is that you need do nothing special to create a bound function to be called plainly, even if you would rather require the bound function to only be called using <code>new</code>. If you wish to support use of a bound function only using <code>new</code>, or only by calling it, the target function must enforce that restriction.</p>
+&#13;
+          <pre name="code" class="js">// Example can be run directly in your JavaScript console
+// ...continuing from above
+
+// Can still be called as a normal function (although usually this is undesired)
+YAxisPoint(13);
+
+emptyObj.x + "," + emptyObj.y;
+// &gt;  "0,13"</pre>&#13;
+        
+</div><div id="section_10"><span id="Supplemental"/><span id="Creating_Shortcuts"/><h3 class="editable"><span style="font-size: 20px; line-height: 27px; ">Creating Shortcuts</span></h3>
+<div> <p><code>bind</code> is also helpful in cases where you want to create a shortcut to a function which requires a specific <code>this</code> value.</p> <p>Take <code>Array.prototype.slice</code>, for example, which you want to use for converting an array-like object to a real array. You could create a shortcut like this:</p> <pre>
+var slice = Array.prototype.slice;
+
+// ...
+
+slice.call(arguments);</pre> <p>With <code>bind</code>, this can be simplified to the following. <code>slice</code> will be a bound function to the <code>.call</code> function of <code>Function.prototype</code>, with the <code>this </code>value set to the <code>.slice</code> function of <code>Array.prototype</code>. This means that additional <code>.call</code> calls can be eliminated:</p> <pre>
+var slice = Function.prototype.call.bind(Array.prototype.slice);
+
+// ...
+
+slice(arguments);</pre>
+</div>
+</div></div><div id="section_11"><span id="Supplemental"/><h2 class="editable">Supplemental</h2>
+<p>One interesting wrinkle of bound functions working "as expected" with the <code>new</code> operator is that it is now possible to implement what one might call "<code>Function.prototype.construct</code>", an analog to <code><a title="en/JavaScript/Reference/Global Objects/Function/apply" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">Function.prototype.apply</a></code> that takes an array of values as its sole argument, constructing this function with the provided arguments using the <code>new</code> operator:</p>
+&#13;
+          <pre name="code" class="js">// Function.prototype.construct will work with the Function.prototype.bind defined above
+
+if (!Function.prototype.construct) { 
+  Function.prototype.construct = function(aArgs) {
+
+    if (aArgs.constructor !== Array)
+      throw new TypeError("second argument to Function.prototype.construct must be an array");
+
+    var aBoundArgs = Array.prototype.concat.apply([null], aArgs), 
+        fBound = this.bind.apply(this, aBoundArgs);
+        
+    return new fBound();
+
+  };
+}
+
+// Now consider the string "2011-7-16 19:35:46". Without an analog of the Function.apply method for constructors,
+// you would run a lot of steps in order to construct a Date object from it:
+
+var aDateArgs = "2011-7-16 19:35:46".split(/[- :]/),
+    oMyDate1 = new Date(aDateArgs[0], aDateArgs[1], aDateArgs[2], aDateArgs[3], aDateArgs[4], aDateArgs[5]);
+alert(oMyDate1.toLocaleString());
+
+
+// With the Function.construct method we could do the same thing with a single step:
+var oMyDate2 = Date.construct("2011-7-16 19:35:46".split(/[- :]/));
+alert(oMyDate2.toLocaleString());
+
+// Here is another example:
+
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function() { 
+  return this.x + "," + this.y; 
+};
+
+alert(Point.construct([2, 4]).toString()); // "2,4"</pre>&#13;
+        
+<p>But note well: the efficiency of constructing a new function every time you wish to construct an object by invoking a bound function via <code>new</code> with a variable number of arguments is questionable. Your code will be faster and more efficient if you use <code>Function.prototype.apply</code> instead, with normal call syntax rather than using <code>new</code> operator-based syntax.</p>
+</div><div id="section_12"><span id="Browser_compatibility"/><h2 class="editable">Browser compatibility</h2>
+<p>
+</p><div class="htab"><a name="AutoCompatibilityTable"/>
+<ul><li class="selected">Desktop</li> <li>Mobile</li>
+</ul></div>
+<div id="compat-desktop"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox (Gecko)</th> <th>Chrome</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari</th> </tr><tr><td>Basic support</td> <td>4</td> <td>7</td> <td>9</td> <td>11.60</td> <td><span style="color: rgb(255, 0, 0);" title="Not supported.">--</span></td> </tr></tbody></table></div>
+<div id="compat-mobile"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Firefox Mobile (Gecko)</th> <th>Android</th> <th>IE Mobile</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+<p>Based on <a class="external" rel="external" href="http://kangax.github.com/es5-compat-table/" title="http://kangax.github.com/es5-compat-table/" target="_blank">Kangax's compat tables</a>.</p>
+</div><div id="section_13"><span id="See_also"/><h2 class="editable">See also</h2>
+<ul><li><code><a title="en/JavaScript/Reference/Global Objects/Function/apply" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">Function.prototype.apply</a></code></li> <li><code><a title="en/JavaScript/Reference/Global Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">Function.prototype.call</a></code></li>
+</ul></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(5)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=60217" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=Best+all+browser+compatible+Function.prototype.bind" title="Best all browser compatible Function.prototype.bind" tagid="2873" class="text">Best all browser compatible Function.prototype.bind</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=ECMAScript5" title="ECMAScript5" tagid="2096" class="text">ECMAScript5</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=Functions" title="Functions" tagid="99" class="text">Functions</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+1.8.5" title="JavaScript 1.8.5" tagid="2044" class="text">JavaScript 1.8.5</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(1)</span></h2>&#13;
+            <div id="pageFiles"><div class="filescontent" id="attachFiles"><div class="table" id="attachTable"><table class="table" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="16"/><col width="16"/><col width=""/><col width="80"/><col width="145"/><col width="115"/><col width="75"/></colgroup><tbody><tr><th class="col1" colspan="3">File</th><th class="col4">Size</th><th class="col5">Date</th><th class="col6">Attached by</th><th class="col7"> </th></tr><tr class="bg1" id="deki-file-row-5416"><td class="col1"> </td><td class="col2"><a href="https://developer.mozilla.org/@api/deki/files/5416/=Function%252Cprototype.bind.txt" class="filelink" title="Function,prototype.bind.txt"><span class="icon"><img src="/skins/common/icons/icon-trans.gif" class="mt-ext-txt" alt=""/></span></a></td><td class="col3"><a href="https://developer.mozilla.org/@api/deki/files/5416/=Function%252Cprototype.bind.txt" class="filelink" title="Function,prototype.bind.txt">Function,prototype.bind.txt</a><div><span id="" class="deki-file-description desctext">All browser Compatible Function.prototype.bind implementation</span></div></td><td class="col4">436 bytes</td><td class="col5">13:54, 29 Jun 2011</td><td class="col6"><a href="/User:sandesh2782" class="link-user" rel="internal">sandesh2782</a></td><td class="col7"><a href="#" id="deki-file-actions-5416" class="deki-file-actions downarrow actionmenu disabled">Actions</a><ul class="deki-file-menu dmenu disabled"><li class="menu-item new quickpopup disabled"><a href="https://developer.mozilla.org/index.php?title=Special:AttachNewVersion&amp;file_id=5416" title="Attach new version"><span class="icon"><img src="/skins/common/icons/icon-trans.gif" class="attachedit" alt=""/></span><span class="label">Attach new version</span></a></li><li class="menu-item description disabled"><a href="#"><span class="icon"><img src="/skins/common/icons/icon-trans.gif" class="attachedit" alt=""/></span><span class="label">Edit description</span></a></li><li class="menu-item move disabled"><a href="#"><span class="icon"><img src="/skins/common/icons/icon-trans.gif" class="attachmove" alt=""/></span><span class="label">Move/rename</span></a></li><li class="menu-item delete disabled"><a href="#"><span class="icon"><img src="/skins/common/icons/icon-trans.gif" class="attachdel" alt=""/></span><span class="label">Delete</span></a></li></ul></td></tr></tbody></table></div></div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Function/bind&amp;action=history" title="02:00, 26 Nov 2011">02:00, 26 Nov 2011</a> by <a href="/User:fusionchess" class="link-user" rel="internal">fusionchess</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.51 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   6.77       request-time-ms=3; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.54       request-time-ms=4; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.88       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/60217/contents                           92.51       request-time-ms=90; mysql-queries=29; mysql-time-ms=33; cache-ratio=1.52; cache-hit=91; cache-miss=-31; cache-del=0; cache-ins=31;
+	GET       /deki/pages/60217                                    49.34       request-time-ms=44; mysql-queries=24; mysql-time-ms=29; cache-ratio=15.00; cache-hit=30; cache-miss=-28; cache-del=0; cache-ins=28;
+	GET       /deki/pages/60217/info                                7.21       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/60217/tags                               10.88       request-time-ms=6; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                12.15       request-time-ms=8; mysql-queries=4; mysql-time-ms=5; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FFunction%252Fbind/full   245.88       request-time-ms=243; mysql-queries=6; mysql-time-ms=240; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/60217/tags                                8.03       request-time-ms=5; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   446.19      
+	                                                     Ideal:   438.16      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

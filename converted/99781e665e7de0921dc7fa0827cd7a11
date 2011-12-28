@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceFunctionsandfunctionscope" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceFunctionsandfunctionscope" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Functions and function scope</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h2 style="position: static; z-index: auto; " class="editable">Summary</h2>
+<p>Generally speaking, a function is a "subprogram" that can be <em>called</em> by code external (or internal in the case of recursion) to the function. Like the program itself, a function is composed of a sequence of statements called the <em>function body</em>. Values can be <em>passed</em> to a function, and the function can <em>return</em> a value.</p>
+<p>In JavaScript, functions are first-class objects, i.e. they are objects and can be manipulated and passed around like just like any other object. Specifically, they are <code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a></code> objects.</p>
+</div><div id="section_2"><span id="General"/><h2 class="editable">General</h2>
+<p>Every function in JavaScript is actually a <code>Function</code> object. See <code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a></code> for information on properties and methods of <code>Function</code> objects.</p>
+<p>To return a value, the function must have a <code><a title="en/Core_JavaScript_1.5_Reference/Statements/return" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/return">return</a></code> statement that specifies the value to return (except in the special case of a <a title="constructor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/constructor">constructor</a> called with the <code><a title="new" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/new">new</a></code> keyword). A function that does not return a value returns <code>undefined</code>.</p>
+<p>The parameters of a function call are the function's <em>arguments</em>. Arguments are passed to functions <em>by value</em>.  If the function changes the value of an argument, this change is not reflected globally or in the calling function. However, object references are values, too, and they are special: if the function changes the referred object's properties, that change is visible outside the function, as shown in the following example:</p>
+&#13;
+          <pre name="code" class="js">/* Declare the function 'myFunc' */
+ function myFunc(theObject)
+ {
+   theObject.brand = "Toyota";
+ }
+ 
+ /*
+  * Declare variable 'mycar';
+  * create and initialize a new Object;
+  * assign reference to it to 'mycar'
+  */
+ var mycar = {
+   brand: "Honda",
+   model: "Accord",
+   year: 1998
+ };
+
+ /* Shows 'Honda' */
+ window.alert(mycar.brand);
+
+ /* Pass object reference to the function */
+ myFunc(mycar);
+
+ /*
+  * Shows 'Toyota' as the value of the 'brand' property
+  * of the object, as changed to by the function.
+  */
+ window.alert(mycar.brand);</pre>&#13;
+        
+<p>The <a title="this" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/this"><code>this</code> keyword</a> does not refer to the currently executing function, so you must refer to <code>Function</code> objects by name, even within the function body. Alternatively, you can use the <a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/callee" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/callee">arguments.callee</a> property which in fact is not recommended.</p>
+</div><div id="section_3"><span id="Defining_functions"/><h2 class="editable">Defining functions</h2>
+<p>There are three ways to define functions:</p>
+<div id="section_4"><span id="The_function_declaration_.28function_statement.29"/><span id="The_function_declaration_(function_statement)"/><h3 class="editable">The function declaration (<code>function</code> statement)</h3>
+<p>There is a special syntax for declaring functions (see <a title="en/Core_JavaScript_1.5_Reference/Statements/function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/function">function statement</a> for details):</p>
+<pre class="eval">function <em>name</em>([<em>param</em>[, <em>param</em>[, ... <em>param</em>]]]) {
+   <em>statements</em>
+}
+</pre>
+<dl><dt><code>name</code></dt> <dd>The function name.</dd>
+</dl><dl><dt><code>param</code></dt> <dd>The name of an argument to be passed to the function. A function can have up to 255 arguments.</dd>
+</dl><dl><dt><code>statements</code></dt> <dd>The statements comprising the body of the function.</dd>
+</dl></div><div id="section_5"><span id="The_function_expression_.28function_operator.29"/><span id="The_function_expression_(function_operator)"/><h3 class="editable">The function expression (<code>function</code> operator)</h3>
+<p>A function expression is similar to and has the same syntax as a function declaration (see <a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/function_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/function">function operator</a> for details):</p>
+<pre class="eval">function [<em>name</em>]([<em>param</em>] [, <em>param</em>] [..., <em>param</em>]) {
+   <em>statements</em>
+}
+</pre>
+<dl><dt><code>name</code></dt> <dd>The function name. Can be omitted, in which case the function becomes known as an anonymous function.</dd>
+</dl><dl><dt><code>param</code></dt> <dd>The name of an argument to be passed to the function. A function can have up to 255 arguments.</dd>
+</dl><dl><dt><code>statements</code></dt> <dd>The statements which comprise the body of the function.</dd>
+</dl></div><div id="section_6"><span id="The_Function_constructor"/><h3 class="editable">The <code>Function</code> constructor</h3>
+<p>As all other objects, <code><a title="en/JavaScript/Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a></code> objects can be created using the <code>new</code> operator:</p>
+<pre class="eval">new Function (<em>arg1</em>, <em>arg2</em>, ... <em>argN</em>, <em>functionBody</em>)
+</pre>
+<dl><dt><code>arg1, arg2, ... arg<em>N</em></code></dt> <dd>Zero or more names to be used by the function as formal argument names. Each must be a string that conforms to the rules for a valid JavaScript identifier or a list of such strings separated with a comma; for example "<code>x</code>", "<code>theValue</code>", or "<code>a,b</code>".</dd>
+</dl><dl><dt><code>functionBody</code></dt> <dd>A string containing the JavaScript statements comprising the function definition.</dd>
+</dl><p>Invoking the <code>Function</code> constructor as a function (without using the <code>new</code> operator) has the same effect as invoking it as a constructor.</p>
+<div class="note"><strong>Note:</strong> Using the <code>Function</code> constructor to create functions is not recommended since it needs the function body as a string which may prevent some JS engine optimizations and can also cause other problems.</div>
+</div></div><div id="section_7"><span id="The_arguments_object"/><h2 class="editable">The <code>arguments</code> object</h2>
+<p>You can refer to a function's arguments within the function by using the <code>arguments</code> object. See <a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments">arguments</a>.</p>
+</div><div id="section_8"><span id="Scope_and_the_function_stack"/><h2 class="editable">Scope and the function stack</h2>
+<p/>
+</div><div id="section_9"><span id="Recursion"/><h2 class="editable">Recursion</h2>
+<p>A function can refer to and call itself. There are three ways for a function to refer to itself:</p>
+<ol><li>the function's name</li> <li><code><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/callee" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/callee">arguments.callee</a></code></li> <li>an in-scope variable that refers to the function</li>
+</ol><p>For example, consider the following function definition:</p>
+&#13;
+          <pre name="code" class="js">var foo = function bar() {
+   // statements go here
+};</pre>&#13;
+        
+<p>Within the function body, the following are all equivalent:</p>
+<ol><li><code>bar()</code></li> <li><code>arguments.callee()</code></li> <li><code>foo()</code></li>
+</ol><p>A function that calls itself is called a <em>recursive function</em>. In some ways, recursion is analogous to a loop. Both execute the same code multiple times, and both require a condition (to avoid an infinite loop, or rather, infinite recursion in this case). For example, the following loop:</p>
+&#13;
+          <pre name="code" class="js">var x = 0;
+while (x &lt; 10) { // "x &lt; 10" is the loop condition
+   // do stuff
+   x++;
+}</pre>&#13;
+        
+<p>can be converted into a recursive function and a call to that function:</p>
+&#13;
+          <pre name="code" class="js">function loop(x) {
+   if (x &gt;= 10) // "x &gt;= 10" is the exit condition (equivalent to "!(x &lt; 10)")
+      return;
+   // do stuff
+   loop(x + 1); // the recursive call
+}
+loop(0);</pre>&#13;
+        
+<p>However, some algorithms cannot be simple iterative loops. For example, getting all the nodes of a tree structure (e.g. the <a title="en/DOM" rel="internal" href="https://developer.mozilla.org/en/DOM">DOM</a>) is more easily done using recursion:</p>
+&#13;
+          <pre name="code" class="js">function walkTree(node) {
+   if (node == null) // 
+      return;
+   // do something with node
+   for (var i = 0; i &lt; node.childNodes.length; i++) {
+      walkTree(node.childNodes[i]);
+   }
+}</pre>&#13;
+        
+<p>Compared to the function <code>loop</code>, each recursive call itself makes many recursive calls here.</p>
+<p>It is possible to convert any recursive algorithm to a non-recursive one, but often the logic is much more complex and doing so requires the use of a stack. In fact, recursion itself uses a stack: the function stack.</p>
+<p>The stack-like behavior can be seen in the following example:</p>
+&#13;
+          <pre name="code" class="js">function foo(i) {
+   if (i &lt; 0)
+      return;
+   document.writeln('begin:' + i);
+   foo(i - 1);
+   document.writeln('end:' + i);
+}
+foo(3);</pre>&#13;
+        
+<p>which outputs:</p>
+<pre class="eval">begin:3
+begin:2
+begin:1
+begin:0
+end:0
+end:1
+end:2
+end:3
+</pre>
+</div><div id="section_10"><span id="Nested_functions_and_closures"/><h2 class="editable">Nested functions and closures</h2>
+<p>You can nest a function within a function. The nested (inner) function is private to its containing (outer) function. It also forms a <em>closure</em>.</p>
+<dl><dd>A closure is an expression (typically a function) that can have free variables together with an environment that binds those variables (that "closes" the expression). <a class="external" rel="external" href="http://jibbering.com/faq/faq_notes/closures.html" title="http://jibbering.com/faq/faq_notes/closures.html" target="_blank">[1]</a></dd>
+</dl><p>Since a nested function is a closure, this means that a nested function can "inherit" the arguments and variables of its containing function. In other words, the inner function contains the scope of the outer function.</p>
+<p>To summarize:</p>
+<ul><li>The inner function can be accessed only from statements in the outer function.</li>
+</ul><ul><li>The inner function forms a closure: the inner function can use the arguments and variables of the outer function, while the outer function cannot use the arguments and variables of the inner function.</li>
+</ul><p>The following example shows nested functions:</p>
+&#13;
+          <pre name="code" class="js">function addSquares(a,b) {
+   function square(x) {
+      return x * x;
+   }
+   return square(a) + square(b);
+}
+a = addSquares(2,3); // returns 13
+b = addSquares(3,4); // returns 25
+c = addSquares(4,5); // returns 41</pre>&#13;
+        
+<p>Since the inner function forms a closure, you can call the outer function and specify arguments for both the outer and inner function:</p>
+&#13;
+          <pre name="code" class="js">function outside(x) {
+   function inside(y) {
+      return x + y;
+   }
+   return inside;
+}
+fn_inside = outside(3); 
+result = fn_inside(5); // returns 8
+
+result1 = outside(3)(5); // returns 8</pre>&#13;
+        
+<div id="section_11"><span id="Efficiency_considerations"/><span id="Preservation_of_variables"/><h3 style="position: static; z-index: auto; " class="editable">Preservation of variables</h3>
+<p>Notice how <code>x</code> is preserved when <code>inside</code> is returned. A closure must preserve the arguments and variables in all scopes it references. Since each call provides potentially different arguments, a new closure is created for each call to outside. The memory can be freed only when the returned <code>inside</code> is no longer accessible.</p>
+<p>This is not different from storing references in other objects, but is often less obvious because one does not set the references directly and cannot inspect them.</p>
+</div><div id="section_12"><span id="Multiply-nested_functions"/><h3 class="editable">Multiply-nested functions</h3>
+<p>Functions can be multiply-nested, i.e. a function (A) containing a function (B) containing a function (C). Both functions B and C form closures here, so B can access A and C can access B. In addition, since C can access B which can access A, C can also access A. Thus, the closures can contain multiple scopes; they recursively contain the scope of the functions containing it. This is called <em>scope chaining</em>. (Why it is called "chaining" will be explained later.)</p>
+<p>Consider the following example:</p>
+&#13;
+          <pre name="code" class="js">function A(x) {
+   function B(y) {
+      function C(z) {
+         alert(x + y + z);
+      }
+      C(3);
+   }
+   B(2);
+}
+A(1); // alerts 6 (1 + 2 + 3)</pre>&#13;
+        
+<p>In this example, <code>C</code> accesses <code>B</code>'s <code>y</code> and <code>A</code>'s <code>x</code>. This can be done because:</p>
+<ol><li><code>B</code> forms a closure including <code>A</code>, i.e. <code>B</code> can access <code>A</code>'s arguments and variables.</li> <li><code>C</code> forms a closure including <code>B</code>.</li> <li>Because <code>B</code>'s closure includes <code>A</code>, <code>C</code>'s closure includes <code>A</code>, <code>C</code> can access both <code>B</code> <em>and</em> <code>A</code>'s arguments and variables. In other words, <code>C</code> <em>chains</em> the scopes of <code>B</code> and <code>A</code> in that order.</li>
+</ol><p>The reverse, however, is not true. <code>A</code> cannot access <code>C</code>, because <code>A</code> cannot access any argument or variable of <code>B</code>, which <code>C</code> is a variable of. Thus, <code>C</code> remains private to only <code>B</code>.</p>
+</div><div id="section_13"><span id="Name_conflicts"/><h3 class="editable">Name conflicts</h3>
+<p>When two arguments or variables in the scopes of a closure have the same name, there is a <em>name conflict</em>. More inner scopes take precedence, so the inner-most scope takes the highest precedence, while the outer-most scope takes the lowest. This is the scope chain. The first on the chain is the inner-most scope, and the last is the outer-most scope. Consider the following:</p>
+&#13;
+          <pre name="code" class="js">function outside() {
+   var x = 10;
+   function inside(x) {
+      return x;
+   }
+   return inside;
+}
+result = outside()(20); // returns 20 instead of 10</pre>&#13;
+        
+<p>The name conflict happens at the statement <code>return x</code> and is between <code>inside</code>'s parameter <code>x</code> and <code>outside</code>'s variable <code>x</code>. The scope chain here is {<code>inside</code>, <code>outside</code>, global object}. Therefore <code>inside</code>'s <code>x</code> takes precedences over <code>outside</code>'s <code>x</code>, and 20 (<code>inside</code>'s <code>x</code>) is returned instead of 10 (<code>outside</code>'s <code>x</code>).</p>
+</div></div><div id="section_14"><span id="Function_constructor_vs._function_declaration_vs._function_expression"/><h2 class="editable"><code>Function</code> constructor vs. function declaration vs. function expression</h2>
+<p>Compare the following:</p>
+<ol><li>a function defined with the <code>Function</code> constructor assigned to the variable <code>multiply</code> &#13;
+          <pre name="code" class="js">var multiply = new Function("x", "y", "return x * y;");</pre>&#13;
+         </li> <li>a <em>function declaration</em> of a function named <code>multiply</code> &#13;
+          <pre name="code" class="js">function multiply(x, y) {
+   return x * y;
+}</pre>&#13;
+         </li> <li>a <em>function expression</em> of an anonymous function assigned to the variable <code>multiply</code> &#13;
+          <pre name="code" class="js">var multiply = function(x, y) {
+   return x * y;
+};</pre>&#13;
+         </li> <li>a function expression of a function named <code>func_name</code> assigned to the variable <code>multiply</code> &#13;
+          <pre name="code" class="js">var multiply = function func_name(x, y) {
+   return x * y;
+};</pre>&#13;
+         </li>
+</ol><p>All do approximately the same thing, with a few subtle differences:</p>
+<ul><li>There is a distinction between the function name and the variable the function is assigned to: <ul><li>The function name cannot be changed, while the variable the function is assigned to can be reassigned.</li> <li>The function name can be used only within the function's body. Attempting to use it outside the function's body results in an error (or <code>undefined</code> if the function name was previously declared via a <code>var</code> statement). For example: &#13;
+          <pre name="code" class="js">var y = function x() {};
+alert(x); // throws an error</pre>&#13;
+         <p>The function name also appears when the function is serialized via <a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/toString"><code>Function</code>'s toString method</a>.</p> <p>On the other hand, the variable the function is assigned to is limited only by its scope, which is guaranteed to include the scope where the function is declared in.</p> </li> <li>As the 4th example shows, the function name can be different from the variable the function is assigned to. They have no relation to each other.</li> </ul></li> <li>A function declaration also creates a variable with the same name as the function name. Thus, unlike those defined by function expressions, functions defined by function declarations can be accessed by their name in the scope they were defined in: &#13;
+          <pre name="code" class="js">function x() {}
+alert(x); // outputs x serialized into a string</pre>&#13;
+         <p>The following example shows how function names are not related to variables functions are assigned to. If a "function variable" is assigned to another value, it will still have the same function name:</p> &#13;
+          <pre name="code" class="js">function foo() {}
+alert(foo); // alerted string contains function name "foo"
+var bar = foo;
+alert(bar); // alerted string still contains function name "foo"</pre>&#13;
+         </li> <li>A function defined by '<code>new</code> <code>Function'</code> does not have a function name. However, in the <a title="en/SpiderMonkey" rel="internal" href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a> JavaScript engine, the serialized form of the function shows as if it has the name "anonymous". For example, <code>alert(new Function())</code> outputs: &#13;
+          <pre name="code" class="js">function anonymous() {
+}</pre>&#13;
+         <p>Since the function actually does not have a name, <code>anonymous</code> is not a variable that can be accessed within the function. For example, the following would result in an error:</p> &#13;
+          <pre name="code" class="js">var foo = new Function("alert(anonymous);");
+foo();</pre>&#13;
+         </li> <li>Unlike functions defined by function expressions or by the <code>Function</code> constructor, a function defined by a function declaration can be used before the function declaration itself. For example: &#13;
+          <pre name="code" class="js">foo(); // alerts FOO!
+function foo() {
+   alert('FOO!');
+}</pre>&#13;
+         </li> <li>A function defined by a function expression inherits the current scope. That is, the function forms a closure. On the other hand, a function defined by a <code>Function</code> constructor does not inherit any scope other than the global scope (which all functions inherit).</li> <li>Functions defined by function expressions and function declarations are parsed only once, while those defined by the <code>Function</code> constructor are not. That is, the function body string passed to the <code>Function</code> constructor must be parsed every time it is evaluated. Although a function expression creates a closure every time, the function body is not reparsed, so function expressions are still faster than "<code>new Function(...)</code>". Therefore the <code>Function</code> constructor should be avoided whenever possible.<br/> It should be noted, however, that the parsing doesn't occur if to be repeatedly called is a nested-function of the defined with the <code>Function constructor</code> one. For example: &#13;
+          <pre name="code" class="js">var foo = (new Function("var bar = \'FOO!\';\nreturn(function() {\n\talert(bar);\n});"))();
+foo(); // The segment "function() {\n\talert(bar);\n}" of the function body string is no longer parsed.</pre>&#13;
+         </li>
+</ul><p>A function declaration is very easily (and often unintentionally) turned into a function expression. A function declaration ceases to be one when it either:</p>
+<ul><li>becomes part of an expression</li> <li>is no longer a "source element" of a function or the script itself. A "source element" is a non-nested statement in the script or a function body: &#13;
+          <pre name="code" class="js">var x = 0;               // source element
+if (x == 0) {            // source element
+   x = 10;               // not a source element
+   function boo() {}     // not a source element
+}
+function foo() {         // source element
+   var y = 20;           // source element
+   function bar() {}     // source element
+   while (y == 10) {     // source element
+      function blah() {} // not a source element
+      y++;               // not a source element
+   }
+}</pre>&#13;
+         </li>
+</ul><p>Examples:</p>
+<ul><li> &#13;
+          <pre name="code" class="js">// function declaration
+function foo() {}
+
+// function expression
+(function bar() {})
+
+// function expression
+x = function hello() {}</pre>&#13;
+         </li> <li> &#13;
+          <pre name="code" class="js">if (x) {
+   // function expression
+   function world() {}
+}</pre>&#13;
+         </li> <li> &#13;
+          <pre name="code" class="js">// function declaration
+function a() {
+   // function declaration
+   function b() {}
+   if (0) {
+      // function expression
+      function c() {}
+   }
+}</pre>&#13;
+         </li>
+</ul><div id="section_15"><span id="Conditionally_defining_a_function"/><h3 class="editable">Conditionally defining a function</h3>
+<p>Functions can be conditionally defined using either //function statements// (an allowed extension to the <a class="external" rel="external" href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" title="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank">ECMA-262 Edition 3</a> standard) or the <code>Function</code> constructor.</p>
+<p>In the following script, the <code>zero</code> function is never defined and cannot be invoked, because '<code>if (0)</code>' evaluates its condition to false:</p>
+&#13;
+          <pre name="code" class="js">if (0) {
+   function zero() {
+      document.writeln("This is zero.");
+   }
+}</pre>&#13;
+        
+<p>If the script is changed so that the condition becomes '<code>if (1)</code>', function <code>zero</code> is defined.</p>
+<p>Note: Although this kind of function looks like a function declaration, it is actually a statement, since it is nested within another statement. See <a href="#Function_constructor_vs._function_declaration_vs._function_expression">differences between function declarations and function expressions</a>.</p>
+<p>Note: Some JavaScript engines, not including <a title="en/SpiderMonkey" rel="internal" href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a>, incorrectly treat any function expression with a name as a function definition. This would lead to <code>zero</code> being defined, even with the always-false <code>if</code> condition. A safer way to define functions conditionally is to define the function anonymously and assign it to a variable:</p>
+&#13;
+          <pre name="code" class="js">if (0) {
+   var zero = function() {
+      document.writeln("This is zero.");
+   }
+}</pre>&#13;
+        
+</div></div><div id="section_16"><span id="Functions_as_event_handlers"/><h2 class="editable">Functions as event handlers</h2>
+<p>In JavaScript, <a title="en/DOM" rel="internal" href="https://developer.mozilla.org/en/DOM">DOM</a> event handlers are functions (as opposed to objects containing a <code>handleEvent</code> method in other DOM language bindings). The functions are passed an <a title="en/DOM/event" rel="internal" href="https://developer.mozilla.org/en/DOM/event">event</a> object as the first and only parameter. Like any other parameter, if the event object does not need to be used, it can be omitted in the list of formal parameters.</p>
+<p>Possible event targets in a <a title="en/HTML" rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a> document include: <code>window</code> (<code>Window</code> objects, including frames), <code>document</code> (<code>HTMLDocument</code> objects), and elements (<code>Element</code> objects). In the <a class="external" rel="external" href="http://www.w3.org/TR/DOM-Level-2-HTML/" title="http://www.w3.org/TR/DOM-Level-2-HTML/" target="_blank">HTML DOM</a>, event targets have event handler properties. These properties are lowercased event names prefixed with "on", e.g. <code>onfocus</code>. An alternate and more robust way of adding event listeners is provided by <a class="external" rel="external" href="http://www.w3.org/TR/DOM-Level-2-Events/" title="http://www.w3.org/TR/DOM-Level-2-Events/" target="_blank">DOM Level 2 Events</a>.</p>
+<p>Note: Events are part of the DOM, not of JavaScript. (JavaScript merely provides a binding to the DOM.)</p>
+<p>The following example assigns a function to a window's "focus" event handler.</p>
+&#13;
+          <pre name="code" class="js">window.onfocus = function() {
+   document.body.style.backgroundColor = 'white';
+};</pre>&#13;
+        
+<p>If a function is assigned to a variable, you can assign the variable to an event handler. The following code assigns a function to the variable <code>setBGColor</code>.</p>
+&#13;
+          <pre name="code" class="js">var setBGColor = new Function("document.body.style.backgroundColor = 'white';");</pre>&#13;
+        
+<p>You can use this variable to assign a function to an event handler in several ways. Here are two such ways:</p>
+<ol><li>scripting with DOM HTML event properties &#13;
+          <pre name="code" class="js">document.form1.colorButton.onclick = setBGColor;</pre>&#13;
+         </li> <li>HTML event attribute &#13;
+          <pre name="code" class="xml">&lt;input name="colorButton" type="button"
+   value="Change background color"
+   onclick="setBGColor();"/&gt;</pre>&#13;
+         <p>An event handler set this way is actually a function, named after the attribute, wrapped around the specified code. This is why the parenthesis in "<code>setBGColor()</code>" are needed here (rather than just "<code>setBGColor</code>"). It is equivalent to:</p> &#13;
+          <pre name="code" class="js">document.form1.colorButton.onclick = function onclick(event) {
+   setBGColor();
+};</pre>&#13;
+         <p>Note how the event object is passed to this function as parameter <code>event</code>. This allows the specified code to use the Event object:</p> &#13;
+          <pre name="code" class="xml">&lt;input ...
+    onclick="alert(event.target.tagName);"/&gt;</pre>&#13;
+         </li>
+</ol><p>Just like any other property that refers to a function, the event handler can act as a method, and <code>this</code> would refer to the element containing the event handler. In the following example, the function referred to by <code>onfocus</code> is called with <code>this</code> equal to <code>window</code>.</p>
+&#13;
+          <pre name="code" class="js">window.onfocus();</pre>&#13;
+        
+<p>A common JavaScript novice mistake is appending parenthesis and/or parameters to the end of the variable, i.e. calling the event handler when assigning it. Adding those parenthesis will assign the <em>value returned from calling the event handler</em>, which is often <code>undefined</code> (if the function doesn't return anything), rather than the event handler itself:</p>
+&#13;
+          <pre name="code" class="js">document.form1.button1.onclick = setBGColor();</pre>&#13;
+        
+<p>To pass parameters to an event handler, the handler must be wrapped into another function as follows:</p>
+&#13;
+          <pre name="code" class="js">document.form1.button1.onclick = function() {
+   setBGColor('some value');
+};</pre>&#13;
+        
+</div><div id="section_17"><span id="Local_variables_within_functions"/><h2 class="editable">Local variables within functions</h2>
+<p><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments">arguments</a>: An array-like object containing the arguments passed to the currently executing function.</p>
+<p><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/callee" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/callee">arguments.callee</a> 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid #5151FF; background-color: #B9B9FF; font-size: x-small; white-space: nowrap; padding: 2px;" title="">Deprecated</span>
+
+: Specifies the currently executing function.</p>
+<p><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/caller" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/caller">arguments.caller</a> 
+
+<span style="border: 1px solid #FF0000; background-color: #FEBCBC; font-size: x-small; white-space: nowrap; padding: 2px;" title="">Obsolete</span> : Specifies the function that invoked the currently executing function.</p>
+<p><a title="En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments/length">arguments.length</a>: Specifies the number of arguments passed to the function.</p>
+</div><div id="section_18"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_19"><span id="Example:_Returning_a_formatted_number"/><h3 class="editable">Example: Returning a formatted number</h3>
+<p>The following function returns a string containing the formatted representation of a number padded with leading zeros.</p>
+&#13;
+          <pre name="code" class="js">// This function returns a string padded with leading zeros
+function padZeros(num, totalLen) {
+   var numStr = num.toString();             // Initialize return value as string
+   var numZeros = totalLen - numStr.length; // Calculate no. of zeros
+   for (var i = 1; i &lt;= numZeros; i++) {
+      numStr = "0" + numStr;
+   }
+   return numStr;
+}</pre>&#13;
+        
+<p>The following statements call the padZeros function.</p>
+&#13;
+          <pre name="code" class="js">var result;
+result = padZeros(42,4); // returns "0042"
+result = padZeros(42,2); // returns "42"
+result = padZeros(5,4);  // returns "0005"</pre>&#13;
+        
+</div><div id="section_20"><span id="Example:_Determining_whether_a_function_exists"/><h3 class="editable">Example: Determining whether a function exists</h3>
+<p>You can determine whether a function exists by using the <code>typeof</code> operator. In the following example, a test is peformed to determine if the <code>window</code> object has a property called <code>noFunc</code> that is a function. If so, it is used; otherwise some other action is taken.</p>
+&#13;
+          <pre name="code" class="js">if ('function' == typeof window.noFunc) {
+   // use noFunc()
+ } else {
+   // do something else
+ }</pre>&#13;
+        
+<p>Note that in the <code>if</code> test, a reference to <code>noFunc</code> is used—there are no brackets "()" after the function name so the actual function is not called.</p>
+</div></div><div id="section_21"><span id="See_also"/><h2 class="editable">See also</h2>
+<ul><li><code><a title="en/Core_JavaScript_1.5_Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a></code></li> <li><a title="en/Core_JavaScript_1.5_Reference/Statements/function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/function"><code>function</code> statement</a></li> <li><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/function_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/function"><code>function</code> operator</a></li>
+</ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=26402" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsHelp" title="NeedsHelp" tagid="18" class="text">NeedsHelp</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsTechnicalReview" title="NeedsTechnicalReview" tagid="17" class="text">NeedsTechnicalReview</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Functions_and_function_scope&amp;action=history" title="14:50, 22 Dec 2011">14:50, 22 Dec 2011</a> by <a href="/User:PointedEars" class="link-user" rel="internal">PointedEars</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 4.29 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                               1,269.08       request-time-ms=3; mysql-queries=1; mysql-time-ms=2; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               50.88       request-time-ms=16; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        42.73       request-time-ms=13; mysql-queries=2; mysql-time-ms=11; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/26402/contents                        2,250.47       request-time-ms=1841; mysql-queries=29; mysql-time-ms=132; cache-ratio=3.36; cache-hit=47; cache-miss=-33; cache-del=0; cache-ins=32;
+	GET       /deki/pages/26402                                   208.23       request-time-ms=199; mysql-queries=21; mysql-time-ms=180; cache-ratio=Infinity; cache-hit=25; cache-miss=-25; cache-del=0; cache-ins=25;
+	GET       /deki/pages/26402/info                               26.92       request-time-ms=12; mysql-queries=3; mysql-time-ms=7; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/26402/tags                               69.68       request-time-ms=54; mysql-queries=5; mysql-time-ms=29; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                38.87       request-time-ms=22; mysql-queries=4; mysql-time-ms=9; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FFunctions%2Band%2Bfunction%2Bscope/full   248.07       request-time-ms=246; mysql-queries=6; mysql-time-ms=237; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/26402/tags                               18.52       request-time-ms=16; mysql-queries=5; mysql-time-ms=13; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total: 4,223.45      
+	                                                     Ideal: 4,204.94      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

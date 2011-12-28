@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsFunctionprototype" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsFunctionprototype" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Function.prototype</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>Represents the <a title="en/JavaScript/Reference/Global_Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a> prototype object. </p>
+</div><div id="section_2"><span id="Description"/><h2 class="editable">Description</h2>
+<p><a title="en/JavaScript/Reference/Global Objects/Function" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a> objects inherit from <code>Function.prototype</code>. Modifications to the <code>Function.prototype</code> object are propagated to all <code>Function</code> instances.</p>
+</div><div id="section_3"><span id="Properties"/><h2 class="editable">Properties</h2>
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/Function/arguments" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/arguments">arguments</a>
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid #5151FF; background-color: #B9B9FF; font-size: x-small; white-space: nowrap; padding: 2px;" title="">Deprecated</span>
+
+</dt> <dd>An array corresponding to the arguments passed to a function. This is deprecated as property of <code>Function</code>, use the <a title="en/JavaScript/Reference/Functions/arguments" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments">arguments</a> object available within the function instead.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Function/arity" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/arity">arity</a>
+
+<span style="border: 1px solid #FF0000; background-color: #FEBCBC; font-size: x-small; white-space: nowrap; padding: 2px;" title="">Obsolete since JavaScript 1.8.6</span></dt> <dd>Specifies the number of arguments expected by the function. Use the <a title="en/JavaScript/Reference/Global_Objects/Function/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/length">length</a> property instead.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Function/caller" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/caller">caller</a></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dd> <dd>Specifies the function that invoked the currently executing function.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Function/constructor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/constructor">constructor</a></dt> <dd>Specifies the function that creates an object's prototype.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Function/length" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/length">length</a></dt> <dd>Specifies the number of arguments expected by the function.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Function/name" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/name">name</a></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dd> <dd>The name of the function.</dd>
+</dl><div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Parent" title="en/JavaScript/Reference/Global_Objects/Object/Parent"><code>__parent__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Proto" title="en/JavaScript/Reference/Global_Objects/Object/Proto"><code>__proto__</code></a></span>
+</div>
+</div></div><div id="section_4"><span id="Methods"/><h2 class="editable">Methods</h2>
+<dl><dt><code><a title="en/JavaScript/Reference/Global_Objects/Function/apply" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">apply</a></code></dt> <dd>Applies the method of another object in the context of a different object (the calling object); arguments can be passed as an Array object.</dd>
+</dl><dl><dt><code><a title="en/JavaScript/Reference/Global_Objects/Function/bind" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind">bind</a></code> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5">JavaScript 1.8.5</a></span>
+</dt> <dd>Creates a new function which, when called, itself calls this function in the context of the provided value, with a given sequence of arguments preceding any provided when the new function was called.</dd>
+</dl><dl><dt><code><a title="en/JavaScript/Reference/Global_Objects/Function/call" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">call</a></code></dt> <dd>Calls (executes) a method of another object in the context of a different object (the calling object); arguments can be passed as they are.</dd> <dt><a title="en/JavaScript/Reference/Global Objects/Function/isGenerator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/isGenerator"><code>isGenerator</code></a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.8.6</span>
+</dt> <dd>Returns <code>true</code> if the function is a <a title="en/Core JavaScript 1.5 Guide/Iterators and Generators#Generators.3a a better way to build Iterators" rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Iterators_and_Generators#Generators.3a_a_better_way_to_build_Iterators">generator</a>; otherwise returns <code>false</code>.</dd>
+</dl><dl><dt><code><a title="en/JavaScript/Reference/Global_Objects/Function/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/toSource">toSource</a></code> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dt> <dd>Returns a string representing the source code of the function. Overrides the <code><a title="en/JavaScript/Reference/Global_Objects/Object/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toSource">Object.toSource</a></code> method.</dd>
+</dl><dl><dt><code><a title="en/JavaScript/Reference/Global_Objects/Function/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/toString">toString</a></code></dt> <dd>Returns a string representing the source code of the function. Overrides the <code><a title="en/JavaScript/Reference/Global_Objects/Object/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toString">Object.toString</a></code> method.</dd>
+</dl><div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineGetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineGetter"><code>__defineGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineSetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineSetter"><code>__defineSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty" title="en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty"><code>hasOwnProperty</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf" title="en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf"><code>isPrototypeOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupGetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupGetter"><code>__lookupGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupSetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupSetter"><code>__lookupSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod" title="en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod"><code>__noSuchMethod__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable" title="en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ToLocaleString" title="en/JavaScript/Reference/Global_Objects/Object/ToLocaleString"><code>toLocaleString</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Unwatch" title="en/JavaScript/Reference/Global_Objects/Object/Unwatch"><code>unwatch</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ValueOf" title="en/JavaScript/Reference/Global_Objects/Object/ValueOf"><code>valueOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Watch" title="en/JavaScript/Reference/Global_Objects/Object/Watch"><code>watch</code></a></span>
+</div>
+</div>
+
+<p/>
+</div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(2)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=32239" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference" tagid="1308" class="text">JavaScript Reference</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Function/prototype&amp;action=history" title="12:55, 18 Jun 2011">12:55, 18 Jun 2011</a> by <a href="/User:evilpie" class="link-user" rel="internal">evilpie</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 0.56 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   5.56       request-time-ms=2; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                7.53       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.76       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/32239/contents                          142.24       request-time-ms=140; mysql-queries=53; mysql-time-ms=64; cache-ratio=1.85; cache-hit=155; cache-miss=-71; cache-del=0; cache-ins=67;
+	GET       /deki/pages/32239                                    53.03       request-time-ms=46; mysql-queries=21; mysql-time-ms=30; cache-ratio=-12.50; cache-hit=25; cache-miss=-27; cache-del=0; cache-ins=27;
+	GET       /deki/pages/32239/info                                7.01       request-time-ms=4; mysql-queries=3; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/32239/tags                                9.17       request-time-ms=6; mysql-queries=5; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 9.54       request-time-ms=7; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FFunction%252Fprototype/full   251.63       request-time-ms=249; mysql-queries=6; mysql-time-ms=246; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/32239/tags                                8.53       request-time-ms=7; mysql-queries=5; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   501.00      
+	                                                     Ideal:   492.46      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

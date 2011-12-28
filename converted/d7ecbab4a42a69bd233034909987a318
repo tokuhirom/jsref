@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsBoolean" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsBoolean" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Boolean</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText"><div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>The <code>Boolean</code> object is an object wrapper for a boolean value.</p>
+</div><div id="section_2"><span id="Syntax"/><h2 class="editable">Syntax</h2>
+&#13;
+          <pre name="code" class="js">new Boolean(value)</pre>&#13;
+        
+</div><div id="section_3"><span id="Parameters"/><h2 class="editable">Parameters</h2>
+<dl><dt><code>value</code></dt> <dd>The initial value of the <code>Boolean</code> object.</dd>
+</dl></div><div id="section_4"><span id="Description"/><h2 class="editable">Description</h2>
+<p>The value passed as the first parameter is converted to a boolean value, if necessary. If value is omitted or is 0, -0, null, false, <code>NaN</code>, undefined, or the empty string (""), the object has an initial value of false. All other values, including any object or the string <code>"false"</code>, create an object with an initial value of true.</p>
+<p>Do not confuse the primitive Boolean values true and false with the true and false values of the Boolean object.</p>
+<p>Any object whose value is not <code>undefined</code> or <code>null</code>, including a Boolean object whose value is false, evaluates to true when passed to a conditional statement. For example, the condition in the following if statement evaluates to true:</p>
+&#13;
+          <pre name="code" class="js">x = new Boolean(false);
+if (x) {
+  // . . . this code is executed
+}</pre>&#13;
+        
+<p>This behavior does not apply to Boolean primitives. For example, the condition in the following if statement evaluates to <code>false</code>:</p>
+&#13;
+          <pre name="code" class="js">x = false;
+if (x) {
+  // . . . this code is not executed
+}</pre>&#13;
+        
+<p>Do not use a <code>Boolean</code> object to convert a non-boolean value to a boolean value. Instead, use Boolean as a function to perform this task:</p>
+&#13;
+          <pre name="code" class="js">x = Boolean(expression);     // preferred
+x = new Boolean(expression); // don't use</pre>&#13;
+        
+<p>If you specify any object, including a Boolean object whose value is false, as the initial value of a Boolean object, the new Boolean object has a value of true.</p>
+&#13;
+          <pre name="code" class="js">myFalse = new Boolean(false);   // initial value of false
+g = new Boolean(myFalse);       // initial value of true
+myString = new String("Hello"); // string object
+s = new Boolean(myString);      // initial value of true</pre>&#13;
+        
+<p>Do not use a Boolean object in place of a Boolean primitive.</p>
+</div><div id="section_5"><span id="Properties"/><h2 class="editable">Properties</h2>
+<p/><p><span class="lang lang-en"><small style="margin-left: 1em;"><em>For properties available on <code>Boolean</code> instances, see <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean#Properties_2">Properties of Boolean instances</a>.</em></small> </span></p>
+
+<p/>
+
+<p/>
+
+<p/>
+
+<p/>
+
+
+<p><a title="en/JavaScript/Reference/Global_Objects/Boolean/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean/prototype">prototype</a>: Defines a property that is shared by all Boolean objects.</p>
+<p>
+</p><div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" title="en/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Arity" title="en/JavaScript/Reference/Global_Objects/Function/Arity"><code>arity</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Caller" title="en/JavaScript/Reference/Global_Objects/Function/Caller"><code>caller</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Constructor" title="en/JavaScript/Reference/Global_Objects/Function/Constructor"><code>constructor</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Length" title="en/JavaScript/Reference/Global_Objects/Function/Length"><code>length</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Name" title="en/JavaScript/Reference/Global_Objects/Function/Name"><code>name</code></a></span>
+</div>
+
+</div><div id="section_6"><span id="Methods"/><h2 class="editable">Methods</h2>
+<p/><p><span class="lang lang-en"><small style="margin-left: 1em;"><em>For methods available on <code>Boolean</code> instances, see <a rel="custom" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean#Methods_2">Methods of Boolean instances</a>.</em></small> </span></p>
+
+<p/>
+
+<p/>
+
+<p/>
+
+<p/>
+
+
+<p>The global <code>Boolean</code> object contains no methods of its own, however, it does inherit some methods through the prototype chain.</p>
+<p>
+</p><div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" title="en/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Apply" title="en/JavaScript/Reference/Global_Objects/Function/Apply"><code>apply</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/Call" title="en/JavaScript/Reference/Global_Objects/Function/Call"><code>call</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/ToSource" title="en/JavaScript/Reference/Global_Objects/Function/ToSource"><code>toSource</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/ToString" title="en/JavaScript/Reference/Global_Objects/Function/ToString"><code>toString</code></a></span>
+</div>
+
+</div><div id="section_7"><span id="Boolean_instances"/><h2 class="editable"><code>Boolean</code> instances</h2>
+<p>All <code>Boolean</code> instances inherit from <a title="en/JavaScript/Reference/Global_Objects/Boolean/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean/prototype"><code>Boolean.prototype</code></a>. As with all constructors, the prototype object dictates instances' inherited properties and methods.</p>
+<div id="section_8"><span id="Properties_2"/><h3 class="editable">Properties</h3>
+<p>
+</p><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Boolean/constructor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean/constructor"><code>constructor</code></a></dt> <dd>Returns the function that created an instance's prototype. This is the <strong><code>Boolean</code></strong> function by default.</dd>
+</dl><div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Parent" title="en/JavaScript/Reference/Global_Objects/Object/Parent"><code>__parent__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Proto" title="en/JavaScript/Reference/Global_Objects/Object/Proto"><code>__proto__</code></a></span>
+</div>
+</div>
+
+</div><div id="section_9"><span id="Methods_2"/><h3 class="editable">Methods</h3>
+<p>
+</p><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Boolean/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean/toSource">toSource</a></dt> <dd>Returns a string containing the source of the <strong><code>Boolean</code></strong> object; you can use this string to create an equivalent object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toSource"><code>Object.prototype.toSource</code></a> method.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Boolean/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean/toString"><code>toString</code></a></dt> <dd>Returns a string of either "true" or "false" depending upon the value of the object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toString"><code>Object.prototype.toString</code></a>method.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Boolean/valueOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean/valueOf"><code>valueOf</code></a></dt> <dd>Returns the primitive value of the <strong><code>Boolean</code></strong> object. Overrides the <a title="en/JavaScript/Reference/Global_Objects/Object/valueOf" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/valueOf"><code>Object.prototype.valueOf</code></a> method.</dd>
+</dl><div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineGetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineGetter"><code>__defineGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineSetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineSetter"><code>__defineSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty" title="en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty"><code>hasOwnProperty</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf" title="en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf"><code>isPrototypeOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupGetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupGetter"><code>__lookupGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupSetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupSetter"><code>__lookupSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod" title="en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod"><code>__noSuchMethod__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable" title="en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ToLocaleString" title="en/JavaScript/Reference/Global_Objects/Object/ToLocaleString"><code>toLocaleString</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Unwatch" title="en/JavaScript/Reference/Global_Objects/Object/Unwatch"><code>unwatch</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Watch" title="en/JavaScript/Reference/Global_Objects/Object/Watch"><code>watch</code></a></span>
+</div>
+</div>
+<p/>
+</div></div><div id="section_10"><span id="Examples"/><h2 class="editable">Examples</h2>
+<div id="section_11"><span id="Creating_Boolean_objects_with_an_initial_value_of_false"/><h3 class="editable">Creating <code>Boolean</code> objects with an initial value of false</h3>
+&#13;
+          <pre name="code" class="js">bNoParam = new Boolean();
+bZero = new Boolean(0);
+bNull = new Boolean(null);
+bEmptyString = new Boolean("");
+bfalse = new Boolean(false);</pre>&#13;
+        
+</div><div id="section_12"><span id="Creating_Boolean_objects_with_an_initial_value_of_true"/><h3 class="editable">Creating <code>Boolean</code> objects with an initial value of true</h3>
+&#13;
+          <pre name="code" class="js">btrue = new Boolean(true);
+btrueString = new Boolean("true");
+bfalseString = new Boolean("false");
+bSuLin = new Boolean("Su Lin");</pre>&#13;
+        
+</div></div><div id="section_13"><span id="Browser_Compatibility"/><span id="Browser_compatibility"/><h2 class="editable">Browser compatibility</h2>
+<p>
+</p><div class="htab"><a name="AutoCompatibilityTable"/>
+<ul><li class="selected">Desktop</li> <li>Mobile</li>
+</ul></div>
+<div id="compat-desktop"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Chrome</th> <th>Firefox (Gecko)</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari (WebKit)</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+<div id="compat-mobile"> <table class="compat-table"><tbody><tr><th>Feature</th> <th>Android</th> <th>Firefox Mobile (Gecko)</th> <th>IE Phone</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr><tr><td>Basic support</td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Please update this with the earliest version of support." style="color: #888">(Supported)</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> <td><span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span></td> </tr></tbody></table></div>
+</div><div id="section_14"><span id="See_also"/><h2 class="editable">See also</h2>
+<ul><li><a title="en/JavaScript/Reference/Global_Objects/Boolean/prototype" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean/prototype">Boolean.prototype</a></li>
+</ul><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(3)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=29221" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags"><li><a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript" tagid="3" class="text">JavaScript</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsBrowserCompatibility" title="NeedsBrowserCompatibility" tagid="140" class="text">NeedsBrowserCompatibility</a></li><li><a href="https://developer.mozilla.org/Special:Tags?tag=NeedsMobileBrowserCompatibility" title="NeedsMobileBrowserCompatibility" tagid="2494" class="text">NeedsMobileBrowserCompatibility</a></li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Boolean&amp;action=history" title="04:49, 11 Dec 2011">04:49, 11 Dec 2011</a> by <a href="/User:secoif" class="link-user" rel="internal">secoif</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 2.58 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                  18.25       request-time-ms=11; mysql-queries=1; mysql-time-ms=1; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               15.27       request-time-ms=11; mysql-queries=4; mysql-time-ms=8; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        27.33       request-time-ms=5; mysql-queries=2; mysql-time-ms=2; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/29221/contents                          257.47       request-time-ms=250; mysql-queries=47; mysql-time-ms=91; cache-ratio=1.42; cache-hit=249; cache-miss=-74; cache-del=0; cache-ins=72;
+	GET       /deki/pages/29221                                    53.78       request-time-ms=47; mysql-queries=21; mysql-time-ms=32; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/29221/info                                8.85       request-time-ms=6; mysql-queries=3; mysql-time-ms=4; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/29221/tags                               14.41       request-time-ms=10; mysql-queries=5; mysql-time-ms=8; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                16.13       request-time-ms=10; mysql-queries=4; mysql-time-ms=8; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FBoolean/full   213.66       request-time-ms=211; mysql-queries=6; mysql-time-ms=205; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/29221/tags                               27.82       request-time-ms=24; mysql-queries=5; mysql-time-ms=22; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   652.96      
+	                                                     Ideal:   625.15      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+</body></html>

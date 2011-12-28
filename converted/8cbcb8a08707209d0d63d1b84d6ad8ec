@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceOperatorsOperatorPrecedence" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceOperatorsOperatorPrecedence" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Operator Precedence</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1"><span id="Summary"/><h3 class="editable">Summary</h3>
+<p>Operator precedence determines the order in which operators are evaluated. Operators with higher precedence are evaluated first.</p>
+<p>A common example:</p>
+<pre class="eval">
+3 + 4 * 5 // returns 23	 
+</pre>
+<p>The multiplication operator ("<code>*</code>") has higher precedence than the addition operator ("<code>+</code>") and thus will be evaluated first.</p>
+</div><div id="section_2"><span id="Associativity"/><h3 class="editable">Associativity</h3>
+<p>Associativity determines the order in which operators of the same precedence are processed. For example, consider an expression:</p>
+<pre class="eval">
+a OP b OP c
+</pre>
+<p>Left-associativity (left-to-right) means that it is processed as <code>(a OP b) OP c</code>, while right-associativity (right-to-left) means it is interpreted as <code>a OP (b OP c)</code>. Assignment operators are right-associative, so you can write:</p>
+<pre class="eval">
+a = b = 5;
+</pre>
+<p>with the expected result that <code>a</code> and <code>b</code> get the value 5. This is because the assignment operator returns the value that it assigned. First, <code>b</code> is set to 5. Then the <code>a</code> is set to the value of <code>b</code>.</p>
+</div><div id="section_3"><span id="Table"/><h3 class="editable">Table</h3>
+<p>The following table is ordered from highest (1) to lowest (17) precedence.</p>
+<table class="fullwidth-table"><tbody><tr><th>Precedence</th> <th>Operator type</th> <th>Associativity</th> <th>Individual operators</th> </tr><tr><td rowspan="3">1</td> <td rowspan="2"><a title="en/Core_JavaScript_1.5_Reference/Operators/Member_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Member_Operators">member</a></td> <td rowspan="2">left-to-right</td> <td>.</td> </tr><tr><td>[]</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/new_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/new">new</a></td> <td>right-to-left</td> <td>new</td> </tr><tr><td>2</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/function_call" rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/function_call" class="new ">function call</a></td> <td>left-to-right</td> <td>()</td> </tr><tr><td rowspan="2">3</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">increment</a></td> <td>n/a</td> <td>++</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">decrement</a></td> <td>n/a</td> <td>--</td> </tr><tr><td rowspan="7">4</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Logical_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Logical_Operators">logical-not</a></td> <td>right-to-left</td> <td>!</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Bitwise_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">bitwise not</a></td> <td>right-to-left</td> <td>~</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">unary +</a></td> <td>right-to-left</td> <td>+</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">unary negation</a></td> <td>right-to-left</td> <td>-</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/typeof_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/typeof">typeof</a></td> <td>right-to-left</td> <td>typeof</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/void_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/void">void</a></td> <td>right-to-left</td> <td>void</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/delete_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/delete">delete</a></td> <td>right-to-left</td> <td>delete</td> </tr><tr><td rowspan="3">5</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">multiplication</a></td> <td>left-to-right</td> <td>*</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">division</a></td> <td>left-to-right</td> <td>/</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">modulus</a></td> <td>left-to-right</td> <td>%</td> </tr><tr><td rowspan="2">6</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">addition</a></td> <td>left-to-right</td> <td>+</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Arithmetic_Operators">subtraction</a></td> <td>left-to-right</td> <td>-</td> </tr><tr><td rowspan="3">7</td> <td rowspan="3"><a title="en/Core_JavaScript_1.5_Reference/Operators/Bitwise_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">bitwise shift</a></td> <td rowspan="3">left-to-right</td> <td>&lt;&lt;</td> </tr><tr><td>&gt;&gt;</td> </tr><tr><td>&gt;&gt;&gt;</td> </tr><tr><td rowspan="6">8</td> <td rowspan="4"><a title="en/Core_JavaScript_1.5_Reference/Operators/Comparison_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators">relational</a></td> <td rowspan="4">left-to-right</td> <td>&lt;</td> </tr><tr><td>&lt;=</td> </tr><tr><td>&gt;</td> </tr><tr><td>&gt;=</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/in_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/in">in</a></td> <td>left-to-right</td> <td>in</td> </tr><tr><td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/instanceof_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/instanceof">instanceof</a></td> <td>left-to-right</td> <td>instanceof</td> </tr><tr><td rowspan="4">9</td> <td rowspan="4"><a title="en/Core_JavaScript_1.5_Reference/Operators/Comparison_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators">equality</a></td> <td rowspan="4">left-to-right</td> <td>==</td> </tr><tr><td>!=</td> </tr><tr><td>===</td> </tr><tr><td>!==</td> </tr><tr><td>10</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Bitwise_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">bitwise-and</a></td> <td>left-to-right</td> <td>&amp;</td> </tr><tr><td>11</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Bitwise_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">bitwise-xor</a></td> <td>left-to-right</td> <td>^</td> </tr><tr><td>12</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Bitwise_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">bitwise-or</a></td> <td>left-to-right</td> <td>|</td> </tr><tr><td>13</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Logical_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Logical_Operators">logical-and</a></td> <td>left-to-right</td> <td>&amp;&amp;</td> </tr><tr><td>14</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Logical_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Logical_Operators">logical-or</a></td> <td>left-to-right</td> <td>||</td> </tr><tr><td>15</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/Conditional_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/Conditional_Operator">conditional</a></td> <td>right-to-left</td> <td>?:</td> </tr><tr><td rowspan="12">16</td> <td rowspan="12"><a title="en/Core_JavaScript_1.5_Reference/Operators/Assignment_Operators" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Assignment_Operators">assignment</a></td> <td rowspan="12">right-to-left</td> <td>=</td> </tr><tr><td>+=</td> </tr><tr><td>-=</td> </tr><tr><td>*=</td> </tr><tr><td>/=</td> </tr><tr><td>%=</td> </tr><tr><td>&lt;&lt;=</td> </tr><tr><td>&gt;&gt;=</td> </tr><tr><td>&gt;&gt;&gt;=</td> </tr><tr><td>&amp;=</td> </tr><tr><td>^=</td> </tr><tr><td>|=</td> </tr><tr><td>17</td> <td><a title="en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/Comma_Operator" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/Comma_Operator">comma</a></td> <td>left-to-right</td> <td>,</td> </tr></tbody></table><p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=31338" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Operators/Operator_Precedence&amp;action=history" title="19:20, 26 Jan 2011">19:20, 26 Jan 2011</a> by <a href="/User:Potappo" class="link-user" rel="internal">Potappo</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 1.20 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                   4.85       request-time-ms=2; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                                6.26       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                         6.52       request-time-ms=2; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/31338/contents                           55.09       request-time-ms=53; mysql-queries=10; mysql-time-ms=14; cache-ratio=-1.44; cache-hit=13; cache-miss=-22; cache-del=0; cache-ins=21;
+	GET       /deki/pages/31338                                    34.43       request-time-ms=30; mysql-queries=20; mysql-time-ms=18; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/31338/info                                5.21       request-time-ms=3; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/31338/tags                                5.85       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                 8.15       request-time-ms=6; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FOperators%252FOperator%2BPrecedence/full   227.97       request-time-ms=226; mysql-queries=6; mysql-time-ms=222; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/31338/tags                                5.70       request-time-ms=4; mysql-queries=4; mysql-time-ms=2; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   360.02      
+	                                                     Ideal:   354.33      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>

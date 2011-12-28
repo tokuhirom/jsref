@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="developer-mozilla-org"><body id="docs" class="section-docs en ltr yui-skin-sam PageDW-enJavaScriptReferenceGlobalObjectsMath" role="document">&#13;
+<!--[if lte IE 8]>
+<noscript><div class="global-notice">
+<p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
+</div></noscript>
+<![endif]-->&#13;
+<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
+<section id="content"><div class="wrap">&#13;
+  <div id="content-main" class="full">&#13;
+&#13;
+    &#13;
+        &#13;
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsMath" role="main"><div class="page-title hideforedit">&#13;
+              <h1 class="first" id="title">Math</h1>            &#13;
+      &#13;
+              </div>&#13;
+      &#13;
+    <div class="page-content boxed">&#13;
+&#13;
+     &#13;
+       &#13;
+    &#13;
+            &#13;
+      <div id="page-top"><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"/><h2 class="editable">Summary</h2>
+<p>A built-in object that has properties and methods for mathematical constants and functions.</p>
+</div><div id="section_2"><span id="Description"/><h2 class="editable">Description</h2>
+<p>Unlike the other global objects, <code>Math</code> is not a constructor. All properties and methods of <code>Math</code> are static. You refer to the constant pi as <code>Math.PI</code> and you call the sine function as <code>Math.sin(x)</code>, where <code>x</code> is the method's argument. Constants are defined with the full precision of real numbers in JavaScript.</p></div><div id="section_3"><span id="Properties"/><h2 class="editable">Properties</h2>
+<dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/E" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/E">E</a></dt> <dd>Euler's constant and the base of natural logarithms, approximately 2.718.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/LN2" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/LN2">LN2</a></dt> <dd>Natural logarithm of 2, approximately 0.693.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/LN10" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/LN10">LN10</a></dt> <dd>Natural logarithm of 10, approximately 2.302.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/LOG2E" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/LOG2E">LOG2E</a></dt> <dd>Base 2 logarithm of E, approximately 1.442.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/LOG10E" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/LOG10E">LOG10E</a></dt> <dd>Base 10 logarithm of E, approximately 0.434.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/PI" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/PI">PI</a></dt> <dd>Ratio of the circumference of a circle to its diameter, approximately 3.14159.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/SQRT1_2" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/SQRT1_2">SQRT1_2</a></dt> <dd>Square root of 1/2; equivalently, 1 over the square root of 2, approximately 0.707.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/SQRT2" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/SQRT2">SQRT2</a></dt> <dd>Square root of 2, approximately 1.414.</dd>
+</dl><p>
+</p><div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Constructor" title="en/JavaScript/Reference/Global_Objects/Object/Constructor"><code>constructor</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Parent" title="en/JavaScript/Reference/Global_Objects/Object/Parent"><code>__parent__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Proto" title="en/JavaScript/Reference/Global_Objects/Object/Proto"><code>__proto__</code></a></span>
+</div>
+
+</div><div id="section_4"><span id="Methods"/><h2 class="editable">Methods</h2>
+<dl><dt/> <div class="note">Note that the trigonometric functions (sin, cos, tan, asin, acos, atan, atan2) expect or return angles in radians - to convert radians to degrees divide by (Math.PI / 180), and multiply by this to convert the other way.</div> <dt><a title="en/JavaScript/Reference/Global_Objects/Math/abs" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/abs">abs</a></dt> <dd>Returns the absolute value (modulus) of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/acos" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/acos">acos</a></dt> <dd>Returns the arccosine of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/asin" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/asin">asin</a></dt> <dd>Returns the arcsine of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/atan" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/atan">atan</a></dt> <dd>Returns the arctangent of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/atan2" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/atan2">atan2</a></dt> <dd>Returns the arctangent of the quotient of its arguments.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/ceil" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/ceil">ceil</a></dt> <dd>Returns the smallest integer greater than or equal to a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/cos" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/cos">cos</a></dt> <dd>Returns the cosine of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/exp" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/exp">exp</a></dt> <dd>Returns E<sup>number</sup>, where <var>number</var> is the argument, and E is Euler's constant (2.718...), the base of the natural logarithm.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/floor" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/floor">floor</a></dt> <dd>Returns the largest integer less than or equal to a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/log" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/log">log</a></dt> <dd>Returns the natural logarithm (log<sub>e</sub>, also ln) of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/max" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/max">max</a></dt> <dd>Returns the largest of zero or more numbers.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/min" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min">min</a></dt> <dd>Returns the smallest of zero or more numbers.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/pow" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/pow">pow</a></dt> <dd>Returns base to the exponent power, that is, base<sup>exponent</sup>.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/random" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/random">random</a></dt> <dd>Returns a pseudo-random number between 0 and 1.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/round" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/round">round</a></dt> <dd>Returns the value of a number rounded to the nearest integer.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/sin" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/sin">sin</a></dt> <dd>Returns the sine of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/sqrt" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/sqrt">sqrt</a></dt> <dd>Returns the positive square root of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/tan" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/tan">tan</a></dt> <dd>Returns the tangent of a number.</dd>
+</dl><dl><dt><a title="en/JavaScript/Reference/Global_Objects/Math/toSource" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/toSource" class="new ">toSource</a></dt> <dd><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dd> <dd>Returns the string <code>"Math"</code>.</dd>
+</dl><p>
+</p><div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" title="en/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></span>:<br/><span style="font-size: smaller;"><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineGetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineGetter"><code>__defineGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/DefineSetter" title="en/JavaScript/Reference/Global_Objects/Object/DefineSetter"><code>__defineSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty" title="en/JavaScript/Reference/Global_Objects/Object/HasOwnProperty"><code>hasOwnProperty</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf" title="en/JavaScript/Reference/Global_Objects/Object/IsPrototypeOf"><code>isPrototypeOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupGetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupGetter"><code>__lookupGetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/LookupSetter" title="en/JavaScript/Reference/Global_Objects/Object/LookupSetter"><code>__lookupSetter__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod" title="en/JavaScript/Reference/Global_Objects/Object/NoSuchMethod"><code>__noSuchMethod__</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable" title="en/JavaScript/Reference/Global_Objects/Object/PropertyIsEnumerable"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ToLocaleString" title="en/JavaScript/Reference/Global_Objects/Object/ToLocaleString"><code>toLocaleString</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ToString" title="en/JavaScript/Reference/Global_Objects/Object/ToString"><code>toString</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Unwatch" title="en/JavaScript/Reference/Global_Objects/Object/Unwatch"><code>unwatch</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/ValueOf" title="en/JavaScript/Reference/Global_Objects/Object/ValueOf"><code>valueOf</code></a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/Watch" title="en/JavaScript/Reference/Global_Objects/Object/Watch"><code>watch</code></a></span>
+</div>
+
+<p/></div></div></div>&#13;
+            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
+              <a href="/index.php?title=Special:Tags&amp;pageId=28478" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
+          </section></section></div>&#13;
+&#13;
+    </article><p class="last-mod hideforedit">&#13;
+      Page last modified <a href="/index.php?title=en/JavaScript/Reference/Global_Objects/Math&amp;action=history" title="23:54, 14 Apr 2011">23:54, 14 Apr 2011</a> by <a href="/User:Waldo" class="link-user" rel="internal">Waldo</a>    </p>&#13;
+&#13;
+  </div><!-- /#content-main -->&#13;
+&#13;
+</div><!-- /.wrap -->&#13;
+</section><!-- /#content --><div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul><li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul><div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"/> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"/>
+		<div class="ui-msg-desc" id="MTMessageDesc"/>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><!-- Served by pm-dekiwiki01.mozilla.org in 2.74 secs. --><!--
+	Verb      Path                                              Time(ms)       API Stats
+	GET       /deki/site/settings                                  10.48       request-time-ms=3; mysql-queries=1; mysql-time-ms=0; cache-ratio=0.00; cache-hit=0; cache-miss=-1; cache-del=0; cache-ins=1;
+	GET       /deki/users/=Anonymous                               27.09       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/license                                        15.52       request-time-ms=4; mysql-queries=2; mysql-time-ms=1; cache-ratio=-0.50; cache-hit=1; cache-miss=-3; cache-del=0; cache-ins=3;
+	GET       /deki/pages/28478/contents                          154.87       request-time-ms=147; mysql-queries=26; mysql-time-ms=77; cache-ratio=3.71; cache-hit=63; cache-miss=-46; cache-del=0; cache-ins=45;
+	GET       /deki/pages/28478                                   354.56       request-time-ms=55; mysql-queries=20; mysql-time-ms=32; cache-ratio=-25.00; cache-hit=25; cache-miss=-26; cache-del=0; cache-ins=26;
+	GET       /deki/pages/28478/info                               12.15       request-time-ms=7; mysql-queries=3; mysql-time-ms=2; cache-ratio=-0.67; cache-hit=2; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/pages/28478/tags                                9.60       request-time-ms=5; mysql-queries=4; mysql-time-ms=3; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/site/properties                                17.35       request-time-ms=9; mysql-queries=4; mysql-time-ms=6; cache-ratio=-0.25; cache-hit=1; cache-miss=-5; cache-del=0; cache-ins=5;
+	GET       /deki/site/nav/=en%252FJavaScript%252FReference%252FGlobal%2BObjects%252FMath/full   256.38       request-time-ms=254; mysql-queries=6; mysql-time-ms=247; cache-ratio=-6.00; cache-hit=6; cache-miss=-7; cache-del=0; cache-ins=7;
+	GET       /deki/pages/28478/tags                                7.09       request-time-ms=5; mysql-queries=4; mysql-time-ms=4; cache-ratio=-0.75; cache-hit=3; cache-miss=-7; cache-del=0; cache-ins=7;
+	                                                             =======
+	                                                     Total:   865.09      
+	                                                     Ideal:   858.01      
+--><div id="popupMessage"/> <div id="popupMask"/>&#13;
+<div id="menuFiller"/>&#13;
+<div id="bodyHeight"/>&#13;
+&#13;
+<noscript>&#13;
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
+</noscript>&#13;
+<!-- END OF SmartSource Data Collector TAG -->&#13;
+&#13;
+ &#13;
+</body></html>
