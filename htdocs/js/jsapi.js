@@ -119,9 +119,7 @@ $(function () {
                     }
                     return false;
                 } else {
-                    JSAPI.insertData(
-                        JSAPI.filterData(keyword)
-                    );
+                    JSAPI.insertData( JSAPI.filterData(keyword) );
                     return true;
                 }
             });
@@ -139,7 +137,7 @@ $(function () {
                 JSAPI.resizeElems();
             });
 
-            $(window).resize(function () { JSAPI.resizeElems() });
+            $(window).resize(function () { JSAPI.resizeElems(); });
         }
     };
     $('.content-body a').live('click', function (e) {
