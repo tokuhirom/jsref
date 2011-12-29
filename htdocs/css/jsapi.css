@@ -1714,12 +1714,17 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
+body {
+  overflow: hidden;
+  background-color: white;
+}
 .side {
   width: 20%;
   float: left;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: scroll;
+  height: 100%;
 }
 .side #keyword {
   margin-left: 4px;
@@ -1770,7 +1775,21 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   width: 80%;
   float: left;
   overflow-y: scroll;
+  height: 100%;
 }
 .content .content-body {
-  padding: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  position: absolute;
+  width: 100%;
+}
+.content .loading {
+  position: absolute:
+        top: 100px;
+  left: 40px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  width: 220px;
+  display: none;
 }

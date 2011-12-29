@@ -12,7 +12,7 @@ $(function () {
         sideLoading: $('.nowloading'),
         iframe: $('.content-body'),
         resizeElems: function () {
-            this.iframe.height($(window).height());
+            this.iframe.css({height: $(window).height()});
             $('.side').css({height: $(window).height() });
         },
         insertData: function (lines) {
@@ -103,6 +103,7 @@ $(function () {
                 setTimeout(function () {
                     view.mainLoading.hide();
                     view.iframe.html(dat);
+                    $('.content').scrollTop(0);
                     view.iframe.show();
                 }, 0);
             });
