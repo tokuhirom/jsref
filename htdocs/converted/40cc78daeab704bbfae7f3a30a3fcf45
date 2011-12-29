@@ -6,14 +6,14 @@
 <p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
 </div></noscript>
 <![endif]-->&#13;
-<noscript><div class="noscript">This application requires Javascript to be enabled.</div></noscript>&#13;
-<section id="content"><div class="wrap">&#13;
+&#13;
+<section class="entry-content"><div class="wrap">&#13;
   <div id="content-main" class="full">&#13;
 &#13;
     &#13;
         &#13;
     <article class="article PageDW-enJavaScriptReferenceGlobalObjectsObjectvalueOf" role="main"><div class="page-title hideforedit">&#13;
-              <h1 class="first" id="title">Object.ValueOf</h1>            &#13;
+              <h1 class="first entry-title roundTop" id="title">Object.ValueOf</h1>            &#13;
       &#13;
               </div>&#13;
       &#13;
@@ -62,8 +62,7 @@ myNumber.valueOf()
 <p>Objects in string contexts convert via the <code><a title="en/JavaScript/Reference/Global_Objects/Object/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toString">toString</a></code> method, which is different from <code>String</code> objects converting to string primitives using <code>valueOf</code>. All objects have a string conversion, if only "<code>[object <em>type</em>]</code>". But many objects do not convert to number, boolean, or function.</p></div></div><div id="section_7"><span id="See_Also"/><h3 class="editable">See Also</h3>
 <ul><li><a title="en/JavaScript/Reference/Global_Objects/parseInt" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/parseInt">parseInt</a></li> <li><a title="en/JavaScript/Reference/Global_Objects/Object/toString" rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/toString">toString</a></li>
 </ul><p/></div></div></div>&#13;
-            <section class="page-meta"><section id="page-tags"><h2>Tags <span class="sub">(0)</span></h2>&#13;
-              <a href="/index.php?title=Special:Tags&amp;pageId=31260" class="disabled" onclick="return false;" id="deki-page-tags-toggleview">Edit tags</a>              <div id="deki-page-tags"><ul class="tags no-tags"><li>No tags</li></ul></div>          </section><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
+            <section class="page-meta"><section id="page-files"><h2>Attachments <span class="sub">(0)</span></h2>&#13;
             <div id="pageFiles"><div class="nofiles"> </div></div>            <div id="deki-image-gallery-lite"><table class="table empty" width="100%" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="33%"/><col width="33%"/><col width="33%"/></colgroup><tbody><tr class="bg1"><th class="col1" colspan="3">Images 0</th></tr><tr class="bg2"><td class="col1 empty" colspan="3">No images to display in the gallery.</td></tr></tbody></table></div>            <p class="add"><a title="Attach file" class="disabled ">Attach file</a></p>&#13;
           </section></section></div>&#13;
 &#13;
@@ -108,9 +107,7 @@ myNumber.valueOf()
 <div id="menuFiller"/>&#13;
 <div id="bodyHeight"/>&#13;
 &#13;
-<noscript>&#13;
-<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>&#13;
-</noscript>&#13;
+&#13;
 <!-- END OF SmartSource Data Collector TAG -->&#13;
 &#13;
  &#13;

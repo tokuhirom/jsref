@@ -6,7 +6,7 @@
 <p><strong>Warning:</strong> The Mozilla Developer Network website employs emerging web standards that may not be fully supported in some versions of MicroSoft Internet Explorer. You can improve your experience of this website by enabling JavaScript.</p>
 </div></noscript>
 <![endif]-->
-  <section id="content"><div class="wrap">
+  <section class="entry-content"><div class="wrap">
 
   <section id="content-main" role="main" class="full"><section id="top-docs"><h1>Browse Thousands of Docs for <b>Web Developers</b></h1>
       <ul><li>
@@ -193,7 +193,5 @@
   <p>
   What do you think of the new MDN? Please <a href="http://mdn.uservoice.com/forums/51389-mdn-website-feedback-http-developer-mozilla-org">share your feedback</a> with us. <a id="dev-mdc-link" href="https://lists.mozilla.org/listinfo/dev-mdc">Join our mailing list</a> to discuss ways to help create great documentation.  </p>
 </div>
-</section><noscript>
-<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="//statse.webtrendslive.com/dcs8yrjuavz5bdaun34r2o8bi_8o8x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>
-</noscript>
+</section>
 </body></html>

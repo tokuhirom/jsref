@@ -28,7 +28,9 @@ SourcePath.prototype = {
         var path = this.path.replace('/en/JavaScript/Reference/', '');
         var x = path.match(/^([^/]+)\//);
         if (x) {
-            return x[1];
+            return x[1].replace(/_/g, ' ').replace(/^[a-z]/, function (x) {
+                return x.toUpperCase();
+            });
         } else {
             return 'Misc';
         }

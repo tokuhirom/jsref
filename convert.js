@@ -17,13 +17,22 @@ var fs = require('fs'),
 
 var srcdb = new DB('docs.db');
 
-mkdirp.sync('converted', parseInt('744', 8));
+libxml.Element.prototype.addClass = function (klass) {
+    var origAttr = this.attr('class')
+    if (origAttr) {
+        origAttr.value(origAttr.value() + " " + klass);
+    } else {
+        var attr = new libxml.Attribute(this, 'class', klass);
+    }
+};
+
+mkdirp.sync('htdocs/converted', parseInt('744', 8));
 
 srcdb.listUrls().forEach(function (url) {
     var src = srcdb.fetch(url);
     var doc = libxml.parseHtmlString(src);
     // q.find('script, header, #nav-toolbar, .page-watch, footer, #sessionMsg, head, #pageToc, #article-nav, #page-buttons').remove();
-    doc.search('script, header, #nav-toolbar, .page-watch, footer, #sessionMsg, head, #pageToc, #article-nav, #page-buttons').forEach(function (e) {
+    doc.search('script, header, #nav-toolbar, .page-watch, footer, #sessionMsg, head, #pageToc, #article-nav, #page-buttons, noscript, #page-tags').forEach(function (e) {
         e.remove();
     });
 
@@ -33,10 +42,17 @@ srcdb.listUrls().forEach(function (url) {
     if (path == '/en/JavaScript/Reference') {
         title = 'Top page';
     }
-    doc.find('//*[@id="title"]').forEach(function (e) { e.text(title) });
+    doc.search('#title').forEach(function (e) { e.text(title) });
+    doc.search('#content').forEach(function (e) {
+        e.attr('id').remove(); // dup with system id
+        e.addClass('entry-content');
+    });
+    doc.search('#title').forEach(function (e) {
+        e.addClass('entry-title roundTop');
+    });
     var md5 = crypto.createHash('md5');
     md5.update(path);
-    var ofname = 'converted/' + md5.digest('hex');
+    var ofname = 'htdocs/converted/' + md5.digest('hex');
     console.log('writing ' + ofname);
     fs.writeFileSync(ofname, doc.toString());
 });
