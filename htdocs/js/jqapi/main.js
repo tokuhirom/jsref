@@ -99,7 +99,9 @@ jqapi = function() {
     
     $(window).bind('hashchange', function(event) {
       var state = event.getState();
-      if(state.p) loadPage($('.sub a[href*="' + state.p + '"]:first'));
+      if(state.p && !state.p.match(/</)) { // security fix.
+        loadPage($('.sub a[href*="' + state.p + '"]:first'));
+      }
     }).trigger('hashchange');
     
     zebraItems(elements.list); //zebra the items in the static list
