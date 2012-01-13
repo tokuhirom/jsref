@@ -2,6 +2,10 @@ var fs = require('fs'),
     util = require('util'),
     undefined;
 
+String.prototype.escapeHTML = function () {
+    return this.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+};
+
 util.puts([
 "<!DOCTYPE html>",
 "<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>",
@@ -28,7 +32,21 @@ categories.forEach(function (category) {
     var ret = [];
     ret.push('<li class="category"><span>' + category + '</span><ul>');
     categoryItems[category].forEach(function (line) {
-        ret.push('<li class="sub"><a href="' + line.url + '"><span class="searchable">' + line.title + '</span></a></li>');
+        var html = '<li class="sub ' + (line.deprecated || line.obsolete ? 'deprecated' : '' ) + '"><a href="' + line.url + '"><div><span class="searchable">' + line.title + '</span>';
+        if (line.esversion) {
+            html += '<span class="tag es es' +  line.esversion.escapeHTML() + '">ES' + line.esversion.escapeHTML() + '</span>';
+        }
+        if (line.nonstandard) {
+            html += '<span class="tag nonstandard">NS</span>';
+        }
+        if (line.deprecated) {
+            html += '<span class="tag deprecated">Deprecated</span>';
+        }
+        if (line.obsolete) {
+            html += '<span class="tag obsolete">Obsolete</span>';
+        }
+        html += '</div></a></li>';
+        ret.push(html);
     });
     ret.push('</ul></li>');
     util.puts(ret.join("\n"));

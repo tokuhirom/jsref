@@ -10,87 +10,49 @@
     padding-right: 10px;
 }
 
-/*
-body {
-    overflow: hidden;
-    background-color: white;
-}
-
-.side {
-    width: 20%;
-    float: left;
-    overflow: auto;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 100%;
-
-    ul {
-        margin: 0;
-        padding-left: 4px;
-        list-style: none;
-        line-height: 20px;
-        .indicator {
-            font-size: 8px;
-            padding: 2px;
-            border-radius: 2px;
-            margin-left: 4px;
-            vertical-align: top;
-        }
-        .es {
-            background-color: #eFccf6;
-            border: 1px solid #FFccf6;
-            color: #222222;
-        }
-        .es5 {
-            border: 1px solid #EEaae6;
-            background-color: #cFccf6;
-        }
-        .nonstandard {
-            overflow:hidden;
-            border: 1px solid #FFB752;
-            background-color: #FEE3BC;
-            font-weight: bold;
-            text-align: center;
-        }
-        a.deprecated {
-            text-decoration: line-through;
-        }
-        .deprecated.indicator {
-            overflow:hidden;
-            border: 1px solid #5151FF;
-            background-color: #B9B9FF;
-            font-weight: bold;
-            text-align: center;
-        }
-    }
-}
-.content {
-    width: 80%;
-    float: left;
-    overflow-y: scroll;
-    height: 100%;
-
-    .content-body {
-        padding-left: 8px;
-        padding-right: 8px;
-        position: absolute;
-        width: 100%;
-    }
-    .loading {
-        position: absolute:
-        top: 100px;
-        left: 40px;
-        padding: 20px;
-        background-color: rgba(0,0,0,0.7);
-        border-radius: 8px;
-        width: 220px;
-        display: none;
-    }
-}
-*/
-
 @import 'jqapi.main.less';
 
 .entry-title {
     background-color: #FFCCEE;
 }
+
+
+#navigation #static-list li.sub {
+    a {
+        span {
+            display: inline;
+            line-height: 28px;
+        }
+        span.tag {
+            font-size: 8px;
+            padding: 2px;
+            border-radius: 2px;
+            margin-left: 4px;
+            vertical-align: top;
+            &.es {
+                background-color: #eFccf6;
+                border: 1px solid #FFccf6;
+                color: #222222;
+                &.es5 {
+                    border: 1px solid #EEaae6;
+                    background-color: #cFccf6;
+                }
+            }
+            &.deprecated, &.obsolete {
+                overflow:hidden;
+                border: 1px solid #5151FF;
+                background-color: #B9B9FF;
+                font-weight: bold;
+                text-align: center;
+            }
+            &.nonstandard {
+                overflow:hidden;
+                border: 1px solid #FFB752;
+                background-color: #FEE3BC;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+    }
+}
+
