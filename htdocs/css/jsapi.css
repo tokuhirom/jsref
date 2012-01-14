@@ -2137,6 +2137,9 @@ body {
 .entry-title {
   background-color: #FFCCEE;
 }
+#navigation #static-list li.sub a {
+  display: block;
+}
 #navigation #static-list li.sub a span {
   display: inline;
   line-height: 28px;
