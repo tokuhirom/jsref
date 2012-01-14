@@ -2137,14 +2137,14 @@ body {
 .entry-title {
   background-color: #FFCCEE;
 }
-#navigation #static-list li.sub a {
+#navigation #results li.sub a, #navigation #static-list li.sub a {
   display: block;
 }
-#navigation #static-list li.sub a div {
+#navigation #results li.sub a div, #navigation #static-list li.sub a div {
   display: inline;
   line-height: 28px;
 }
-#navigation #static-list li.sub a .tag {
+#navigation #results li.sub a .tag, #navigation #static-list li.sub a .tag {
   display: inline;
   font-size: 8px;
   padding: 2px;
@@ -2152,23 +2152,26 @@ body {
   margin-left: 4px;
   vertical-align: top;
 }
-#navigation #static-list li.sub a .tag.es {
+#navigation #results li.sub a .tag.es, #navigation #static-list li.sub a .tag.es {
   background-color: #eFccf6;
   border: 1px solid #FFccf6;
   color: #222222;
 }
-#navigation #static-list li.sub a .tag.es.es5 {
+#navigation #results li.sub a .tag.es.es5, #navigation #static-list li.sub a .tag.es.es5 {
   border: 1px solid #EEaae6;
   background-color: #cFccf6;
 }
-#navigation #static-list li.sub a .tag.deprecated, #navigation #static-list li.sub a .tag.obsolete {
+#navigation #results li.sub a .tag.deprecated,
+#navigation #static-list li.sub a .tag.deprecated,
+#navigation #results li.sub a .tag.obsolete,
+#navigation #static-list li.sub a .tag.obsolete {
   overflow: hidden;
   border: 1px solid #5151FF;
   background-color: #B9B9FF;
   font-weight: bold;
   text-align: center;
 }
-#navigation #static-list li.sub a .tag.nonstandard {
+#navigation #results li.sub a .tag.nonstandard, #navigation #static-list li.sub a .tag.nonstandard {
   overflow: hidden;
   border: 1px solid #FFB752;
   background-color: #FEE3BC;
