@@ -2137,6 +2137,13 @@ body {
 .entry-title {
   background-color: #FFCCEE;
 }
+html {
+  overflow-y: auto;
+}
+#content {
+  overflow-y: scroll;
+  overflow-x: auto;
+}
 #navigation #results li.sub a, #navigation #static-list li.sub a {
   display: block;
 }
