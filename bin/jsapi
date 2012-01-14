@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../server.js')
+var spawn = require('child_process').spawn
+
+spawn('npm',['start'],{customFds:[0, 1, 2]})
