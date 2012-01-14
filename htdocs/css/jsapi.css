@@ -2138,7 +2138,7 @@ body {
   background-color: #FFCCEE;
 }
 html {
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 #content {
   overflow-y: scroll;
