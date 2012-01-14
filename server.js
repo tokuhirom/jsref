@@ -9,5 +9,5 @@ var express = require('express'),
 
 app.use(express.static(__dirname + '/htdocs/'));
 
-app.listen(9041); 
-
+app.listen(9041);
+util.log('jsapi server is listening port 9041. open http://localhost:9041/')
