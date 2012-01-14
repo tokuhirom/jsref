@@ -2144,30 +2144,30 @@ body {
   display: inline;
   line-height: 28px;
 }
-#navigation #static-list li.sub a span.tag {
+#navigation #static-list li.sub a .tag {
   font-size: 8px;
   padding: 2px;
   border-radius: 2px;
   margin-left: 4px;
   vertical-align: top;
 }
-#navigation #static-list li.sub a span.tag.es {
+#navigation #static-list li.sub a .tag.es {
   background-color: #eFccf6;
   border: 1px solid #FFccf6;
   color: #222222;
 }
-#navigation #static-list li.sub a span.tag.es.es5 {
+#navigation #static-list li.sub a .tag.es.es5 {
   border: 1px solid #EEaae6;
   background-color: #cFccf6;
 }
-#navigation #static-list li.sub a span.tag.deprecated, #navigation #static-list li.sub a span.tag.obsolete {
+#navigation #static-list li.sub a .tag.deprecated, #navigation #static-list li.sub a .tag.obsolete {
   overflow: hidden;
   border: 1px solid #5151FF;
   background-color: #B9B9FF;
   font-weight: bold;
   text-align: center;
 }
-#navigation #static-list li.sub a span.tag.nonstandard {
+#navigation #static-list li.sub a .tag.nonstandard {
   overflow: hidden;
   border: 1px solid #FFB752;
   background-color: #FEE3BC;
