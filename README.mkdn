@@ -5,3 +5,31 @@ Concept
 
  * No server process required.
 
+Requirements
+------------
+
+* [Node.js](http://nodejs.org/)
+* [npm](http://npmjs.org/) 
+* [GDBM](http://www.gnu.org.ua/software/gdbm/)
+
+Node.js modules:
+
+* [libxmlext](https://github.com/noblesamurai/libxmlext)
+* [request](https://github.com/mikeal/request)
+* [gdbm](https://github.com/tokuhirom/node-gdbm)
+* [mkdirp](https://github.com/substack/node-mkdirp)
+* [nquery](https://github.com/dachev/nQuery)
+
+Setup
+-----
+
+    % brew install node
+    % curl http://npmjs.org/install.sh | sh
+    % brew install gdbm
+    % npm install libxmlext request gdbm mkdirp nquery
+    % make
+    % make server
+Usage
+-----
+
+Open http://0.0.0.0:9041/ .
