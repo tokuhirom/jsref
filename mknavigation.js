@@ -32,20 +32,20 @@ categories.forEach(function (category) {
     var ret = [];
     ret.push('<li class="category"><span>' + category + '</span><ul>');
     categoryItems[category].forEach(function (line) {
-        var html = '<li class="sub ' + (line.deprecated || line.obsolete ? 'deprecated' : '' ) + '"><a href="' + line.url + '"><div><span class="searchable">' + line.title + '</span>';
+        var html = '<li class="sub ' + (line.deprecated || line.obsolete ? 'deprecated' : '' ) + '"><a href="' + line.url + '"><span class="searchable">' + line.title;
         if (line.esversion) {
-            html += '<span class="tag es es' +  line.esversion.escapeHTML() + '">ES' + line.esversion.escapeHTML() + '</span>';
+            html += '<div class="tag es es' +  line.esversion.escapeHTML() + '">ES' + line.esversion.escapeHTML() + '</div>';
         }
         if (line.nonstandard) {
-            html += '<span class="tag nonstandard">NS</span>';
+            html += '<div class="tag nonstandard">NS</div>';
         }
         if (line.deprecated) {
-            html += '<span class="tag deprecated">Deprecated</span>';
+            html += '<div class="tag deprecated">Deprecated</div>';
         }
         if (line.obsolete) {
-            html += '<span class="tag obsolete">Obsolete</span>';
+            html += '<div class="tag obsolete">Obsolete</div>';
         }
-        html += '</div></a></li>';
+        html += '</span></a></li>';
         ret.push(html);
     });
     ret.push('</ul></li>');
