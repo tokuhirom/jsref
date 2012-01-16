@@ -22,7 +22,7 @@ libxml.Element.prototype.addClass = function (klass) {
     if (origAttr) {
         origAttr.value(origAttr.value() + " " + klass);
     } else {
-        var attr = new libxml.Attribute(this, 'class', klass);
+        this.attr({'class': klass});
     }
 };
 

@@ -1,4 +1,4 @@
-all: mkdat index.txt
+all: mkdat
 
 httpd:
 	@echo "Access to http://localhost:9041/index.html"

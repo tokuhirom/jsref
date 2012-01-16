@@ -11,6 +11,7 @@ var fs = require('fs'),
     Url = require('url'),
     querystring = require('querystring'),
     crypto = require('crypto'),
+    libxml = require('libxmlext'),
     undefined;
 
 var srcdb = new DB('docs.db');
@@ -52,8 +53,8 @@ SourcePath.prototype = {
     },
     getESVersion: function () { // ecmascript version
         var src = this.getContent();
-        var q = nquery.createHtmlDocument(src);
-        var h = q('.standard-table').html();
+        var doc = libxml.parseHtmlString(src);
+        var h = doc.root().find("//table[@class='standard-table']").toString();
         var version = null;
         if (h) {
             var matched = h.match(new RegExp('<td>ECMAScript Edition</td>[\s\n ]*<td>([^<]+)</td>'));
