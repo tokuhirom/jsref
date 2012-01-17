@@ -10,7 +10,7 @@ jqapi = function() {
     sub:            'sub',
     hasFocus:       true,
     loader:         '<div id="loader"></div>',
-    title:          'JSAPI - Alternative MDN javascript Documentation viewer - '
+    title:          'JSRef - Alternative MDN javascript Documentation viewer - '
   };
   
   var keys = {
