@@ -17,7 +17,8 @@
     "gdbm": "~1.0.7",
     "express": ">=0.0.1",
     "request": ">=2.2.9",
-    "mkdirp": ">=0.0.1"
+    "mkdirp": ">=0.0.1",
+    "nquery": ">=0.1.3"
   },
   "devDependencies": {},
   "scripts": {
