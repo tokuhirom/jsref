@@ -24,11 +24,10 @@ Setup
 -----
 
     % brew install node
-    % curl http://npmjs.org/install.sh | sh
     % brew install gdbm
-    % npm install libxmlext request gdbm mkdirp nquery
+    % npm install
     % make
-    % make server
+    % make httpd
 Usage
 -----
 
